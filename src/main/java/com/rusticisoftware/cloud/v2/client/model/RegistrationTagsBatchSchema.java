@@ -28,7 +28,7 @@ package com.rusticisoftware.cloud.v2.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.rusticisoftware.cloud.v2.client.model.ApplicationSchema;
+import com.rusticisoftware.cloud.v2.client.model.TagPostSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -36,34 +36,55 @@ import java.util.List;
 
 
 /**
- * ApplicationListSchema
+ * RegistrationTagsBatchSchema
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T14:21:57.917-05:00")
-public class ApplicationListSchema   {
-  @JsonProperty("applications")
-  private List<ApplicationSchema> applications = new ArrayList<ApplicationSchema>();
+public class RegistrationTagsBatchSchema   {
+  @JsonProperty("registrationIds")
+  private List<String> registrationIds = new ArrayList<String>();
 
-  public ApplicationListSchema applications(List<ApplicationSchema> applications) {
-    this.applications = applications;
+  @JsonProperty("tags")
+  private TagPostSchema tags = null;
+
+  public RegistrationTagsBatchSchema registrationIds(List<String> registrationIds) {
+    this.registrationIds = registrationIds;
     return this;
   }
 
-  public ApplicationListSchema addApplicationsItem(ApplicationSchema applicationsItem) {
-    this.applications.add(applicationsItem);
+  public RegistrationTagsBatchSchema addRegistrationIdsItem(String registrationIdsItem) {
+    this.registrationIds.add(registrationIdsItem);
     return this;
   }
 
    /**
-   * Get applications
-   * @return applications
+   * Get registrationIds
+   * @return registrationIds
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<ApplicationSchema> getApplications() {
-    return applications;
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public List<String> getRegistrationIds() {
+    return registrationIds;
   }
 
-  public void setApplications(List<ApplicationSchema> applications) {
-    this.applications = applications;
+  public void setRegistrationIds(List<String> registrationIds) {
+    this.registrationIds = registrationIds;
+  }
+
+  public RegistrationTagsBatchSchema tags(TagPostSchema tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public TagPostSchema getTags() {
+    return tags;
+  }
+
+  public void setTags(TagPostSchema tags) {
+    this.tags = tags;
   }
 
 
@@ -75,21 +96,23 @@ public class ApplicationListSchema   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationListSchema applicationListSchema = (ApplicationListSchema) o;
-    return Objects.equals(this.applications, applicationListSchema.applications);
+    RegistrationTagsBatchSchema registrationTagsBatchSchema = (RegistrationTagsBatchSchema) o;
+    return Objects.equals(this.registrationIds, registrationTagsBatchSchema.registrationIds) &&
+        Objects.equals(this.tags, registrationTagsBatchSchema.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applications);
+    return Objects.hash(registrationIds, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationListSchema {\n");
+    sb.append("class RegistrationTagsBatchSchema {\n");
     
-    sb.append("    applications: ").append(toIndentedString(applications)).append("\n");
+    sb.append("    registrationIds: ").append(toIndentedString(registrationIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

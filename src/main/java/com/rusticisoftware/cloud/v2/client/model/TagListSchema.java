@@ -28,7 +28,6 @@ package com.rusticisoftware.cloud.v2.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.rusticisoftware.cloud.v2.client.model.ApplicationSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -36,34 +35,34 @@ import java.util.List;
 
 
 /**
- * ApplicationListSchema
+ * TagListSchema
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T14:21:57.917-05:00")
-public class ApplicationListSchema   {
-  @JsonProperty("applications")
-  private List<ApplicationSchema> applications = new ArrayList<ApplicationSchema>();
+public class TagListSchema   {
+  @JsonProperty("tags")
+  private List<String> tags = new ArrayList<String>();
 
-  public ApplicationListSchema applications(List<ApplicationSchema> applications) {
-    this.applications = applications;
+  public TagListSchema tags(List<String> tags) {
+    this.tags = tags;
     return this;
   }
 
-  public ApplicationListSchema addApplicationsItem(ApplicationSchema applicationsItem) {
-    this.applications.add(applicationsItem);
+  public TagListSchema addTagsItem(String tagsItem) {
+    this.tags.add(tagsItem);
     return this;
   }
 
    /**
-   * Get applications
-   * @return applications
+   * Get tags
+   * @return tags
   **/
   @ApiModelProperty(example = "null", value = "")
-  public List<ApplicationSchema> getApplications() {
-    return applications;
+  public List<String> getTags() {
+    return tags;
   }
 
-  public void setApplications(List<ApplicationSchema> applications) {
-    this.applications = applications;
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
 
@@ -75,21 +74,21 @@ public class ApplicationListSchema   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationListSchema applicationListSchema = (ApplicationListSchema) o;
-    return Objects.equals(this.applications, applicationListSchema.applications);
+    TagListSchema tagListSchema = (TagListSchema) o;
+    return Objects.equals(this.tags, tagListSchema.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applications);
+    return Objects.hash(tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationListSchema {\n");
+    sb.append("class TagListSchema {\n");
     
-    sb.append("    applications: ").append(toIndentedString(applications)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

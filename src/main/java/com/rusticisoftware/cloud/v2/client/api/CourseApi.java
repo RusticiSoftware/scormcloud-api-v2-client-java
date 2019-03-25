@@ -14,13 +14,15 @@ import com.rusticisoftware.cloud.v2.client.model.StringResultSchema;
 import com.rusticisoftware.cloud.v2.client.model.ImportFetchRequestSchema;
 import java.io.File;
 import com.rusticisoftware.cloud.v2.client.model.ResponseError;
+import com.rusticisoftware.cloud.v2.client.model.TagListSchema;
 import com.rusticisoftware.cloud.v2.client.model.CourseSchema;
 import com.rusticisoftware.cloud.v2.client.model.SettingListSchema;
 import com.rusticisoftware.cloud.v2.client.model.XapiStatementResult;
 import java.time.OffsetDateTime;
 import com.rusticisoftware.cloud.v2.client.model.CourseListNonPagedSchema;
 import com.rusticisoftware.cloud.v2.client.model.CourseListSchema;
-import com.rusticisoftware.cloud.v2.client.model.ImportResultSchema;
+import com.rusticisoftware.cloud.v2.client.model.ImportJobResultSchema;
+import com.rusticisoftware.cloud.v2.client.model.CourseTagsBatchSchema;
 import com.rusticisoftware.cloud.v2.client.model.SettingsPostSchema;
 import com.rusticisoftware.cloud.v2.client.model.TitleSchema;
 
@@ -29,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-23T23:53:56.635-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T14:21:57.917-05:00")
 public class CourseApi {
   private ApiClient apiClient;
 
@@ -345,6 +347,53 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
+   * Delete tags for this course
+   * 
+   * @param courseId  (required)
+   * @param tags  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteCourseTags(String courseId, TagListSchema tags) throws ApiException {
+    Object localVarPostBody = tags;
+    
+    // verify the required parameter 'courseId' is set
+    if (courseId == null) {
+      throw new ApiException(400, "Missing the required parameter 'courseId' when calling deleteCourseTags");
+    }
+    
+    // verify the required parameter 'tags' is set
+    if (tags == null) {
+      throw new ApiException(400, "Missing the required parameter 'tags' when calling deleteCourseTags");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/courses/{courseId}/tags".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
    * Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
    * 
    * @param courseId  (required)
@@ -585,6 +634,48 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
     GenericType<XapiStatementResult> localVarReturnType = new GenericType<XapiStatementResult>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get the tags for this course
+   * 
+   * @param courseId  (required)
+   * @return TagListSchema
+   * @throws ApiException if fails to make API call
+   */
+  public TagListSchema getCourseTags(String courseId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'courseId' is set
+    if (courseId == null) {
+      throw new ApiException(400, "Missing the required parameter 'courseId' when calling getCourseTags");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/courses/{courseId}/tags".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+    GenericType<TagListSchema> localVarReturnType = new GenericType<TagListSchema>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -855,10 +946,10 @@ public class CourseApi {
    * Check the status of an import job.
    * 
    * @param importJobId Id received when the import job was submitted to the importJobs resource. (required)
-   * @return ImportResultSchema
+   * @return ImportJobResultSchema
    * @throws ApiException if fails to make API call
    */
-  public ImportResultSchema getImportJobStatus(String importJobId) throws ApiException {
+  public ImportJobResultSchema getImportJobStatus(String importJobId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'importJobId' is set
@@ -890,9 +981,96 @@ public class CourseApi {
 
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
-    GenericType<ImportResultSchema> localVarReturnType = new GenericType<ImportResultSchema>() {};
+    GenericType<ImportJobResultSchema> localVarReturnType = new GenericType<ImportJobResultSchema>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
+  /**
+   * Set the tags for this course
+   * 
+   * @param courseId  (required)
+   * @param tags  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void putCourseTags(String courseId, TagListSchema tags) throws ApiException {
+    Object localVarPostBody = tags;
+    
+    // verify the required parameter 'courseId' is set
+    if (courseId == null) {
+      throw new ApiException(400, "Missing the required parameter 'courseId' when calling putCourseTags");
+    }
+    
+    // verify the required parameter 'tags' is set
+    if (tags == null) {
+      throw new ApiException(400, "Missing the required parameter 'tags' when calling putCourseTags");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/courses/{courseId}/tags".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Sets all of the provided tags on all of the provided courses
+   * 
+   * @param batch  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void putCourseTagsBatch(CourseTagsBatchSchema batch) throws ApiException {
+    Object localVarPostBody = batch;
+    
+    // verify the required parameter 'batch' is set
+    if (batch == null) {
+      throw new ApiException(400, "Missing the required parameter 'batch' when calling putCourseTagsBatch");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/courses/tags".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
   /**
    * Set configuration settings for this course.
    * 

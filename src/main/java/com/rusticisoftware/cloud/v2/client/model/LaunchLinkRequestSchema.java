@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * LaunchLinkRequestSchema
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-23T23:53:56.635-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T14:21:57.917-05:00")
 public class LaunchLinkRequestSchema   {
   @JsonProperty("expiry")
   private Integer expiry = 120;

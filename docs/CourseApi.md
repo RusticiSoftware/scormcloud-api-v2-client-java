@@ -10,17 +10,21 @@ Method | HTTP request | Description
 [**createUploadAndImportCourseJob**](CourseApi.md#createUploadAndImportCourseJob) | **POST** /courses/importJobs/upload | Upload a course and start an import job for it.
 [**deleteCourse**](CourseApi.md#deleteCourse) | **DELETE** /courses/{courseId} | Delete &#x60;courseId&#x60;
 [**deleteCourseConfigurationSetting**](CourseApi.md#deleteCourseConfigurationSetting) | **DELETE** /courses/{courseId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course
+[**deleteCourseTags**](CourseApi.md#deleteCourseTags) | **DELETE** /courses/{courseId}/tags | Delete tags for this course
 [**deleteCourseVersion**](CourseApi.md#deleteCourseVersion) | **DELETE** /courses/{courseId}/versions/{versionId} | Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
 [**deleteCourseVersionConfigurationSetting**](CourseApi.md#deleteCourseVersionConfigurationSetting) | **DELETE** /courses/{courseId}/versions/{versionId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course and version.
 [**getCourse**](CourseApi.md#getCourse) | **GET** /courses/{courseId} | Get information about &#x60;courseId&#x60;
 [**getCourseConfiguration**](CourseApi.md#getCourseConfiguration) | **GET** /courses/{courseId}/configuration | Returns all configuration settings for this course
 [**getCourseStatements**](CourseApi.md#getCourseStatements) | **GET** /courses/{courseId}/xAPIStatements | Get xAPI statements for &#x60;courseId&#x60;
+[**getCourseTags**](CourseApi.md#getCourseTags) | **GET** /courses/{courseId}/tags | Get the tags for this course
 [**getCourseVersionConfiguration**](CourseApi.md#getCourseVersionConfiguration) | **GET** /courses/{courseId}/versions/{versionId}/configuration | Returns all configuration settings for this course and version.
 [**getCourseVersionInfo**](CourseApi.md#getCourseVersionInfo) | **GET** /courses/{courseId}/versions/{versionId} | Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
 [**getCourseVersionStatements**](CourseApi.md#getCourseVersionStatements) | **GET** /courses/{courseId}/versions/{versionId}/xAPIStatements | Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
 [**getCourseVersions**](CourseApi.md#getCourseVersions) | **GET** /courses/{courseId}/versions | Get all versions of &#x60;courseId&#x60;
 [**getCourses**](CourseApi.md#getCourses) | **GET** /courses | Get all courses for &#x60;appId&#x60;
 [**getImportJobStatus**](CourseApi.md#getImportJobStatus) | **GET** /courses/importJobs/{importJobId} | Check the status of an import job.
+[**putCourseTags**](CourseApi.md#putCourseTags) | **PUT** /courses/{courseId}/tags | Set the tags for this course
+[**putCourseTagsBatch**](CourseApi.md#putCourseTagsBatch) | **PUT** /courses/tags | Sets all of the provided tags on all of the provided courses
 [**setCourseConfiguration**](CourseApi.md#setCourseConfiguration) | **POST** /courses/{courseId}/configuration | Set configuration settings for this course.
 [**setCourseTitle**](CourseApi.md#setCourseTitle) | **PUT** /courses/{courseId}/title | Sets the course title for &#x60;courseId&#x60;
 [**setCourseVersionConfiguration**](CourseApi.md#setCourseVersionConfiguration) | **POST** /courses/{courseId}/versions/{versionId}/configuration | Set configuration settings for this course and version.
@@ -386,6 +390,63 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="deleteCourseTags"></a>
+# **deleteCourseTags**
+> deleteCourseTags(courseId, tags)
+
+Delete tags for this course
+
+### Example
+```java
+// Import classes:
+//import com.rusticisoftware.cloud.v2.client.ApiClient;
+//import com.rusticisoftware.cloud.v2.client.ApiException;
+//import com.rusticisoftware.cloud.v2.client.Configuration;
+//import com.rusticisoftware.cloud.v2.client.auth.*;
+//import com.rusticisoftware.cloud.v2.client.api.CourseApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: APP_NORMAL
+HttpBasicAuth APP_NORMAL = (HttpBasicAuth) defaultClient.getAuthentication("APP_NORMAL");
+APP_NORMAL.setUsername("YOUR USERNAME");
+APP_NORMAL.setPassword("YOUR PASSWORD");
+
+// Configure OAuth2 access token for authorization: OAUTH
+OAuth OAUTH = (OAuth) defaultClient.getAuthentication("OAUTH");
+OAUTH.setAccessToken("YOUR ACCESS TOKEN");
+
+CourseApi apiInstance = new CourseApi();
+String courseId = "courseId_example"; // String | 
+TagListSchema tags = new TagListSchema(); // TagListSchema | 
+try {
+    apiInstance.deleteCourseTags(courseId, tags);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CourseApi#deleteCourseTags");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **courseId** | **String**|  |
+ **tags** | [**TagListSchema**](TagListSchema.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="deleteCourseVersion"></a>
 # **deleteCourseVersion**
 > deleteCourseVersion(courseId, versionId)
@@ -674,6 +735,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XapiStatementResult**](XapiStatementResult.md)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getCourseTags"></a>
+# **getCourseTags**
+> TagListSchema getCourseTags(courseId)
+
+Get the tags for this course
+
+### Example
+```java
+// Import classes:
+//import com.rusticisoftware.cloud.v2.client.ApiClient;
+//import com.rusticisoftware.cloud.v2.client.ApiException;
+//import com.rusticisoftware.cloud.v2.client.Configuration;
+//import com.rusticisoftware.cloud.v2.client.auth.*;
+//import com.rusticisoftware.cloud.v2.client.api.CourseApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: APP_NORMAL
+HttpBasicAuth APP_NORMAL = (HttpBasicAuth) defaultClient.getAuthentication("APP_NORMAL");
+APP_NORMAL.setUsername("YOUR USERNAME");
+APP_NORMAL.setPassword("YOUR PASSWORD");
+
+// Configure OAuth2 access token for authorization: OAUTH
+OAuth OAUTH = (OAuth) defaultClient.getAuthentication("OAUTH");
+OAUTH.setAccessToken("YOUR ACCESS TOKEN");
+
+CourseApi apiInstance = new CourseApi();
+String courseId = "courseId_example"; // String | 
+try {
+    TagListSchema result = apiInstance.getCourseTags(courseId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CourseApi#getCourseTags");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **courseId** | **String**|  |
+
+### Return type
+
+[**TagListSchema**](TagListSchema.md)
 
 ### Authorization
 
@@ -1010,7 +1127,7 @@ Name | Type | Description  | Notes
 
 <a name="getImportJobStatus"></a>
 # **getImportJobStatus**
-> ImportResultSchema getImportJobStatus(importJobId)
+> ImportJobResultSchema getImportJobStatus(importJobId)
 
 Check the status of an import job.
 
@@ -1037,7 +1154,7 @@ OAUTH.setAccessToken("YOUR ACCESS TOKEN");
 CourseApi apiInstance = new CourseApi();
 String importJobId = "importJobId_example"; // String | Id received when the import job was submitted to the importJobs resource.
 try {
-    ImportResultSchema result = apiInstance.getImportJobStatus(importJobId);
+    ImportJobResultSchema result = apiInstance.getImportJobStatus(importJobId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CourseApi#getImportJobStatus");
@@ -1053,7 +1170,119 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ImportResultSchema**](ImportResultSchema.md)
+[**ImportJobResultSchema**](ImportJobResultSchema.md)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putCourseTags"></a>
+# **putCourseTags**
+> putCourseTags(courseId, tags)
+
+Set the tags for this course
+
+### Example
+```java
+// Import classes:
+//import com.rusticisoftware.cloud.v2.client.ApiClient;
+//import com.rusticisoftware.cloud.v2.client.ApiException;
+//import com.rusticisoftware.cloud.v2.client.Configuration;
+//import com.rusticisoftware.cloud.v2.client.auth.*;
+//import com.rusticisoftware.cloud.v2.client.api.CourseApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: APP_NORMAL
+HttpBasicAuth APP_NORMAL = (HttpBasicAuth) defaultClient.getAuthentication("APP_NORMAL");
+APP_NORMAL.setUsername("YOUR USERNAME");
+APP_NORMAL.setPassword("YOUR PASSWORD");
+
+// Configure OAuth2 access token for authorization: OAUTH
+OAuth OAUTH = (OAuth) defaultClient.getAuthentication("OAUTH");
+OAUTH.setAccessToken("YOUR ACCESS TOKEN");
+
+CourseApi apiInstance = new CourseApi();
+String courseId = "courseId_example"; // String | 
+TagListSchema tags = new TagListSchema(); // TagListSchema | 
+try {
+    apiInstance.putCourseTags(courseId, tags);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CourseApi#putCourseTags");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **courseId** | **String**|  |
+ **tags** | [**TagListSchema**](TagListSchema.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putCourseTagsBatch"></a>
+# **putCourseTagsBatch**
+> putCourseTagsBatch(batch)
+
+Sets all of the provided tags on all of the provided courses
+
+### Example
+```java
+// Import classes:
+//import com.rusticisoftware.cloud.v2.client.ApiClient;
+//import com.rusticisoftware.cloud.v2.client.ApiException;
+//import com.rusticisoftware.cloud.v2.client.Configuration;
+//import com.rusticisoftware.cloud.v2.client.auth.*;
+//import com.rusticisoftware.cloud.v2.client.api.CourseApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: APP_NORMAL
+HttpBasicAuth APP_NORMAL = (HttpBasicAuth) defaultClient.getAuthentication("APP_NORMAL");
+APP_NORMAL.setUsername("YOUR USERNAME");
+APP_NORMAL.setPassword("YOUR PASSWORD");
+
+// Configure OAuth2 access token for authorization: OAUTH
+OAuth OAUTH = (OAuth) defaultClient.getAuthentication("OAUTH");
+OAUTH.setAccessToken("YOUR ACCESS TOKEN");
+
+CourseApi apiInstance = new CourseApi();
+CourseTagsBatchSchema batch = new CourseTagsBatchSchema(); // CourseTagsBatchSchema | 
+try {
+    apiInstance.putCourseTagsBatch(batch);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CourseApi#putCourseTagsBatch");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch** | [**CourseTagsBatchSchema**](CourseTagsBatchSchema.md)|  |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

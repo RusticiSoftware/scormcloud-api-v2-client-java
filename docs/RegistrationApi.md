@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**deleteRegistrationConfigurationSetting**](RegistrationApi.md#deleteRegistrationConfigurationSetting) | **DELETE** /registrations/{registrationId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this registration
 [**deleteRegistrationInstanceConfigurationSetting**](RegistrationApi.md#deleteRegistrationInstanceConfigurationSetting) | **DELETE** /registrations/{registrationId}/instances/{instanceId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this registration instance
 [**deleteRegistrationProgress**](RegistrationApi.md#deleteRegistrationProgress) | **DELETE** /registrations/{registrationId}/progress | Delete registration progress (clear registration)
+[**deleteRegistrationTags**](RegistrationApi.md#deleteRegistrationTags) | **DELETE** /registrations/{registrationId}/tags | Delete tags for this registration
 [**deleteRegistrationsGlobalData**](RegistrationApi.md#deleteRegistrationsGlobalData) | **DELETE** /registrations/{registrationId}/globalData | Delete global data associated with &#x60;registrationId&#x60;
 [**getRegistrationConfiguration**](RegistrationApi.md#getRegistrationConfiguration) | **GET** /registrations/{registrationId}/configuration | Returns all configuration settings for this registration
 [**getRegistrationInstanceConfiguration**](RegistrationApi.md#getRegistrationInstanceConfiguration) | **GET** /registrations/{registrationId}/instances/{instanceId}/configuration | Returns all configuration settings for this registration instance
@@ -21,7 +22,10 @@ Method | HTTP request | Description
 [**getRegistrationLaunchLink**](RegistrationApi.md#getRegistrationLaunchLink) | **POST** /registrations/{registrationId}/launchLink | Returns the link to use to launch this registration
 [**getRegistrationProgress**](RegistrationApi.md#getRegistrationProgress) | **GET** /registrations/{registrationId} | Get registration progress for &#x60;registrationId&#x60;
 [**getRegistrationStatements**](RegistrationApi.md#getRegistrationStatements) | **GET** /registrations/{registrationId}/xAPIStatements | Get xAPI statements for &#x60;registrationId&#x60;
+[**getRegistrationTags**](RegistrationApi.md#getRegistrationTags) | **GET** /registrations/{registrationId}/tags | Get the tags for this registration
 [**getRegistrations**](RegistrationApi.md#getRegistrations) | **GET** /registrations | Gets a list of registrations including a summary of the status of each registration.
+[**putRegistrationTags**](RegistrationApi.md#putRegistrationTags) | **PUT** /registrations/{registrationId}/tags | Set the tags for this registration
+[**putRegistrationTagsBatch**](RegistrationApi.md#putRegistrationTagsBatch) | **PUT** /registrations/tags | Sets all of the provided tags on all of the provided registrations
 [**registrationExists**](RegistrationApi.md#registrationExists) | **HEAD** /registrations/{registrationId} | Does this registration exist?
 [**setRegistrationConfiguration**](RegistrationApi.md#setRegistrationConfiguration) | **POST** /registrations/{registrationId}/configuration | Set configuration settings for this registration.
 [**setRegistrationInstanceConfiguration**](RegistrationApi.md#setRegistrationInstanceConfiguration) | **POST** /registrations/{registrationId}/instances/{instanceId}/configuration | Set configuration settings for this registration instance.
@@ -351,6 +355,63 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **registrationId** | **String**| id for this registration |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteRegistrationTags"></a>
+# **deleteRegistrationTags**
+> deleteRegistrationTags(registrationId, tags)
+
+Delete tags for this registration
+
+### Example
+```java
+// Import classes:
+//import com.rusticisoftware.cloud.v2.client.ApiClient;
+//import com.rusticisoftware.cloud.v2.client.ApiException;
+//import com.rusticisoftware.cloud.v2.client.Configuration;
+//import com.rusticisoftware.cloud.v2.client.auth.*;
+//import com.rusticisoftware.cloud.v2.client.api.RegistrationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: APP_NORMAL
+HttpBasicAuth APP_NORMAL = (HttpBasicAuth) defaultClient.getAuthentication("APP_NORMAL");
+APP_NORMAL.setUsername("YOUR USERNAME");
+APP_NORMAL.setPassword("YOUR PASSWORD");
+
+// Configure OAuth2 access token for authorization: OAUTH
+OAuth OAUTH = (OAuth) defaultClient.getAuthentication("OAUTH");
+OAUTH.setAccessToken("YOUR ACCESS TOKEN");
+
+RegistrationApi apiInstance = new RegistrationApi();
+String registrationId = "registrationId_example"; // String | id for this registration
+TagListSchema tags = new TagListSchema(); // TagListSchema | 
+try {
+    apiInstance.deleteRegistrationTags(registrationId, tags);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RegistrationApi#deleteRegistrationTags");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registrationId** | **String**| id for this registration |
+ **tags** | [**TagListSchema**](TagListSchema.md)|  |
 
 ### Return type
 
@@ -1034,6 +1095,62 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="getRegistrationTags"></a>
+# **getRegistrationTags**
+> TagListSchema getRegistrationTags(registrationId)
+
+Get the tags for this registration
+
+### Example
+```java
+// Import classes:
+//import com.rusticisoftware.cloud.v2.client.ApiClient;
+//import com.rusticisoftware.cloud.v2.client.ApiException;
+//import com.rusticisoftware.cloud.v2.client.Configuration;
+//import com.rusticisoftware.cloud.v2.client.auth.*;
+//import com.rusticisoftware.cloud.v2.client.api.RegistrationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: APP_NORMAL
+HttpBasicAuth APP_NORMAL = (HttpBasicAuth) defaultClient.getAuthentication("APP_NORMAL");
+APP_NORMAL.setUsername("YOUR USERNAME");
+APP_NORMAL.setPassword("YOUR PASSWORD");
+
+// Configure OAuth2 access token for authorization: OAUTH
+OAuth OAUTH = (OAuth) defaultClient.getAuthentication("OAUTH");
+OAUTH.setAccessToken("YOUR ACCESS TOKEN");
+
+RegistrationApi apiInstance = new RegistrationApi();
+String registrationId = "registrationId_example"; // String | id for this registration
+try {
+    TagListSchema result = apiInstance.getRegistrationTags(registrationId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RegistrationApi#getRegistrationTags");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registrationId** | **String**| id for this registration |
+
+### Return type
+
+[**TagListSchema**](TagListSchema.md)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="getRegistrations"></a>
 # **getRegistrations**
 > RegistrationListSchema getRegistrations(courseId, learnerId, since, until, more, includeChildResults, includeInteractionsAndObjectives, includeRuntime)
@@ -1094,6 +1211,118 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RegistrationListSchema**](RegistrationListSchema.md)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putRegistrationTags"></a>
+# **putRegistrationTags**
+> putRegistrationTags(registrationId, tags)
+
+Set the tags for this registration
+
+### Example
+```java
+// Import classes:
+//import com.rusticisoftware.cloud.v2.client.ApiClient;
+//import com.rusticisoftware.cloud.v2.client.ApiException;
+//import com.rusticisoftware.cloud.v2.client.Configuration;
+//import com.rusticisoftware.cloud.v2.client.auth.*;
+//import com.rusticisoftware.cloud.v2.client.api.RegistrationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: APP_NORMAL
+HttpBasicAuth APP_NORMAL = (HttpBasicAuth) defaultClient.getAuthentication("APP_NORMAL");
+APP_NORMAL.setUsername("YOUR USERNAME");
+APP_NORMAL.setPassword("YOUR PASSWORD");
+
+// Configure OAuth2 access token for authorization: OAUTH
+OAuth OAUTH = (OAuth) defaultClient.getAuthentication("OAUTH");
+OAUTH.setAccessToken("YOUR ACCESS TOKEN");
+
+RegistrationApi apiInstance = new RegistrationApi();
+String registrationId = "registrationId_example"; // String | id for this registration
+TagListSchema tags = new TagListSchema(); // TagListSchema | 
+try {
+    apiInstance.putRegistrationTags(registrationId, tags);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RegistrationApi#putRegistrationTags");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registrationId** | **String**| id for this registration |
+ **tags** | [**TagListSchema**](TagListSchema.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putRegistrationTagsBatch"></a>
+# **putRegistrationTagsBatch**
+> putRegistrationTagsBatch(batch)
+
+Sets all of the provided tags on all of the provided registrations
+
+### Example
+```java
+// Import classes:
+//import com.rusticisoftware.cloud.v2.client.ApiClient;
+//import com.rusticisoftware.cloud.v2.client.ApiException;
+//import com.rusticisoftware.cloud.v2.client.Configuration;
+//import com.rusticisoftware.cloud.v2.client.auth.*;
+//import com.rusticisoftware.cloud.v2.client.api.RegistrationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: APP_NORMAL
+HttpBasicAuth APP_NORMAL = (HttpBasicAuth) defaultClient.getAuthentication("APP_NORMAL");
+APP_NORMAL.setUsername("YOUR USERNAME");
+APP_NORMAL.setPassword("YOUR PASSWORD");
+
+// Configure OAuth2 access token for authorization: OAUTH
+OAuth OAUTH = (OAuth) defaultClient.getAuthentication("OAUTH");
+OAUTH.setAccessToken("YOUR ACCESS TOKEN");
+
+RegistrationApi apiInstance = new RegistrationApi();
+RegistrationTagsBatchSchema batch = new RegistrationTagsBatchSchema(); // RegistrationTagsBatchSchema | 
+try {
+    apiInstance.putRegistrationTagsBatch(batch);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RegistrationApi#putRegistrationTagsBatch");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch** | [**RegistrationTagsBatchSchema**](RegistrationTagsBatchSchema.md)|  |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

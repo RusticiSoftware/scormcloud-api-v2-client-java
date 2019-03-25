@@ -117,17 +117,21 @@ Class | Method | HTTP request | Description
 *CourseApi* | [**createUploadAndImportCourseJob**](docs/CourseApi.md#createUploadAndImportCourseJob) | **POST** /courses/importJobs/upload | Upload a course and start an import job for it.
 *CourseApi* | [**deleteCourse**](docs/CourseApi.md#deleteCourse) | **DELETE** /courses/{courseId} | Delete &#x60;courseId&#x60;
 *CourseApi* | [**deleteCourseConfigurationSetting**](docs/CourseApi.md#deleteCourseConfigurationSetting) | **DELETE** /courses/{courseId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course
+*CourseApi* | [**deleteCourseTags**](docs/CourseApi.md#deleteCourseTags) | **DELETE** /courses/{courseId}/tags | Delete tags for this course
 *CourseApi* | [**deleteCourseVersion**](docs/CourseApi.md#deleteCourseVersion) | **DELETE** /courses/{courseId}/versions/{versionId} | Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
 *CourseApi* | [**deleteCourseVersionConfigurationSetting**](docs/CourseApi.md#deleteCourseVersionConfigurationSetting) | **DELETE** /courses/{courseId}/versions/{versionId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course and version.
 *CourseApi* | [**getCourse**](docs/CourseApi.md#getCourse) | **GET** /courses/{courseId} | Get information about &#x60;courseId&#x60;
 *CourseApi* | [**getCourseConfiguration**](docs/CourseApi.md#getCourseConfiguration) | **GET** /courses/{courseId}/configuration | Returns all configuration settings for this course
 *CourseApi* | [**getCourseStatements**](docs/CourseApi.md#getCourseStatements) | **GET** /courses/{courseId}/xAPIStatements | Get xAPI statements for &#x60;courseId&#x60;
+*CourseApi* | [**getCourseTags**](docs/CourseApi.md#getCourseTags) | **GET** /courses/{courseId}/tags | Get the tags for this course
 *CourseApi* | [**getCourseVersionConfiguration**](docs/CourseApi.md#getCourseVersionConfiguration) | **GET** /courses/{courseId}/versions/{versionId}/configuration | Returns all configuration settings for this course and version.
 *CourseApi* | [**getCourseVersionInfo**](docs/CourseApi.md#getCourseVersionInfo) | **GET** /courses/{courseId}/versions/{versionId} | Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
 *CourseApi* | [**getCourseVersionStatements**](docs/CourseApi.md#getCourseVersionStatements) | **GET** /courses/{courseId}/versions/{versionId}/xAPIStatements | Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
 *CourseApi* | [**getCourseVersions**](docs/CourseApi.md#getCourseVersions) | **GET** /courses/{courseId}/versions | Get all versions of &#x60;courseId&#x60;
 *CourseApi* | [**getCourses**](docs/CourseApi.md#getCourses) | **GET** /courses | Get all courses for &#x60;appId&#x60;
 *CourseApi* | [**getImportJobStatus**](docs/CourseApi.md#getImportJobStatus) | **GET** /courses/importJobs/{importJobId} | Check the status of an import job.
+*CourseApi* | [**putCourseTags**](docs/CourseApi.md#putCourseTags) | **PUT** /courses/{courseId}/tags | Set the tags for this course
+*CourseApi* | [**putCourseTagsBatch**](docs/CourseApi.md#putCourseTagsBatch) | **PUT** /courses/tags | Sets all of the provided tags on all of the provided courses
 *CourseApi* | [**setCourseConfiguration**](docs/CourseApi.md#setCourseConfiguration) | **POST** /courses/{courseId}/configuration | Set configuration settings for this course.
 *CourseApi* | [**setCourseTitle**](docs/CourseApi.md#setCourseTitle) | **PUT** /courses/{courseId}/title | Sets the course title for &#x60;courseId&#x60;
 *CourseApi* | [**setCourseVersionConfiguration**](docs/CourseApi.md#setCourseVersionConfiguration) | **POST** /courses/{courseId}/versions/{versionId}/configuration | Set configuration settings for this course and version.
@@ -138,6 +142,7 @@ Class | Method | HTTP request | Description
 *RegistrationApi* | [**deleteRegistrationConfigurationSetting**](docs/RegistrationApi.md#deleteRegistrationConfigurationSetting) | **DELETE** /registrations/{registrationId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this registration
 *RegistrationApi* | [**deleteRegistrationInstanceConfigurationSetting**](docs/RegistrationApi.md#deleteRegistrationInstanceConfigurationSetting) | **DELETE** /registrations/{registrationId}/instances/{instanceId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this registration instance
 *RegistrationApi* | [**deleteRegistrationProgress**](docs/RegistrationApi.md#deleteRegistrationProgress) | **DELETE** /registrations/{registrationId}/progress | Delete registration progress (clear registration)
+*RegistrationApi* | [**deleteRegistrationTags**](docs/RegistrationApi.md#deleteRegistrationTags) | **DELETE** /registrations/{registrationId}/tags | Delete tags for this registration
 *RegistrationApi* | [**deleteRegistrationsGlobalData**](docs/RegistrationApi.md#deleteRegistrationsGlobalData) | **DELETE** /registrations/{registrationId}/globalData | Delete global data associated with &#x60;registrationId&#x60;
 *RegistrationApi* | [**getRegistrationConfiguration**](docs/RegistrationApi.md#getRegistrationConfiguration) | **GET** /registrations/{registrationId}/configuration | Returns all configuration settings for this registration
 *RegistrationApi* | [**getRegistrationInstanceConfiguration**](docs/RegistrationApi.md#getRegistrationInstanceConfiguration) | **GET** /registrations/{registrationId}/instances/{instanceId}/configuration | Returns all configuration settings for this registration instance
@@ -149,7 +154,10 @@ Class | Method | HTTP request | Description
 *RegistrationApi* | [**getRegistrationLaunchLink**](docs/RegistrationApi.md#getRegistrationLaunchLink) | **POST** /registrations/{registrationId}/launchLink | Returns the link to use to launch this registration
 *RegistrationApi* | [**getRegistrationProgress**](docs/RegistrationApi.md#getRegistrationProgress) | **GET** /registrations/{registrationId} | Get registration progress for &#x60;registrationId&#x60;
 *RegistrationApi* | [**getRegistrationStatements**](docs/RegistrationApi.md#getRegistrationStatements) | **GET** /registrations/{registrationId}/xAPIStatements | Get xAPI statements for &#x60;registrationId&#x60;
+*RegistrationApi* | [**getRegistrationTags**](docs/RegistrationApi.md#getRegistrationTags) | **GET** /registrations/{registrationId}/tags | Get the tags for this registration
 *RegistrationApi* | [**getRegistrations**](docs/RegistrationApi.md#getRegistrations) | **GET** /registrations | Gets a list of registrations including a summary of the status of each registration.
+*RegistrationApi* | [**putRegistrationTags**](docs/RegistrationApi.md#putRegistrationTags) | **PUT** /registrations/{registrationId}/tags | Set the tags for this registration
+*RegistrationApi* | [**putRegistrationTagsBatch**](docs/RegistrationApi.md#putRegistrationTagsBatch) | **PUT** /registrations/tags | Sets all of the provided tags on all of the provided registrations
 *RegistrationApi* | [**registrationExists**](docs/RegistrationApi.md#registrationExists) | **HEAD** /registrations/{registrationId} | Does this registration exist?
 *RegistrationApi* | [**setRegistrationConfiguration**](docs/RegistrationApi.md#setRegistrationConfiguration) | **POST** /registrations/{registrationId}/configuration | Set configuration settings for this registration.
 *RegistrationApi* | [**setRegistrationInstanceConfiguration**](docs/RegistrationApi.md#setRegistrationInstanceConfiguration) | **POST** /registrations/{registrationId}/instances/{instanceId}/configuration | Set configuration settings for this registration instance.
@@ -168,6 +176,7 @@ Class | Method | HTTP request | Description
  - [CourseListSchema](docs/CourseListSchema.md)
  - [CourseReferenceSchema](docs/CourseReferenceSchema.md)
  - [CourseSchema](docs/CourseSchema.md)
+ - [CourseTagsBatchSchema](docs/CourseTagsBatchSchema.md)
  - [CreateRegistrationSchema](docs/CreateRegistrationSchema.md)
  - [CredentialCreatedSchema](docs/CredentialCreatedSchema.md)
  - [CredentialListSchema](docs/CredentialListSchema.md)
@@ -195,6 +204,7 @@ Class | Method | HTTP request | Description
  - [RegistrationListSchema](docs/RegistrationListSchema.md)
  - [RegistrationSchema](docs/RegistrationSchema.md)
  - [RegistrationSuccess](docs/RegistrationSuccess.md)
+ - [RegistrationTagsBatchSchema](docs/RegistrationTagsBatchSchema.md)
  - [ResponseError](docs/ResponseError.md)
  - [RuntimeInteractionSchema](docs/RuntimeInteractionSchema.md)
  - [RuntimeObjectiveSchema](docs/RuntimeObjectiveSchema.md)
@@ -209,6 +219,8 @@ Class | Method | HTTP request | Description
  - [SharedDataEntrySchema](docs/SharedDataEntrySchema.md)
  - [StaticPropertiesSchema](docs/StaticPropertiesSchema.md)
  - [StringResultSchema](docs/StringResultSchema.md)
+ - [TagListSchema](docs/TagListSchema.md)
+ - [TagPostSchema](docs/TagPostSchema.md)
  - [TitleSchema](docs/TitleSchema.md)
  - [TokenRequestSchema](docs/TokenRequestSchema.md)
 

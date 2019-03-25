@@ -9,6 +9,7 @@ import javax.ws.rs.core.GenericType;
 
 import com.rusticisoftware.cloud.v2.client.model.MessageSchema;
 import com.rusticisoftware.cloud.v2.client.model.CreateRegistrationSchema;
+import com.rusticisoftware.cloud.v2.client.model.TagListSchema;
 import com.rusticisoftware.cloud.v2.client.model.SettingListSchema;
 import com.rusticisoftware.cloud.v2.client.model.LaunchHistoryListSchema;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationSchema;
@@ -17,6 +18,7 @@ import java.time.OffsetDateTime;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationListSchema;
 import com.rusticisoftware.cloud.v2.client.model.LaunchLinkSchema;
 import com.rusticisoftware.cloud.v2.client.model.LaunchLinkRequestSchema;
+import com.rusticisoftware.cloud.v2.client.model.RegistrationTagsBatchSchema;
 import com.rusticisoftware.cloud.v2.client.model.SettingsPostSchema;
 
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-23T23:53:56.635-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T14:21:57.917-05:00")
 public class RegistrationApi {
   private ApiClient apiClient;
 
@@ -287,6 +289,53 @@ public class RegistrationApi {
     
     // create path and map variables
     String localVarPath = "/registrations/{registrationId}/progress".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Delete tags for this registration
+   * 
+   * @param registrationId id for this registration (required)
+   * @param tags  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteRegistrationTags(String registrationId, TagListSchema tags) throws ApiException {
+    Object localVarPostBody = tags;
+    
+    // verify the required parameter 'registrationId' is set
+    if (registrationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'registrationId' when calling deleteRegistrationTags");
+    }
+    
+    // verify the required parameter 'tags' is set
+    if (tags == null) {
+      throw new ApiException(400, "Missing the required parameter 'tags' when calling deleteRegistrationTags");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/registrations/{registrationId}/tags".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -852,6 +901,48 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Get the tags for this registration
+   * 
+   * @param registrationId id for this registration (required)
+   * @return TagListSchema
+   * @throws ApiException if fails to make API call
+   */
+  public TagListSchema getRegistrationTags(String registrationId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'registrationId' is set
+    if (registrationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'registrationId' when calling getRegistrationTags");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/registrations/{registrationId}/tags".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+    GenericType<TagListSchema> localVarReturnType = new GenericType<TagListSchema>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Gets a list of registrations including a summary of the status of each registration.
    * 
    * @param courseId Only registrations for the specified course id will be included. (optional)
@@ -902,6 +993,93 @@ public class RegistrationApi {
     GenericType<RegistrationListSchema> localVarReturnType = new GenericType<RegistrationListSchema>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
+  /**
+   * Set the tags for this registration
+   * 
+   * @param registrationId id for this registration (required)
+   * @param tags  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void putRegistrationTags(String registrationId, TagListSchema tags) throws ApiException {
+    Object localVarPostBody = tags;
+    
+    // verify the required parameter 'registrationId' is set
+    if (registrationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'registrationId' when calling putRegistrationTags");
+    }
+    
+    // verify the required parameter 'tags' is set
+    if (tags == null) {
+      throw new ApiException(400, "Missing the required parameter 'tags' when calling putRegistrationTags");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/registrations/{registrationId}/tags".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Sets all of the provided tags on all of the provided registrations
+   * 
+   * @param batch  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void putRegistrationTagsBatch(RegistrationTagsBatchSchema batch) throws ApiException {
+    Object localVarPostBody = batch;
+    
+    // verify the required parameter 'batch' is set
+    if (batch == null) {
+      throw new ApiException(400, "Missing the required parameter 'batch' when calling putRegistrationTagsBatch");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/registrations/tags".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
   /**
    * Does this registration exist?
    * 
