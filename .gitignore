@@ -19,3 +19,6 @@ hs_err_pid*
 target
 .gradle
 build
+
+.idea/
+scormcloud-api-v2-client.iml

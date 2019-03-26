@@ -34,7 +34,7 @@ import java.util.List;
 
 import java.io.UnsupportedEncodingException;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T23:15:50.683-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T23:53:11.088-05:00")
 public class HttpBasicAuth implements Authentication {
   private String username;
   private String password;

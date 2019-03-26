@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * CommentSchema
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T23:15:50.683-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T23:53:11.088-05:00")
 public class CommentSchema   {
   @JsonProperty("value")
   private String value = null;
