@@ -20,5 +20,5 @@ target
 .gradle
 build
 
-.idea/
+.idea
 scormcloud-api-v2-client.iml

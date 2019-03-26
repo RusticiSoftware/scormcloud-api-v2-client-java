@@ -1,6 +1,6 @@
 # RegistrationApi
 
-All URIs are relative to *https://dev.cloud.scorm.com/api/v2/*
+All URIs are relative to *https://cloud.scorm.com/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -752,8 +752,8 @@ OAUTH.setAccessToken("YOUR ACCESS TOKEN");
 RegistrationApi apiInstance = new RegistrationApi();
 String registrationId = "registrationId_example"; // String | id for this registration
 Integer instanceId = 56; // Integer | The instance of this registration
-OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-OffsetDateTime until = new OffsetDateTime(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime since = OffsetDateTime.now(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime until = OffsetDateTime.now(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 String more = "more_example"; // String | Value for this parameter will be provided in the 'more' property of registration lists, where needed. An opaque value, construction and parsing may change without notice.
 try {
     XapiStatementResult result = apiInstance.getRegistrationInstanceStatements(registrationId, instanceId, since, until, more);
@@ -815,8 +815,8 @@ OAUTH.setAccessToken("YOUR ACCESS TOKEN");
 
 RegistrationApi apiInstance = new RegistrationApi();
 String registrationId = "registrationId_example"; // String | id for this registration
-OffsetDateTime until = new OffsetDateTime(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime until = OffsetDateTime.now(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime since = OffsetDateTime.now(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 String more = "more_example"; // String | Value for this parameter will be provided in the 'more' property of registration lists, where needed. An opaque value, construction and parsing may change without notice.
 Boolean includeChildResults = false; // Boolean | Include information about each learning object, not just the top level in the results
 Boolean includeInteractionsAndObjectives = false; // Boolean | Include interactions and objectives in the results
@@ -1061,8 +1061,8 @@ OAUTH.setAccessToken("YOUR ACCESS TOKEN");
 
 RegistrationApi apiInstance = new RegistrationApi();
 String registrationId = "registrationId_example"; // String | id for this registration
-OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-OffsetDateTime until = new OffsetDateTime(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime since = OffsetDateTime.now(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime until = OffsetDateTime.now(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 String more = "more_example"; // String | Value for this parameter will be provided in the 'more' property of registration lists, where needed. An opaque value, construction and parsing may change without notice.
 try {
     XapiStatementResult result = apiInstance.getRegistrationStatements(registrationId, since, until, more);
@@ -1180,8 +1180,8 @@ OAUTH.setAccessToken("YOUR ACCESS TOKEN");
 RegistrationApi apiInstance = new RegistrationApi();
 String courseId = "courseId_example"; // String | Only registrations for the specified course id will be included.
 String learnerId = "learnerId_example"; // String | Only registrations for the specified learner id will be included.
-OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-OffsetDateTime until = new OffsetDateTime(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime since = OffsetDateTime.now(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime until = OffsetDateTime.now(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 String more = "more_example"; // String | Value for this parameter will be provided in the 'more' property of registration lists, where needed. An opaque value, construction and parsing may change without notice.
 Boolean includeChildResults = false; // Boolean | Include information about each learning object, not just the top level in the results
 Boolean includeInteractionsAndObjectives = false; // Boolean | Include interactions and objectives in the results

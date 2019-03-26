@@ -18,41 +18,54 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.rusticisoftware.cloud.v2.client.model.SettingItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * SettingListSchema
+ * SettingValidValue
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
-public class SettingListSchema {
-  @JsonProperty("settingItems")
-  private List<SettingItem> settingItems = new ArrayList<>();
+public class SettingValidValue {
+  @JsonProperty("value")
+  private String value = null;
 
-  public SettingListSchema settingItems(List<SettingItem> settingItems) {
-    this.settingItems = settingItems;
-    return this;
-  }
+  @JsonProperty("valueDescription")
+  private String valueDescription = null;
 
-  public SettingListSchema addSettingItemsItem(SettingItem settingItemsItem) {
-    this.settingItems.add(settingItemsItem);
+  public SettingValidValue value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get settingItems
-   * @return settingItems
+   * Get value
+   * @return value
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<SettingItem> getSettingItems() {
-    return settingItems;
+  @ApiModelProperty(value = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setSettingItems(List<SettingItem> settingItems) {
-    this.settingItems = settingItems;
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public SettingValidValue valueDescription(String valueDescription) {
+    this.valueDescription = valueDescription;
+    return this;
+  }
+
+   /**
+   * Description of what this valid value means, how it will be applied if used in a setting
+   * @return valueDescription
+  **/
+  @ApiModelProperty(value = "Description of what this valid value means, how it will be applied if used in a setting")
+  public String getValueDescription() {
+    return valueDescription;
+  }
+
+  public void setValueDescription(String valueDescription) {
+    this.valueDescription = valueDescription;
   }
 
 
@@ -64,22 +77,24 @@ public class SettingListSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SettingListSchema settingListSchema = (SettingListSchema) o;
-    return Objects.equals(this.settingItems, settingListSchema.settingItems);
+    SettingValidValue settingValidValue = (SettingValidValue) o;
+    return Objects.equals(this.value, settingValidValue.value) &&
+        Objects.equals(this.valueDescription, settingValidValue.valueDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settingItems);
+    return Objects.hash(value, valueDescription);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SettingListSchema {\n");
+    sb.append("class SettingValidValue {\n");
     
-    sb.append("    settingItems: ").append(toIndentedString(settingItems)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    valueDescription: ").append(toIndentedString(valueDescription)).append("\n");
     sb.append("}");
     return sb.toString();
   }

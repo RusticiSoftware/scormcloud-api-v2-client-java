@@ -1,6 +1,6 @@
 # CourseApi
 
-All URIs are relative to *https://dev.cloud.scorm.com/api/v2/*
+All URIs are relative to *https://cloud.scorm.com/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -710,8 +710,8 @@ OAUTH.setAccessToken("YOUR ACCESS TOKEN");
 CourseApi apiInstance = new CourseApi();
 String courseId = "courseId_example"; // String | 
 String learnerId = "learnerId_example"; // String | Only entries for the specified learner id will be included.
-OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-OffsetDateTime until = new OffsetDateTime(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime since = OffsetDateTime.now(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime until = OffsetDateTime.now(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 String more = "more_example"; // String | Value for this parameter will be provided in the 'more' property of registration lists, where needed. An opaque value, construction and parsing may change without notice.
 try {
     XapiStatementResult result = apiInstance.getCourseStatements(courseId, learnerId, since, until, more);
@@ -953,8 +953,8 @@ CourseApi apiInstance = new CourseApi();
 String courseId = "courseId_example"; // String | 
 Integer versionId = 56; // Integer | The course version
 String learnerId = "learnerId_example"; // String | Only entries for the specified learner id will be included.
-OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-OffsetDateTime until = new OffsetDateTime(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime since = OffsetDateTime.now(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime until = OffsetDateTime.now(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 String more = "more_example"; // String | Value for this parameter will be provided in the 'more' property of registration lists, where needed. An opaque value, construction and parsing may change without notice.
 try {
     XapiStatementResult result = apiInstance.getCourseVersionStatements(courseId, versionId, learnerId, since, until, more);
@@ -1017,8 +1017,8 @@ OAUTH.setAccessToken("YOUR ACCESS TOKEN");
 
 CourseApi apiInstance = new CourseApi();
 String courseId = "courseId_example"; // String | 
-OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-OffsetDateTime until = new OffsetDateTime(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime since = OffsetDateTime.now(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime until = OffsetDateTime.now(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 Boolean includeRegistrationCount = false; // Boolean | Include the registration count in the results
 Boolean includeCourseMetadata = false; // Boolean | Include course metadata in the results. If the course has no metadata, adding this parameter has no effect.
 try {
@@ -1081,8 +1081,8 @@ OAUTH.setAccessToken("YOUR ACCESS TOKEN");
 
 CourseApi apiInstance = new CourseApi();
 String more = "more_example"; // String | Value for this parameter will be provided in the 'more' property of registration lists, where needed. An opaque value, construction and parsing may change without notice.
-OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-OffsetDateTime until = new OffsetDateTime(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime since = OffsetDateTime.now(); // OffsetDateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
+OffsetDateTime until = OffsetDateTime.now(); // OffsetDateTime | Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 String filter = "filter_example"; // String | Optional string which filters results by a specified field (described by filterBy).
 String filterBy = "filterBy_example"; // String | Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id.
 String orderBy = "orderBy_example"; // String | Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc.
