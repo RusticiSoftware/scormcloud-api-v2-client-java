@@ -96,7 +96,7 @@ public class ApplicationManagementApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://dev.cloud.scorm.com/api/v2/*
+All URIs are relative to *https://cloud.scorm.com/api/v2/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

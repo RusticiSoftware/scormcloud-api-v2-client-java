@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic information about a course for when a course is referenced by other objects, such as a registration.
  */
 @ApiModel(description = "Basic information about a course for when a course is referenced by other objects, such as a registration.")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T14:21:57.917-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-25T23:15:50.683-05:00")
 public class CourseReferenceSchema   {
   @JsonProperty("id")
   private String id = null;
