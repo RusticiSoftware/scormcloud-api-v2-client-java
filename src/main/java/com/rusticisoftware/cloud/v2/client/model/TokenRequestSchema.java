@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.PermissionsSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,7 +24,7 @@ import java.time.OffsetDateTime;
 /**
  * TokenRequestSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class TokenRequestSchema {
   @JsonProperty("permissions")
   private PermissionsSchema permissions = null;
@@ -43,7 +41,7 @@ public class TokenRequestSchema {
    * Get permissions
    * @return permissions
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public PermissionsSchema getPermissions() {
     return permissions;
   }
@@ -61,7 +59,7 @@ public class TokenRequestSchema {
    * Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token.
    * @return expiry
   **/
-  @ApiModelProperty(required = true, value = "Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token.")
+  @ApiModelProperty(example = "null", required = true, value = "Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token.")
   public OffsetDateTime getExpiry() {
     return expiry;
   }
@@ -111,6 +109,6 @@ public class TokenRequestSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

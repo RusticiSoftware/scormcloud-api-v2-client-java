@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiInteractionComponent;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,13 +28,13 @@ import java.util.Map;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#activity-definition
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#activity-definition")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class XapiActivityDefinition {
   @JsonProperty("name")
-  private Map<String, String> name = null;
+  private Map<String, String> name = new HashMap<String, String>();
 
   @JsonProperty("description")
-  private Map<String, String> description = null;
+  private Map<String, String> description = new HashMap<String, String>();
 
   @JsonProperty("type")
   private String type = null;
@@ -48,25 +46,25 @@ public class XapiActivityDefinition {
   private String interactionType = null;
 
   @JsonProperty("correctResponsesPattern")
-  private List<String> correctResponsesPattern = null;
+  private List<String> correctResponsesPattern = new ArrayList<String>();
 
   @JsonProperty("choices")
-  private List<XapiInteractionComponent> choices = null;
+  private List<XapiInteractionComponent> choices = new ArrayList<XapiInteractionComponent>();
 
   @JsonProperty("scale")
-  private List<XapiInteractionComponent> scale = null;
+  private List<XapiInteractionComponent> scale = new ArrayList<XapiInteractionComponent>();
 
   @JsonProperty("source")
-  private List<XapiInteractionComponent> source = null;
+  private List<XapiInteractionComponent> source = new ArrayList<XapiInteractionComponent>();
 
   @JsonProperty("target")
-  private List<XapiInteractionComponent> target = null;
+  private List<XapiInteractionComponent> target = new ArrayList<XapiInteractionComponent>();
 
   @JsonProperty("steps")
-  private List<XapiInteractionComponent> steps = null;
+  private List<XapiInteractionComponent> steps = new ArrayList<XapiInteractionComponent>();
 
   @JsonProperty("extensions")
-  private Map<String, Object> extensions = null;
+  private Map<String, Object> extensions = new HashMap<String, Object>();
 
   public XapiActivityDefinition name(Map<String, String> name) {
     this.name = name;
@@ -74,9 +72,6 @@ public class XapiActivityDefinition {
   }
 
   public XapiActivityDefinition putNameItem(String key, String nameItem) {
-    if (this.name == null) {
-      this.name = new HashMap<>();
-    }
     this.name.put(key, nameItem);
     return this;
   }
@@ -85,7 +80,7 @@ public class XapiActivityDefinition {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Map<String, String> getName() {
     return name;
   }
@@ -100,9 +95,6 @@ public class XapiActivityDefinition {
   }
 
   public XapiActivityDefinition putDescriptionItem(String key, String descriptionItem) {
-    if (this.description == null) {
-      this.description = new HashMap<>();
-    }
     this.description.put(key, descriptionItem);
     return this;
   }
@@ -111,7 +103,7 @@ public class XapiActivityDefinition {
    * Get description
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -129,7 +121,7 @@ public class XapiActivityDefinition {
    * Get type
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getType() {
     return type;
   }
@@ -147,7 +139,7 @@ public class XapiActivityDefinition {
    * Get moreInfo
    * @return moreInfo
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getMoreInfo() {
     return moreInfo;
   }
@@ -165,7 +157,7 @@ public class XapiActivityDefinition {
    * Get interactionType
    * @return interactionType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getInteractionType() {
     return interactionType;
   }
@@ -180,9 +172,6 @@ public class XapiActivityDefinition {
   }
 
   public XapiActivityDefinition addCorrectResponsesPatternItem(String correctResponsesPatternItem) {
-    if (this.correctResponsesPattern == null) {
-      this.correctResponsesPattern = new ArrayList<>();
-    }
     this.correctResponsesPattern.add(correctResponsesPatternItem);
     return this;
   }
@@ -191,7 +180,7 @@ public class XapiActivityDefinition {
    * Get correctResponsesPattern
    * @return correctResponsesPattern
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<String> getCorrectResponsesPattern() {
     return correctResponsesPattern;
   }
@@ -206,9 +195,6 @@ public class XapiActivityDefinition {
   }
 
   public XapiActivityDefinition addChoicesItem(XapiInteractionComponent choicesItem) {
-    if (this.choices == null) {
-      this.choices = new ArrayList<>();
-    }
     this.choices.add(choicesItem);
     return this;
   }
@@ -217,7 +203,7 @@ public class XapiActivityDefinition {
    * Get choices
    * @return choices
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<XapiInteractionComponent> getChoices() {
     return choices;
   }
@@ -232,9 +218,6 @@ public class XapiActivityDefinition {
   }
 
   public XapiActivityDefinition addScaleItem(XapiInteractionComponent scaleItem) {
-    if (this.scale == null) {
-      this.scale = new ArrayList<>();
-    }
     this.scale.add(scaleItem);
     return this;
   }
@@ -243,7 +226,7 @@ public class XapiActivityDefinition {
    * Get scale
    * @return scale
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<XapiInteractionComponent> getScale() {
     return scale;
   }
@@ -258,9 +241,6 @@ public class XapiActivityDefinition {
   }
 
   public XapiActivityDefinition addSourceItem(XapiInteractionComponent sourceItem) {
-    if (this.source == null) {
-      this.source = new ArrayList<>();
-    }
     this.source.add(sourceItem);
     return this;
   }
@@ -269,7 +249,7 @@ public class XapiActivityDefinition {
    * Get source
    * @return source
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<XapiInteractionComponent> getSource() {
     return source;
   }
@@ -284,9 +264,6 @@ public class XapiActivityDefinition {
   }
 
   public XapiActivityDefinition addTargetItem(XapiInteractionComponent targetItem) {
-    if (this.target == null) {
-      this.target = new ArrayList<>();
-    }
     this.target.add(targetItem);
     return this;
   }
@@ -295,7 +272,7 @@ public class XapiActivityDefinition {
    * Get target
    * @return target
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<XapiInteractionComponent> getTarget() {
     return target;
   }
@@ -310,9 +287,6 @@ public class XapiActivityDefinition {
   }
 
   public XapiActivityDefinition addStepsItem(XapiInteractionComponent stepsItem) {
-    if (this.steps == null) {
-      this.steps = new ArrayList<>();
-    }
     this.steps.add(stepsItem);
     return this;
   }
@@ -321,7 +295,7 @@ public class XapiActivityDefinition {
    * Get steps
    * @return steps
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<XapiInteractionComponent> getSteps() {
     return steps;
   }
@@ -336,9 +310,6 @@ public class XapiActivityDefinition {
   }
 
   public XapiActivityDefinition putExtensionsItem(String key, Object extensionsItem) {
-    if (this.extensions == null) {
-      this.extensions = new HashMap<>();
-    }
     this.extensions.put(key, extensionsItem);
     return this;
   }
@@ -347,7 +318,7 @@ public class XapiActivityDefinition {
    * Get extensions
    * @return extensions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Map<String, Object> getExtensions() {
     return extensions;
   }
@@ -417,6 +388,6 @@ public class XapiActivityDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

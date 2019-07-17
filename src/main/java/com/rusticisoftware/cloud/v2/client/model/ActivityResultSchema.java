@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ActivityResultSchema;
 import com.rusticisoftware.cloud.v2.client.model.CompletionAmountSchema;
 import com.rusticisoftware.cloud.v2.client.model.ObjectiveSchema;
@@ -32,7 +30,7 @@ import java.util.List;
 /**
  * ActivityResultSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class ActivityResultSchema {
   @JsonProperty("id")
   private String id = null;
@@ -57,11 +55,6 @@ public class ActivityResultSchema {
 
     ActivityCompletionEnum(String value) {
       this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
     }
 
     @Override
@@ -99,11 +92,6 @@ public class ActivityResultSchema {
       this.value = value;
     }
 
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
     @Override
     public String toString() {
       return String.valueOf(value);
@@ -136,10 +124,10 @@ public class ActivityResultSchema {
   private Boolean suspended = null;
 
   @JsonProperty("children")
-  private List<ActivityResultSchema> children = null;
+  private List<ActivityResultSchema> children = new ArrayList<ActivityResultSchema>();
 
   @JsonProperty("objectives")
-  private List<ObjectiveSchema> objectives = null;
+  private List<ObjectiveSchema> objectives = new ArrayList<ObjectiveSchema>();
 
   @JsonProperty("staticProperties")
   private StaticPropertiesSchema staticProperties = null;
@@ -156,7 +144,7 @@ public class ActivityResultSchema {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getId() {
     return id;
   }
@@ -174,7 +162,7 @@ public class ActivityResultSchema {
    * Get title
    * @return title
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getTitle() {
     return title;
   }
@@ -192,7 +180,7 @@ public class ActivityResultSchema {
    * Get attempts
    * @return attempts
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Integer getAttempts() {
     return attempts;
   }
@@ -210,7 +198,7 @@ public class ActivityResultSchema {
    * Get activityCompletion
    * @return activityCompletion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public ActivityCompletionEnum getActivityCompletion() {
     return activityCompletion;
   }
@@ -228,7 +216,7 @@ public class ActivityResultSchema {
    * Get activitySuccess
    * @return activitySuccess
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public ActivitySuccessEnum getActivitySuccess() {
     return activitySuccess;
   }
@@ -246,7 +234,7 @@ public class ActivityResultSchema {
    * Get score
    * @return score
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public ScoreSchema getScore() {
     return score;
   }
@@ -264,7 +252,7 @@ public class ActivityResultSchema {
    * Get timeTracked
    * @return timeTracked
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getTimeTracked() {
     return timeTracked;
   }
@@ -282,7 +270,7 @@ public class ActivityResultSchema {
    * Get completionAmount
    * @return completionAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public CompletionAmountSchema getCompletionAmount() {
     return completionAmount;
   }
@@ -300,8 +288,8 @@ public class ActivityResultSchema {
    * Get suspended
    * @return suspended
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isSuspended() {
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -315,9 +303,6 @@ public class ActivityResultSchema {
   }
 
   public ActivityResultSchema addChildrenItem(ActivityResultSchema childrenItem) {
-    if (this.children == null) {
-      this.children = new ArrayList<>();
-    }
     this.children.add(childrenItem);
     return this;
   }
@@ -326,7 +311,7 @@ public class ActivityResultSchema {
    * Get children
    * @return children
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<ActivityResultSchema> getChildren() {
     return children;
   }
@@ -341,9 +326,6 @@ public class ActivityResultSchema {
   }
 
   public ActivityResultSchema addObjectivesItem(ObjectiveSchema objectivesItem) {
-    if (this.objectives == null) {
-      this.objectives = new ArrayList<>();
-    }
     this.objectives.add(objectivesItem);
     return this;
   }
@@ -352,7 +334,7 @@ public class ActivityResultSchema {
    * Get objectives
    * @return objectives
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<ObjectiveSchema> getObjectives() {
     return objectives;
   }
@@ -370,7 +352,7 @@ public class ActivityResultSchema {
    * Get staticProperties
    * @return staticProperties
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public StaticPropertiesSchema getStaticProperties() {
     return staticProperties;
   }
@@ -388,7 +370,7 @@ public class ActivityResultSchema {
    * Get runtime
    * @return runtime
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public RuntimeSchema getRuntime() {
     return runtime;
   }
@@ -460,6 +442,6 @@ public class ActivityResultSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

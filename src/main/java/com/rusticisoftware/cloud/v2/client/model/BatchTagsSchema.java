@@ -14,52 +14,54 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.rusticisoftware.cloud.v2.client.model.TagPostSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CourseTagsBatchSchema
+ * BatchTagsSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
-public class CourseTagsBatchSchema {
-  @JsonProperty("courseIds")
-  private List<String> courseIds = new ArrayList<>();
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
+public class BatchTagsSchema {
+  @JsonProperty("ids")
+  private List<String> ids = new ArrayList<String>();
 
   @JsonProperty("tags")
-  private TagPostSchema tags = null;
+  private List<String> tags = new ArrayList<String>();
 
-  public CourseTagsBatchSchema courseIds(List<String> courseIds) {
-    this.courseIds = courseIds;
+  public BatchTagsSchema ids(List<String> ids) {
+    this.ids = ids;
     return this;
   }
 
-  public CourseTagsBatchSchema addCourseIdsItem(String courseIdsItem) {
-    this.courseIds.add(courseIdsItem);
+  public BatchTagsSchema addIdsItem(String idsItem) {
+    this.ids.add(idsItem);
     return this;
   }
 
    /**
-   * Get courseIds
-   * @return courseIds
+   * Get ids
+   * @return ids
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<String> getCourseIds() {
-    return courseIds;
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public List<String> getIds() {
+    return ids;
   }
 
-  public void setCourseIds(List<String> courseIds) {
-    this.courseIds = courseIds;
+  public void setIds(List<String> ids) {
+    this.ids = ids;
   }
 
-  public CourseTagsBatchSchema tags(TagPostSchema tags) {
+  public BatchTagsSchema tags(List<String> tags) {
     this.tags = tags;
+    return this;
+  }
+
+  public BatchTagsSchema addTagsItem(String tagsItem) {
+    this.tags.add(tagsItem);
     return this;
   }
 
@@ -67,12 +69,12 @@ public class CourseTagsBatchSchema {
    * Get tags
    * @return tags
   **/
-  @ApiModelProperty(required = true, value = "")
-  public TagPostSchema getTags() {
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public List<String> getTags() {
     return tags;
   }
 
-  public void setTags(TagPostSchema tags) {
+  public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
@@ -85,23 +87,23 @@ public class CourseTagsBatchSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CourseTagsBatchSchema courseTagsBatchSchema = (CourseTagsBatchSchema) o;
-    return Objects.equals(this.courseIds, courseTagsBatchSchema.courseIds) &&
-        Objects.equals(this.tags, courseTagsBatchSchema.tags);
+    BatchTagsSchema batchTagsSchema = (BatchTagsSchema) o;
+    return Objects.equals(this.ids, batchTagsSchema.ids) &&
+        Objects.equals(this.tags, batchTagsSchema.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(courseIds, tags);
+    return Objects.hash(ids, tags);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CourseTagsBatchSchema {\n");
+    sb.append("class BatchTagsSchema {\n");
     
-    sb.append("    courseIds: ").append(toIndentedString(courseIds)).append("\n");
+    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -117,6 +119,6 @@ public class CourseTagsBatchSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

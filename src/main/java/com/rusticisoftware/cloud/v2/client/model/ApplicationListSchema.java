@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ApplicationSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,10 +25,10 @@ import java.util.List;
 /**
  * ApplicationListSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class ApplicationListSchema {
   @JsonProperty("applications")
-  private List<ApplicationSchema> applications = null;
+  private List<ApplicationSchema> applications = new ArrayList<ApplicationSchema>();
 
   public ApplicationListSchema applications(List<ApplicationSchema> applications) {
     this.applications = applications;
@@ -38,9 +36,6 @@ public class ApplicationListSchema {
   }
 
   public ApplicationListSchema addApplicationsItem(ApplicationSchema applicationsItem) {
-    if (this.applications == null) {
-      this.applications = new ArrayList<>();
-    }
     this.applications.add(applicationsItem);
     return this;
   }
@@ -49,7 +44,7 @@ public class ApplicationListSchema {
    * Get applications
    * @return applications
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<ApplicationSchema> getApplications() {
     return applications;
   }
@@ -97,6 +92,6 @@ public class ApplicationListSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

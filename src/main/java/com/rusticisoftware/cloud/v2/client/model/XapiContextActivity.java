@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiActivity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,19 +26,19 @@ import java.util.List;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4162-contextactivities-property
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4162-contextactivities-property")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class XapiContextActivity {
   @JsonProperty("parent")
-  private List<XapiActivity> parent = null;
+  private List<XapiActivity> parent = new ArrayList<XapiActivity>();
 
   @JsonProperty("grouping")
-  private List<XapiActivity> grouping = null;
+  private List<XapiActivity> grouping = new ArrayList<XapiActivity>();
 
   @JsonProperty("category")
-  private List<XapiActivity> category = null;
+  private List<XapiActivity> category = new ArrayList<XapiActivity>();
 
   @JsonProperty("other")
-  private List<XapiActivity> other = null;
+  private List<XapiActivity> other = new ArrayList<XapiActivity>();
 
   public XapiContextActivity parent(List<XapiActivity> parent) {
     this.parent = parent;
@@ -48,9 +46,6 @@ public class XapiContextActivity {
   }
 
   public XapiContextActivity addParentItem(XapiActivity parentItem) {
-    if (this.parent == null) {
-      this.parent = new ArrayList<>();
-    }
     this.parent.add(parentItem);
     return this;
   }
@@ -59,7 +54,7 @@ public class XapiContextActivity {
    * Get parent
    * @return parent
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<XapiActivity> getParent() {
     return parent;
   }
@@ -74,9 +69,6 @@ public class XapiContextActivity {
   }
 
   public XapiContextActivity addGroupingItem(XapiActivity groupingItem) {
-    if (this.grouping == null) {
-      this.grouping = new ArrayList<>();
-    }
     this.grouping.add(groupingItem);
     return this;
   }
@@ -85,7 +77,7 @@ public class XapiContextActivity {
    * Get grouping
    * @return grouping
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<XapiActivity> getGrouping() {
     return grouping;
   }
@@ -100,9 +92,6 @@ public class XapiContextActivity {
   }
 
   public XapiContextActivity addCategoryItem(XapiActivity categoryItem) {
-    if (this.category == null) {
-      this.category = new ArrayList<>();
-    }
     this.category.add(categoryItem);
     return this;
   }
@@ -111,7 +100,7 @@ public class XapiContextActivity {
    * Get category
    * @return category
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<XapiActivity> getCategory() {
     return category;
   }
@@ -126,9 +115,6 @@ public class XapiContextActivity {
   }
 
   public XapiContextActivity addOtherItem(XapiActivity otherItem) {
-    if (this.other == null) {
-      this.other = new ArrayList<>();
-    }
     this.other.add(otherItem);
     return this;
   }
@@ -137,7 +123,7 @@ public class XapiContextActivity {
    * Get other
    * @return other
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<XapiActivity> getOther() {
     return other;
   }
@@ -191,6 +177,6 @@ public class XapiContextActivity {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

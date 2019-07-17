@@ -14,17 +14,15 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * LearnerPreferenceSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class LearnerPreferenceSchema {
   @JsonProperty("audioLevel")
   private Double audioLevel = null;
@@ -47,7 +45,7 @@ public class LearnerPreferenceSchema {
    * Get audioLevel
    * @return audioLevel
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getAudioLevel() {
     return audioLevel;
   }
@@ -65,7 +63,7 @@ public class LearnerPreferenceSchema {
    * Get language
    * @return language
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getLanguage() {
     return language;
   }
@@ -83,7 +81,7 @@ public class LearnerPreferenceSchema {
    * Get deliverySpeed
    * @return deliverySpeed
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getDeliverySpeed() {
     return deliverySpeed;
   }
@@ -101,7 +99,7 @@ public class LearnerPreferenceSchema {
    * Get audioCaptioning
    * @return audioCaptioning
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Integer getAudioCaptioning() {
     return audioCaptioning;
   }
@@ -155,6 +153,6 @@ public class LearnerPreferenceSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.CourseSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,10 +25,10 @@ import java.util.List;
 /**
  * CourseListNonPagedSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class CourseListNonPagedSchema {
   @JsonProperty("courses")
-  private List<CourseSchema> courses = null;
+  private List<CourseSchema> courses = new ArrayList<CourseSchema>();
 
   public CourseListNonPagedSchema courses(List<CourseSchema> courses) {
     this.courses = courses;
@@ -38,9 +36,6 @@ public class CourseListNonPagedSchema {
   }
 
   public CourseListNonPagedSchema addCoursesItem(CourseSchema coursesItem) {
-    if (this.courses == null) {
-      this.courses = new ArrayList<>();
-    }
     this.courses.add(coursesItem);
     return this;
   }
@@ -49,7 +44,7 @@ public class CourseListNonPagedSchema {
    * Get courses
    * @return courses
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<CourseSchema> getCourses() {
     return courses;
   }
@@ -97,6 +92,6 @@ public class CourseListNonPagedSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

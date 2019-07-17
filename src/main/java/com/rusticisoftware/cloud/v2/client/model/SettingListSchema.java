@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.SettingItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,10 +25,10 @@ import java.util.List;
 /**
  * SettingListSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class SettingListSchema {
   @JsonProperty("settingItems")
-  private List<SettingItem> settingItems = new ArrayList<>();
+  private List<SettingItem> settingItems = new ArrayList<SettingItem>();
 
   public SettingListSchema settingItems(List<SettingItem> settingItems) {
     this.settingItems = settingItems;
@@ -46,7 +44,7 @@ public class SettingListSchema {
    * Get settingItems
    * @return settingItems
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public List<SettingItem> getSettingItems() {
     return settingItems;
   }
@@ -94,6 +92,6 @@ public class SettingListSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

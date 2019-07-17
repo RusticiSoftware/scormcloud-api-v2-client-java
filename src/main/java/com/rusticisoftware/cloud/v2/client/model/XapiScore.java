@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4151-score
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4151-score")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class XapiScore {
   @JsonProperty("scaled")
   private Double scaled = null;
@@ -48,7 +46,7 @@ public class XapiScore {
    * Get scaled
    * @return scaled
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getScaled() {
     return scaled;
   }
@@ -66,7 +64,7 @@ public class XapiScore {
    * Get raw
    * @return raw
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getRaw() {
     return raw;
   }
@@ -84,7 +82,7 @@ public class XapiScore {
    * Get min
    * @return min
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getMin() {
     return min;
   }
@@ -102,7 +100,7 @@ public class XapiScore {
    * Get max
    * @return max
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getMax() {
     return max;
   }
@@ -156,6 +154,6 @@ public class XapiScore {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

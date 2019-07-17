@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.CredentialSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,10 +25,10 @@ import java.util.List;
 /**
  * CredentialListSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class CredentialListSchema {
   @JsonProperty("credentials")
-  private List<CredentialSchema> credentials = null;
+  private List<CredentialSchema> credentials = new ArrayList<CredentialSchema>();
 
   public CredentialListSchema credentials(List<CredentialSchema> credentials) {
     this.credentials = credentials;
@@ -38,9 +36,6 @@ public class CredentialListSchema {
   }
 
   public CredentialListSchema addCredentialsItem(CredentialSchema credentialsItem) {
-    if (this.credentials == null) {
-      this.credentials = new ArrayList<>();
-    }
     this.credentials.add(credentialsItem);
     return this;
   }
@@ -49,7 +44,7 @@ public class CredentialListSchema {
    * Get credentials
    * @return credentials
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<CredentialSchema> getCredentials() {
     return credentials;
   }
@@ -97,6 +92,6 @@ public class CredentialListSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

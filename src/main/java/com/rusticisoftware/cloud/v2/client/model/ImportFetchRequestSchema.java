@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request to import a course by downloading it from a url
  */
 @ApiModel(description = "Request to import a course by downloading it from a url")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class ImportFetchRequestSchema {
   @JsonProperty("url")
   private String url = null;
@@ -39,7 +37,7 @@ public class ImportFetchRequestSchema {
    * URL path to the .zip package to download to import this course
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "URL path to the .zip package to download to import this course")
+  @ApiModelProperty(example = "null", required = true, value = "URL path to the .zip package to download to import this course")
   public String getUrl() {
     return url;
   }
@@ -87,6 +85,6 @@ public class ImportFetchRequestSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

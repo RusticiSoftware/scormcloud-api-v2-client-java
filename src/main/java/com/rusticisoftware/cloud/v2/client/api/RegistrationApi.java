@@ -2,12 +2,12 @@ package com.rusticisoftware.cloud.v2.client.api;
 
 import com.rusticisoftware.cloud.v2.client.ApiException;
 import com.rusticisoftware.cloud.v2.client.ApiClient;
-import com.rusticisoftware.cloud.v2.client.ApiResponse;
 import com.rusticisoftware.cloud.v2.client.Configuration;
 import com.rusticisoftware.cloud.v2.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.rusticisoftware.cloud.v2.client.model.BatchTagsSchema;
 import com.rusticisoftware.cloud.v2.client.model.CreateRegistrationSchema;
 import com.rusticisoftware.cloud.v2.client.model.LaunchHistoryListSchema;
 import com.rusticisoftware.cloud.v2.client.model.LaunchLinkRequestSchema;
@@ -16,7 +16,6 @@ import com.rusticisoftware.cloud.v2.client.model.MessageSchema;
 import java.time.OffsetDateTime;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationListSchema;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationSchema;
-import com.rusticisoftware.cloud.v2.client.model.RegistrationTagsBatchSchema;
 import com.rusticisoftware.cloud.v2.client.model.SettingListSchema;
 import com.rusticisoftware.cloud.v2.client.model.SettingsPostSchema;
 import com.rusticisoftware.cloud.v2.client.model.TagListSchema;
@@ -27,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class RegistrationApi {
   private ApiClient apiClient;
 
@@ -48,23 +47,12 @@ public class RegistrationApi {
   }
 
   /**
-   * Create a new instance for this registration specified by the registration ID
    * 
+   * Create a new instance for this registration specified by the registration ID. 
    * @param registrationId id for this registration (required)
    * @throws ApiException if fails to make API call
    */
   public void createNewRegistrationInstance(String registrationId) throws ApiException {
-
-    createNewRegistrationInstanceWithHttpInfo(registrationId);
-  }
-
-  /**
-   * Create a new instance for this registration specified by the registration ID
-   * 
-   * @param registrationId id for this registration (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> createNewRegistrationInstanceWithHttpInfo(String registrationId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -73,7 +61,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/instances"
+    String localVarPath = "/registrations/{registrationId}/instances".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -97,28 +85,16 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Create a registration.
    * 
+   * This method is used to create a new registration. A registration will contain a few pieces of information such as a learner name, a learner id, and optionally, information about where activity data should be posted (for client consumption), as well as a way to specify simple authentication schemes for posting said data. A registration must be tied to a specific course at creation time. When the created registration is “launched”, the course specified at creation time will be launched. 
    * @param registration  (required)
    * @param courseVersion The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)
    * @throws ApiException if fails to make API call
    */
   public void createRegistration(CreateRegistrationSchema registration, Integer courseVersion) throws ApiException {
-
-    createRegistrationWithHttpInfo(registration, courseVersion);
-  }
-
-  /**
-   * Create a registration.
-   * 
-   * @param registration  (required)
-   * @param courseVersion The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> createRegistrationWithHttpInfo(CreateRegistrationSchema registration, Integer courseVersion) throws ApiException {
     Object localVarPostBody = registration;
     
     // verify the required parameter 'registration' is set
@@ -127,7 +103,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations";
+    String localVarPath = "/registrations".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -151,26 +127,15 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete &#x60;registrationId&#x60;
    * 
+   * Delete &#x60;registrationId&#x60;.  This includes all instances of this registration. 
    * @param registrationId id for this registration (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRegistration(String registrationId) throws ApiException {
-
-    deleteRegistrationWithHttpInfo(registrationId);
-  }
-
-  /**
-   * Delete &#x60;registrationId&#x60;
-   * 
-   * @param registrationId id for this registration (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteRegistrationWithHttpInfo(String registrationId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -179,7 +144,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}"
+    String localVarPath = "/registrations/{registrationId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -203,28 +168,16 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Clears the &#x60;settingId&#x60; value for this registration
    * 
+   * Clears the &#x60;settingId&#x60; value for this registration. The effective value will become the value at the next level which has an explicit value set.  Possibilities are course, application, or default. 
    * @param registrationId id for this registration (required)
    * @param settingId  (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRegistrationConfigurationSetting(String registrationId, String settingId) throws ApiException {
-
-    deleteRegistrationConfigurationSettingWithHttpInfo(registrationId, settingId);
-  }
-
-  /**
-   * Clears the &#x60;settingId&#x60; value for this registration
-   * 
-   * @param registrationId id for this registration (required)
-   * @param settingId  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteRegistrationConfigurationSettingWithHttpInfo(String registrationId, String settingId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -238,7 +191,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/configuration/{settingId}"
+    String localVarPath = "/registrations/{registrationId}/configuration/{settingId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()))
       .replaceAll("\\{" + "settingId" + "\\}", apiClient.escapeString(settingId.toString()));
 
@@ -263,30 +216,17 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Clears the &#x60;settingId&#x60; value for this registration instance
    * 
+   * Clears the &#x60;settingId&#x60; value for this registration instance. 
    * @param registrationId id for this registration (required)
    * @param instanceId The instance of this registration (required)
    * @param settingId  (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRegistrationInstanceConfigurationSetting(String registrationId, Integer instanceId, String settingId) throws ApiException {
-
-    deleteRegistrationInstanceConfigurationSettingWithHttpInfo(registrationId, instanceId, settingId);
-  }
-
-  /**
-   * Clears the &#x60;settingId&#x60; value for this registration instance
-   * 
-   * @param registrationId id for this registration (required)
-   * @param instanceId The instance of this registration (required)
-   * @param settingId  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteRegistrationInstanceConfigurationSettingWithHttpInfo(String registrationId, Integer instanceId, String settingId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -305,7 +245,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/configuration/{settingId}"
+    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/configuration/{settingId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()))
       .replaceAll("\\{" + "instanceId" + "\\}", apiClient.escapeString(instanceId.toString()))
       .replaceAll("\\{" + "settingId" + "\\}", apiClient.escapeString(settingId.toString()));
@@ -331,26 +271,15 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete registration progress (clear registration)
    * 
+   * This method will reset the specified registration. This is essentially the same as deleting and recreating the registration, and as such, will delete all the data associated with the registration (including launch history, etc.). If the course for which the registration is registered has multiple versions, the registration being reset will automatically be registered for the latest version. 
    * @param registrationId id for this registration (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRegistrationProgress(String registrationId) throws ApiException {
-
-    deleteRegistrationProgressWithHttpInfo(registrationId);
-  }
-
-  /**
-   * Delete registration progress (clear registration)
-   * 
-   * @param registrationId id for this registration (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteRegistrationProgressWithHttpInfo(String registrationId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -359,7 +288,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/progress"
+    String localVarPath = "/registrations/{registrationId}/progress".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -383,28 +312,16 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete tags for this registration
    * 
+   * Delete the provided tags for this registration. 
    * @param registrationId id for this registration (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRegistrationTags(String registrationId, TagListSchema tags) throws ApiException {
-
-    deleteRegistrationTagsWithHttpInfo(registrationId, tags);
-  }
-
-  /**
-   * Delete tags for this registration
-   * 
-   * @param registrationId id for this registration (required)
-   * @param tags  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteRegistrationTagsWithHttpInfo(String registrationId, TagListSchema tags) throws ApiException {
     Object localVarPostBody = tags;
     
     // verify the required parameter 'registrationId' is set
@@ -418,7 +335,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/tags"
+    String localVarPath = "/registrations/{registrationId}/tags".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -442,26 +359,15 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete global data associated with &#x60;registrationId&#x60;
    * 
+   * Delete global data associated with &#x60;registrationId&#x60;&#39;.  Calling this method will reset all global objectives associated with this registration, if any exist. 
    * @param registrationId id for this registration (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRegistrationsGlobalData(String registrationId) throws ApiException {
-
-    deleteRegistrationsGlobalDataWithHttpInfo(registrationId);
-  }
-
-  /**
-   * Delete global data associated with &#x60;registrationId&#x60;
-   * 
-   * @param registrationId id for this registration (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteRegistrationsGlobalDataWithHttpInfo(String registrationId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -470,7 +376,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/globalData"
+    String localVarPath = "/registrations/{registrationId}/globalData".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -494,29 +400,17 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Returns all configuration settings for this registration
    * 
+   * Returns all configuration settings for this registration. 
    * @param registrationId id for this registration (required)
    * @param includeMetadata  (optional, default to false)
    * @return SettingListSchema
    * @throws ApiException if fails to make API call
    */
   public SettingListSchema getRegistrationConfiguration(String registrationId, Boolean includeMetadata) throws ApiException {
-    return getRegistrationConfigurationWithHttpInfo(registrationId, includeMetadata).getData();
-      }
-
-  /**
-   * Returns all configuration settings for this registration
-   * 
-   * @param registrationId id for this registration (required)
-   * @param includeMetadata  (optional, default to false)
-   * @return ApiResponse&lt;SettingListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<SettingListSchema> getRegistrationConfigurationWithHttpInfo(String registrationId, Boolean includeMetadata) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -525,7 +419,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/configuration"
+    String localVarPath = "/registrations/{registrationId}/configuration".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -553,8 +447,8 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Returns all configuration settings for this registration instance
    * 
+   * Returns all configuration settings for this registration instance. 
    * @param registrationId id for this registration (required)
    * @param instanceId The instance of this registration (required)
    * @param includeMetadata  (optional, default to false)
@@ -562,19 +456,6 @@ public class RegistrationApi {
    * @throws ApiException if fails to make API call
    */
   public SettingListSchema getRegistrationInstanceConfiguration(String registrationId, Integer instanceId, Boolean includeMetadata) throws ApiException {
-    return getRegistrationInstanceConfigurationWithHttpInfo(registrationId, instanceId, includeMetadata).getData();
-      }
-
-  /**
-   * Returns all configuration settings for this registration instance
-   * 
-   * @param registrationId id for this registration (required)
-   * @param instanceId The instance of this registration (required)
-   * @param includeMetadata  (optional, default to false)
-   * @return ApiResponse&lt;SettingListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<SettingListSchema> getRegistrationInstanceConfigurationWithHttpInfo(String registrationId, Integer instanceId, Boolean includeMetadata) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -588,7 +469,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/configuration"
+    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/configuration".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()))
       .replaceAll("\\{" + "instanceId" + "\\}", apiClient.escapeString(instanceId.toString()));
 
@@ -617,8 +498,8 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Returns history of this registration&#39;s launches
    * 
+   * Returns history of the launches of the specified instance of this registration. 
    * @param registrationId id for this registration (required)
    * @param instanceId The instance of this registration (required)
    * @param includeHistoryLog Whether to include the history log in the launch history (optional, default to false)
@@ -626,19 +507,6 @@ public class RegistrationApi {
    * @throws ApiException if fails to make API call
    */
   public LaunchHistoryListSchema getRegistrationInstanceLaunchHistory(String registrationId, Integer instanceId, Boolean includeHistoryLog) throws ApiException {
-    return getRegistrationInstanceLaunchHistoryWithHttpInfo(registrationId, instanceId, includeHistoryLog).getData();
-      }
-
-  /**
-   * Returns history of this registration&#39;s launches
-   * 
-   * @param registrationId id for this registration (required)
-   * @param instanceId The instance of this registration (required)
-   * @param includeHistoryLog Whether to include the history log in the launch history (optional, default to false)
-   * @return ApiResponse&lt;LaunchHistoryListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<LaunchHistoryListSchema> getRegistrationInstanceLaunchHistoryWithHttpInfo(String registrationId, Integer instanceId, Boolean includeHistoryLog) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -652,7 +520,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/launchHistory"
+    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/launchHistory".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()))
       .replaceAll("\\{" + "instanceId" + "\\}", apiClient.escapeString(instanceId.toString()));
 
@@ -681,8 +549,8 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;
    * 
+   * Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;&#39; 
    * @param registrationId id for this registration (required)
    * @param instanceId The instance of this registration (required)
    * @param includeChildResults Include information about each learning object, not just the top level in the results (optional, default to false)
@@ -692,21 +560,6 @@ public class RegistrationApi {
    * @throws ApiException if fails to make API call
    */
   public RegistrationSchema getRegistrationInstanceProgress(String registrationId, Integer instanceId, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
-    return getRegistrationInstanceProgressWithHttpInfo(registrationId, instanceId, includeChildResults, includeInteractionsAndObjectives, includeRuntime).getData();
-      }
-
-  /**
-   * Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;
-   * 
-   * @param registrationId id for this registration (required)
-   * @param instanceId The instance of this registration (required)
-   * @param includeChildResults Include information about each learning object, not just the top level in the results (optional, default to false)
-   * @param includeInteractionsAndObjectives Include interactions and objectives in the results (optional, default to false)
-   * @param includeRuntime Include runtime details in the results (optional, default to false)
-   * @return ApiResponse&lt;RegistrationSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<RegistrationSchema> getRegistrationInstanceProgressWithHttpInfo(String registrationId, Integer instanceId, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -720,7 +573,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}"
+    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()))
       .replaceAll("\\{" + "instanceId" + "\\}", apiClient.escapeString(instanceId.toString()));
 
@@ -751,8 +604,8 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;
    * 
+   * Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
    * @param registrationId id for this registration (required)
    * @param instanceId The instance of this registration (required)
    * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
@@ -762,21 +615,6 @@ public class RegistrationApi {
    * @throws ApiException if fails to make API call
    */
   public XapiStatementResult getRegistrationInstanceStatements(String registrationId, Integer instanceId, OffsetDateTime since, OffsetDateTime until, String more) throws ApiException {
-    return getRegistrationInstanceStatementsWithHttpInfo(registrationId, instanceId, since, until, more).getData();
-      }
-
-  /**
-   * Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;
-   * 
-   * @param registrationId id for this registration (required)
-   * @param instanceId The instance of this registration (required)
-   * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param more Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
-   * @return ApiResponse&lt;XapiStatementResult&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<XapiStatementResult> getRegistrationInstanceStatementsWithHttpInfo(String registrationId, Integer instanceId, OffsetDateTime since, OffsetDateTime until, String more) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -790,7 +628,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/xAPIStatements"
+    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/xAPIStatements".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()))
       .replaceAll("\\{" + "instanceId" + "\\}", apiClient.escapeString(instanceId.toString()));
 
@@ -821,8 +659,8 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get all the instances of this the registration specified by the registration ID
    * 
+   * Get all the instances of this the registration specified by the registration ID 
    * @param registrationId id for this registration (required)
    * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
    * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
@@ -834,23 +672,6 @@ public class RegistrationApi {
    * @throws ApiException if fails to make API call
    */
   public RegistrationListSchema getRegistrationInstances(String registrationId, OffsetDateTime until, OffsetDateTime since, String more, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
-    return getRegistrationInstancesWithHttpInfo(registrationId, until, since, more, includeChildResults, includeInteractionsAndObjectives, includeRuntime).getData();
-      }
-
-  /**
-   * Get all the instances of this the registration specified by the registration ID
-   * 
-   * @param registrationId id for this registration (required)
-   * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param more Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
-   * @param includeChildResults Include information about each learning object, not just the top level in the results (optional, default to false)
-   * @param includeInteractionsAndObjectives Include interactions and objectives in the results (optional, default to false)
-   * @param includeRuntime Include runtime details in the results (optional, default to false)
-   * @return ApiResponse&lt;RegistrationListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<RegistrationListSchema> getRegistrationInstancesWithHttpInfo(String registrationId, OffsetDateTime until, OffsetDateTime since, String more, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -859,7 +680,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/instances"
+    String localVarPath = "/registrations/{registrationId}/instances".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -892,26 +713,14 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Returns history of this registration&#39;s launches
    * 
+   * Returns history of this registration&#39;s launches. 
    * @param registrationId id for this registration (required)
    * @param includeHistoryLog Whether to include the history log in the launch history (optional, default to false)
    * @return LaunchHistoryListSchema
    * @throws ApiException if fails to make API call
    */
   public LaunchHistoryListSchema getRegistrationLaunchHistory(String registrationId, Boolean includeHistoryLog) throws ApiException {
-    return getRegistrationLaunchHistoryWithHttpInfo(registrationId, includeHistoryLog).getData();
-      }
-
-  /**
-   * Returns history of this registration&#39;s launches
-   * 
-   * @param registrationId id for this registration (required)
-   * @param includeHistoryLog Whether to include the history log in the launch history (optional, default to false)
-   * @return ApiResponse&lt;LaunchHistoryListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<LaunchHistoryListSchema> getRegistrationLaunchHistoryWithHttpInfo(String registrationId, Boolean includeHistoryLog) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -920,7 +729,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/launchHistory"
+    String localVarPath = "/registrations/{registrationId}/launchHistory".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -948,26 +757,14 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Returns the link to use to launch this registration
    * 
+   * Returns the link to use to launch this registration. 
    * @param registrationId id for this registration (required)
    * @param launchLinkRequest  (required)
    * @return LaunchLinkSchema
    * @throws ApiException if fails to make API call
    */
   public LaunchLinkSchema getRegistrationLaunchLink(String registrationId, LaunchLinkRequestSchema launchLinkRequest) throws ApiException {
-    return getRegistrationLaunchLinkWithHttpInfo(registrationId, launchLinkRequest).getData();
-      }
-
-  /**
-   * Returns the link to use to launch this registration
-   * 
-   * @param registrationId id for this registration (required)
-   * @param launchLinkRequest  (required)
-   * @return ApiResponse&lt;LaunchLinkSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<LaunchLinkSchema> getRegistrationLaunchLinkWithHttpInfo(String registrationId, LaunchLinkRequestSchema launchLinkRequest) throws ApiException {
     Object localVarPostBody = launchLinkRequest;
     
     // verify the required parameter 'registrationId' is set
@@ -981,7 +778,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/launchLink"
+    String localVarPath = "/registrations/{registrationId}/launchLink".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -1008,8 +805,8 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get registration progress for &#x60;registrationId&#x60;
    * 
+   * Get detailed information about the latest instance of &#x60;registrationId&#x60;. Additional detail may be obtained by using the optional query parameters. 
    * @param registrationId id for this registration (required)
    * @param includeChildResults Include information about each learning object, not just the top level in the results (optional, default to false)
    * @param includeInteractionsAndObjectives Include interactions and objectives in the results (optional, default to false)
@@ -1018,20 +815,6 @@ public class RegistrationApi {
    * @throws ApiException if fails to make API call
    */
   public RegistrationSchema getRegistrationProgress(String registrationId, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
-    return getRegistrationProgressWithHttpInfo(registrationId, includeChildResults, includeInteractionsAndObjectives, includeRuntime).getData();
-      }
-
-  /**
-   * Get registration progress for &#x60;registrationId&#x60;
-   * 
-   * @param registrationId id for this registration (required)
-   * @param includeChildResults Include information about each learning object, not just the top level in the results (optional, default to false)
-   * @param includeInteractionsAndObjectives Include interactions and objectives in the results (optional, default to false)
-   * @param includeRuntime Include runtime details in the results (optional, default to false)
-   * @return ApiResponse&lt;RegistrationSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<RegistrationSchema> getRegistrationProgressWithHttpInfo(String registrationId, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -1040,7 +823,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}"
+    String localVarPath = "/registrations/{registrationId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -1070,8 +853,8 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get xAPI statements for &#x60;registrationId&#x60;
    * 
+   * Get xAPI statements for &#x60;registrationId&#x60;. 
    * @param registrationId id for this registration (required)
    * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
    * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
@@ -1080,20 +863,6 @@ public class RegistrationApi {
    * @throws ApiException if fails to make API call
    */
   public XapiStatementResult getRegistrationStatements(String registrationId, OffsetDateTime since, OffsetDateTime until, String more) throws ApiException {
-    return getRegistrationStatementsWithHttpInfo(registrationId, since, until, more).getData();
-      }
-
-  /**
-   * Get xAPI statements for &#x60;registrationId&#x60;
-   * 
-   * @param registrationId id for this registration (required)
-   * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param more Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
-   * @return ApiResponse&lt;XapiStatementResult&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<XapiStatementResult> getRegistrationStatementsWithHttpInfo(String registrationId, OffsetDateTime since, OffsetDateTime until, String more) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -1102,7 +871,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/xAPIStatements"
+    String localVarPath = "/registrations/{registrationId}/xAPIStatements".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -1132,24 +901,13 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get the tags for this registration
    * 
+   * Get a list of the tags applied to this registration. 
    * @param registrationId id for this registration (required)
    * @return TagListSchema
    * @throws ApiException if fails to make API call
    */
   public TagListSchema getRegistrationTags(String registrationId) throws ApiException {
-    return getRegistrationTagsWithHttpInfo(registrationId).getData();
-      }
-
-  /**
-   * Get the tags for this registration
-   * 
-   * @param registrationId id for this registration (required)
-   * @return ApiResponse&lt;TagListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<TagListSchema> getRegistrationTagsWithHttpInfo(String registrationId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -1158,7 +916,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/tags"
+    String localVarPath = "/registrations/{registrationId}/tags".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -1185,8 +943,8 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Gets a list of registrations including a summary of the status of each registration.
    * 
+   * Gets a list of registrations including a summary of the status of each registration. 
    * @param courseId Only registrations for the specified course id will be included. (optional)
    * @param learnerId Only registrations for the specified learner id will be included. (optional)
    * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
@@ -1195,32 +953,15 @@ public class RegistrationApi {
    * @param includeChildResults Include information about each learning object, not just the top level in the results (optional, default to false)
    * @param includeInteractionsAndObjectives Include interactions and objectives in the results (optional, default to false)
    * @param includeRuntime Include runtime details in the results (optional, default to false)
+   * @param tags  (optional)
    * @return RegistrationListSchema
    * @throws ApiException if fails to make API call
    */
-  public RegistrationListSchema getRegistrations(String courseId, String learnerId, OffsetDateTime since, OffsetDateTime until, String more, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
-    return getRegistrationsWithHttpInfo(courseId, learnerId, since, until, more, includeChildResults, includeInteractionsAndObjectives, includeRuntime).getData();
-      }
-
-  /**
-   * Gets a list of registrations including a summary of the status of each registration.
-   * 
-   * @param courseId Only registrations for the specified course id will be included. (optional)
-   * @param learnerId Only registrations for the specified learner id will be included. (optional)
-   * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param more Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
-   * @param includeChildResults Include information about each learning object, not just the top level in the results (optional, default to false)
-   * @param includeInteractionsAndObjectives Include interactions and objectives in the results (optional, default to false)
-   * @param includeRuntime Include runtime details in the results (optional, default to false)
-   * @return ApiResponse&lt;RegistrationListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<RegistrationListSchema> getRegistrationsWithHttpInfo(String courseId, String learnerId, OffsetDateTime since, OffsetDateTime until, String more, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
+  public RegistrationListSchema getRegistrations(String courseId, String learnerId, OffsetDateTime since, OffsetDateTime until, String more, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime, List<String> tags) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/registrations";
+    String localVarPath = "/registrations".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1235,6 +976,7 @@ public class RegistrationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeChildResults", includeChildResults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeInteractionsAndObjectives", includeInteractionsAndObjectives));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRuntime", includeRuntime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "tags", tags));
 
     
     
@@ -1254,25 +996,13 @@ public class RegistrationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Set the tags for this registration
    * 
+   * Set the tags for this registration. Note: any tags currently on this registration will be overwritten with the new array of tags. 
    * @param registrationId id for this registration (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
    */
   public void putRegistrationTags(String registrationId, TagListSchema tags) throws ApiException {
-
-    putRegistrationTagsWithHttpInfo(registrationId, tags);
-  }
-
-  /**
-   * Set the tags for this registration
-   * 
-   * @param registrationId id for this registration (required)
-   * @param tags  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> putRegistrationTagsWithHttpInfo(String registrationId, TagListSchema tags) throws ApiException {
     Object localVarPostBody = tags;
     
     // verify the required parameter 'registrationId' is set
@@ -1286,7 +1016,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/tags"
+    String localVarPath = "/registrations/{registrationId}/tags".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -1310,26 +1040,15 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Sets all of the provided tags on all of the provided registrations
    * 
-   * @param batch  (required)
+   * Sets all of the provided tags on all of the provided registrations. 
+   * @param batch Object representing an array of ids to apply an array of tags to. (required)
    * @throws ApiException if fails to make API call
    */
-  public void putRegistrationTagsBatch(RegistrationTagsBatchSchema batch) throws ApiException {
-
-    putRegistrationTagsBatchWithHttpInfo(batch);
-  }
-
-  /**
-   * Sets all of the provided tags on all of the provided registrations
-   * 
-   * @param batch  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> putRegistrationTagsBatchWithHttpInfo(RegistrationTagsBatchSchema batch) throws ApiException {
+  public void putRegistrationTagsBatch(BatchTagsSchema batch) throws ApiException {
     Object localVarPostBody = batch;
     
     // verify the required parameter 'batch' is set
@@ -1338,7 +1057,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/tags";
+    String localVarPath = "/registrations/tags".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1361,26 +1080,15 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Does this registration exist?
    * 
+   * This method is meant to check if a registration with &#x60;registrationId&#x60; exists in the system. 
    * @param registrationId id for this registration (required)
    * @throws ApiException if fails to make API call
    */
   public void registrationExists(String registrationId) throws ApiException {
-
-    registrationExistsWithHttpInfo(registrationId);
-  }
-
-  /**
-   * Does this registration exist?
-   * 
-   * @param registrationId id for this registration (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> registrationExistsWithHttpInfo(String registrationId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'registrationId' is set
@@ -1389,7 +1097,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}"
+    String localVarPath = "/registrations/{registrationId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -1413,28 +1121,16 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "HEAD", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "HEAD", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Set configuration settings for this registration.
    * 
+   * Set configuration settings for this registration. 
    * @param registrationId id for this registration (required)
    * @param configurationSettings  (required)
    * @throws ApiException if fails to make API call
    */
   public void setRegistrationConfiguration(String registrationId, SettingsPostSchema configurationSettings) throws ApiException {
-
-    setRegistrationConfigurationWithHttpInfo(registrationId, configurationSettings);
-  }
-
-  /**
-   * Set configuration settings for this registration.
-   * 
-   * @param registrationId id for this registration (required)
-   * @param configurationSettings  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> setRegistrationConfigurationWithHttpInfo(String registrationId, SettingsPostSchema configurationSettings) throws ApiException {
     Object localVarPostBody = configurationSettings;
     
     // verify the required parameter 'registrationId' is set
@@ -1448,7 +1144,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/configuration"
+    String localVarPath = "/registrations/{registrationId}/configuration".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()));
 
     // query params
@@ -1472,30 +1168,17 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Set configuration settings for this registration instance.
    * 
+   * Set configuration settings for this registration instance. 
    * @param registrationId id for this registration (required)
    * @param instanceId The instance of this registration (required)
    * @param configurationSettings  (required)
    * @throws ApiException if fails to make API call
    */
   public void setRegistrationInstanceConfiguration(String registrationId, Integer instanceId, SettingsPostSchema configurationSettings) throws ApiException {
-
-    setRegistrationInstanceConfigurationWithHttpInfo(registrationId, instanceId, configurationSettings);
-  }
-
-  /**
-   * Set configuration settings for this registration instance.
-   * 
-   * @param registrationId id for this registration (required)
-   * @param instanceId The instance of this registration (required)
-   * @param configurationSettings  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> setRegistrationInstanceConfigurationWithHttpInfo(String registrationId, Integer instanceId, SettingsPostSchema configurationSettings) throws ApiException {
     Object localVarPostBody = configurationSettings;
     
     // verify the required parameter 'registrationId' is set
@@ -1514,7 +1197,7 @@ public class RegistrationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/configuration"
+    String localVarPath = "/registrations/{registrationId}/instances/{instanceId}/configuration".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "registrationId" + "\\}", apiClient.escapeString(registrationId.toString()))
       .replaceAll("\\{" + "instanceId" + "\\}", apiClient.escapeString(instanceId.toString()));
 
@@ -1539,6 +1222,6 @@ public class RegistrationApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 }

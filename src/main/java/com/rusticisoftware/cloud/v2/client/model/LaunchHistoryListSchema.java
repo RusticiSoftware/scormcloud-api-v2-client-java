@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.LaunchHistorySchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,10 +25,10 @@ import java.util.List;
 /**
  * LaunchHistoryListSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class LaunchHistoryListSchema {
   @JsonProperty("launchHistory")
-  private List<LaunchHistorySchema> launchHistory = null;
+  private List<LaunchHistorySchema> launchHistory = new ArrayList<LaunchHistorySchema>();
 
   public LaunchHistoryListSchema launchHistory(List<LaunchHistorySchema> launchHistory) {
     this.launchHistory = launchHistory;
@@ -38,9 +36,6 @@ public class LaunchHistoryListSchema {
   }
 
   public LaunchHistoryListSchema addLaunchHistoryItem(LaunchHistorySchema launchHistoryItem) {
-    if (this.launchHistory == null) {
-      this.launchHistory = new ArrayList<>();
-    }
     this.launchHistory.add(launchHistoryItem);
     return this;
   }
@@ -49,7 +44,7 @@ public class LaunchHistoryListSchema {
    * Get launchHistory
    * @return launchHistory
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<LaunchHistorySchema> getLaunchHistory() {
     return launchHistory;
   }
@@ -97,6 +92,6 @@ public class LaunchHistoryListSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

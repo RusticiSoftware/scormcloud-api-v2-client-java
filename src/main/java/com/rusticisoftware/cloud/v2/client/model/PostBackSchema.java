@@ -14,23 +14,21 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * PostBackSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class PostBackSchema {
   @JsonProperty("url")
   private String url = null;
 
   /**
-   * Optional parameter to specify how to authorize against the given postbackurl, can be &#39;form&#39; or &#39;httpbasic&#39;. If form authentication, the username and password for authentication are submitted as form fields &#39;username&#39; and &#39;password&#39;, and the registration data as the form field &#39;data&#39;. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to &#39;form&#39; by default.
+   * Optional parameter to specify how to authorize against the given postbackurl, can be 'form' or 'httpbasic'. If form authentication, the username and password for authentication are submitted as form fields 'username' and 'password', and the registration data as the form field 'data'. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to 'form' by default.
    */
   public enum AuthTypeEnum {
     UNDEFINED("UNDEFINED"),
@@ -43,11 +41,6 @@ public class PostBackSchema {
 
     AuthTypeEnum(String value) {
       this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
     }
 
     @Override
@@ -76,7 +69,7 @@ public class PostBackSchema {
   private String password = null;
 
   /**
-   * This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: &#39;course&#39; (course summary), &#39;activity&#39; (activity summary, or &#39;full&#39; (full detail), and is set to &#39;course&#39; by default. The information will be posted as xml, and the format of that xml is specified below under the method &#39;getRegistrationResult&#39;
+   * This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: 'course' (course summary), 'activity' (activity summary, or 'full' (full detail), and is set to 'course' by default. The information will be posted as xml, and the format of that xml is specified below under the method 'getRegistrationResult'
    */
   public enum ResultsFormatEnum {
     COURSE("COURSE"),
@@ -89,11 +82,6 @@ public class PostBackSchema {
 
     ResultsFormatEnum(String value) {
       this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
     }
 
     @Override
@@ -124,7 +112,7 @@ public class PostBackSchema {
    * Get url
    * @return url
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getUrl() {
     return url;
   }
@@ -139,10 +127,10 @@ public class PostBackSchema {
   }
 
    /**
-   * Optional parameter to specify how to authorize against the given postbackurl, can be &#39;form&#39; or &#39;httpbasic&#39;. If form authentication, the username and password for authentication are submitted as form fields &#39;username&#39; and &#39;password&#39;, and the registration data as the form field &#39;data&#39;. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to &#39;form&#39; by default.
+   * Optional parameter to specify how to authorize against the given postbackurl, can be 'form' or 'httpbasic'. If form authentication, the username and password for authentication are submitted as form fields 'username' and 'password', and the registration data as the form field 'data'. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to 'form' by default.
    * @return authType
   **/
-  @ApiModelProperty(value = "Optional parameter to specify how to authorize against the given postbackurl, can be 'form' or 'httpbasic'. If form authentication, the username and password for authentication are submitted as form fields 'username' and 'password', and the registration data as the form field 'data'. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to 'form' by default.")
+  @ApiModelProperty(example = "null", value = "Optional parameter to specify how to authorize against the given postbackurl, can be 'form' or 'httpbasic'. If form authentication, the username and password for authentication are submitted as form fields 'username' and 'password', and the registration data as the form field 'data'. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to 'form' by default.")
   public AuthTypeEnum getAuthType() {
     return authType;
   }
@@ -160,7 +148,7 @@ public class PostBackSchema {
    * The user name to be used in authorizing the postback of data to the URL specified by postback url.
    * @return userName
   **/
-  @ApiModelProperty(value = "The user name to be used in authorizing the postback of data to the URL specified by postback url.")
+  @ApiModelProperty(example = "null", value = "The user name to be used in authorizing the postback of data to the URL specified by postback url.")
   public String getUserName() {
     return userName;
   }
@@ -178,7 +166,7 @@ public class PostBackSchema {
    * The password to be used in authorizing the postback of data to the URL specified by postback url.
    * @return password
   **/
-  @ApiModelProperty(value = "The password to be used in authorizing the postback of data to the URL specified by postback url.")
+  @ApiModelProperty(example = "null", value = "The password to be used in authorizing the postback of data to the URL specified by postback url.")
   public String getPassword() {
     return password;
   }
@@ -193,10 +181,10 @@ public class PostBackSchema {
   }
 
    /**
-   * This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: &#39;course&#39; (course summary), &#39;activity&#39; (activity summary, or &#39;full&#39; (full detail), and is set to &#39;course&#39; by default. The information will be posted as xml, and the format of that xml is specified below under the method &#39;getRegistrationResult&#39;
+   * This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: 'course' (course summary), 'activity' (activity summary, or 'full' (full detail), and is set to 'course' by default. The information will be posted as xml, and the format of that xml is specified below under the method 'getRegistrationResult'
    * @return resultsFormat
   **/
-  @ApiModelProperty(value = "This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: 'course' (course summary), 'activity' (activity summary, or 'full' (full detail), and is set to 'course' by default. The information will be posted as xml, and the format of that xml is specified below under the method 'getRegistrationResult'")
+  @ApiModelProperty(example = "null", value = "This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: 'course' (course summary), 'activity' (activity summary, or 'full' (full detail), and is set to 'course' by default. The information will be posted as xml, and the format of that xml is specified below under the method 'getRegistrationResult'")
   public ResultsFormatEnum getResultsFormat() {
     return resultsFormat;
   }
@@ -252,6 +240,6 @@ public class PostBackSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

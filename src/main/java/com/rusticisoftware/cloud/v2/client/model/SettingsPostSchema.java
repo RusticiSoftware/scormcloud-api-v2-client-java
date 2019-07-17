@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.SettingsIndividualSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,10 +25,10 @@ import java.util.List;
 /**
  * SettingsPostSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class SettingsPostSchema {
   @JsonProperty("settings")
-  private List<SettingsIndividualSchema> settings = null;
+  private List<SettingsIndividualSchema> settings = new ArrayList<SettingsIndividualSchema>();
 
   public SettingsPostSchema settings(List<SettingsIndividualSchema> settings) {
     this.settings = settings;
@@ -38,9 +36,6 @@ public class SettingsPostSchema {
   }
 
   public SettingsPostSchema addSettingsItem(SettingsIndividualSchema settingsItem) {
-    if (this.settings == null) {
-      this.settings = new ArrayList<>();
-    }
     this.settings.add(settingsItem);
     return this;
   }
@@ -49,7 +44,7 @@ public class SettingsPostSchema {
    * Get settings
    * @return settings
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<SettingsIndividualSchema> getSettings() {
     return settings;
   }
@@ -97,6 +92,6 @@ public class SettingsPostSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

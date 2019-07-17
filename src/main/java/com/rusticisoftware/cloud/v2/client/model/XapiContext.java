@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiAgentGroup;
 import com.rusticisoftware.cloud.v2.client.model.XapiContextActivity;
 import com.rusticisoftware.cloud.v2.client.model.XapiStatementReference;
@@ -31,7 +29,7 @@ import java.util.Map;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#416-context
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#416-context")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class XapiContext {
   @JsonProperty("registration")
   private String registration = null;
@@ -58,7 +56,7 @@ public class XapiContext {
   private XapiStatementReference statement = null;
 
   @JsonProperty("extensions")
-  private Map<String, Object> extensions = null;
+  private Map<String, Object> extensions = new HashMap<String, Object>();
 
   public XapiContext registration(String registration) {
     this.registration = registration;
@@ -69,7 +67,7 @@ public class XapiContext {
    * Get registration
    * @return registration
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getRegistration() {
     return registration;
   }
@@ -87,7 +85,7 @@ public class XapiContext {
    * Get instructor
    * @return instructor
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public XapiAgentGroup getInstructor() {
     return instructor;
   }
@@ -105,7 +103,7 @@ public class XapiContext {
    * Get team
    * @return team
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public XapiAgentGroup getTeam() {
     return team;
   }
@@ -123,7 +121,7 @@ public class XapiContext {
    * Get contextActivities
    * @return contextActivities
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public XapiContextActivity getContextActivities() {
     return contextActivities;
   }
@@ -141,7 +139,7 @@ public class XapiContext {
    * Get revision
    * @return revision
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getRevision() {
     return revision;
   }
@@ -159,7 +157,7 @@ public class XapiContext {
    * Get platform
    * @return platform
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getPlatform() {
     return platform;
   }
@@ -177,7 +175,7 @@ public class XapiContext {
    * Get language
    * @return language
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getLanguage() {
     return language;
   }
@@ -195,7 +193,7 @@ public class XapiContext {
    * Get statement
    * @return statement
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public XapiStatementReference getStatement() {
     return statement;
   }
@@ -210,9 +208,6 @@ public class XapiContext {
   }
 
   public XapiContext putExtensionsItem(String key, Object extensionsItem) {
-    if (this.extensions == null) {
-      this.extensions = new HashMap<>();
-    }
     this.extensions.put(key, extensionsItem);
     return this;
   }
@@ -221,7 +216,7 @@ public class XapiContext {
    * Get extensions
    * @return extensions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Map<String, Object> getExtensions() {
     return extensions;
   }
@@ -285,6 +280,6 @@ public class XapiContext {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

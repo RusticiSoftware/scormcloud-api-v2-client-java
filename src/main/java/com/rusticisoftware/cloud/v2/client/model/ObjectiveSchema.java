@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ScoreSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ObjectiveSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class ObjectiveSchema {
   @JsonProperty("id")
   private String id = null;
@@ -73,11 +71,6 @@ public class ObjectiveSchema {
       this.value = value;
     }
 
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
     @Override
     public String toString() {
       return String.valueOf(value);
@@ -111,11 +104,6 @@ public class ObjectiveSchema {
 
     ObjectiveSuccessEnum(String value) {
       this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
     }
 
     @Override
@@ -153,11 +141,6 @@ public class ObjectiveSchema {
       this.value = value;
     }
 
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
     @Override
     public String toString() {
       return String.valueOf(value);
@@ -186,7 +169,7 @@ public class ObjectiveSchema {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getId() {
     return id;
   }
@@ -204,8 +187,8 @@ public class ObjectiveSchema {
    * Get primary
    * @return primary
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isPrimary() {
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getPrimary() {
     return primary;
   }
 
@@ -222,7 +205,7 @@ public class ObjectiveSchema {
    * Get score
    * @return score
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public ScoreSchema getScore() {
     return score;
   }
@@ -240,7 +223,7 @@ public class ObjectiveSchema {
    * Get scoreMax
    * @return scoreMax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getScoreMax() {
     return scoreMax;
   }
@@ -258,7 +241,7 @@ public class ObjectiveSchema {
    * Get scoreMin
    * @return scoreMin
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getScoreMin() {
     return scoreMin;
   }
@@ -276,7 +259,7 @@ public class ObjectiveSchema {
    * Get scoreRaw
    * @return scoreRaw
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getScoreRaw() {
     return scoreRaw;
   }
@@ -294,7 +277,7 @@ public class ObjectiveSchema {
    * Get previousScoreScaled
    * @return previousScoreScaled
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getPreviousScoreScaled() {
     return previousScoreScaled;
   }
@@ -312,7 +295,7 @@ public class ObjectiveSchema {
    * Get firstScoreScaled
    * @return firstScoreScaled
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getFirstScoreScaled() {
     return firstScoreScaled;
   }
@@ -330,7 +313,7 @@ public class ObjectiveSchema {
    * Get progressMeasure
    * @return progressMeasure
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getProgressMeasure() {
     return progressMeasure;
   }
@@ -348,7 +331,7 @@ public class ObjectiveSchema {
    * Get firstSuccessTimeStamp
    * @return firstSuccessTimeStamp
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getFirstSuccessTimeStamp() {
     return firstSuccessTimeStamp;
   }
@@ -366,7 +349,7 @@ public class ObjectiveSchema {
    * Get objectiveCompletion
    * @return objectiveCompletion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public ObjectiveCompletionEnum getObjectiveCompletion() {
     return objectiveCompletion;
   }
@@ -384,7 +367,7 @@ public class ObjectiveSchema {
    * Get objectiveSuccess
    * @return objectiveSuccess
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public ObjectiveSuccessEnum getObjectiveSuccess() {
     return objectiveSuccess;
   }
@@ -402,7 +385,7 @@ public class ObjectiveSchema {
    * Get previousObjectiveSuccess
    * @return previousObjectiveSuccess
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public PreviousObjectiveSuccessEnum getPreviousObjectiveSuccess() {
     return previousObjectiveSuccess;
   }
@@ -474,6 +457,6 @@ public class ObjectiveSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

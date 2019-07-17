@@ -14,17 +14,15 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * ApplicationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class ApplicationSchema {
   @JsonProperty("id")
   private String id = null;
@@ -41,7 +39,7 @@ public class ApplicationSchema {
    * The application id for this application.
    * @return id
   **/
-  @ApiModelProperty(value = "The application id for this application.")
+  @ApiModelProperty(example = "null", value = "The application id for this application.")
   public String getId() {
     return id;
   }
@@ -59,7 +57,7 @@ public class ApplicationSchema {
    * The name of this application.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of this application.")
+  @ApiModelProperty(example = "null", value = "The name of this application.")
   public String getName() {
     return name;
   }
@@ -109,6 +107,6 @@ public class ApplicationSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

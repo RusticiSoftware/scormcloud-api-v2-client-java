@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.SettingMetadata;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * SettingItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class SettingItem {
   @JsonProperty("id")
   private String id = null;
@@ -65,11 +63,6 @@ public class SettingItem {
       this.value = value;
     }
 
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
     @Override
     public String toString() {
       return String.valueOf(value);
@@ -104,7 +97,7 @@ public class SettingItem {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getId() {
     return id;
   }
@@ -122,7 +115,7 @@ public class SettingItem {
    * The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels.
    * @return effectiveValue
   **/
-  @ApiModelProperty(value = "The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels.")
+  @ApiModelProperty(example = "null", value = "The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels.")
   public String getEffectiveValue() {
     return effectiveValue;
   }
@@ -140,7 +133,7 @@ public class SettingItem {
    * The source of this effective value, default, fallback, or the level the value was set at.
    * @return effectiveValueSource
   **/
-  @ApiModelProperty(value = "The source of this effective value, default, fallback, or the level the value was set at.")
+  @ApiModelProperty(example = "null", value = "The source of this effective value, default, fallback, or the level the value was set at.")
   public EffectiveValueSourceEnum getEffectiveValueSource() {
     return effectiveValueSource;
   }
@@ -158,7 +151,7 @@ public class SettingItem {
    * The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level.
    * @return explicitValue
   **/
-  @ApiModelProperty(value = "The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level.")
+  @ApiModelProperty(example = "null", value = "The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level.")
   public String getExplicitValue() {
     return explicitValue;
   }
@@ -176,7 +169,7 @@ public class SettingItem {
    * Get metadata
    * @return metadata
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public SettingMetadata getMetadata() {
     return metadata;
   }
@@ -232,6 +225,6 @@ public class SettingItem {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

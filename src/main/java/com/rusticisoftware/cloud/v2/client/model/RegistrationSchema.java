@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ActivityResultSchema;
 import com.rusticisoftware.cloud.v2.client.model.CourseReferenceSchema;
 import com.rusticisoftware.cloud.v2.client.model.LearnerSchema;
@@ -35,7 +33,7 @@ import java.util.List;
 /**
  * RegistrationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class RegistrationSchema {
   @JsonProperty("id")
   private String id = null;
@@ -85,11 +83,14 @@ public class RegistrationSchema {
   @JsonProperty("learner")
   private LearnerSchema learner = null;
 
+  @JsonProperty("tags")
+  private List<String> tags = new ArrayList<String>();
+
   @JsonProperty("globalObjectives")
-  private List<ObjectiveSchema> globalObjectives = null;
+  private List<ObjectiveSchema> globalObjectives = new ArrayList<ObjectiveSchema>();
 
   @JsonProperty("sharedData")
-  private List<SharedDataEntrySchema> sharedData = null;
+  private List<SharedDataEntrySchema> sharedData = new ArrayList<SharedDataEntrySchema>();
 
   @JsonProperty("suspendedActivityId")
   private String suspendedActivityId = null;
@@ -106,7 +107,7 @@ public class RegistrationSchema {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getId() {
     return id;
   }
@@ -124,7 +125,7 @@ public class RegistrationSchema {
    * Get instance
    * @return instance
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Integer getInstance() {
     return instance;
   }
@@ -142,7 +143,7 @@ public class RegistrationSchema {
    * xAPI registration id associated with this registration
    * @return xapiRegistrationId
   **/
-  @ApiModelProperty(value = "xAPI registration id associated with this registration")
+  @ApiModelProperty(example = "null", value = "xAPI registration id associated with this registration")
   public String getXapiRegistrationId() {
     return xapiRegistrationId;
   }
@@ -160,7 +161,7 @@ public class RegistrationSchema {
    * Dispatch ID for this registration, if applicable
    * @return dispatchId
   **/
-  @ApiModelProperty(value = "Dispatch ID for this registration, if applicable")
+  @ApiModelProperty(example = "null", value = "Dispatch ID for this registration, if applicable")
   public String getDispatchId() {
     return dispatchId;
   }
@@ -178,7 +179,7 @@ public class RegistrationSchema {
    * Get updated
    * @return updated
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public OffsetDateTime getUpdated() {
     return updated;
   }
@@ -196,7 +197,7 @@ public class RegistrationSchema {
    * Get registrationCompletion
    * @return registrationCompletion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public RegistrationCompletion getRegistrationCompletion() {
     return registrationCompletion;
   }
@@ -214,7 +215,7 @@ public class RegistrationSchema {
    * Get registrationCompletionAmount
    * @return registrationCompletionAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getRegistrationCompletionAmount() {
     return registrationCompletionAmount;
   }
@@ -232,7 +233,7 @@ public class RegistrationSchema {
    * Get registrationSuccess
    * @return registrationSuccess
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public RegistrationSuccess getRegistrationSuccess() {
     return registrationSuccess;
   }
@@ -250,7 +251,7 @@ public class RegistrationSchema {
    * Get score
    * @return score
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public ScoreSchema getScore() {
     return score;
   }
@@ -268,7 +269,7 @@ public class RegistrationSchema {
    * Get totalSecondsTracked
    * @return totalSecondsTracked
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Double getTotalSecondsTracked() {
     return totalSecondsTracked;
   }
@@ -286,7 +287,7 @@ public class RegistrationSchema {
    * Get firstAccessDate
    * @return firstAccessDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public OffsetDateTime getFirstAccessDate() {
     return firstAccessDate;
   }
@@ -304,7 +305,7 @@ public class RegistrationSchema {
    * Get lastAccessDate
    * @return lastAccessDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public OffsetDateTime getLastAccessDate() {
     return lastAccessDate;
   }
@@ -322,7 +323,7 @@ public class RegistrationSchema {
    * Get completedDate
    * @return completedDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public OffsetDateTime getCompletedDate() {
     return completedDate;
   }
@@ -340,7 +341,7 @@ public class RegistrationSchema {
    * Get createdDate
    * @return createdDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -358,7 +359,7 @@ public class RegistrationSchema {
    * Get course
    * @return course
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public CourseReferenceSchema getCourse() {
     return course;
   }
@@ -376,7 +377,7 @@ public class RegistrationSchema {
    * Get learner
    * @return learner
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public LearnerSchema getLearner() {
     return learner;
   }
@@ -385,15 +386,35 @@ public class RegistrationSchema {
     this.learner = learner;
   }
 
+  public RegistrationSchema tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public RegistrationSchema addTagsItem(String tagsItem) {
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   public RegistrationSchema globalObjectives(List<ObjectiveSchema> globalObjectives) {
     this.globalObjectives = globalObjectives;
     return this;
   }
 
   public RegistrationSchema addGlobalObjectivesItem(ObjectiveSchema globalObjectivesItem) {
-    if (this.globalObjectives == null) {
-      this.globalObjectives = new ArrayList<>();
-    }
     this.globalObjectives.add(globalObjectivesItem);
     return this;
   }
@@ -402,7 +423,7 @@ public class RegistrationSchema {
    * Get globalObjectives
    * @return globalObjectives
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<ObjectiveSchema> getGlobalObjectives() {
     return globalObjectives;
   }
@@ -417,9 +438,6 @@ public class RegistrationSchema {
   }
 
   public RegistrationSchema addSharedDataItem(SharedDataEntrySchema sharedDataItem) {
-    if (this.sharedData == null) {
-      this.sharedData = new ArrayList<>();
-    }
     this.sharedData.add(sharedDataItem);
     return this;
   }
@@ -428,7 +446,7 @@ public class RegistrationSchema {
    * Get sharedData
    * @return sharedData
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<SharedDataEntrySchema> getSharedData() {
     return sharedData;
   }
@@ -446,7 +464,7 @@ public class RegistrationSchema {
    * Get suspendedActivityId
    * @return suspendedActivityId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getSuspendedActivityId() {
     return suspendedActivityId;
   }
@@ -464,7 +482,7 @@ public class RegistrationSchema {
    * Get activityDetails
    * @return activityDetails
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public ActivityResultSchema getActivityDetails() {
     return activityDetails;
   }
@@ -499,6 +517,7 @@ public class RegistrationSchema {
         Objects.equals(this.createdDate, registrationSchema.createdDate) &&
         Objects.equals(this.course, registrationSchema.course) &&
         Objects.equals(this.learner, registrationSchema.learner) &&
+        Objects.equals(this.tags, registrationSchema.tags) &&
         Objects.equals(this.globalObjectives, registrationSchema.globalObjectives) &&
         Objects.equals(this.sharedData, registrationSchema.sharedData) &&
         Objects.equals(this.suspendedActivityId, registrationSchema.suspendedActivityId) &&
@@ -507,7 +526,7 @@ public class RegistrationSchema {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, instance, xapiRegistrationId, dispatchId, updated, registrationCompletion, registrationCompletionAmount, registrationSuccess, score, totalSecondsTracked, firstAccessDate, lastAccessDate, completedDate, createdDate, course, learner, globalObjectives, sharedData, suspendedActivityId, activityDetails);
+    return Objects.hash(id, instance, xapiRegistrationId, dispatchId, updated, registrationCompletion, registrationCompletionAmount, registrationSuccess, score, totalSecondsTracked, firstAccessDate, lastAccessDate, completedDate, createdDate, course, learner, tags, globalObjectives, sharedData, suspendedActivityId, activityDetails);
   }
 
 
@@ -532,6 +551,7 @@ public class RegistrationSchema {
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    course: ").append(toIndentedString(course)).append("\n");
     sb.append("    learner: ").append(toIndentedString(learner)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    globalObjectives: ").append(toIndentedString(globalObjectives)).append("\n");
     sb.append("    sharedData: ").append(toIndentedString(sharedData)).append("\n");
     sb.append("    suspendedActivityId: ").append(toIndentedString(suspendedActivityId)).append("\n");
@@ -550,6 +570,6 @@ public class RegistrationSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

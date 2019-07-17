@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
@@ -28,13 +26,13 @@ import java.util.Map;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#interaction-components
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#interaction-components")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class XapiInteractionComponent {
   @JsonProperty("id")
   private String id = null;
 
   @JsonProperty("description")
-  private Map<String, String> description = null;
+  private Map<String, String> description = new HashMap<String, String>();
 
   public XapiInteractionComponent id(String id) {
     this.id = id;
@@ -45,7 +43,7 @@ public class XapiInteractionComponent {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public String getId() {
     return id;
   }
@@ -60,9 +58,6 @@ public class XapiInteractionComponent {
   }
 
   public XapiInteractionComponent putDescriptionItem(String key, String descriptionItem) {
-    if (this.description == null) {
-      this.description = new HashMap<>();
-    }
     this.description.put(key, descriptionItem);
     return this;
   }
@@ -71,7 +66,7 @@ public class XapiInteractionComponent {
    * Get description
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -121,6 +116,6 @@ public class XapiInteractionComponent {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 

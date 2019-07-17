@@ -2,20 +2,20 @@ package com.rusticisoftware.cloud.v2.client.api;
 
 import com.rusticisoftware.cloud.v2.client.ApiException;
 import com.rusticisoftware.cloud.v2.client.ApiClient;
-import com.rusticisoftware.cloud.v2.client.ApiResponse;
 import com.rusticisoftware.cloud.v2.client.Configuration;
 import com.rusticisoftware.cloud.v2.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
 import com.rusticisoftware.cloud.v2.client.model.ApplicationToken;
+import com.rusticisoftware.cloud.v2.client.model.MessageSchema;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class AuthenticationApi {
   private ApiClient apiClient;
 
@@ -44,18 +44,6 @@ public class AuthenticationApi {
    * @throws ApiException if fails to make API call
    */
   public ApplicationToken getAppToken(String scope, Integer expiration) throws ApiException {
-    return getAppTokenWithHttpInfo(scope, expiration).getData();
-      }
-
-  /**
-   * Authenticates for a oauth token
-   * 
-   * @param scope  (required)
-   * @param expiration  (optional, default to 300)
-   * @return ApiResponse&lt;ApplicationToken&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<ApplicationToken> getAppTokenWithHttpInfo(String scope, Integer expiration) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'scope' is set
@@ -64,7 +52,7 @@ public class AuthenticationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/oauth/authenticate/application/token";
+    String localVarPath = "/oauth/authenticate/application/token".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

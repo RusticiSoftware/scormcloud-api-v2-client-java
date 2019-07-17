@@ -14,10 +14,8 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiStatement;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,10 +26,10 @@ import java.util.List;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#42-retrieval-of-statements
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#42-retrieval-of-statements")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
 public class XapiStatementResult {
   @JsonProperty("statements")
-  private List<XapiStatement> statements = new ArrayList<>();
+  private List<XapiStatement> statements = new ArrayList<XapiStatement>();
 
   @JsonProperty("more")
   private String more = null;
@@ -50,7 +48,7 @@ public class XapiStatementResult {
    * Get statements
    * @return statements
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "")
   public List<XapiStatement> getStatements() {
     return statements;
   }
@@ -68,7 +66,7 @@ public class XapiStatementResult {
    * Get more
    * @return more
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getMore() {
     return more;
   }
@@ -118,6 +116,6 @@ public class XapiStatementResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
+  
 }
 
