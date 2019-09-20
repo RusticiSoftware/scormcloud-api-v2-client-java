@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response.Status;
 
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
-import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
@@ -24,8 +24,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-import org.glassfish.jersey.logging.LoggingFeature;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
@@ -50,21 +48,23 @@ import com.rusticisoftware.cloud.v2.client.auth.HttpBasicAuth;
 import com.rusticisoftware.cloud.v2.client.auth.ApiKeyAuth;
 import com.rusticisoftware.cloud.v2.client.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
 public class ApiClient {
-  protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
-  protected String basePath = "https://cloud.scorm.com/api/v2/";
-  protected boolean debugging = false;
-  protected int connectionTimeout = 0;
-  private int readTimeout = 0;
+  private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
+  private String basePath = "https://cloud.scorm.com/api/v2/";
+  private boolean debugging = false;
+  private int connectionTimeout = 0;
 
-  protected Client httpClient;
-  protected JSON json;
-  protected String tempFolderPath = null;
+  private Client httpClient;
+  private JSON json;
+  private String tempFolderPath = null;
 
-  protected Map<String, Authentication> authentications;
+  private Map<String, Authentication> authentications;
 
-  protected DateFormat dateFormat;
+  private int statusCode;
+  private Map<String, List<String>> responseHeaders;
+
+  private DateFormat dateFormat;
 
   public ApiClient() {
     json = new JSON();
@@ -73,7 +73,7 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("Swagger-Codegen/1.0.0-beta/java");
+    setUserAgent("Swagger-Codegen/1.0.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -110,6 +110,22 @@ public class ApiClient {
   public ApiClient setBasePath(String basePath) {
     this.basePath = basePath;
     return this;
+  }
+
+  /**
+   * Gets the status code of the previous request
+   * @return Status code
+   */
+  public int getStatusCode() {
+    return statusCode;
+  }
+
+  /**
+   * Gets the response headers of the previous request
+   * @return Response headers
+   */
+  public Map<String, List<String>> getResponseHeaders() {
+    return responseHeaders;
   }
 
   /**
@@ -286,27 +302,6 @@ public class ApiClient {
   }
 
   /**
-   * read timeout (in milliseconds).
-   * @return Read timeout
-   */
-  public int getReadTimeout() {
-    return readTimeout;
-  }
-  
-  /**
-   * Set the read timeout (in milliseconds).
-   * A value of 0 means no timeout, otherwise values must be between 1 and
-   * {@link Integer#MAX_VALUE}.
-   * @param readTimeout Read timeout in milliseconds
-   * @return API client
-   */
-  public ApiClient setReadTimeout(int readTimeout) {
-    this.readTimeout = readTimeout;
-    httpClient.property(ClientProperties.READ_TIMEOUT, readTimeout);
-    return this;
-  }
-
-  /**
    * Get the date format used to parse/format date parameters.
    * @return Date format
    */
@@ -438,14 +433,11 @@ public class ApiClient {
    *   application/json
    *   application/json; charset=UTF8
    *   APPLICATION/JSON
-   *   application/vnd.company+json
-   * "* / *" is also default to JSON
    * @param mime MIME
    * @return True if the MIME type is JSON
    */
   public boolean isJsonMime(String mime) {
-    String jsonMime = "(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$";
-    return mime != null && (mime.matches(jsonMime) || mime.equals("*/*"));
+    return mime != null && mime.matches("(?i)application\\/json(;.*)?");
   }
 
   /**
@@ -568,6 +560,8 @@ public class ApiClient {
     List<Object> contentTypes = response.getHeaders().get("Content-Type");
     if (contentTypes != null && !contentTypes.isEmpty())
       contentType = String.valueOf(contentTypes.get(0));
+    if (contentType == null)
+      throw new ApiException(500, "missing Content-Type in response");
 
     return response.readEntity(returnType);
   }
@@ -581,7 +575,7 @@ public class ApiClient {
   public File downloadFileFromResponse(Response response) throws ApiException {
     try {
       File file = prepareDownloadFile(response);
-      Files.copy(response.readEntity(InputStream.class), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+      Files.copy(response.readEntity(InputStream.class), file.toPath());
       return file;
     } catch (IOException e) {
       throw new ApiException(e);
@@ -628,7 +622,7 @@ public class ApiClient {
    *
    * @param <T> Type
    * @param path The sub-path of the HTTP URL
-   * @param method The request method, one of "GET", "POST", "PUT", "HEAD" and "DELETE"
+   * @param method The request method, one of "GET", "POST", "PUT", and "DELETE"
    * @param queryParams The query parameters
    * @param body The request body object
    * @param headerParams The header parameters
@@ -640,7 +634,7 @@ public class ApiClient {
    * @return The response body in type of string
    * @throws ApiException API exception
    */
-  public <T> ApiResponse<T> invokeAPI(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType) throws ApiException {
+  public <T> T invokeAPI(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType) throws ApiException {
     updateParamsForAuth(authNames, queryParams, headerParams);
 
     // Not using `.target(this.basePath).path(path)` below,
@@ -676,58 +670,48 @@ public class ApiClient {
 
     Entity<?> entity = serialize(body, formParams, contentType);
 
-    Response response = null;
+    Response response;
 
-    try {
-      if ("GET".equals(method)) {
-        response = invocationBuilder.get();
-      } else if ("POST".equals(method)) {
-        response = invocationBuilder.post(entity);
-      } else if ("PUT".equals(method)) {
-        response = invocationBuilder.put(entity);
-      } else if ("DELETE".equals(method)) {
-        response = invocationBuilder.delete();
-      } else if ("PATCH".equals(method)) {
-        response = invocationBuilder.method("PATCH", entity);
-      } else if ("HEAD".equals(method)) {
-        response = invocationBuilder.head();
-      } else {
-        throw new ApiException(500, "unknown method type " + method);
-      }
+    if ("GET".equals(method)) {
+      response = invocationBuilder.get();
+    } else if ("POST".equals(method)) {
+      response = invocationBuilder.post(entity);
+    } else if ("PUT".equals(method)) {
+      response = invocationBuilder.put(entity);
+    } else if ("DELETE".equals(method)) {
+      response = invocationBuilder.delete();
+    } else if ("PATCH".equals(method)) {
+      response = invocationBuilder.header("X-HTTP-Method-Override", "PATCH").post(entity);
+    } else {
+      throw new ApiException(500, "unknown method type " + method);
+    }
 
-      int statusCode = response.getStatusInfo().getStatusCode();
-      Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
+    statusCode = response.getStatusInfo().getStatusCode();
+    responseHeaders = buildResponseHeaders(response);
 
-      if (response.getStatus() == Status.NO_CONTENT.getStatusCode()) {
-        return new ApiResponse<>(statusCode, responseHeaders);
-      } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
-        if (returnType == null)
-          return new ApiResponse<>(statusCode, responseHeaders);
-        else
-          return new ApiResponse<>(statusCode, responseHeaders, deserialize(response, returnType));
-      } else {
-        String message = "error";
-        String respBody = null;
-        if (response.hasEntity()) {
-          try {
-            respBody = String.valueOf(response.readEntity(String.class));
-            message = respBody;
-          } catch (RuntimeException e) {
-            // e.printStackTrace();
-          }
+    if (response.getStatus() == Status.NO_CONTENT.getStatusCode()) {
+      return null;
+    } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
+      if (returnType == null)
+        return null;
+      else
+        return deserialize(response, returnType);
+    } else {
+      String message = "error";
+      String respBody = null;
+      if (response.hasEntity()) {
+        try {
+          respBody = String.valueOf(response.readEntity(String.class));
+          message = respBody;
+        } catch (RuntimeException e) {
+          // e.printStackTrace();
         }
-        throw new ApiException(
-          response.getStatus(),
-          message,
-          buildResponseHeaders(response),
-          respBody);
       }
-    } finally {
-      try {
-        response.close();
-      } catch (Exception e) {
-        // it's not critical, since the response object is local in method invokeAPI; that's fine, just continue
-      }
+      throw new ApiException(
+        response.getStatus(),
+        message,
+        buildResponseHeaders(response),
+        respBody);
     }
   }
 
@@ -736,27 +720,18 @@ public class ApiClient {
    * @param debugging Debug setting
    * @return Client
    */
-  protected Client buildHttpClient(boolean debugging) {
+  private Client buildHttpClient(boolean debugging) {
     final ClientConfig clientConfig = new ClientConfig();
     clientConfig.register(MultiPartFeature.class);
     clientConfig.register(json);
     clientConfig.register(JacksonFeature.class);
-    clientConfig.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
     if (debugging) {
-      clientConfig.register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME), java.util.logging.Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, 1024*50 /* Log payloads up to 50K */));
-      clientConfig.property(LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
-      // Set logger to ALL
-      java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME).setLevel(java.util.logging.Level.ALL);
+      clientConfig.register(LoggingFilter.class);
     }
-    performAdditionalClientConfiguration(clientConfig);
     return ClientBuilder.newClient(clientConfig);
   }
 
-  protected void performAdditionalClientConfiguration(ClientConfig clientConfig) {
-    // No-op extension point
-  }
-
-  protected Map<String, List<String>> buildResponseHeaders(Response response) {
+  private Map<String, List<String>> buildResponseHeaders(Response response) {
     Map<String, List<String>> responseHeaders = new HashMap<String, List<String>>();
     for (Entry<String, List<Object>> entry: response.getHeaders().entrySet()) {
       List<Object> values = entry.getValue();
@@ -774,7 +749,7 @@ public class ApiClient {
    *
    * @param authNames The authentications to apply
    */
-  protected void updateParamsForAuth(String[] authNames, List<Pair> queryParams, Map<String, String> headerParams) {
+  private void updateParamsForAuth(String[] authNames, List<Pair> queryParams, Map<String, String> headerParams) {
     for (String authName : authNames) {
       Authentication auth = authentications.get(authName);
       if (auth == null) throw new RuntimeException("Authentication undefined: " + authName);

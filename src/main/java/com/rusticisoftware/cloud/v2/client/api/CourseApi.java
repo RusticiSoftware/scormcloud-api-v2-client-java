@@ -2,16 +2,15 @@ package com.rusticisoftware.cloud.v2.client.api;
 
 import com.rusticisoftware.cloud.v2.client.ApiException;
 import com.rusticisoftware.cloud.v2.client.ApiClient;
-import com.rusticisoftware.cloud.v2.client.ApiResponse;
 import com.rusticisoftware.cloud.v2.client.Configuration;
 import com.rusticisoftware.cloud.v2.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.rusticisoftware.cloud.v2.client.model.BatchTagsSchema;
 import com.rusticisoftware.cloud.v2.client.model.CourseListNonPagedSchema;
 import com.rusticisoftware.cloud.v2.client.model.CourseListSchema;
 import com.rusticisoftware.cloud.v2.client.model.CourseSchema;
-import com.rusticisoftware.cloud.v2.client.model.CourseTagsBatchSchema;
 import java.io.File;
 import com.rusticisoftware.cloud.v2.client.model.ImportFetchRequestSchema;
 import com.rusticisoftware.cloud.v2.client.model.ImportJobResultSchema;
@@ -32,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
 public class CourseApi {
   private ApiClient apiClient;
 
@@ -53,8 +52,8 @@ public class CourseApi {
   }
 
   /**
-   * Returns the launch link to use to preview this course
-   * 
+   * Get a link to preview a course. 
+   * Returns the launch link to use to preview this course. 
    * @param courseId  (required)
    * @param launchLinkRequest  (required)
    * @param cssUrl  (optional)
@@ -62,19 +61,6 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public LaunchLinkSchema buildCoursePreviewLaunchLink(String courseId, LaunchLinkRequestSchema launchLinkRequest, String cssUrl) throws ApiException {
-    return buildCoursePreviewLaunchLinkWithHttpInfo(courseId, launchLinkRequest, cssUrl).getData();
-      }
-
-  /**
-   * Returns the launch link to use to preview this course
-   * 
-   * @param courseId  (required)
-   * @param launchLinkRequest  (required)
-   * @param cssUrl  (optional)
-   * @return ApiResponse&lt;LaunchLinkSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<LaunchLinkSchema> buildCoursePreviewLaunchLinkWithHttpInfo(String courseId, LaunchLinkRequestSchema launchLinkRequest, String cssUrl) throws ApiException {
     Object localVarPostBody = launchLinkRequest;
     
     // verify the required parameter 'courseId' is set
@@ -88,7 +74,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/preview"
+    String localVarPath = "/courses/{courseId}/preview".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -116,8 +102,8 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Returns the link to use to preview this course
-   * 
+   * Get a link to preview a particular course version. 
+   * Returns the link to use to preview a particular version of a course. 
    * @param courseId  (required)
    * @param versionId The course version (required)
    * @param launchLinkRequest  (required)
@@ -125,19 +111,6 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public LaunchLinkSchema buildCoursePreviewLaunchLinkWithVersion(String courseId, Integer versionId, LaunchLinkRequestSchema launchLinkRequest) throws ApiException {
-    return buildCoursePreviewLaunchLinkWithVersionWithHttpInfo(courseId, versionId, launchLinkRequest).getData();
-      }
-
-  /**
-   * Returns the link to use to preview this course
-   * 
-   * @param courseId  (required)
-   * @param versionId The course version (required)
-   * @param launchLinkRequest  (required)
-   * @return ApiResponse&lt;LaunchLinkSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<LaunchLinkSchema> buildCoursePreviewLaunchLinkWithVersionWithHttpInfo(String courseId, Integer versionId, LaunchLinkRequestSchema launchLinkRequest) throws ApiException {
     Object localVarPostBody = launchLinkRequest;
     
     // verify the required parameter 'courseId' is set
@@ -156,7 +129,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/versions/{versionId}/preview"
+    String localVarPath = "/courses/{courseId}/versions/{versionId}/preview".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()))
       .replaceAll("\\{" + "versionId" + "\\}", apiClient.escapeString(versionId.toString()));
 
@@ -184,8 +157,8 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Start a job to fetch and import a course.
-   * An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
+   * Fetch and import a course. 
+   * An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
    * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
    * @param importRequest  (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
@@ -194,20 +167,6 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public StringResultSchema createFetchAndImportCourseJob(String courseId, ImportFetchRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl) throws ApiException {
-    return createFetchAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl).getData();
-      }
-
-  /**
-   * Start a job to fetch and import a course.
-   * An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
-   * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
-   * @param importRequest  (required)
-   * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
-   * @param postbackUrl An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)
-   * @return ApiResponse&lt;StringResultSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<StringResultSchema> createFetchAndImportCourseJobWithHttpInfo(String courseId, ImportFetchRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl) throws ApiException {
     Object localVarPostBody = importRequest;
     
     // verify the required parameter 'courseId' is set
@@ -221,7 +180,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/importJobs";
+    String localVarPath = "/courses/importJobs".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -250,30 +209,16 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Upload a course and start an import job for it.
-   * An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
+   * Upload and import a course.
+   * An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
    * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
-   * @param file The zip file of the course contents to import. (optional)
    * @param postbackUrl An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)
+   * @param file The zip file of the course contents to import. (optional)
    * @return StringResultSchema
    * @throws ApiException if fails to make API call
    */
-  public StringResultSchema createUploadAndImportCourseJob(String courseId, Boolean mayCreateNewVersion, File file, String postbackUrl) throws ApiException {
-    return createUploadAndImportCourseJobWithHttpInfo(courseId, mayCreateNewVersion, file, postbackUrl).getData();
-      }
-
-  /**
-   * Upload a course and start an import job for it.
-   * An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
-   * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
-   * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
-   * @param file The zip file of the course contents to import. (optional)
-   * @param postbackUrl An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)
-   * @return ApiResponse&lt;StringResultSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<StringResultSchema> createUploadAndImportCourseJobWithHttpInfo(String courseId, Boolean mayCreateNewVersion, File file, String postbackUrl) throws ApiException {
+  public StringResultSchema createUploadAndImportCourseJob(String courseId, Boolean mayCreateNewVersion, String postbackUrl, File file) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -282,7 +227,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/importJobs/upload";
+    String localVarPath = "/courses/importJobs/upload".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -313,23 +258,12 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Delete &#x60;courseId&#x60;
-   * 
+   * Delete a course. 
+   * Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
    * @param courseId  (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCourse(String courseId) throws ApiException {
-
-    deleteCourseWithHttpInfo(courseId);
-  }
-
-  /**
-   * Delete &#x60;courseId&#x60;
-   * 
-   * @param courseId  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteCourseWithHttpInfo(String courseId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -338,7 +272,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}"
+    String localVarPath = "/courses/{courseId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -362,28 +296,16 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Clears the &#x60;settingId&#x60; value for this course
-   * 
+   * Clear a course configuration. 
+   * Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
    * @param courseId  (required)
    * @param settingId  (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCourseConfigurationSetting(String courseId, String settingId) throws ApiException {
-
-    deleteCourseConfigurationSettingWithHttpInfo(courseId, settingId);
-  }
-
-  /**
-   * Clears the &#x60;settingId&#x60; value for this course
-   * 
-   * @param courseId  (required)
-   * @param settingId  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteCourseConfigurationSettingWithHttpInfo(String courseId, String settingId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -397,7 +319,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/configuration/{settingId}"
+    String localVarPath = "/courses/{courseId}/configuration/{settingId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()))
       .replaceAll("\\{" + "settingId" + "\\}", apiClient.escapeString(settingId.toString()));
 
@@ -422,28 +344,16 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete tags for this course
-   * 
+   * Delete course tags. 
+   * Delete the provided tags from this course. 
    * @param courseId  (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCourseTags(String courseId, TagListSchema tags) throws ApiException {
-
-    deleteCourseTagsWithHttpInfo(courseId, tags);
-  }
-
-  /**
-   * Delete tags for this course
-   * 
-   * @param courseId  (required)
-   * @param tags  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteCourseTagsWithHttpInfo(String courseId, TagListSchema tags) throws ApiException {
     Object localVarPostBody = tags;
     
     // verify the required parameter 'courseId' is set
@@ -457,7 +367,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/tags"
+    String localVarPath = "/courses/{courseId}/tags".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -481,28 +391,16 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
-   * 
+   * Delete a course version. 
+   * Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
    * @param courseId  (required)
    * @param versionId The course version (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCourseVersion(String courseId, Integer versionId) throws ApiException {
-
-    deleteCourseVersionWithHttpInfo(courseId, versionId);
-  }
-
-  /**
-   * Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
-   * 
-   * @param courseId  (required)
-   * @param versionId The course version (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteCourseVersionWithHttpInfo(String courseId, Integer versionId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -516,7 +414,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/versions/{versionId}"
+    String localVarPath = "/courses/{courseId}/versions/{versionId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()))
       .replaceAll("\\{" + "versionId" + "\\}", apiClient.escapeString(versionId.toString()));
 
@@ -541,30 +439,17 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Clears the &#x60;settingId&#x60; value for this course and version.
-   * 
+   * Clear a configuration setting for a version of a course. 
+   * Clears the &#x60;settingId&#x60; value for this course and version. 
    * @param courseId  (required)
    * @param versionId The course version (required)
    * @param settingId  (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCourseVersionConfigurationSetting(String courseId, Integer versionId, String settingId) throws ApiException {
-
-    deleteCourseVersionConfigurationSettingWithHttpInfo(courseId, versionId, settingId);
-  }
-
-  /**
-   * Clears the &#x60;settingId&#x60; value for this course and version.
-   * 
-   * @param courseId  (required)
-   * @param versionId The course version (required)
-   * @param settingId  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteCourseVersionConfigurationSettingWithHttpInfo(String courseId, Integer versionId, String settingId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -583,7 +468,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/versions/{versionId}/configuration/{settingId}"
+    String localVarPath = "/courses/{courseId}/versions/{versionId}/configuration/{settingId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()))
       .replaceAll("\\{" + "versionId" + "\\}", apiClient.escapeString(versionId.toString()))
       .replaceAll("\\{" + "settingId" + "\\}", apiClient.escapeString(settingId.toString()));
@@ -609,11 +494,11 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Get information about &#x60;courseId&#x60;
-   * 
+   * Get course details. 
+   * Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
    * @param courseId  (required)
    * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
    * @param includeCourseMetadata Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)
@@ -621,19 +506,6 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public CourseSchema getCourse(String courseId, Boolean includeRegistrationCount, Boolean includeCourseMetadata) throws ApiException {
-    return getCourseWithHttpInfo(courseId, includeRegistrationCount, includeCourseMetadata).getData();
-      }
-
-  /**
-   * Get information about &#x60;courseId&#x60;
-   * 
-   * @param courseId  (required)
-   * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
-   * @param includeCourseMetadata Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)
-   * @return ApiResponse&lt;CourseSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<CourseSchema> getCourseWithHttpInfo(String courseId, Boolean includeRegistrationCount, Boolean includeCourseMetadata) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -642,7 +514,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}"
+    String localVarPath = "/courses/{courseId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -671,26 +543,14 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Returns all configuration settings for this course
-   * 
+   * Get course configuration. 
+   * Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
    * @param courseId  (required)
    * @param includeMetadata  (optional, default to false)
    * @return SettingListSchema
    * @throws ApiException if fails to make API call
    */
   public SettingListSchema getCourseConfiguration(String courseId, Boolean includeMetadata) throws ApiException {
-    return getCourseConfigurationWithHttpInfo(courseId, includeMetadata).getData();
-      }
-
-  /**
-   * Returns all configuration settings for this course
-   * 
-   * @param courseId  (required)
-   * @param includeMetadata  (optional, default to false)
-   * @return ApiResponse&lt;SettingListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<SettingListSchema> getCourseConfigurationWithHttpInfo(String courseId, Boolean includeMetadata) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -699,7 +559,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/configuration"
+    String localVarPath = "/courses/{courseId}/configuration".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -727,8 +587,8 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get xAPI statements for &#x60;courseId&#x60;
-   * 
+   * Get course xAPI statements. 
+   * Get xAPI statements for &#x60;courseId&#x60;. 
    * @param courseId  (required)
    * @param learnerId Only entries for the specified learner id will be included. (optional)
    * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
@@ -738,21 +598,6 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public XapiStatementResult getCourseStatements(String courseId, String learnerId, OffsetDateTime since, OffsetDateTime until, String more) throws ApiException {
-    return getCourseStatementsWithHttpInfo(courseId, learnerId, since, until, more).getData();
-      }
-
-  /**
-   * Get xAPI statements for &#x60;courseId&#x60;
-   * 
-   * @param courseId  (required)
-   * @param learnerId Only entries for the specified learner id will be included. (optional)
-   * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param more Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
-   * @return ApiResponse&lt;XapiStatementResult&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<XapiStatementResult> getCourseStatementsWithHttpInfo(String courseId, String learnerId, OffsetDateTime since, OffsetDateTime until, String more) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -761,7 +606,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/xAPIStatements"
+    String localVarPath = "/courses/{courseId}/xAPIStatements".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -792,24 +637,13 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get the tags for this course
-   * 
+   * Get course tags. 
+   * Get a list of the tags for this course. 
    * @param courseId  (required)
    * @return TagListSchema
    * @throws ApiException if fails to make API call
    */
   public TagListSchema getCourseTags(String courseId) throws ApiException {
-    return getCourseTagsWithHttpInfo(courseId).getData();
-      }
-
-  /**
-   * Get the tags for this course
-   * 
-   * @param courseId  (required)
-   * @return ApiResponse&lt;TagListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<TagListSchema> getCourseTagsWithHttpInfo(String courseId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -818,7 +652,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/tags"
+    String localVarPath = "/courses/{courseId}/tags".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -845,8 +679,8 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Returns all configuration settings for this course and version.
-   * 
+   * Get configuration for a version of a course. 
+   * Returns all configuration settings for this course and version. 
    * @param courseId  (required)
    * @param versionId The course version (required)
    * @param includeMetadata  (optional, default to false)
@@ -854,19 +688,6 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public SettingListSchema getCourseVersionConfiguration(String courseId, Integer versionId, Boolean includeMetadata) throws ApiException {
-    return getCourseVersionConfigurationWithHttpInfo(courseId, versionId, includeMetadata).getData();
-      }
-
-  /**
-   * Returns all configuration settings for this course and version.
-   * 
-   * @param courseId  (required)
-   * @param versionId The course version (required)
-   * @param includeMetadata  (optional, default to false)
-   * @return ApiResponse&lt;SettingListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<SettingListSchema> getCourseVersionConfigurationWithHttpInfo(String courseId, Integer versionId, Boolean includeMetadata) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -880,7 +701,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/versions/{versionId}/configuration"
+    String localVarPath = "/courses/{courseId}/versions/{versionId}/configuration".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()))
       .replaceAll("\\{" + "versionId" + "\\}", apiClient.escapeString(versionId.toString()));
 
@@ -909,8 +730,8 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
-   * 
+   * Get details on a course version. 
+   * Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
    * @param courseId  (required)
    * @param versionId The course version (required)
    * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
@@ -919,20 +740,6 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public CourseSchema getCourseVersionInfo(String courseId, Integer versionId, Boolean includeRegistrationCount, Boolean includeCourseMetadata) throws ApiException {
-    return getCourseVersionInfoWithHttpInfo(courseId, versionId, includeRegistrationCount, includeCourseMetadata).getData();
-      }
-
-  /**
-   * Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
-   * 
-   * @param courseId  (required)
-   * @param versionId The course version (required)
-   * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
-   * @param includeCourseMetadata Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)
-   * @return ApiResponse&lt;CourseSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<CourseSchema> getCourseVersionInfoWithHttpInfo(String courseId, Integer versionId, Boolean includeRegistrationCount, Boolean includeCourseMetadata) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -946,7 +753,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/versions/{versionId}"
+    String localVarPath = "/courses/{courseId}/versions/{versionId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()))
       .replaceAll("\\{" + "versionId" + "\\}", apiClient.escapeString(versionId.toString()));
 
@@ -976,8 +783,8 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
-   * 
+   * Get xAPI statements for a course version. 
+   * Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
    * @param courseId  (required)
    * @param versionId The course version (required)
    * @param learnerId Only entries for the specified learner id will be included. (optional)
@@ -988,22 +795,6 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public XapiStatementResult getCourseVersionStatements(String courseId, Integer versionId, String learnerId, OffsetDateTime since, OffsetDateTime until, String more) throws ApiException {
-    return getCourseVersionStatementsWithHttpInfo(courseId, versionId, learnerId, since, until, more).getData();
-      }
-
-  /**
-   * Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
-   * 
-   * @param courseId  (required)
-   * @param versionId The course version (required)
-   * @param learnerId Only entries for the specified learner id will be included. (optional)
-   * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param more Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
-   * @return ApiResponse&lt;XapiStatementResult&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<XapiStatementResult> getCourseVersionStatementsWithHttpInfo(String courseId, Integer versionId, String learnerId, OffsetDateTime since, OffsetDateTime until, String more) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -1017,7 +808,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/versions/{versionId}/xAPIStatements"
+    String localVarPath = "/courses/{courseId}/versions/{versionId}/xAPIStatements".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()))
       .replaceAll("\\{" + "versionId" + "\\}", apiClient.escapeString(versionId.toString()));
 
@@ -1049,8 +840,8 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get all versions of &#x60;courseId&#x60;
-   * 
+   * Get details on a course&#39;s versions. 
+   * Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
    * @param courseId  (required)
    * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
    * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
@@ -1060,21 +851,6 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public CourseListNonPagedSchema getCourseVersions(String courseId, OffsetDateTime since, OffsetDateTime until, Boolean includeRegistrationCount, Boolean includeCourseMetadata) throws ApiException {
-    return getCourseVersionsWithHttpInfo(courseId, since, until, includeRegistrationCount, includeCourseMetadata).getData();
-      }
-
-  /**
-   * Get all versions of &#x60;courseId&#x60;
-   * 
-   * @param courseId  (required)
-   * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
-   * @param includeCourseMetadata Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)
-   * @return ApiResponse&lt;CourseListNonPagedSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<CourseListNonPagedSchema> getCourseVersionsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, Boolean includeRegistrationCount, Boolean includeCourseMetadata) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -1083,7 +859,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/versions"
+    String localVarPath = "/courses/{courseId}/versions".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -1114,8 +890,8 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get all courses for &#x60;appId&#x60;
-   * 
+   * Get all courses. 
+   * Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
    * @param more Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
    * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
    * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
@@ -1129,29 +905,10 @@ public class CourseApi {
    * @throws ApiException if fails to make API call
    */
   public CourseListSchema getCourses(String more, OffsetDateTime since, OffsetDateTime until, String filter, String filterBy, String orderBy, Boolean includeRegistrationCount, Boolean includeCourseMetadata, List<String> tags) throws ApiException {
-    return getCoursesWithHttpInfo(more, since, until, filter, filterBy, orderBy, includeRegistrationCount, includeCourseMetadata, tags).getData();
-      }
-
-  /**
-   * Get all courses for &#x60;appId&#x60;
-   * 
-   * @param more Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
-   * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param until Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
-   * @param filter Optional string which filters results by a specified field (described by filterBy). (optional)
-   * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id. (optional)
-   * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. (optional)
-   * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
-   * @param includeCourseMetadata Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)
-   * @param tags  (optional)
-   * @return ApiResponse&lt;CourseListSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<CourseListSchema> getCoursesWithHttpInfo(String more, OffsetDateTime since, OffsetDateTime until, String filter, String filterBy, String orderBy, Boolean includeRegistrationCount, Boolean includeCourseMetadata, List<String> tags) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/courses";
+    String localVarPath = "/courses".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1166,7 +923,7 @@ public class CourseApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRegistrationCount", includeRegistrationCount));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeCourseMetadata", includeCourseMetadata));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("ssv", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "tags", tags));
 
     
     
@@ -1186,24 +943,13 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Check the status of an import job.
-   * 
+   * Get course import job status. 
+   * Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
    * @param importJobId Id received when the import job was submitted to the importJobs resource. (required)
    * @return ImportJobResultSchema
    * @throws ApiException if fails to make API call
    */
   public ImportJobResultSchema getImportJobStatus(String importJobId) throws ApiException {
-    return getImportJobStatusWithHttpInfo(importJobId).getData();
-      }
-
-  /**
-   * Check the status of an import job.
-   * 
-   * @param importJobId Id received when the import job was submitted to the importJobs resource. (required)
-   * @return ApiResponse&lt;ImportJobResultSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<ImportJobResultSchema> getImportJobStatusWithHttpInfo(String importJobId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'importJobId' is set
@@ -1212,7 +958,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/importJobs/{importJobId}"
+    String localVarPath = "/courses/importJobs/{importJobId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "importJobId" + "\\}", apiClient.escapeString(importJobId.toString()));
 
     // query params
@@ -1239,25 +985,13 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Set the tags for this course
-   * 
+   * Set course tags. 
+   * Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
    * @param courseId  (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
    */
   public void putCourseTags(String courseId, TagListSchema tags) throws ApiException {
-
-    putCourseTagsWithHttpInfo(courseId, tags);
-  }
-
-  /**
-   * Set the tags for this course
-   * 
-   * @param courseId  (required)
-   * @param tags  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> putCourseTagsWithHttpInfo(String courseId, TagListSchema tags) throws ApiException {
     Object localVarPostBody = tags;
     
     // verify the required parameter 'courseId' is set
@@ -1271,7 +1005,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/tags"
+    String localVarPath = "/courses/{courseId}/tags".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -1295,26 +1029,15 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Sets all of the provided tags on all of the provided courses
-   * 
-   * @param batch  (required)
+   * Set tags on courses. 
+   * Sets all of the provided tags on all of the provided courses. 
+   * @param batch Object representing an array of ids to apply an array of tags to. (required)
    * @throws ApiException if fails to make API call
    */
-  public void putCourseTagsBatch(CourseTagsBatchSchema batch) throws ApiException {
-
-    putCourseTagsBatchWithHttpInfo(batch);
-  }
-
-  /**
-   * Sets all of the provided tags on all of the provided courses
-   * 
-   * @param batch  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> putCourseTagsBatchWithHttpInfo(CourseTagsBatchSchema batch) throws ApiException {
+  public void putCourseTagsBatch(BatchTagsSchema batch) throws ApiException {
     Object localVarPostBody = batch;
     
     // verify the required parameter 'batch' is set
@@ -1323,7 +1046,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/tags";
+    String localVarPath = "/courses/tags".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1346,28 +1069,56 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Set configuration settings for this course.
+   * Sets all of the provided tags on all of the provided learners
    * 
+   * @param batch Object representing an array of ids to apply an array of tags to. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void putLearnerTagsBatch(BatchTagsSchema batch) throws ApiException {
+    Object localVarPostBody = batch;
+    
+    // verify the required parameter 'batch' is set
+    if (batch == null) {
+      throw new ApiException(400, "Missing the required parameter 'batch' when calling putLearnerTagsBatch");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/learner/tags".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Set course configuration. 
+   * Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
    * @param courseId  (required)
    * @param configurationSettings  (required)
    * @throws ApiException if fails to make API call
    */
   public void setCourseConfiguration(String courseId, SettingsPostSchema configurationSettings) throws ApiException {
-
-    setCourseConfigurationWithHttpInfo(courseId, configurationSettings);
-  }
-
-  /**
-   * Set configuration settings for this course.
-   * 
-   * @param courseId  (required)
-   * @param configurationSettings  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> setCourseConfigurationWithHttpInfo(String courseId, SettingsPostSchema configurationSettings) throws ApiException {
     Object localVarPostBody = configurationSettings;
     
     // verify the required parameter 'courseId' is set
@@ -1381,7 +1132,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/configuration"
+    String localVarPath = "/courses/{courseId}/configuration".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -1405,29 +1156,16 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Sets the course title for &#x60;courseId&#x60;
-   * 
+   * Set the title of a course. 
+   * Sets the course title for the provided courseId. 
    * @param courseId  (required)
    * @param title  (required)
-   * @return String
    * @throws ApiException if fails to make API call
    */
-  public String setCourseTitle(String courseId, TitleSchema title) throws ApiException {
-    return setCourseTitleWithHttpInfo(courseId, title).getData();
-      }
-
-  /**
-   * Sets the course title for &#x60;courseId&#x60;
-   * 
-   * @param courseId  (required)
-   * @param title  (required)
-   * @return ApiResponse&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<String> setCourseTitleWithHttpInfo(String courseId, TitleSchema title) throws ApiException {
+  public void setCourseTitle(String courseId, TitleSchema title) throws ApiException {
     Object localVarPostBody = title;
     
     // verify the required parameter 'courseId' is set
@@ -1441,7 +1179,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/title"
+    String localVarPath = "/courses/{courseId}/title".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
 
     // query params
@@ -1464,31 +1202,18 @@ public class CourseApi {
 
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
+
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
   /**
-   * Set configuration settings for this course and version.
-   * 
+   * Set configuration for a version of a course. 
+   * Set configuration settings for this course and version. 
    * @param courseId  (required)
    * @param versionId The course version (required)
    * @param configurationSettings  (required)
    * @throws ApiException if fails to make API call
    */
   public void setCourseVersionConfiguration(String courseId, Integer versionId, SettingsPostSchema configurationSettings) throws ApiException {
-
-    setCourseVersionConfigurationWithHttpInfo(courseId, versionId, configurationSettings);
-  }
-
-  /**
-   * Set configuration settings for this course and version.
-   * 
-   * @param courseId  (required)
-   * @param versionId The course version (required)
-   * @param configurationSettings  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> setCourseVersionConfigurationWithHttpInfo(String courseId, Integer versionId, SettingsPostSchema configurationSettings) throws ApiException {
     Object localVarPostBody = configurationSettings;
     
     // verify the required parameter 'courseId' is set
@@ -1507,7 +1232,7 @@ public class CourseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/courses/{courseId}/versions/{versionId}/configuration"
+    String localVarPath = "/courses/{courseId}/versions/{versionId}/configuration".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()))
       .replaceAll("\\{" + "versionId" + "\\}", apiClient.escapeString(versionId.toString()));
 
@@ -1532,6 +1257,6 @@ public class CourseApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 }

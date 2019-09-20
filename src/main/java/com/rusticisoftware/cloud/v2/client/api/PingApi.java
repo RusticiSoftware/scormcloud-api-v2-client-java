@@ -2,7 +2,6 @@ package com.rusticisoftware.cloud.v2.client.api;
 
 import com.rusticisoftware.cloud.v2.client.ApiException;
 import com.rusticisoftware.cloud.v2.client.ApiClient;
-import com.rusticisoftware.cloud.v2.client.ApiResponse;
 import com.rusticisoftware.cloud.v2.client.Configuration;
 import com.rusticisoftware.cloud.v2.client.Pair;
 
@@ -15,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T00:55:07.262-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
 public class PingApi {
   private ApiClient apiClient;
 
@@ -36,26 +35,16 @@ public class PingApi {
   }
 
   /**
-   * Get back a message indicating that the API is working.
    * 
+   * Get back a message indicating that the API is working. 
    * @return PingSchema
    * @throws ApiException if fails to make API call
    */
   public PingSchema pingAppId() throws ApiException {
-    return pingAppIdWithHttpInfo().getData();
-      }
-
-  /**
-   * Get back a message indicating that the API is working.
-   * 
-   * @return ApiResponse&lt;PingSchema&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<PingSchema> pingAppIdWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/ping";
+    String localVarPath = "/ping".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
