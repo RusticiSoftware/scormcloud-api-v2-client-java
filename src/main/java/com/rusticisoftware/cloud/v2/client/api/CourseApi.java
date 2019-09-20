@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
 public class CourseApi {
   private ApiClient apiClient;
 
@@ -52,7 +52,7 @@ public class CourseApi {
   }
 
   /**
-   * 
+   * Get a link to preview a course. 
    * Returns the launch link to use to preview this course. 
    * @param courseId  (required)
    * @param launchLinkRequest  (required)
@@ -102,7 +102,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get a link to preview a particular course version. 
    * Returns the link to use to preview a particular version of a course. 
    * @param courseId  (required)
    * @param versionId The course version (required)
@@ -157,8 +157,8 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
-   * An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call.
+   * Fetch and import a course. 
+   * An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
    * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
    * @param importRequest  (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
@@ -209,7 +209,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Upload and import a course.
    * An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
    * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
@@ -258,7 +258,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Delete a course. 
    * Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
    * @param courseId  (required)
    * @throws ApiException if fails to make API call
@@ -299,7 +299,7 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * 
+   * Clear a course configuration. 
    * Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
    * @param courseId  (required)
    * @param settingId  (required)
@@ -347,7 +347,7 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * 
+   * Delete course tags. 
    * Delete the provided tags from this course. 
    * @param courseId  (required)
    * @param tags  (required)
@@ -394,7 +394,7 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * 
+   * Delete a course version. 
    * Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
    * @param courseId  (required)
    * @param versionId The course version (required)
@@ -442,7 +442,7 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * 
+   * Clear a configuration setting for a version of a course. 
    * Clears the &#x60;settingId&#x60; value for this course and version. 
    * @param courseId  (required)
    * @param versionId The course version (required)
@@ -497,7 +497,7 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * 
+   * Get course details. 
    * Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
    * @param courseId  (required)
    * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
@@ -543,7 +543,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get course configuration. 
    * Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
    * @param courseId  (required)
    * @param includeMetadata  (optional, default to false)
@@ -587,7 +587,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get course xAPI statements. 
    * Get xAPI statements for &#x60;courseId&#x60;. 
    * @param courseId  (required)
    * @param learnerId Only entries for the specified learner id will be included. (optional)
@@ -637,7 +637,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get course tags. 
    * Get a list of the tags for this course. 
    * @param courseId  (required)
    * @return TagListSchema
@@ -679,7 +679,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get configuration for a version of a course. 
    * Returns all configuration settings for this course and version. 
    * @param courseId  (required)
    * @param versionId The course version (required)
@@ -730,7 +730,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get details on a course version. 
    * Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
    * @param courseId  (required)
    * @param versionId The course version (required)
@@ -783,7 +783,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get xAPI statements for a course version. 
    * Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
    * @param courseId  (required)
    * @param versionId The course version (required)
@@ -840,7 +840,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get details on a course&#39;s versions. 
    * Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
    * @param courseId  (required)
    * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
@@ -890,7 +890,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get all courses. 
    * Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
    * @param more Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
    * @param since Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
@@ -943,7 +943,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get course import job status. 
    * Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
    * @param importJobId Id received when the import job was submitted to the importJobs resource. (required)
    * @return ImportJobResultSchema
@@ -985,7 +985,7 @@ public class CourseApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Set course tags. 
    * Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
    * @param courseId  (required)
    * @param tags  (required)
@@ -1032,7 +1032,7 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * 
+   * Set tags on courses. 
    * Sets all of the provided tags on all of the provided courses. 
    * @param batch Object representing an array of ids to apply an array of tags to. (required)
    * @throws ApiException if fails to make API call
@@ -1072,7 +1072,47 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
+   * Sets all of the provided tags on all of the provided learners
    * 
+   * @param batch Object representing an array of ids to apply an array of tags to. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void putLearnerTagsBatch(BatchTagsSchema batch) throws ApiException {
+    Object localVarPostBody = batch;
+    
+    // verify the required parameter 'batch' is set
+    if (batch == null) {
+      throw new ApiException(400, "Missing the required parameter 'batch' when calling putLearnerTagsBatch");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/learner/tags".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Set course configuration. 
    * Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
    * @param courseId  (required)
    * @param configurationSettings  (required)
@@ -1119,7 +1159,7 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * 
+   * Set the title of a course. 
    * Sets the course title for the provided courseId. 
    * @param courseId  (required)
    * @param title  (required)
@@ -1166,7 +1206,7 @@ public class CourseApi {
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * 
+   * Set configuration for a version of a course. 
    * Set configuration settings for this course and version. 
    * @param courseId  (required)
    * @param versionId The course version (required)

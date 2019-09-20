@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
 public class ApplicationManagementApi {
   private ApiClient apiClient;
 
@@ -196,6 +196,51 @@ public class ApplicationManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Clears the &#x60;settingId&#x60; value for this level 
+   * Clears the setting value at this level.  This is effectively reverting the setting to the system level default. 
+   * @param settingId  (required)
+   * @param learningStandard If specified, the request will be scoped to the provided learning standard. (optional)
+   * @param singleSco Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteApplicationConfigurationSetting(String settingId, String learningStandard, Boolean singleSco) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'settingId' is set
+    if (settingId == null) {
+      throw new ApiException(400, "Missing the required parameter 'settingId' when calling deleteApplicationConfigurationSetting");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/appManagement/configuration/{settingId}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "settingId" + "\\}", apiClient.escapeString(settingId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "learningStandard", learningStandard));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "singleSco", singleSco));
 
     
     

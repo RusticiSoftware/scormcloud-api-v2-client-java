@@ -48,7 +48,7 @@ import com.rusticisoftware.cloud.v2.client.auth.HttpBasicAuth;
 import com.rusticisoftware.cloud.v2.client.auth.ApiKeyAuth;
 import com.rusticisoftware.cloud.v2.client.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-16T16:01:27.387-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
 public class ApiClient {
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   private String basePath = "https://cloud.scorm.com/api/v2/";
@@ -73,7 +73,7 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("Swagger-Codegen/1.0.0-beta/java");
+    setUserAgent("Swagger-Codegen/1.0.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
