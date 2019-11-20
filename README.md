@@ -2,7 +2,7 @@
 
 SCORM Cloud Rest API
 - API version: 2.0
-    - Build date: 2019-09-20T12:48:59.622-05:00
+    - Build date: 2019-11-19T22:54:47.497-06:00
 
 REST API used for SCORM Cloud integrations.
 

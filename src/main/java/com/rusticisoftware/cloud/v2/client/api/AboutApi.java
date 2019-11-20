@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
 public class AboutApi {
   private ApiClient apiClient;
 
@@ -35,8 +35,8 @@ public class AboutApi {
   }
 
   /**
-   * Get back the version and platform of the running instance of Engine
-   * 
+   * Get back the API version and application name. 
+   * Get back the API version and application name. 
    * @return AboutSchema
    * @throws ApiException if fails to make API call
    */

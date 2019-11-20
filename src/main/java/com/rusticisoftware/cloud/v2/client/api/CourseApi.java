@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
 public class CourseApi {
   private ApiClient apiClient;
 
@@ -1047,46 +1047,6 @@ public class CourseApi {
     
     // create path and map variables
     String localVarPath = "/courses/tags".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
-
-
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
-  /**
-   * Sets all of the provided tags on all of the provided learners
-   * 
-   * @param batch Object representing an array of ids to apply an array of tags to. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void putLearnerTagsBatch(BatchTagsSchema batch) throws ApiException {
-    Object localVarPostBody = batch;
-    
-    // verify the required parameter 'batch' is set
-    if (batch == null) {
-      throw new ApiException(400, "Missing the required parameter 'batch' when calling putLearnerTagsBatch");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/learner/tags".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

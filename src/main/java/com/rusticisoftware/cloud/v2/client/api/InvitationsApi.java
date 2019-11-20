@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
 public class InvitationsApi {
   private ApiClient apiClient;
 
@@ -130,8 +130,8 @@ public class InvitationsApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Delete tags for this invitation
-   * 
+   * Delete the tags for this invitation 
+   * Delete the tags for this invitation 
    * @param invitationId invitation id (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
@@ -224,8 +224,8 @@ public class InvitationsApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get the tags for this invitation
-   * 
+   * Get the tags for this invitation 
+   * Get the tags for this invitation 
    * @param invitationId invitation id (required)
    * @return TagListSchema
    * @throws ApiException if fails to make API call
@@ -590,8 +590,8 @@ public class InvitationsApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Set the tags for this invitation
-   * 
+   * Set the tags for this invitation 
+   * Set the tags for this invitation 
    * @param invitationId invitation id (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
@@ -637,8 +637,8 @@ public class InvitationsApi {
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Sets all of the provided tags on all of the provided invitations
-   * 
+   * Sets all of the provided tags on all of the provided invitations 
+   * Sets all of the provided tags on all of the provided invitations 
    * @param batch Object representing an array of ids to apply an array of tags to. (required)
    * @throws ApiException if fails to make API call
    */

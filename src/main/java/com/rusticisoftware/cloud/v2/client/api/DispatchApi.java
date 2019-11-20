@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
 public class DispatchApi {
   private ApiClient apiClient;
 
@@ -89,7 +89,7 @@ public class DispatchApi {
   }
   /**
    * Create dispatches.
-   * 
+   * Create multiple dispatches at once. 
    * @param dispatchList  (required)
    * @throws ApiException if fails to make API call
    */
@@ -128,8 +128,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * DestinationsByTenantAndDestinationId
-   * Delete the destination with destinationId &#x3D; {destinationId}.
+   * Delete destination 
+   * Delete the destination with &#x60;destinationId&#x60; 
    * @param destinationId Identifier for the destination (required)
    * @throws ApiException if fails to make API call
    */
@@ -169,8 +169,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * DestinationsDispatchesByTenant
-   * Delete all related dispatches.
+   * Delete dispatches in destination 
+   * Delete the dispatches in a destination 
    * @param destinationId Identifier for the destination (required)
    * @throws ApiException if fails to make API call
    */
@@ -210,8 +210,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete tags for this destination
-   * 
+   * Delete the tags for this destination 
+   * Delete the tags for this destination 
    * @param destinationId Identifier for the destination (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
@@ -257,8 +257,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * DispatchesByTenantAndDispatchId
-   * Delete the dispatch with dispatchId &#x3D; {dispatchId}.
+   * Delete the dispatch with &#x60;dispatchId&#x60;. 
+   * Delete the dispatch with &#x60;dispatchId&#x60;. 
    * @param dispatchId Identifier for the dispatch (required)
    * @throws ApiException if fails to make API call
    */
@@ -299,7 +299,7 @@ public class DispatchApi {
   }
   /**
    * DispatchesByTenantAndDispatchId
-   * Delete the postback info dispatch with dispatchId &#x3D; {dispatchId}.
+   * Delete the postback info dispatch with &#39;dispatchId&#39;. 
    * @param dispatchId Identifier for the dispatch (required)
    * @throws ApiException if fails to make API call
    */
@@ -339,8 +339,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete tags for this dispatch
-   * 
+   * Delete the tags for this dispatch. 
+   * Delete the tags for this dispatch. 
    * @param dispatchId Identifier for the dispatch (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
@@ -663,8 +663,8 @@ public class DispatchApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get the tags for this destination
-   * 
+   * Get the tags for this destination 
+   * Get the tags for this destination 
    * @param destinationId Identifier for the destination (required)
    * @return TagListSchema
    * @throws ApiException if fails to make API call
@@ -796,8 +796,8 @@ public class DispatchApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * DispatchesEnabledByTenantAndDispatchId
-   * True if the dispatch is enabled, or false if it is disabled.
+   * Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+   * Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
    * @param dispatchId Identifier for the dispatch (required)
    * @return EnabledSchema
    * @throws ApiException if fails to make API call
@@ -839,7 +839,7 @@ public class DispatchApi {
       }
   /**
    * Get if this dispatch has PII hashing enabled.
-   * True if the dispatch is set to hash user info, or false if it is disabled.
+   * Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
    * @param dispatchId Identifier for the dispatch (required)
    * @return EnabledSchema
    * @throws ApiException if fails to make API call
@@ -880,8 +880,8 @@ public class DispatchApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * DispatchesRegistrationCountByTenant
-   * Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+   * Get the registration count for &#x60;dispatchId&#x60;. 
+   * Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
    * @param dispatchId Identifier for the dispatch (required)
    * @return DispatchRegistrationCountSchema
    * @throws ApiException if fails to make API call
@@ -922,8 +922,8 @@ public class DispatchApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get the tags for this dispatch
-   * 
+   * Get the tags for this dispatch. 
+   * Get the tags for this dispatch. 
    * @param dispatchId Identifier for the dispatch (required)
    * @return TagListSchema
    * @throws ApiException if fails to make API call
@@ -965,7 +965,7 @@ public class DispatchApi {
       }
   /**
    * Get the ZIP for the dispatchId.
-   * Get the ZIP for the dispatch with dispatchId &#x3D; {dispatchId}.
+   * Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
    * @param dispatchId Identifier for the dispatch (required)
    * @param type The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)
    * @param cssUrl  (optional)
@@ -1059,8 +1059,8 @@ public class DispatchApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Set the tags for this destination
-   * 
+   * Set the tags for this destination 
+   * Set the tags for this destination 
    * @param destinationId Identifier for the destination (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
@@ -1107,7 +1107,7 @@ public class DispatchApi {
   }
   /**
    * Sets all of the provided tags on all of the provided destinations
-   * 
+   * Sets all of the provided tags on all of the provided destinations
    * @param batch Object representing an array of ids to apply an array of tags to. (required)
    * @throws ApiException if fails to make API call
    */
@@ -1146,8 +1146,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Set the tags for this dispatch
-   * 
+   * Set the tags for this dispatch. 
+   * Set the tags for this dispatch. 
    * @param dispatchId Identifier for the dispatch (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
@@ -1193,8 +1193,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Sets all of the provided tags on all of the provided dispatches
-   * 
+   * Sets all of the provided tags on all of the provided dispatches 
+   * Sets all of the provided tags on all of the provided dispatches 
    * @param batch Object representing an array of ids to apply an array of tags to. (required)
    * @throws ApiException if fails to make API call
    */
@@ -1274,8 +1274,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * DispatchesRegistrationCountByTenant
-   * Reset the registration count for this dispatch.
+   * Reset registration count. 
+   * Reset the registration count for this dispatch. 
    * @param dispatchId Identifier for the dispatch (required)
    * @throws ApiException if fails to make API call
    */
@@ -1315,8 +1315,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown. You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination.
    * 
+   * Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
    * @param destinationId Identifier for the destination (required)
    * @param destination  (required)
    * @throws ApiException if fails to make API call
@@ -1409,8 +1409,8 @@ public class DispatchApi {
     apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * DispatchesEnabledByTenantAndDispatchId
-   * Enable or disabled the dispatch.
+   * Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+   * Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
    * @param dispatchId Identifier for the dispatch (required)
    * @param enabled  (required)
    * @throws ApiException if fails to make API call

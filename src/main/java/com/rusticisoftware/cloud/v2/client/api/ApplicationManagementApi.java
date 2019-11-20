@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
 public class ApplicationManagementApi {
   private ApiClient apiClient;
 
@@ -79,7 +79,7 @@ public class ApplicationManagementApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
 
     GenericType<ApplicationSchema> localVarReturnType = new GenericType<ApplicationSchema>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
@@ -127,7 +127,7 @@ public class ApplicationManagementApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
 
     GenericType<CredentialCreatedSchema> localVarReturnType = new GenericType<CredentialCreatedSchema>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
@@ -209,7 +209,7 @@ public class ApplicationManagementApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
 
 
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
@@ -302,7 +302,7 @@ public class ApplicationManagementApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
 
 
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
@@ -349,7 +349,7 @@ public class ApplicationManagementApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * 
+   * Get a list of all applications for the realm.
    * Get list of all applications in this realm.
    * @return ApplicationListSchema
    * @throws ApiException if fails to make API call
@@ -378,14 +378,14 @@ public class ApplicationManagementApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
 
     GenericType<ApplicationListSchema> localVarReturnType = new GenericType<ApplicationListSchema>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * 
-   * Retrieve a list of all credentials (aka secret keys) and their statuses. 
+   * Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
    * @param childAppId  (required)
    * @return CredentialListSchema
    * @throws ApiException if fails to make API call
@@ -420,14 +420,14 @@ public class ApplicationManagementApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
 
     GenericType<CredentialListSchema> localVarReturnType = new GenericType<CredentialListSchema>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * 
-   * Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
+   * Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
    * @param configurationSettings  (required)
    * @param learningStandard If specified, the request will be scoped to the provided learning standard. (optional)
    * @param singleSco Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)
@@ -518,7 +518,7 @@ public class ApplicationManagementApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
 
 
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);

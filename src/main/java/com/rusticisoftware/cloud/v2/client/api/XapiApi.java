@@ -15,6 +15,7 @@ import com.rusticisoftware.cloud.v2.client.model.XapiCredentialSchema;
 import com.rusticisoftware.cloud.v2.client.model.XapiCredentialsListSchema;
 import com.rusticisoftware.cloud.v2.client.model.XapiStatementPipeListSchema;
 import com.rusticisoftware.cloud.v2.client.model.XapiStatementPipePostSchema;
+import com.rusticisoftware.cloud.v2.client.model.XapiStatementPipePutSchema;
 import com.rusticisoftware.cloud.v2.client.model.XapiStatementPipeSchema;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
 public class XapiApi {
   private ApiClient apiClient;
 
@@ -44,7 +45,7 @@ public class XapiApi {
 
   /**
    * Create an xAPI statement pipe.
-   * 
+   * Create an xAPI statement pipe.
    * @param xapiStatementPipe  (required)
    * @return StringResultSchema
    * @throws ApiException if fails to make API call
@@ -85,7 +86,7 @@ public class XapiApi {
       }
   /**
    * Create a xAPI credential.
-   * 
+   * Create a xAPI credential.
    * @param xapiCredential  (required)
    * @return StringResultSchema
    * @throws ApiException if fails to make API call
@@ -126,7 +127,7 @@ public class XapiApi {
       }
   /**
    * Deletes this xAPI pipe.
-   * Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor.
+   * Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
    * @param statementPipeId id for this xAPI statement pipe (required)
    * @throws ApiException if fails to make API call
    */
@@ -167,7 +168,7 @@ public class XapiApi {
   }
   /**
    * Deletes the xAPI credentials specified by the xAPI credentials id
-   * 
+   * Deletes the xAPI credentials specified by the xAPI credentials id
    * @param xapiCredentialId id for this xAPI credential (required)
    * @throws ApiException if fails to make API call
    */
@@ -208,7 +209,7 @@ public class XapiApi {
   }
   /**
    * Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
-   * 
+   * Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
    * @param statementPipeId id for this xAPI statement pipe (required)
    * @return XapiStatementPipeSchema
    * @throws ApiException if fails to make API call
@@ -250,7 +251,7 @@ public class XapiApi {
       }
   /**
    * Get all of the xapiPipes for &#x60;appId&#x60;
-   * 
+   * Get all of the xapiPipes for &#x60;appId&#x60;
    * @return XapiStatementPipeListSchema
    * @throws ApiException if fails to make API call
    */
@@ -285,7 +286,7 @@ public class XapiApi {
       }
   /**
    * Retrieves the xAPI credentials specified by the xAPI credentials id.
-   * 
+   * Retrieves the xAPI credentials specified by the xAPI credentials id.
    * @param xapiCredentialId id for this xAPI credential (required)
    * @return XapiCredentialSchema
    * @throws ApiException if fails to make API call
@@ -327,7 +328,7 @@ public class XapiApi {
       }
   /**
    * Get the list of xapiCredentials
-   * 
+   * Get the list of xapiCredentials
    * @param since Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)
    * @param more Value for this parameter will be provided in the &#39;more&#39; property of &lt;&lt;resourcePathName&gt;&gt; lists, where needed. An opaque value, construction and parsing may change without notice. (optional)
    * @return XapiCredentialsListSchema
@@ -366,13 +367,13 @@ public class XapiApi {
       }
   /**
    * Edit an existing xAPI pipe or create a new one.
-   * Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409.
+   * Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
    * @param statementPipeId id for this xAPI statement pipe (required)
    * @param xapiStatementPipe  (required)
    * @return StringResultSchema
    * @throws ApiException if fails to make API call
    */
-  public StringResultSchema setStatementPipe(String statementPipeId, XapiStatementPipeSchema xapiStatementPipe) throws ApiException {
+  public StringResultSchema setStatementPipe(String statementPipeId, XapiStatementPipePutSchema xapiStatementPipe) throws ApiException {
     Object localVarPostBody = xapiStatementPipe;
     
     // verify the required parameter 'statementPipeId' is set
@@ -414,7 +415,7 @@ public class XapiApi {
       }
   /**
    * Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
-   * 
+   * Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
    * @param xapiCredentialId id for this xAPI credential (required)
    * @param xapiCredential  (required)
    * @throws ApiException if fails to make API call
