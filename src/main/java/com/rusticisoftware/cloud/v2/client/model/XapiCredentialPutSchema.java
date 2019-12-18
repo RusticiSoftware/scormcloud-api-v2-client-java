@@ -22,10 +22,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * XapiCredentialPostSchema
+ * XapiCredentialPutSchema
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
-public class XapiCredentialPostSchema {
+public class XapiCredentialPutSchema {
+  @JsonProperty("id")
+  private String id = null;
+
   @JsonProperty("name")
   private String name = null;
 
@@ -44,7 +47,25 @@ public class XapiCredentialPostSchema {
   @JsonProperty("permissionsLevel")
   private XapiCredentialPermissionsLevelSchema permissionsLevel = null;
 
-  public XapiCredentialPostSchema name(String name) {
+  public XapiCredentialPutSchema id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public XapiCredentialPutSchema name(String name) {
     this.name = name;
     return this;
   }
@@ -53,7 +74,7 @@ public class XapiCredentialPostSchema {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getName() {
     return name;
   }
@@ -62,7 +83,7 @@ public class XapiCredentialPostSchema {
     this.name = name;
   }
 
-  public XapiCredentialPostSchema info(String info) {
+  public XapiCredentialPutSchema info(String info) {
     this.info = info;
     return this;
   }
@@ -80,7 +101,7 @@ public class XapiCredentialPostSchema {
     this.info = info;
   }
 
-  public XapiCredentialPostSchema secret(String secret) {
+  public XapiCredentialPutSchema secret(String secret) {
     this.secret = secret;
     return this;
   }
@@ -89,7 +110,7 @@ public class XapiCredentialPostSchema {
    * Get secret
    * @return secret
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getSecret() {
     return secret;
   }
@@ -98,7 +119,7 @@ public class XapiCredentialPostSchema {
     this.secret = secret;
   }
 
-  public XapiCredentialPostSchema isEnabled(Boolean isEnabled) {
+  public XapiCredentialPutSchema isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -107,7 +128,7 @@ public class XapiCredentialPostSchema {
    * Get isEnabled
    * @return isEnabled
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Boolean getIsEnabled() {
     return isEnabled;
   }
@@ -116,7 +137,7 @@ public class XapiCredentialPostSchema {
     this.isEnabled = isEnabled;
   }
 
-  public XapiCredentialPostSchema auth(XapiCredentialAuthTypeSchema auth) {
+  public XapiCredentialPutSchema auth(XapiCredentialAuthTypeSchema auth) {
     this.auth = auth;
     return this;
   }
@@ -125,7 +146,7 @@ public class XapiCredentialPostSchema {
    * Get auth
    * @return auth
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", value = "")
   public XapiCredentialAuthTypeSchema getAuth() {
     return auth;
   }
@@ -134,7 +155,7 @@ public class XapiCredentialPostSchema {
     this.auth = auth;
   }
 
-  public XapiCredentialPostSchema permissionsLevel(XapiCredentialPermissionsLevelSchema permissionsLevel) {
+  public XapiCredentialPutSchema permissionsLevel(XapiCredentialPermissionsLevelSchema permissionsLevel) {
     this.permissionsLevel = permissionsLevel;
     return this;
   }
@@ -143,7 +164,7 @@ public class XapiCredentialPostSchema {
    * Get permissionsLevel
    * @return permissionsLevel
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", value = "")
   public XapiCredentialPermissionsLevelSchema getPermissionsLevel() {
     return permissionsLevel;
   }
@@ -161,26 +182,28 @@ public class XapiCredentialPostSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    XapiCredentialPostSchema xapiCredentialPostSchema = (XapiCredentialPostSchema) o;
-    return Objects.equals(this.name, xapiCredentialPostSchema.name) &&
-        Objects.equals(this.info, xapiCredentialPostSchema.info) &&
-        Objects.equals(this.secret, xapiCredentialPostSchema.secret) &&
-        Objects.equals(this.isEnabled, xapiCredentialPostSchema.isEnabled) &&
-        Objects.equals(this.auth, xapiCredentialPostSchema.auth) &&
-        Objects.equals(this.permissionsLevel, xapiCredentialPostSchema.permissionsLevel);
+    XapiCredentialPutSchema xapiCredentialPutSchema = (XapiCredentialPutSchema) o;
+    return Objects.equals(this.id, xapiCredentialPutSchema.id) &&
+        Objects.equals(this.name, xapiCredentialPutSchema.name) &&
+        Objects.equals(this.info, xapiCredentialPutSchema.info) &&
+        Objects.equals(this.secret, xapiCredentialPutSchema.secret) &&
+        Objects.equals(this.isEnabled, xapiCredentialPutSchema.isEnabled) &&
+        Objects.equals(this.auth, xapiCredentialPutSchema.auth) &&
+        Objects.equals(this.permissionsLevel, xapiCredentialPutSchema.permissionsLevel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, info, secret, isEnabled, auth, permissionsLevel);
+    return Objects.hash(id, name, info, secret, isEnabled, auth, permissionsLevel);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class XapiCredentialPostSchema {\n");
+    sb.append("class XapiCredentialPutSchema {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    info: ").append(toIndentedString(info)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");

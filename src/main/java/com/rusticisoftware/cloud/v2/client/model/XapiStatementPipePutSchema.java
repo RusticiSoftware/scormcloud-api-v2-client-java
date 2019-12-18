@@ -16,62 +16,55 @@ package com.rusticisoftware.cloud.v2.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.rusticisoftware.cloud.v2.client.model.CourseSchema;
+import com.rusticisoftware.cloud.v2.client.model.XapiEndpointSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * CourseListSchema
+ * XapiStatementPipePutSchema
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
-public class CourseListSchema {
-  @JsonProperty("courses")
-  private List<CourseSchema> courses = new ArrayList<CourseSchema>();
+public class XapiStatementPipePutSchema {
+  @JsonProperty("source")
+  private XapiEndpointSchema source = null;
 
-  @JsonProperty("more")
-  private String more = null;
+  @JsonProperty("target")
+  private XapiEndpointSchema target = null;
 
-  public CourseListSchema courses(List<CourseSchema> courses) {
-    this.courses = courses;
-    return this;
-  }
-
-  public CourseListSchema addCoursesItem(CourseSchema coursesItem) {
-    this.courses.add(coursesItem);
+  public XapiStatementPipePutSchema source(XapiEndpointSchema source) {
+    this.source = source;
     return this;
   }
 
    /**
-   * Get courses
-   * @return courses
+   * Get source
+   * @return source
   **/
   @ApiModelProperty(example = "null", value = "")
-  public List<CourseSchema> getCourses() {
-    return courses;
+  public XapiEndpointSchema getSource() {
+    return source;
   }
 
-  public void setCourses(List<CourseSchema> courses) {
-    this.courses = courses;
+  public void setSource(XapiEndpointSchema source) {
+    this.source = source;
   }
 
-  public CourseListSchema more(String more) {
-    this.more = more;
+  public XapiStatementPipePutSchema target(XapiEndpointSchema target) {
+    this.target = target;
     return this;
   }
 
    /**
-   * Get more
-   * @return more
+   * Get target
+   * @return target
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getMore() {
-    return more;
+  public XapiEndpointSchema getTarget() {
+    return target;
   }
 
-  public void setMore(String more) {
-    this.more = more;
+  public void setTarget(XapiEndpointSchema target) {
+    this.target = target;
   }
 
 
@@ -83,24 +76,24 @@ public class CourseListSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CourseListSchema courseListSchema = (CourseListSchema) o;
-    return Objects.equals(this.courses, courseListSchema.courses) &&
-        Objects.equals(this.more, courseListSchema.more);
+    XapiStatementPipePutSchema xapiStatementPipePutSchema = (XapiStatementPipePutSchema) o;
+    return Objects.equals(this.source, xapiStatementPipePutSchema.source) &&
+        Objects.equals(this.target, xapiStatementPipePutSchema.target);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(courses, more);
+    return Objects.hash(source, target);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CourseListSchema {\n");
+    sb.append("class XapiStatementPipePutSchema {\n");
     
-    sb.append("    courses: ").append(toIndentedString(courses)).append("\n");
-    sb.append("    more: ").append(toIndentedString(more)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("}");
     return sb.toString();
   }

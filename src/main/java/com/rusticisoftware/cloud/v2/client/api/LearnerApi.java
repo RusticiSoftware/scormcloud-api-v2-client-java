@@ -7,6 +7,7 @@ import com.rusticisoftware.cloud.v2.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.rusticisoftware.cloud.v2.client.model.BatchTagsSchema;
 import com.rusticisoftware.cloud.v2.client.model.MessageSchema;
 import com.rusticisoftware.cloud.v2.client.model.TagListSchema;
 
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
 public class LearnerApi {
   private ApiClient apiClient;
 
@@ -36,14 +37,13 @@ public class LearnerApi {
   }
 
   /**
-   * Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners.
-   * 
+   * Deletes all of the information associated with a learner in an application, by learner id. 
+   * Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
    * @param learnerId The id of the learner for which to remove all data from an application (required)
    * @param userEmail The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. (required)
-   * @return String
    * @throws ApiException if fails to make API call
    */
-  public String deleteAllLearnerData(String learnerId, String userEmail) throws ApiException {
+  public void deleteAllLearnerData(String learnerId, String userEmail) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'learnerId' is set
@@ -81,12 +81,12 @@ public class LearnerApi {
 
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
+
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
   /**
-   * Delete tags for this learner
-   * 
+   * Delete the tags for this learner 
+   * Delete the tags for this learner 
    * @param learnerId The id of the learner for which to remove all data from an application (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
@@ -132,8 +132,8 @@ public class LearnerApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Get the tags for this learner
-   * 
+   * Get the tags for this learner 
+   * Get the tags for this learner 
    * @param learnerId The id of the learner for which to remove all data from an application (required)
    * @return TagListSchema
    * @throws ApiException if fails to make API call
@@ -174,8 +174,8 @@ public class LearnerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Set the tags for this learner
-   * 
+   * Set the tags for this learner 
+   * Set the tags for this learner 
    * @param learnerId The id of the learner for which to remove all data from an application (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
@@ -196,6 +196,46 @@ public class LearnerApi {
     // create path and map variables
     String localVarPath = "/learner/{learnerId}/tags".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "learnerId" + "\\}", apiClient.escapeString(learnerId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Sets all of the provided tags on all of the provided learners
+   * Sets all of the provided tags on all of the provided learners 
+   * @param batch Object representing an array of ids to apply an array of tags to. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void putLearnerTagsBatch(BatchTagsSchema batch) throws ApiException {
+    Object localVarPostBody = batch;
+    
+    // verify the required parameter 'batch' is set
+    if (batch == null) {
+      throw new ApiException(400, "Missing the required parameter 'batch' when calling putLearnerTagsBatch");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/learner/tags".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

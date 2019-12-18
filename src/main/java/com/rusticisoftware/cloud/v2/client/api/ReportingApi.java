@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-20T12:48:59.622-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
 public class ReportingApi {
   private ApiClient apiClient;
 
@@ -39,7 +39,7 @@ public class ReportingApi {
 
   /**
    * Get all of the account information specified by the given app ID
-   * 
+   * Get all of the account information specified by the given app ID
    * @return ReportageAccountInfoSchema
    * @throws ApiException if fails to make API call
    */
@@ -74,7 +74,7 @@ public class ReportingApi {
       }
   /**
    * Get a session authentication token to use when launching Reportage
-   * 
+   * Get a session authentication token to use when launching Reportage
    * @param navPermission The navigation permissions for this Reportage session (required)
    * @param admin Grant admin privileges to this Reportage session (optional, default to false)
    * @return ReportageAuthTokenSchema
@@ -118,7 +118,7 @@ public class ReportingApi {
       }
   /**
    * Get the link to a page in Reportage with the given authentication and permissions
-   * 
+   * Get the link to a page in Reportage with the given authentication and permissions
    * @param auth The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60; (required)
    * @param reportUrl The Reportage URL to try and access (required)
    * @return ReportageLinkSchema
