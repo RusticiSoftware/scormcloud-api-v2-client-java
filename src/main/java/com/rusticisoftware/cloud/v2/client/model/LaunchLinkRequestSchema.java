@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.rusticisoftware.cloud.v2.client.model.ItemValuePairSchema;
+import com.rusticisoftware.cloud.v2.client.model.LaunchAuthSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ import java.util.List;
 /**
  * LaunchLinkRequestSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
 public class LaunchLinkRequestSchema {
   @JsonProperty("expiry")
   private Integer expiry = 120;
@@ -56,6 +57,9 @@ public class LaunchLinkRequestSchema {
 
   @JsonProperty("additionalvalues")
   private List<ItemValuePairSchema> additionalvalues = new ArrayList<ItemValuePairSchema>();
+
+  @JsonProperty("launchAuth")
+  private LaunchAuthSchema launchAuth = null;
 
   public LaunchLinkRequestSchema expiry(Integer expiry) {
     this.expiry = expiry;
@@ -257,6 +261,24 @@ public class LaunchLinkRequestSchema {
     this.additionalvalues = additionalvalues;
   }
 
+  public LaunchLinkRequestSchema launchAuth(LaunchAuthSchema launchAuth) {
+    this.launchAuth = launchAuth;
+    return this;
+  }
+
+   /**
+   * Get launchAuth
+   * @return launchAuth
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public LaunchAuthSchema getLaunchAuth() {
+    return launchAuth;
+  }
+
+  public void setLaunchAuth(LaunchAuthSchema launchAuth) {
+    this.launchAuth = launchAuth;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -276,12 +298,13 @@ public class LaunchLinkRequestSchema {
         Objects.equals(this.learnerTags, launchLinkRequestSchema.learnerTags) &&
         Objects.equals(this.courseTags, launchLinkRequestSchema.courseTags) &&
         Objects.equals(this.registrationTags, launchLinkRequestSchema.registrationTags) &&
-        Objects.equals(this.additionalvalues, launchLinkRequestSchema.additionalvalues);
+        Objects.equals(this.additionalvalues, launchLinkRequestSchema.additionalvalues) &&
+        Objects.equals(this.launchAuth, launchLinkRequestSchema.launchAuth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(expiry, redirectOnExitUrl, tracking, startSco, culture, cssUrl, learnerTags, courseTags, registrationTags, additionalvalues);
+    return Objects.hash(expiry, redirectOnExitUrl, tracking, startSco, culture, cssUrl, learnerTags, courseTags, registrationTags, additionalvalues, launchAuth);
   }
 
 
@@ -300,6 +323,7 @@ public class LaunchLinkRequestSchema {
     sb.append("    courseTags: ").append(toIndentedString(courseTags)).append("\n");
     sb.append("    registrationTags: ").append(toIndentedString(registrationTags)).append("\n");
     sb.append("    additionalvalues: ").append(toIndentedString(additionalvalues)).append("\n");
+    sb.append("    launchAuth: ").append(toIndentedString(launchAuth)).append("\n");
     sb.append("}");
     return sb.toString();
   }

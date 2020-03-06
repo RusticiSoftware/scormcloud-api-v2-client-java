@@ -8,6 +8,7 @@ import com.rusticisoftware.cloud.v2.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.rusticisoftware.cloud.v2.client.model.BatchTagsSchema;
+import com.rusticisoftware.cloud.v2.client.model.LearnerSchema;
 import com.rusticisoftware.cloud.v2.client.model.MessageSchema;
 import com.rusticisoftware.cloud.v2.client.model.TagListSchema;
 
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
 public class LearnerApi {
   private ApiClient apiClient;
 
@@ -259,5 +260,52 @@ public class LearnerApi {
 
 
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Update a learner&#39;s info on all of their registrations.
+   * A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+   * @param learnerId The id of the learner to be updated (required)
+   * @param learnerInfo  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateLearnerInfo(String learnerId, LearnerSchema learnerInfo) throws ApiException {
+    Object localVarPostBody = learnerInfo;
+    
+    // verify the required parameter 'learnerId' is set
+    if (learnerId == null) {
+      throw new ApiException(400, "Missing the required parameter 'learnerId' when calling updateLearnerInfo");
+    }
+    
+    // verify the required parameter 'learnerInfo' is set
+    if (learnerInfo == null) {
+      throw new ApiException(400, "Missing the required parameter 'learnerInfo' when calling updateLearnerInfo");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/learner/{learnerId}/updateInfo".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "learnerId" + "\\}", apiClient.escapeString(learnerId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 }
