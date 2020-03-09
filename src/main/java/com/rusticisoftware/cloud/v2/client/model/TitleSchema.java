@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TitleSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
 public class TitleSchema {
   @JsonProperty("title")
   private String title = null;

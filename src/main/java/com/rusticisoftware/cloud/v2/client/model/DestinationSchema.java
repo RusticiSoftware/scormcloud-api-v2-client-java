@@ -16,6 +16,7 @@ package com.rusticisoftware.cloud.v2.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.rusticisoftware.cloud.v2.client.model.LaunchAuthSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.List;
 /**
  * DestinationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
 public class DestinationSchema {
   @JsonProperty("name")
   private String name = null;
@@ -37,6 +38,9 @@ public class DestinationSchema {
 
   @JsonProperty("notes")
   private String notes = null;
+
+  @JsonProperty("launchAuth")
+  private LaunchAuthSchema launchAuth = null;
 
   public DestinationSchema name(String name) {
     this.name = name;
@@ -115,6 +119,24 @@ public class DestinationSchema {
     this.notes = notes;
   }
 
+  public DestinationSchema launchAuth(LaunchAuthSchema launchAuth) {
+    this.launchAuth = launchAuth;
+    return this;
+  }
+
+   /**
+   * Get launchAuth
+   * @return launchAuth
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public LaunchAuthSchema getLaunchAuth() {
+    return launchAuth;
+  }
+
+  public void setLaunchAuth(LaunchAuthSchema launchAuth) {
+    this.launchAuth = launchAuth;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +150,13 @@ public class DestinationSchema {
     return Objects.equals(this.name, destinationSchema.name) &&
         Objects.equals(this.tags, destinationSchema.tags) &&
         Objects.equals(this.email, destinationSchema.email) &&
-        Objects.equals(this.notes, destinationSchema.notes);
+        Objects.equals(this.notes, destinationSchema.notes) &&
+        Objects.equals(this.launchAuth, destinationSchema.launchAuth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, tags, email, notes);
+    return Objects.hash(name, tags, email, notes, launchAuth);
   }
 
 
@@ -146,6 +169,7 @@ public class DestinationSchema {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+    sb.append("    launchAuth: ").append(toIndentedString(launchAuth)).append("\n");
     sb.append("}");
     return sb.toString();
   }

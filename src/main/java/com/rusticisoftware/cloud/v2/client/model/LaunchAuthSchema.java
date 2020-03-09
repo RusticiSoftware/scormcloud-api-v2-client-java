@@ -16,25 +16,26 @@ package com.rusticisoftware.cloud.v2.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.rusticisoftware.cloud.v2.client.model.LaunchAuthOptionsSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * XapiCredentialAuthTypeSchema
+ * LaunchAuthSchema
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
-public class XapiCredentialAuthTypeSchema {
+public class LaunchAuthSchema {
   /**
-   * Gets or Sets xapiCredentialAuthType
+   * Gets or Sets type
    */
-  public enum XapiCredentialAuthTypeEnum {
-    BASICAUTH("BASICAUTH"),
+  public enum TypeEnum {
+    COOKIES("cookies"),
     
-    OAUTH("OAUTH");
+    VAULT("vault");
 
     private String value;
 
-    XapiCredentialAuthTypeEnum(String value) {
+    TypeEnum(String value) {
       this.value = value;
     }
 
@@ -44,8 +45,8 @@ public class XapiCredentialAuthTypeSchema {
     }
 
     @JsonCreator
-    public static XapiCredentialAuthTypeEnum fromValue(String text) {
-      for (XapiCredentialAuthTypeEnum b : XapiCredentialAuthTypeEnum.values()) {
+    public static TypeEnum fromValue(String text) {
+      for (TypeEnum b : TypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -54,25 +55,46 @@ public class XapiCredentialAuthTypeSchema {
     }
   }
 
-  @JsonProperty("xapiCredentialAuthType")
-  private XapiCredentialAuthTypeEnum xapiCredentialAuthType = null;
+  @JsonProperty("type")
+  private TypeEnum type = TypeEnum.COOKIES;
 
-  public XapiCredentialAuthTypeSchema xapiCredentialAuthType(XapiCredentialAuthTypeEnum xapiCredentialAuthType) {
-    this.xapiCredentialAuthType = xapiCredentialAuthType;
+  @JsonProperty("options")
+  private LaunchAuthOptionsSchema options = null;
+
+  public LaunchAuthSchema type(TypeEnum type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get xapiCredentialAuthType
-   * @return xapiCredentialAuthType
+   * Get type
+   * @return type
   **/
   @ApiModelProperty(example = "null", value = "")
-  public XapiCredentialAuthTypeEnum getXapiCredentialAuthType() {
-    return xapiCredentialAuthType;
+  public TypeEnum getType() {
+    return type;
   }
 
-  public void setXapiCredentialAuthType(XapiCredentialAuthTypeEnum xapiCredentialAuthType) {
-    this.xapiCredentialAuthType = xapiCredentialAuthType;
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+  public LaunchAuthSchema options(LaunchAuthOptionsSchema options) {
+    this.options = options;
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public LaunchAuthOptionsSchema getOptions() {
+    return options;
+  }
+
+  public void setOptions(LaunchAuthOptionsSchema options) {
+    this.options = options;
   }
 
 
@@ -84,22 +106,24 @@ public class XapiCredentialAuthTypeSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    XapiCredentialAuthTypeSchema xapiCredentialAuthTypeSchema = (XapiCredentialAuthTypeSchema) o;
-    return Objects.equals(this.xapiCredentialAuthType, xapiCredentialAuthTypeSchema.xapiCredentialAuthType);
+    LaunchAuthSchema launchAuthSchema = (LaunchAuthSchema) o;
+    return Objects.equals(this.type, launchAuthSchema.type) &&
+        Objects.equals(this.options, launchAuthSchema.options);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(xapiCredentialAuthType);
+    return Objects.hash(type, options);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class XapiCredentialAuthTypeSchema {\n");
+    sb.append("class LaunchAuthSchema {\n");
     
-    sb.append("    xapiCredentialAuthType: ").append(toIndentedString(xapiCredentialAuthType)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4141-when-the-objecttype-is-activity
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4141-when-the-objecttype-is-activity")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-19T22:54:47.497-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
 public class XapiActivity {
   @JsonProperty("objectType")
   private String objectType = "Activity";

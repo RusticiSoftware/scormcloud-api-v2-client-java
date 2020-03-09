@@ -2,7 +2,7 @@
 
 SCORM Cloud Rest API
 - API version: 2.0
-    - Build date: 2019-11-19T22:54:47.497-06:00
+    - Build date: 2020-03-06T09:44:40.358-06:00
 
 REST API used for SCORM Cloud integrations.
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.rusticisoftware.cloud.v2.client</groupId>
     <artifactId>scormcloud-api-v2-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.rusticisoftware.cloud.v2.client:scormcloud-api-v2-client:1.0.0"
+compile "com.rusticisoftware.cloud.v2.client:scormcloud-api-v2-client:1.0.1"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/scormcloud-api-v2-client-1.0.0.jar`
+* `target/scormcloud-api-v2-client-1.0.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
