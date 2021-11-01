@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.CommentSchema;
 import com.rusticisoftware.cloud.v2.client.model.LearnerPreferenceSchema;
 import com.rusticisoftware.cloud.v2.client.model.RuntimeInteractionSchema;
@@ -28,7 +30,7 @@ import java.util.List;
 /**
  * RuntimeSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class RuntimeSchema {
   @JsonProperty("completionStatus")
   private String completionStatus = null;
@@ -88,15 +90,20 @@ public class RuntimeSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static RuntimeSuccessStatusEnum fromValue(String text) {
+    public static RuntimeSuccessStatusEnum fromValue(String value) {
       for (RuntimeSuccessStatusEnum b : RuntimeSuccessStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -111,27 +118,27 @@ public class RuntimeSchema {
   private String suspendData = null;
 
   @JsonProperty("learnerComments")
-  private List<CommentSchema> learnerComments = new ArrayList<CommentSchema>();
+  private List<CommentSchema> learnerComments = null;
 
   @JsonProperty("lmsComments")
-  private List<CommentSchema> lmsComments = new ArrayList<CommentSchema>();
+  private List<CommentSchema> lmsComments = null;
 
   @JsonProperty("runtimeInteractions")
-  private List<RuntimeInteractionSchema> runtimeInteractions = new ArrayList<RuntimeInteractionSchema>();
+  private List<RuntimeInteractionSchema> runtimeInteractions = null;
 
   @JsonProperty("runtimeObjectives")
-  private List<RuntimeObjectiveSchema> runtimeObjectives = new ArrayList<RuntimeObjectiveSchema>();
+  private List<RuntimeObjectiveSchema> runtimeObjectives = null;
 
   public RuntimeSchema completionStatus(String completionStatus) {
     this.completionStatus = completionStatus;
     return this;
   }
 
-   /**
+  /**
    * Get completionStatus
    * @return completionStatus
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getCompletionStatus() {
     return completionStatus;
   }
@@ -145,11 +152,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get credit
    * @return credit
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getCredit() {
     return credit;
   }
@@ -163,11 +170,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get entry
    * @return entry
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getEntry() {
     return entry;
   }
@@ -181,11 +188,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get exit
    * @return exit
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getExit() {
     return exit;
   }
@@ -199,11 +206,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get learnerPreference
    * @return learnerPreference
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public LearnerPreferenceSchema getLearnerPreference() {
     return learnerPreference;
   }
@@ -217,11 +224,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get location
    * @return location
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLocation() {
     return location;
   }
@@ -235,11 +242,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get mode
    * @return mode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getMode() {
     return mode;
   }
@@ -253,11 +260,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get progressMeasure
    * @return progressMeasure
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getProgressMeasure() {
     return progressMeasure;
   }
@@ -271,11 +278,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scoreScaled
    * @return scoreScaled
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getScoreScaled() {
     return scoreScaled;
   }
@@ -289,11 +296,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scoreRaw
    * @return scoreRaw
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getScoreRaw() {
     return scoreRaw;
   }
@@ -307,11 +314,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scoreMin
    * @return scoreMin
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getScoreMin() {
     return scoreMin;
   }
@@ -325,11 +332,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scoreMax
    * @return scoreMax
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getScoreMax() {
     return scoreMax;
   }
@@ -343,11 +350,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get totalTime
    * @return totalTime
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTotalTime() {
     return totalTime;
   }
@@ -361,11 +368,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get timeTracked
    * @return timeTracked
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTimeTracked() {
     return timeTracked;
   }
@@ -379,11 +386,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get runtimeSuccessStatus
    * @return runtimeSuccessStatus
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public RuntimeSuccessStatusEnum getRuntimeSuccessStatus() {
     return runtimeSuccessStatus;
   }
@@ -397,11 +404,11 @@ public class RuntimeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get suspendData
    * @return suspendData
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getSuspendData() {
     return suspendData;
   }
@@ -416,15 +423,18 @@ public class RuntimeSchema {
   }
 
   public RuntimeSchema addLearnerCommentsItem(CommentSchema learnerCommentsItem) {
+    if (this.learnerComments == null) {
+      this.learnerComments = new ArrayList<>();
+    }
     this.learnerComments.add(learnerCommentsItem);
     return this;
   }
 
-   /**
+  /**
    * Get learnerComments
    * @return learnerComments
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<CommentSchema> getLearnerComments() {
     return learnerComments;
   }
@@ -439,15 +449,18 @@ public class RuntimeSchema {
   }
 
   public RuntimeSchema addLmsCommentsItem(CommentSchema lmsCommentsItem) {
+    if (this.lmsComments == null) {
+      this.lmsComments = new ArrayList<>();
+    }
     this.lmsComments.add(lmsCommentsItem);
     return this;
   }
 
-   /**
+  /**
    * Get lmsComments
    * @return lmsComments
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<CommentSchema> getLmsComments() {
     return lmsComments;
   }
@@ -462,15 +475,18 @@ public class RuntimeSchema {
   }
 
   public RuntimeSchema addRuntimeInteractionsItem(RuntimeInteractionSchema runtimeInteractionsItem) {
+    if (this.runtimeInteractions == null) {
+      this.runtimeInteractions = new ArrayList<>();
+    }
     this.runtimeInteractions.add(runtimeInteractionsItem);
     return this;
   }
 
-   /**
+  /**
    * Get runtimeInteractions
    * @return runtimeInteractions
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<RuntimeInteractionSchema> getRuntimeInteractions() {
     return runtimeInteractions;
   }
@@ -485,15 +501,18 @@ public class RuntimeSchema {
   }
 
   public RuntimeSchema addRuntimeObjectivesItem(RuntimeObjectiveSchema runtimeObjectivesItem) {
+    if (this.runtimeObjectives == null) {
+      this.runtimeObjectives = new ArrayList<>();
+    }
     this.runtimeObjectives.add(runtimeObjectivesItem);
     return this;
   }
 
-   /**
+  /**
    * Get runtimeObjectives
    * @return runtimeObjectives
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<RuntimeObjectiveSchema> getRuntimeObjectives() {
     return runtimeObjectives;
   }
@@ -539,7 +558,6 @@ public class RuntimeSchema {
     return Objects.hash(completionStatus, credit, entry, exit, learnerPreference, location, mode, progressMeasure, scoreScaled, scoreRaw, scoreMin, scoreMax, totalTime, timeTracked, runtimeSuccessStatus, suspendData, learnerComments, lmsComments, runtimeInteractions, runtimeObjectives);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -579,6 +597,6 @@ public class RuntimeSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

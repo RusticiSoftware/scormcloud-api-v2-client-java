@@ -15,14 +15,13 @@ package com.rusticisoftware.cloud.v2.client.auth;
 
 import com.rusticisoftware.cloud.v2.client.Pair;
 
-import com.migcomponents.migbase64.Base64;
+import java.util.Base64;
+import java.nio.charset.StandardCharsets;
 
 import java.util.Map;
 import java.util.List;
 
-import java.io.UnsupportedEncodingException;
-
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class HttpBasicAuth implements Authentication {
   private String username;
   private String password;
@@ -49,10 +48,6 @@ public class HttpBasicAuth implements Authentication {
       return;
     }
     String str = (username == null ? "" : username) + ":" + (password == null ? "" : password);
-    try {
-      headerParams.put("Authorization", "Basic " + Base64.encodeToString(str.getBytes("UTF-8"), false));
-    } catch (UnsupportedEncodingException e) {
-      throw new RuntimeException(e);
-    }
+    headerParams.put("Authorization", "Basic " + Base64.getEncoder().encodeToString(str.getBytes(StandardCharsets.UTF_8)));
   }
 }

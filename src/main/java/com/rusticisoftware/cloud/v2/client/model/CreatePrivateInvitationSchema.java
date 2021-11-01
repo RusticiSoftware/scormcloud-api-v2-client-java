@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.InvitationEmailSchema;
 import com.rusticisoftware.cloud.v2.client.model.PostBackSchema;
 import io.swagger.annotations.ApiModel;
@@ -27,7 +29,7 @@ import java.util.List;
 /**
  * CreatePrivateInvitationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CreatePrivateInvitationSchema {
   @JsonProperty("courseId")
   private String courseId = null;
@@ -45,18 +47,18 @@ public class CreatePrivateInvitationSchema {
   private OffsetDateTime expirationDate = null;
 
   @JsonProperty("tags")
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = null;
 
   public CreatePrivateInvitationSchema courseId(String courseId) {
     this.courseId = courseId;
     return this;
   }
 
-   /**
+  /**
    * The id of the course for which to create an invitation.
    * @return courseId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The id of the course for which to create an invitation.")
+  @ApiModelProperty(required = true, value = "The id of the course for which to create an invitation.")
   public String getCourseId() {
     return courseId;
   }
@@ -70,11 +72,11 @@ public class CreatePrivateInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * The email of the user who is creating the invitation.
    * @return creatingUserEmail
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The email of the user who is creating the invitation.")
+  @ApiModelProperty(required = true, value = "The email of the user who is creating the invitation.")
   public String getCreatingUserEmail() {
     return creatingUserEmail;
   }
@@ -88,11 +90,11 @@ public class CreatePrivateInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get invitationEmail
    * @return invitationEmail
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public InvitationEmailSchema getInvitationEmail() {
     return invitationEmail;
   }
@@ -106,11 +108,11 @@ public class CreatePrivateInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * Specifies a URL for which to post activity and status data in real time as the course is completed
    * @return postBack
   **/
-  @ApiModelProperty(example = "null", value = "Specifies a URL for which to post activity and status data in real time as the course is completed")
+  @ApiModelProperty(value = "Specifies a URL for which to post activity and status data in real time as the course is completed")
   public PostBackSchema getPostBack() {
     return postBack;
   }
@@ -124,11 +126,11 @@ public class CreatePrivateInvitationSchema {
     return this;
   }
 
-   /**
-   * The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).
+  /**
+   * The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. 
    * @return expirationDate
   **/
-  @ApiModelProperty(example = "null", value = "The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).")
+  @ApiModelProperty(value = "The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. ")
   public OffsetDateTime getExpirationDate() {
     return expirationDate;
   }
@@ -143,15 +145,18 @@ public class CreatePrivateInvitationSchema {
   }
 
   public CreatePrivateInvitationSchema addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
 
-   /**
+  /**
    * Optional tags to be applied to this invitation.
    * @return tags
   **/
-  @ApiModelProperty(example = "null", value = "Optional tags to be applied to this invitation.")
+  @ApiModelProperty(value = "Optional tags to be applied to this invitation.")
   public List<String> getTags() {
     return tags;
   }
@@ -183,7 +188,6 @@ public class CreatePrivateInvitationSchema {
     return Objects.hash(courseId, creatingUserEmail, invitationEmail, postBack, expirationDate, tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -209,6 +213,6 @@ public class CreatePrivateInvitationSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

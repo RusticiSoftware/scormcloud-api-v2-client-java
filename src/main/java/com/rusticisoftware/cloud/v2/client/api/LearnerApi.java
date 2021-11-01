@@ -2,6 +2,7 @@ package com.rusticisoftware.cloud.v2.client.api;
 
 import com.rusticisoftware.cloud.v2.client.ApiException;
 import com.rusticisoftware.cloud.v2.client.ApiClient;
+import com.rusticisoftware.cloud.v2.client.ApiResponse;
 import com.rusticisoftware.cloud.v2.client.Configuration;
 import com.rusticisoftware.cloud.v2.client.Pair;
 
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class LearnerApi {
   private ApiClient apiClient;
 
@@ -38,13 +39,25 @@ public class LearnerApi {
   }
 
   /**
-   * Deletes all of the information associated with a learner in an application, by learner id. 
-   * Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
-   * @param learnerId The id of the learner for which to remove all data from an application (required)
-   * @param userEmail The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. (required)
+   * Deletes all PII for a learnerId 
+   * Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
+   * @param learnerId The id of the learner (required)
+   * @param userEmail The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.  (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteAllLearnerData(String learnerId, String userEmail) throws ApiException {
+
+    deleteAllLearnerDataWithHttpInfo(learnerId, userEmail);
+  }
+
+  /**
+   * Deletes all PII for a learnerId 
+   * Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
+   * @param learnerId The id of the learner (required)
+   * @param userEmail The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> deleteAllLearnerDataWithHttpInfo(String learnerId, String userEmail) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'learnerId' is set
@@ -58,7 +71,7 @@ public class LearnerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/learner/{learnerId}/delete-information".replaceAll("\\{format\\}","json")
+    String localVarPath = "/learner/{learnerId}/delete-information"
       .replaceAll("\\{" + "learnerId" + "\\}", apiClient.escapeString(learnerId.toString()));
 
     // query params
@@ -83,16 +96,28 @@ public class LearnerApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete the tags for this learner 
-   * Delete the tags for this learner 
-   * @param learnerId The id of the learner for which to remove all data from an application (required)
+   * Delete tags from a learnerId 
+   * Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
+   * @param learnerId The id of the learner (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteLearnerTags(String learnerId, TagListSchema tags) throws ApiException {
+
+    deleteLearnerTagsWithHttpInfo(learnerId, tags);
+  }
+
+  /**
+   * Delete tags from a learnerId 
+   * Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
+   * @param learnerId The id of the learner (required)
+   * @param tags  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> deleteLearnerTagsWithHttpInfo(String learnerId, TagListSchema tags) throws ApiException {
     Object localVarPostBody = tags;
     
     // verify the required parameter 'learnerId' is set
@@ -106,7 +131,7 @@ public class LearnerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/learner/{learnerId}/tags".replaceAll("\\{format\\}","json")
+    String localVarPath = "/learner/{learnerId}/tags"
       .replaceAll("\\{" + "learnerId" + "\\}", apiClient.escapeString(learnerId.toString()));
 
     // query params
@@ -130,16 +155,27 @@ public class LearnerApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Get the tags for this learner 
-   * Get the tags for this learner 
-   * @param learnerId The id of the learner for which to remove all data from an application (required)
+   * Get tags for a learnerId 
+   * Returns the tags for the learner. 
+   * @param learnerId The id of the learner (required)
    * @return TagListSchema
    * @throws ApiException if fails to make API call
    */
   public TagListSchema getLearnerTags(String learnerId) throws ApiException {
+    return getLearnerTagsWithHttpInfo(learnerId).getData();
+      }
+
+  /**
+   * Get tags for a learnerId 
+   * Returns the tags for the learner. 
+   * @param learnerId The id of the learner (required)
+   * @return ApiResponse&lt;TagListSchema&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<TagListSchema> getLearnerTagsWithHttpInfo(String learnerId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'learnerId' is set
@@ -148,7 +184,7 @@ public class LearnerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/learner/{learnerId}/tags".replaceAll("\\{format\\}","json")
+    String localVarPath = "/learner/{learnerId}/tags"
       .replaceAll("\\{" + "learnerId" + "\\}", apiClient.escapeString(learnerId.toString()));
 
     // query params
@@ -175,13 +211,25 @@ public class LearnerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Set the tags for this learner 
-   * Set the tags for this learner 
-   * @param learnerId The id of the learner for which to remove all data from an application (required)
+   * Add tags to a learnerId 
+   * Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
+   * @param learnerId The id of the learner (required)
    * @param tags  (required)
    * @throws ApiException if fails to make API call
    */
   public void putLearnerTags(String learnerId, TagListSchema tags) throws ApiException {
+
+    putLearnerTagsWithHttpInfo(learnerId, tags);
+  }
+
+  /**
+   * Add tags to a learnerId 
+   * Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
+   * @param learnerId The id of the learner (required)
+   * @param tags  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> putLearnerTagsWithHttpInfo(String learnerId, TagListSchema tags) throws ApiException {
     Object localVarPostBody = tags;
     
     // verify the required parameter 'learnerId' is set
@@ -195,7 +243,7 @@ public class LearnerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/learner/{learnerId}/tags".replaceAll("\\{format\\}","json")
+    String localVarPath = "/learner/{learnerId}/tags"
       .replaceAll("\\{" + "learnerId" + "\\}", apiClient.escapeString(learnerId.toString()));
 
     // query params
@@ -219,15 +267,26 @@ public class LearnerApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Sets all of the provided tags on all of the provided learners
-   * Sets all of the provided tags on all of the provided learners 
-   * @param batch Object representing an array of ids to apply an array of tags to. (required)
+   * Add a group of tags to a group of learnerIds 
+   * Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
+   * @param batch Array of ids, and array of tags for bulk tag operations (required)
    * @throws ApiException if fails to make API call
    */
   public void putLearnerTagsBatch(BatchTagsSchema batch) throws ApiException {
+
+    putLearnerTagsBatchWithHttpInfo(batch);
+  }
+
+  /**
+   * Add a group of tags to a group of learnerIds 
+   * Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
+   * @param batch Array of ids, and array of tags for bulk tag operations (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> putLearnerTagsBatchWithHttpInfo(BatchTagsSchema batch) throws ApiException {
     Object localVarPostBody = batch;
     
     // verify the required parameter 'batch' is set
@@ -236,7 +295,7 @@ public class LearnerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/learner/tags".replaceAll("\\{format\\}","json");
+    String localVarPath = "/learner/tags";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -259,16 +318,28 @@ public class LearnerApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Update a learner&#39;s info on all of their registrations.
-   * A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
-   * @param learnerId The id of the learner to be updated (required)
+   * Update all Registrations for a learnerId 
+   * Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
+   * @param learnerId The id of the learner (required)
    * @param learnerInfo  (required)
    * @throws ApiException if fails to make API call
    */
   public void updateLearnerInfo(String learnerId, LearnerSchema learnerInfo) throws ApiException {
+
+    updateLearnerInfoWithHttpInfo(learnerId, learnerInfo);
+  }
+
+  /**
+   * Update all Registrations for a learnerId 
+   * Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
+   * @param learnerId The id of the learner (required)
+   * @param learnerInfo  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> updateLearnerInfoWithHttpInfo(String learnerId, LearnerSchema learnerInfo) throws ApiException {
     Object localVarPostBody = learnerInfo;
     
     // verify the required parameter 'learnerId' is set
@@ -282,7 +353,7 @@ public class LearnerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/learner/{learnerId}/updateInfo".replaceAll("\\{format\\}","json")
+    String localVarPath = "/learner/{learnerId}/updateInfo"
       .replaceAll("\\{" + "learnerId" + "\\}", apiClient.escapeString(learnerId.toString()));
 
     // query params
@@ -306,6 +377,6 @@ public class LearnerApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 }

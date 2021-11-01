@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.LaunchAuthOptionsSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * LaunchAuthSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class LaunchAuthSchema {
   /**
    * Gets or Sets type
@@ -39,15 +41,20 @@ public class LaunchAuthSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static TypeEnum fromValue(String text) {
+    public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -66,11 +73,11 @@ public class LaunchAuthSchema {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public TypeEnum getType() {
     return type;
   }
@@ -84,11 +91,11 @@ public class LaunchAuthSchema {
     return this;
   }
 
-   /**
+  /**
    * Get options
    * @return options
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public LaunchAuthOptionsSchema getOptions() {
     return options;
   }
@@ -116,7 +123,6 @@ public class LaunchAuthSchema {
     return Objects.hash(type, options);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -138,6 +144,6 @@ public class LaunchAuthSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

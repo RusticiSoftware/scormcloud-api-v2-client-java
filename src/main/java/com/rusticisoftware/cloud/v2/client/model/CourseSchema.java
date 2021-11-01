@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.CourseActivitySchema;
 import com.rusticisoftware.cloud.v2.client.model.MetadataSchema;
 import io.swagger.annotations.ApiModel;
@@ -27,7 +29,7 @@ import java.util.List;
 /**
  * CourseSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CourseSchema {
   @JsonProperty("id")
   private String id = null;
@@ -81,15 +83,20 @@ public class CourseSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static CourseLearningStandardEnum fromValue(String text) {
+    public static CourseLearningStandardEnum fromValue(String value) {
       for (CourseLearningStandardEnum b : CourseLearningStandardEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -101,7 +108,7 @@ public class CourseSchema {
   private CourseLearningStandardEnum courseLearningStandard = null;
 
   @JsonProperty("tags")
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = null;
 
   @JsonProperty("dispatched")
   private Boolean dispatched = null;
@@ -117,11 +124,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -135,11 +142,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
   }
@@ -153,11 +160,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * xAPI activity id associated with this course
    * @return xapiActivityId
   **/
-  @ApiModelProperty(example = "null", value = "xAPI activity id associated with this course")
+  @ApiModelProperty(value = "xAPI activity id associated with this course")
   public String getXapiActivityId() {
     return xapiActivityId;
   }
@@ -171,11 +178,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get created
    * @return created
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getCreated() {
     return created;
   }
@@ -189,11 +196,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get updated
    * @return updated
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getUpdated() {
     return updated;
   }
@@ -207,11 +214,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get version
    * @return version
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getVersion() {
     return version;
   }
@@ -225,11 +232,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get registrationCount
    * @return registrationCount
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getRegistrationCount() {
     return registrationCount;
   }
@@ -243,11 +250,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get activityId
    * @return activityId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getActivityId() {
     return activityId;
   }
@@ -261,11 +268,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get courseLearningStandard
    * @return courseLearningStandard
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public CourseLearningStandardEnum getCourseLearningStandard() {
     return courseLearningStandard;
   }
@@ -280,15 +287,18 @@ public class CourseSchema {
   }
 
   public CourseSchema addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getTags() {
     return tags;
   }
@@ -302,12 +312,12 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get dispatched
    * @return dispatched
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getDispatched() {
+  @ApiModelProperty(value = "")
+  public Boolean isDispatched() {
     return dispatched;
   }
 
@@ -320,11 +330,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public MetadataSchema getMetadata() {
     return metadata;
   }
@@ -338,11 +348,11 @@ public class CourseSchema {
     return this;
   }
 
-   /**
+  /**
    * Get rootActivity
    * @return rootActivity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public CourseActivitySchema getRootActivity() {
     return rootActivity;
   }
@@ -381,7 +391,6 @@ public class CourseSchema {
     return Objects.hash(id, title, xapiActivityId, created, updated, version, registrationCount, activityId, courseLearningStandard, tags, dispatched, metadata, rootActivity);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -414,6 +423,6 @@ public class CourseSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

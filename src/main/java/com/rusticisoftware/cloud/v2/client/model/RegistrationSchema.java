@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ActivityResultSchema;
 import com.rusticisoftware.cloud.v2.client.model.CourseReferenceSchema;
 import com.rusticisoftware.cloud.v2.client.model.LearnerSchema;
@@ -33,7 +35,7 @@ import java.util.List;
 /**
  * RegistrationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class RegistrationSchema {
   @JsonProperty("id")
   private String id = null;
@@ -84,13 +86,13 @@ public class RegistrationSchema {
   private LearnerSchema learner = null;
 
   @JsonProperty("tags")
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = null;
 
   @JsonProperty("globalObjectives")
-  private List<ObjectiveSchema> globalObjectives = new ArrayList<ObjectiveSchema>();
+  private List<ObjectiveSchema> globalObjectives = null;
 
   @JsonProperty("sharedData")
-  private List<SharedDataEntrySchema> sharedData = new ArrayList<SharedDataEntrySchema>();
+  private List<SharedDataEntrySchema> sharedData = null;
 
   @JsonProperty("suspendedActivityId")
   private String suspendedActivityId = null;
@@ -103,11 +105,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -121,11 +123,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get instance
    * @return instance
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getInstance() {
     return instance;
   }
@@ -139,11 +141,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * xAPI registration id associated with this registration
    * @return xapiRegistrationId
   **/
-  @ApiModelProperty(example = "null", value = "xAPI registration id associated with this registration")
+  @ApiModelProperty(value = "xAPI registration id associated with this registration")
   public String getXapiRegistrationId() {
     return xapiRegistrationId;
   }
@@ -157,11 +159,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Dispatch ID for this registration, if applicable
    * @return dispatchId
   **/
-  @ApiModelProperty(example = "null", value = "Dispatch ID for this registration, if applicable")
+  @ApiModelProperty(value = "Dispatch ID for this registration, if applicable")
   public String getDispatchId() {
     return dispatchId;
   }
@@ -175,11 +177,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get updated
    * @return updated
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getUpdated() {
     return updated;
   }
@@ -193,11 +195,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get registrationCompletion
    * @return registrationCompletion
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public RegistrationCompletion getRegistrationCompletion() {
     return registrationCompletion;
   }
@@ -211,11 +213,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get registrationCompletionAmount
    * @return registrationCompletionAmount
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getRegistrationCompletionAmount() {
     return registrationCompletionAmount;
   }
@@ -229,11 +231,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get registrationSuccess
    * @return registrationSuccess
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public RegistrationSuccess getRegistrationSuccess() {
     return registrationSuccess;
   }
@@ -247,11 +249,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get score
    * @return score
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public ScoreSchema getScore() {
     return score;
   }
@@ -265,11 +267,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get totalSecondsTracked
    * @return totalSecondsTracked
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getTotalSecondsTracked() {
     return totalSecondsTracked;
   }
@@ -283,11 +285,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get firstAccessDate
    * @return firstAccessDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getFirstAccessDate() {
     return firstAccessDate;
   }
@@ -301,11 +303,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get lastAccessDate
    * @return lastAccessDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getLastAccessDate() {
     return lastAccessDate;
   }
@@ -319,11 +321,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get completedDate
    * @return completedDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getCompletedDate() {
     return completedDate;
   }
@@ -337,11 +339,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get createdDate
    * @return createdDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
@@ -355,11 +357,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get course
    * @return course
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public CourseReferenceSchema getCourse() {
     return course;
   }
@@ -373,11 +375,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get learner
    * @return learner
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public LearnerSchema getLearner() {
     return learner;
   }
@@ -392,15 +394,18 @@ public class RegistrationSchema {
   }
 
   public RegistrationSchema addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getTags() {
     return tags;
   }
@@ -415,15 +420,18 @@ public class RegistrationSchema {
   }
 
   public RegistrationSchema addGlobalObjectivesItem(ObjectiveSchema globalObjectivesItem) {
+    if (this.globalObjectives == null) {
+      this.globalObjectives = new ArrayList<>();
+    }
     this.globalObjectives.add(globalObjectivesItem);
     return this;
   }
 
-   /**
+  /**
    * Get globalObjectives
    * @return globalObjectives
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<ObjectiveSchema> getGlobalObjectives() {
     return globalObjectives;
   }
@@ -438,15 +446,18 @@ public class RegistrationSchema {
   }
 
   public RegistrationSchema addSharedDataItem(SharedDataEntrySchema sharedDataItem) {
+    if (this.sharedData == null) {
+      this.sharedData = new ArrayList<>();
+    }
     this.sharedData.add(sharedDataItem);
     return this;
   }
 
-   /**
+  /**
    * Get sharedData
    * @return sharedData
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<SharedDataEntrySchema> getSharedData() {
     return sharedData;
   }
@@ -460,11 +471,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get suspendedActivityId
    * @return suspendedActivityId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getSuspendedActivityId() {
     return suspendedActivityId;
   }
@@ -478,11 +489,11 @@ public class RegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get activityDetails
    * @return activityDetails
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public ActivityResultSchema getActivityDetails() {
     return activityDetails;
   }
@@ -529,7 +540,6 @@ public class RegistrationSchema {
     return Objects.hash(id, instance, xapiRegistrationId, dispatchId, updated, registrationCompletion, registrationCompletionAmount, registrationSuccess, score, totalSecondsTracked, firstAccessDate, lastAccessDate, completedDate, createdDate, course, learner, tags, globalObjectives, sharedData, suspendedActivityId, activityDetails);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -570,6 +580,6 @@ public class RegistrationSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

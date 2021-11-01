@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -23,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic information about a course for when a course is referenced by other objects, such as a registration.
  */
 @ApiModel(description = "Basic information about a course for when a course is referenced by other objects, such as a registration.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CourseReferenceSchema {
   @JsonProperty("id")
   private String id = null;
@@ -39,11 +41,11 @@ public class CourseReferenceSchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -57,11 +59,11 @@ public class CourseReferenceSchema {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
   }
@@ -75,11 +77,11 @@ public class CourseReferenceSchema {
     return this;
   }
 
-   /**
+  /**
    * Get version
    * @return version
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getVersion() {
     return version;
   }
@@ -108,7 +110,6 @@ public class CourseReferenceSchema {
     return Objects.hash(id, title, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -131,6 +132,6 @@ public class CourseReferenceSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

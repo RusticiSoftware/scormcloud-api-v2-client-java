@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.SettingValidValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,7 +27,7 @@ import java.util.List;
 /**
  * SettingMetadata
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class SettingMetadata {
   @JsonProperty("default")
   private String _default = null;
@@ -40,7 +42,7 @@ public class SettingMetadata {
   private String level = null;
 
   @JsonProperty("learningStandards")
-  private List<String> learningStandards = new ArrayList<String>();
+  private List<String> learningStandards = null;
 
   /**
    * Does this setting apply to only single-SCO packages, only multi-SCO, or either?
@@ -58,15 +60,20 @@ public class SettingMetadata {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static LearningStandardVariantEnum fromValue(String text) {
+    public static LearningStandardVariantEnum fromValue(String value) {
       for (LearningStandardVariantEnum b : LearningStandardVariantEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -81,18 +88,18 @@ public class SettingMetadata {
   private String fallback = null;
 
   @JsonProperty("validValues")
-  private List<SettingValidValue> validValues = new ArrayList<SettingValidValue>();
+  private List<SettingValidValue> validValues = null;
 
   public SettingMetadata _default(String _default) {
     this._default = _default;
     return this;
   }
 
-   /**
+  /**
    * Default value of this setting
    * @return _default
   **/
-  @ApiModelProperty(example = "null", value = "Default value of this setting")
+  @ApiModelProperty(value = "Default value of this setting")
   public String getDefault() {
     return _default;
   }
@@ -106,11 +113,11 @@ public class SettingMetadata {
     return this;
   }
 
-   /**
+  /**
    * The data type of this setting
    * @return dataType
   **/
-  @ApiModelProperty(example = "null", value = "The data type of this setting")
+  @ApiModelProperty(value = "The data type of this setting")
   public String getDataType() {
     return dataType;
   }
@@ -124,11 +131,11 @@ public class SettingMetadata {
     return this;
   }
 
-   /**
+  /**
    * description of this setting
    * @return settingDescription
   **/
-  @ApiModelProperty(example = "null", value = "description of this setting")
+  @ApiModelProperty(value = "description of this setting")
   public String getSettingDescription() {
     return settingDescription;
   }
@@ -142,11 +149,11 @@ public class SettingMetadata {
     return this;
   }
 
-   /**
-   * The level this setting will be applied at, which limits where it can be set. For example, WebPathToContentRoot is applied at the application level, so it's not valid to set it for a registration.
+  /**
+   * The level this setting will be applied at, which limits where it can be set. For example, WebPathToContentRoot is applied at the application level, so it&#39;s not valid to set it for a registration.
    * @return level
   **/
-  @ApiModelProperty(example = "null", value = "The level this setting will be applied at, which limits where it can be set. For example, WebPathToContentRoot is applied at the application level, so it's not valid to set it for a registration.")
+  @ApiModelProperty(value = "The level this setting will be applied at, which limits where it can be set. For example, WebPathToContentRoot is applied at the application level, so it's not valid to set it for a registration.")
   public String getLevel() {
     return level;
   }
@@ -161,15 +168,18 @@ public class SettingMetadata {
   }
 
   public SettingMetadata addLearningStandardsItem(String learningStandardsItem) {
+    if (this.learningStandards == null) {
+      this.learningStandards = new ArrayList<>();
+    }
     this.learningStandards.add(learningStandardsItem);
     return this;
   }
 
-   /**
+  /**
    * The list of learning standards this setting applies to. If not present, this setting is not limited to certain learning standards.
    * @return learningStandards
   **/
-  @ApiModelProperty(example = "null", value = "The list of learning standards this setting applies to. If not present, this setting is not limited to certain learning standards.")
+  @ApiModelProperty(value = "The list of learning standards this setting applies to. If not present, this setting is not limited to certain learning standards.")
   public List<String> getLearningStandards() {
     return learningStandards;
   }
@@ -183,11 +193,11 @@ public class SettingMetadata {
     return this;
   }
 
-   /**
+  /**
    * Does this setting apply to only single-SCO packages, only multi-SCO, or either?
    * @return learningStandardVariant
   **/
-  @ApiModelProperty(example = "null", value = "Does this setting apply to only single-SCO packages, only multi-SCO, or either?")
+  @ApiModelProperty(value = "Does this setting apply to only single-SCO packages, only multi-SCO, or either?")
   public LearningStandardVariantEnum getLearningStandardVariant() {
     return learningStandardVariant;
   }
@@ -201,11 +211,11 @@ public class SettingMetadata {
     return this;
   }
 
-   /**
+  /**
    * A setting that will be used instead of this setting if no value is provided for this setting (This is similar to a default, except that the the value of another setting is being used instead of a fixed default value).
    * @return fallback
   **/
-  @ApiModelProperty(example = "null", value = "A setting that will be used instead of this setting if no value is provided for this setting (This is similar to a default, except that the the value of another setting is being used instead of a fixed default value).")
+  @ApiModelProperty(value = "A setting that will be used instead of this setting if no value is provided for this setting (This is similar to a default, except that the the value of another setting is being used instead of a fixed default value).")
   public String getFallback() {
     return fallback;
   }
@@ -220,15 +230,18 @@ public class SettingMetadata {
   }
 
   public SettingMetadata addValidValuesItem(SettingValidValue validValuesItem) {
+    if (this.validValues == null) {
+      this.validValues = new ArrayList<>();
+    }
     this.validValues.add(validValuesItem);
     return this;
   }
 
-   /**
+  /**
    * For settings with a fixed list of valid values, the list of those values
    * @return validValues
   **/
-  @ApiModelProperty(example = "null", value = "For settings with a fixed list of valid values, the list of those values")
+  @ApiModelProperty(value = "For settings with a fixed list of valid values, the list of those values")
   public List<SettingValidValue> getValidValues() {
     return validValues;
   }
@@ -262,7 +275,6 @@ public class SettingMetadata {
     return Objects.hash(_default, dataType, settingDescription, level, learningStandards, learningStandardVariant, fallback, validValues);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -290,6 +302,6 @@ public class SettingMetadata {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

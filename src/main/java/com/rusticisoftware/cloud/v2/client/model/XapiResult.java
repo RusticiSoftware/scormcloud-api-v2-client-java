@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiScore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,7 +29,7 @@ import java.util.Map;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#415-result
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#415-result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiResult {
   @JsonProperty("score")
   private XapiScore score = null;
@@ -45,18 +47,18 @@ public class XapiResult {
   private String duration = null;
 
   @JsonProperty("extensions")
-  private Map<String, Object> extensions = new HashMap<String, Object>();
+  private Map<String, Object> extensions = null;
 
   public XapiResult score(XapiScore score) {
     this.score = score;
     return this;
   }
 
-   /**
+  /**
    * Get score
    * @return score
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiScore getScore() {
     return score;
   }
@@ -70,12 +72,12 @@ public class XapiResult {
     return this;
   }
 
-   /**
+  /**
    * Get success
    * @return success
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getSuccess() {
+  @ApiModelProperty(value = "")
+  public Boolean isSuccess() {
     return success;
   }
 
@@ -88,12 +90,12 @@ public class XapiResult {
     return this;
   }
 
-   /**
+  /**
    * Get completion
    * @return completion
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getCompletion() {
+  @ApiModelProperty(value = "")
+  public Boolean isCompletion() {
     return completion;
   }
 
@@ -106,11 +108,11 @@ public class XapiResult {
     return this;
   }
 
-   /**
+  /**
    * Get response
    * @return response
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getResponse() {
     return response;
   }
@@ -124,11 +126,11 @@ public class XapiResult {
     return this;
   }
 
-   /**
+  /**
    * Get duration
    * @return duration
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDuration() {
     return duration;
   }
@@ -143,15 +145,18 @@ public class XapiResult {
   }
 
   public XapiResult putExtensionsItem(String key, Object extensionsItem) {
+    if (this.extensions == null) {
+      this.extensions = new HashMap<>();
+    }
     this.extensions.put(key, extensionsItem);
     return this;
   }
 
-   /**
+  /**
    * Get extensions
    * @return extensions
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Map<String, Object> getExtensions() {
     return extensions;
   }
@@ -183,7 +188,6 @@ public class XapiResult {
     return Objects.hash(score, success, completion, response, duration, extensions);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -209,6 +213,6 @@ public class XapiResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

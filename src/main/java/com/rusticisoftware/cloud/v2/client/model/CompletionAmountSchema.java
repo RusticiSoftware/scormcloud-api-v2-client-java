@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * CompletionAmountSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CompletionAmountSchema {
   @JsonProperty("scaled")
   private Double scaled = null;
@@ -32,11 +34,11 @@ public class CompletionAmountSchema {
     return this;
   }
 
-   /**
+  /**
    * Scaled completion amount between 0 and 100
    * @return scaled
   **/
-  @ApiModelProperty(example = "null", value = "Scaled completion amount between 0 and 100")
+  @ApiModelProperty(value = "Scaled completion amount between 0 and 100")
   public Double getScaled() {
     return scaled;
   }
@@ -63,7 +65,6 @@ public class CompletionAmountSchema {
     return Objects.hash(scaled);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -84,6 +85,6 @@ public class CompletionAmountSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

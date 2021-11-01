@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * CredentialRequestSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CredentialRequestSchema {
   @JsonProperty("name")
   private String name = null;
@@ -35,11 +37,11 @@ public class CredentialRequestSchema {
     return this;
   }
 
-   /**
+  /**
    * name for this credential
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "name for this credential")
+  @ApiModelProperty(value = "name for this credential")
   public String getName() {
     return name;
   }
@@ -53,12 +55,12 @@ public class CredentialRequestSchema {
     return this;
   }
 
-   /**
+  /**
    * A flag denoting if the key is available for use.
    * @return active
   **/
-  @ApiModelProperty(example = "null", value = "A flag denoting if the key is available for use.")
-  public Boolean getActive() {
+  @ApiModelProperty(value = "A flag denoting if the key is available for use.")
+  public Boolean isActive() {
     return active;
   }
 
@@ -85,7 +87,6 @@ public class CredentialRequestSchema {
     return Objects.hash(name, active);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -107,6 +108,6 @@ public class CredentialRequestSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

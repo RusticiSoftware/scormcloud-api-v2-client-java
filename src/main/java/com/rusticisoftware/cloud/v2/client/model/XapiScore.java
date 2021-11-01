@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -23,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4151-score
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4151-score")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiScore {
   @JsonProperty("scaled")
   private Double scaled = null;
@@ -42,11 +44,11 @@ public class XapiScore {
     return this;
   }
 
-   /**
+  /**
    * Get scaled
    * @return scaled
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getScaled() {
     return scaled;
   }
@@ -60,11 +62,11 @@ public class XapiScore {
     return this;
   }
 
-   /**
+  /**
    * Get raw
    * @return raw
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getRaw() {
     return raw;
   }
@@ -78,11 +80,11 @@ public class XapiScore {
     return this;
   }
 
-   /**
+  /**
    * Get min
    * @return min
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getMin() {
     return min;
   }
@@ -96,11 +98,11 @@ public class XapiScore {
     return this;
   }
 
-   /**
+  /**
    * Get max
    * @return max
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getMax() {
     return max;
   }
@@ -130,7 +132,6 @@ public class XapiScore {
     return Objects.hash(scaled, raw, min, max);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -154,6 +155,6 @@ public class XapiScore {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

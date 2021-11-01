@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ActivityResultSchema;
 import com.rusticisoftware.cloud.v2.client.model.CompletionAmountSchema;
 import com.rusticisoftware.cloud.v2.client.model.ObjectiveSchema;
@@ -30,7 +32,7 @@ import java.util.List;
 /**
  * ActivityResultSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class ActivityResultSchema {
   @JsonProperty("id")
   private String id = null;
@@ -57,15 +59,20 @@ public class ActivityResultSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static ActivityCompletionEnum fromValue(String text) {
+    public static ActivityCompletionEnum fromValue(String value) {
       for (ActivityCompletionEnum b : ActivityCompletionEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -92,15 +99,20 @@ public class ActivityResultSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static ActivitySuccessEnum fromValue(String text) {
+    public static ActivitySuccessEnum fromValue(String value) {
       for (ActivitySuccessEnum b : ActivitySuccessEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -124,10 +136,10 @@ public class ActivityResultSchema {
   private Boolean suspended = null;
 
   @JsonProperty("children")
-  private List<ActivityResultSchema> children = new ArrayList<ActivityResultSchema>();
+  private List<ActivityResultSchema> children = null;
 
   @JsonProperty("objectives")
-  private List<ObjectiveSchema> objectives = new ArrayList<ObjectiveSchema>();
+  private List<ObjectiveSchema> objectives = null;
 
   @JsonProperty("staticProperties")
   private StaticPropertiesSchema staticProperties = null;
@@ -140,11 +152,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -158,11 +170,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
   }
@@ -176,11 +188,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get attempts
    * @return attempts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getAttempts() {
     return attempts;
   }
@@ -194,11 +206,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get activityCompletion
    * @return activityCompletion
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public ActivityCompletionEnum getActivityCompletion() {
     return activityCompletion;
   }
@@ -212,11 +224,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get activitySuccess
    * @return activitySuccess
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public ActivitySuccessEnum getActivitySuccess() {
     return activitySuccess;
   }
@@ -230,11 +242,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get score
    * @return score
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public ScoreSchema getScore() {
     return score;
   }
@@ -248,11 +260,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get timeTracked
    * @return timeTracked
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTimeTracked() {
     return timeTracked;
   }
@@ -266,11 +278,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get completionAmount
    * @return completionAmount
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public CompletionAmountSchema getCompletionAmount() {
     return completionAmount;
   }
@@ -284,12 +296,12 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get suspended
    * @return suspended
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getSuspended() {
+  @ApiModelProperty(value = "")
+  public Boolean isSuspended() {
     return suspended;
   }
 
@@ -303,15 +315,18 @@ public class ActivityResultSchema {
   }
 
   public ActivityResultSchema addChildrenItem(ActivityResultSchema childrenItem) {
+    if (this.children == null) {
+      this.children = new ArrayList<>();
+    }
     this.children.add(childrenItem);
     return this;
   }
 
-   /**
+  /**
    * Get children
    * @return children
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<ActivityResultSchema> getChildren() {
     return children;
   }
@@ -326,15 +341,18 @@ public class ActivityResultSchema {
   }
 
   public ActivityResultSchema addObjectivesItem(ObjectiveSchema objectivesItem) {
+    if (this.objectives == null) {
+      this.objectives = new ArrayList<>();
+    }
     this.objectives.add(objectivesItem);
     return this;
   }
 
-   /**
+  /**
    * Get objectives
    * @return objectives
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<ObjectiveSchema> getObjectives() {
     return objectives;
   }
@@ -348,11 +366,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get staticProperties
    * @return staticProperties
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public StaticPropertiesSchema getStaticProperties() {
     return staticProperties;
   }
@@ -366,11 +384,11 @@ public class ActivityResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get runtime
    * @return runtime
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public RuntimeSchema getRuntime() {
     return runtime;
   }
@@ -409,7 +427,6 @@ public class ActivityResultSchema {
     return Objects.hash(id, title, attempts, activityCompletion, activitySuccess, score, timeTracked, completionAmount, suspended, children, objectives, staticProperties, runtime);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -442,6 +459,6 @@ public class ActivityResultSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

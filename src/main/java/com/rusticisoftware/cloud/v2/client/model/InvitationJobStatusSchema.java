@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.List;
 /**
  * InvitationJobStatusSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class InvitationJobStatusSchema {
   /**
    * The status of the job.
@@ -44,15 +46,20 @@ public class InvitationJobStatusSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static StatusEnum fromValue(String text) {
+    public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -64,7 +71,7 @@ public class InvitationJobStatusSchema {
   private StatusEnum status = null;
 
   @JsonProperty("errors")
-  private List<String> errors = new ArrayList<String>();
+  private List<String> errors = null;
 
   @JsonProperty("total")
   private Integer total = null;
@@ -77,11 +84,11 @@ public class InvitationJobStatusSchema {
     return this;
   }
 
-   /**
+  /**
    * The status of the job.
    * @return status
   **/
-  @ApiModelProperty(example = "null", value = "The status of the job.")
+  @ApiModelProperty(value = "The status of the job.")
   public StatusEnum getStatus() {
     return status;
   }
@@ -96,15 +103,18 @@ public class InvitationJobStatusSchema {
   }
 
   public InvitationJobStatusSchema addErrorsItem(String errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
     this.errors.add(errorsItem);
     return this;
   }
 
-   /**
+  /**
    * An array containing any errors which occurred.
    * @return errors
   **/
-  @ApiModelProperty(example = "null", value = "An array containing any errors which occurred.")
+  @ApiModelProperty(value = "An array containing any errors which occurred.")
   public List<String> getErrors() {
     return errors;
   }
@@ -118,11 +128,11 @@ public class InvitationJobStatusSchema {
     return this;
   }
 
-   /**
+  /**
    * The total number of private invitations to be sent.
    * @return total
   **/
-  @ApiModelProperty(example = "null", value = "The total number of private invitations to be sent.")
+  @ApiModelProperty(value = "The total number of private invitations to be sent.")
   public Integer getTotal() {
     return total;
   }
@@ -136,11 +146,11 @@ public class InvitationJobStatusSchema {
     return this;
   }
 
-   /**
+  /**
    * The number of private invitations which have been sent.
    * @return processed
   **/
-  @ApiModelProperty(example = "null", value = "The number of private invitations which have been sent.")
+  @ApiModelProperty(value = "The number of private invitations which have been sent.")
   public Integer getProcessed() {
     return processed;
   }
@@ -170,7 +180,6 @@ public class InvitationJobStatusSchema {
     return Objects.hash(status, errors, total, processed);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -194,6 +203,6 @@ public class InvitationJobStatusSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

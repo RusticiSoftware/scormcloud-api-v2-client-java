@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.PostBackSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -24,7 +26,7 @@ import java.time.OffsetDateTime;
 /**
  * PublicInvitationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class PublicInvitationSchema {
   @JsonProperty("id")
   private String id = null;
@@ -64,11 +66,11 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * The invitationId for this invitation.
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "The invitationId for this invitation.")
+  @ApiModelProperty(value = "The invitationId for this invitation.")
   public String getId() {
     return id;
   }
@@ -82,11 +84,11 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * Course Id for this Invitation.
    * @return courseId
   **/
-  @ApiModelProperty(example = "null", value = "Course Id for this Invitation.")
+  @ApiModelProperty(value = "Course Id for this Invitation.")
   public String getCourseId() {
     return courseId;
   }
@@ -100,12 +102,12 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
-   * If true, then new registrations can be created for this dispatch.
+  /**
+   * If true, then new registrations can be created for this invitation.
    * @return allowLaunch
   **/
-  @ApiModelProperty(example = "null", value = "If true, then new registrations can be created for this dispatch.")
-  public Boolean getAllowLaunch() {
+  @ApiModelProperty(value = "If true, then new registrations can be created for this invitation.")
+  public Boolean isAllowLaunch() {
     return allowLaunch;
   }
 
@@ -118,12 +120,12 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
-   * If true, then new registrations can be created for this dispatch.
+  /**
+   * If true, then new registrations can be created for this invitation.
    * @return allowNewRegistrations
   **/
-  @ApiModelProperty(example = "null", value = "If true, then new registrations can be created for this dispatch.")
-  public Boolean getAllowNewRegistrations() {
+  @ApiModelProperty(value = "If true, then new registrations can be created for this invitation.")
+  public Boolean isAllowNewRegistrations() {
     return allowNewRegistrations;
   }
 
@@ -136,11 +138,11 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * The launch URL for the invitation
    * @return url
   **/
-  @ApiModelProperty(example = "null", value = "The launch URL for the invitation")
+  @ApiModelProperty(value = "The launch URL for the invitation")
   public String getUrl() {
     return url;
   }
@@ -154,11 +156,11 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * The create date for the invitation
    * @return createDate
   **/
-  @ApiModelProperty(example = "null", value = "The create date for the invitation")
+  @ApiModelProperty(value = "The create date for the invitation")
   public OffsetDateTime getCreateDate() {
     return createDate;
   }
@@ -172,11 +174,11 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get updated
    * @return updated
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getUpdated() {
     return updated;
   }
@@ -190,11 +192,11 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * Specifies a URL for which to post activity and status data in real time as the course is completed
    * @return postBack
   **/
-  @ApiModelProperty(example = "null", value = "Specifies a URL for which to post activity and status data in real time as the course is completed")
+  @ApiModelProperty(value = "Specifies a URL for which to post activity and status data in real time as the course is completed")
   public PostBackSchema getPostBack() {
     return postBack;
   }
@@ -208,11 +210,11 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
-   * The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).
+  /**
+   * The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. 
    * @return expirationDate
   **/
-  @ApiModelProperty(example = "null", value = "The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).")
+  @ApiModelProperty(value = "The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. ")
   public OffsetDateTime getExpirationDate() {
     return expirationDate;
   }
@@ -226,11 +228,11 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * Integer value that limits the amount of registrations a public invitation can generate.
    * @return registrationCap
   **/
-  @ApiModelProperty(example = "null", value = "Integer value that limits the amount of registrations a public invitation can generate.")
+  @ApiModelProperty(value = "Integer value that limits the amount of registrations a public invitation can generate.")
   public Integer getRegistrationCap() {
     return registrationCap;
   }
@@ -244,11 +246,11 @@ public class PublicInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * The count of registrations for this invitation
    * @return registrationCount
   **/
-  @ApiModelProperty(example = "null", value = "The count of registrations for this invitation")
+  @ApiModelProperty(value = "The count of registrations for this invitation")
   public Integer getRegistrationCount() {
     return registrationCount;
   }
@@ -285,7 +287,6 @@ public class PublicInvitationSchema {
     return Objects.hash(id, courseId, allowLaunch, allowNewRegistrations, url, createDate, updated, postBack, expirationDate, registrationCap, registrationCount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -316,6 +317,6 @@ public class PublicInvitationSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

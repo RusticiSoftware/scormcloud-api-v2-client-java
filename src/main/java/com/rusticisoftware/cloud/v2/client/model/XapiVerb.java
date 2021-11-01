@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
@@ -26,24 +28,24 @@ import java.util.Map;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#413-verb
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#413-verb")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiVerb {
   @JsonProperty("id")
   private String id = null;
 
   @JsonProperty("display")
-  private Map<String, String> display = new HashMap<String, String>();
+  private Map<String, String> display = null;
 
   public XapiVerb id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getId() {
     return id;
   }
@@ -58,15 +60,18 @@ public class XapiVerb {
   }
 
   public XapiVerb putDisplayItem(String key, String displayItem) {
+    if (this.display == null) {
+      this.display = new HashMap<>();
+    }
     this.display.put(key, displayItem);
     return this;
   }
 
-   /**
+  /**
    * Get display
    * @return display
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Map<String, String> getDisplay() {
     return display;
   }
@@ -94,7 +99,6 @@ public class XapiVerb {
     return Objects.hash(id, display);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -116,6 +120,6 @@ public class XapiVerb {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

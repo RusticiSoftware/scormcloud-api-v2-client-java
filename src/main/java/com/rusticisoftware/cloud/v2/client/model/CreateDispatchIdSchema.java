@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.CreateDispatchSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * CreateDispatchIdSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CreateDispatchIdSchema {
   @JsonProperty("id")
   private String id = null;
@@ -36,11 +38,11 @@ public class CreateDispatchIdSchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getId() {
     return id;
   }
@@ -54,11 +56,11 @@ public class CreateDispatchIdSchema {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public CreateDispatchSchema getData() {
     return data;
   }
@@ -86,7 +88,6 @@ public class CreateDispatchIdSchema {
     return Objects.hash(id, data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -108,6 +109,6 @@ public class CreateDispatchIdSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

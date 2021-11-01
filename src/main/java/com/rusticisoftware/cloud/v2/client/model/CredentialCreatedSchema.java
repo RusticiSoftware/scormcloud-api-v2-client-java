@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * CredentialCreatedSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CredentialCreatedSchema {
   @JsonProperty("id")
   private String id = null;
@@ -44,11 +46,11 @@ public class CredentialCreatedSchema {
     return this;
   }
 
-   /**
+  /**
    * id for this credential
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "id for this credential")
+  @ApiModelProperty(value = "id for this credential")
   public String getId() {
     return id;
   }
@@ -62,11 +64,11 @@ public class CredentialCreatedSchema {
     return this;
   }
 
-   /**
+  /**
    * name for this credential
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "name for this credential")
+  @ApiModelProperty(value = "name for this credential")
   public String getName() {
     return name;
   }
@@ -80,11 +82,11 @@ public class CredentialCreatedSchema {
     return this;
   }
 
-   /**
+  /**
    * The newly created API credential
    * @return credential
   **/
-  @ApiModelProperty(example = "null", value = "The newly created API credential")
+  @ApiModelProperty(value = "The newly created API credential")
   public String getCredential() {
     return credential;
   }
@@ -98,11 +100,11 @@ public class CredentialCreatedSchema {
     return this;
   }
 
-   /**
+  /**
    * The PENS key for this credential
    * @return pensCredential
   **/
-  @ApiModelProperty(example = "null", value = "The PENS key for this credential")
+  @ApiModelProperty(value = "The PENS key for this credential")
   public String getPensCredential() {
     return pensCredential;
   }
@@ -116,11 +118,11 @@ public class CredentialCreatedSchema {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getStatus() {
     return status;
   }
@@ -151,7 +153,6 @@ public class CredentialCreatedSchema {
     return Objects.hash(id, name, credential, pensCredential, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -176,6 +177,6 @@ public class CredentialCreatedSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

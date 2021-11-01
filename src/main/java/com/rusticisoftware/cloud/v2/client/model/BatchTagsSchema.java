@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -24,13 +26,13 @@ import java.util.List;
 /**
  * BatchTagsSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class BatchTagsSchema {
   @JsonProperty("ids")
-  private List<String> ids = new ArrayList<String>();
+  private List<String> ids = new ArrayList<>();
 
   @JsonProperty("tags")
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = new ArrayList<>();
 
   public BatchTagsSchema ids(List<String> ids) {
     this.ids = ids;
@@ -42,11 +44,11 @@ public class BatchTagsSchema {
     return this;
   }
 
-   /**
+  /**
    * Get ids
    * @return ids
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public List<String> getIds() {
     return ids;
   }
@@ -65,11 +67,11 @@ public class BatchTagsSchema {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public List<String> getTags() {
     return tags;
   }
@@ -97,7 +99,6 @@ public class BatchTagsSchema {
     return Objects.hash(ids, tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -119,6 +120,6 @@ public class BatchTagsSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

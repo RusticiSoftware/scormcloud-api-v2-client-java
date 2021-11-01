@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * LearnerPreferenceSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class LearnerPreferenceSchema {
   @JsonProperty("audioLevel")
   private Double audioLevel = null;
@@ -41,11 +43,11 @@ public class LearnerPreferenceSchema {
     return this;
   }
 
-   /**
+  /**
    * Get audioLevel
    * @return audioLevel
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getAudioLevel() {
     return audioLevel;
   }
@@ -59,11 +61,11 @@ public class LearnerPreferenceSchema {
     return this;
   }
 
-   /**
+  /**
    * Get language
    * @return language
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLanguage() {
     return language;
   }
@@ -77,11 +79,11 @@ public class LearnerPreferenceSchema {
     return this;
   }
 
-   /**
+  /**
    * Get deliverySpeed
    * @return deliverySpeed
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getDeliverySpeed() {
     return deliverySpeed;
   }
@@ -95,11 +97,11 @@ public class LearnerPreferenceSchema {
     return this;
   }
 
-   /**
+  /**
    * Get audioCaptioning
    * @return audioCaptioning
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getAudioCaptioning() {
     return audioCaptioning;
   }
@@ -129,7 +131,6 @@ public class LearnerPreferenceSchema {
     return Objects.hash(audioLevel, language, deliverySpeed, audioCaptioning);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -153,6 +154,6 @@ public class LearnerPreferenceSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

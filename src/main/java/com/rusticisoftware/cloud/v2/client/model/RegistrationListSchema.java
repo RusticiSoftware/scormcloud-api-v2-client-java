@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,10 +27,10 @@ import java.util.List;
 /**
  * RegistrationListSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class RegistrationListSchema {
   @JsonProperty("registrations")
-  private List<RegistrationSchema> registrations = new ArrayList<RegistrationSchema>();
+  private List<RegistrationSchema> registrations = new ArrayList<>();
 
   @JsonProperty("more")
   private String more = null;
@@ -43,11 +45,11 @@ public class RegistrationListSchema {
     return this;
   }
 
-   /**
+  /**
    * Get registrations
    * @return registrations
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public List<RegistrationSchema> getRegistrations() {
     return registrations;
   }
@@ -61,11 +63,11 @@ public class RegistrationListSchema {
     return this;
   }
 
-   /**
-   * Get more
+  /**
+   * Token for getting the next set of results, from the prior set of results.
    * @return more
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "Token for getting the next set of results, from the prior set of results.")
   public String getMore() {
     return more;
   }
@@ -93,7 +95,6 @@ public class RegistrationListSchema {
     return Objects.hash(registrations, more);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -115,6 +116,6 @@ public class RegistrationListSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

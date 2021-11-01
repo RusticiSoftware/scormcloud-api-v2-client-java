@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * LaunchAuthOptionsSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class LaunchAuthOptionsSchema {
   @JsonProperty("ipAddress")
   private Boolean ipAddress = null;
@@ -41,12 +43,12 @@ public class LaunchAuthOptionsSchema {
     return this;
   }
 
-   /**
+  /**
    * Get ipAddress
    * @return ipAddress
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getIpAddress() {
+  @ApiModelProperty(value = "")
+  public Boolean isIpAddress() {
     return ipAddress;
   }
 
@@ -59,12 +61,12 @@ public class LaunchAuthOptionsSchema {
     return this;
   }
 
-   /**
+  /**
    * Get fingerprint
    * @return fingerprint
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getFingerprint() {
+  @ApiModelProperty(value = "")
+  public Boolean isFingerprint() {
     return fingerprint;
   }
 
@@ -77,11 +79,11 @@ public class LaunchAuthOptionsSchema {
     return this;
   }
 
-   /**
+  /**
    * Get expiry
    * @return expiry
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getExpiry() {
     return expiry;
   }
@@ -95,11 +97,11 @@ public class LaunchAuthOptionsSchema {
     return this;
   }
 
-   /**
+  /**
    * Get slidingExpiry
    * @return slidingExpiry
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getSlidingExpiry() {
     return slidingExpiry;
   }
@@ -129,7 +131,6 @@ public class LaunchAuthOptionsSchema {
     return Objects.hash(ipAddress, fingerprint, expiry, slidingExpiry);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -153,6 +154,6 @@ public class LaunchAuthOptionsSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

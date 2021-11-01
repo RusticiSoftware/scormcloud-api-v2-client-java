@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * XapiCredentialAuthTypeSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiCredentialAuthTypeSchema {
   /**
    * Gets or Sets xapiCredentialAuthType
@@ -38,15 +40,20 @@ public class XapiCredentialAuthTypeSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static XapiCredentialAuthTypeEnum fromValue(String text) {
+    public static XapiCredentialAuthTypeEnum fromValue(String value) {
       for (XapiCredentialAuthTypeEnum b : XapiCredentialAuthTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -62,11 +69,11 @@ public class XapiCredentialAuthTypeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get xapiCredentialAuthType
    * @return xapiCredentialAuthType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiCredentialAuthTypeEnum getXapiCredentialAuthType() {
     return xapiCredentialAuthType;
   }
@@ -93,7 +100,6 @@ public class XapiCredentialAuthTypeSchema {
     return Objects.hash(xapiCredentialAuthType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -114,6 +120,6 @@ public class XapiCredentialAuthTypeSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.PermissionsSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -24,7 +26,7 @@ import java.time.OffsetDateTime;
 /**
  * TokenRequestSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class TokenRequestSchema {
   @JsonProperty("permissions")
   private PermissionsSchema permissions = null;
@@ -37,11 +39,11 @@ public class TokenRequestSchema {
     return this;
   }
 
-   /**
+  /**
    * Get permissions
    * @return permissions
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public PermissionsSchema getPermissions() {
     return permissions;
   }
@@ -55,11 +57,11 @@ public class TokenRequestSchema {
     return this;
   }
 
-   /**
+  /**
    * Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token.
    * @return expiry
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token.")
+  @ApiModelProperty(required = true, value = "Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token.")
   public OffsetDateTime getExpiry() {
     return expiry;
   }
@@ -87,7 +89,6 @@ public class TokenRequestSchema {
     return Objects.hash(permissions, expiry);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -109,6 +110,6 @@ public class TokenRequestSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

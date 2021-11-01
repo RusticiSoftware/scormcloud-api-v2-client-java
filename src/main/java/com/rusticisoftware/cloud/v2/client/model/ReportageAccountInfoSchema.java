@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ReportageAccountInfoUsageSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -24,7 +26,7 @@ import java.time.OffsetDateTime;
 /**
  * ReportageAccountInfoSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class ReportageAccountInfoSchema {
   @JsonProperty("email")
   private String email = null;
@@ -58,11 +60,11 @@ public class ReportageAccountInfoSchema {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getEmail() {
     return email;
   }
@@ -76,11 +78,11 @@ public class ReportageAccountInfoSchema {
     return this;
   }
 
-   /**
+  /**
    * Get firstName
    * @return firstName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getFirstName() {
     return firstName;
   }
@@ -94,11 +96,11 @@ public class ReportageAccountInfoSchema {
     return this;
   }
 
-   /**
+  /**
    * Get lastName
    * @return lastName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLastName() {
     return lastName;
   }
@@ -112,11 +114,11 @@ public class ReportageAccountInfoSchema {
     return this;
   }
 
-   /**
+  /**
    * Get company
    * @return company
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getCompany() {
     return company;
   }
@@ -130,11 +132,11 @@ public class ReportageAccountInfoSchema {
     return this;
   }
 
-   /**
+  /**
    * Get accountType
    * @return accountType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getAccountType() {
     return accountType;
   }
@@ -148,11 +150,11 @@ public class ReportageAccountInfoSchema {
     return this;
   }
 
-   /**
+  /**
    * Get regLimit
    * @return regLimit
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getRegLimit() {
     return regLimit;
   }
@@ -166,12 +168,12 @@ public class ReportageAccountInfoSchema {
     return this;
   }
 
-   /**
+  /**
    * Get strictLimit
    * @return strictLimit
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getStrictLimit() {
+  @ApiModelProperty(value = "")
+  public Boolean isStrictLimit() {
     return strictLimit;
   }
 
@@ -184,11 +186,11 @@ public class ReportageAccountInfoSchema {
     return this;
   }
 
-   /**
+  /**
    * Get createDate
    * @return createDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getCreateDate() {
     return createDate;
   }
@@ -202,11 +204,11 @@ public class ReportageAccountInfoSchema {
     return this;
   }
 
-   /**
+  /**
    * Get usage
    * @return usage
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public ReportageAccountInfoUsageSchema getUsage() {
     return usage;
   }
@@ -241,7 +243,6 @@ public class ReportageAccountInfoSchema {
     return Objects.hash(email, firstName, lastName, company, accountType, regLimit, strictLimit, createDate, usage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -270,6 +271,6 @@ public class ReportageAccountInfoSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiActivity;
 import com.rusticisoftware.cloud.v2.client.model.XapiAgentGroup;
 import com.rusticisoftware.cloud.v2.client.model.XapiAttachment;
@@ -34,7 +36,7 @@ import java.util.List;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#41-statement-properties
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#41-statement-properties")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiStatement {
   @JsonProperty("id")
   private String id = null;
@@ -73,18 +75,18 @@ public class XapiStatement {
   private XapiAgentGroup authority = null;
 
   @JsonProperty("attachments")
-  private List<XapiAttachment> attachments = new ArrayList<XapiAttachment>();
+  private List<XapiAttachment> attachments = null;
 
   public XapiStatement id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -98,11 +100,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get actor
    * @return actor
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiAgentGroup getActor() {
     return actor;
   }
@@ -116,11 +118,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get verb
    * @return verb
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiVerb getVerb() {
     return verb;
   }
@@ -134,11 +136,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get objectActivity
    * @return objectActivity
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiActivity getObjectActivity() {
     return objectActivity;
   }
@@ -152,11 +154,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get objectAgentGroup
    * @return objectAgentGroup
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiAgentGroup getObjectAgentGroup() {
     return objectAgentGroup;
   }
@@ -170,11 +172,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get objectStatementReference
    * @return objectStatementReference
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiStatementReference getObjectStatementReference() {
     return objectStatementReference;
   }
@@ -188,11 +190,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get objectSubStatement
    * @return objectSubStatement
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiStatement getObjectSubStatement() {
     return objectSubStatement;
   }
@@ -206,11 +208,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get result
    * @return result
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiResult getResult() {
     return result;
   }
@@ -224,11 +226,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get context
    * @return context
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiContext getContext() {
     return context;
   }
@@ -242,11 +244,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get timestamp
    * @return timestamp
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getTimestamp() {
     return timestamp;
   }
@@ -260,11 +262,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get stored
    * @return stored
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getStored() {
     return stored;
   }
@@ -278,11 +280,11 @@ public class XapiStatement {
     return this;
   }
 
-   /**
+  /**
    * Get authority
    * @return authority
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiAgentGroup getAuthority() {
     return authority;
   }
@@ -297,15 +299,18 @@ public class XapiStatement {
   }
 
   public XapiStatement addAttachmentsItem(XapiAttachment attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
     this.attachments.add(attachmentsItem);
     return this;
   }
 
-   /**
+  /**
    * Get attachments
    * @return attachments
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<XapiAttachment> getAttachments() {
     return attachments;
   }
@@ -344,7 +349,6 @@ public class XapiStatement {
     return Objects.hash(id, actor, verb, objectActivity, objectAgentGroup, objectStatementReference, objectSubStatement, result, context, timestamp, stored, authority, attachments);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -377,6 +381,6 @@ public class XapiStatement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ import java.util.List;
  * Object representing an e-mail to be sent to a given list of e-mail addresses inviting them to participate in a course.
  */
 @ApiModel(description = "Object representing an e-mail to be sent to a given list of e-mail addresses inviting them to participate in a course.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class InvitationEmailSchema {
   @JsonProperty("subject")
   private String subject = null;
@@ -34,18 +36,18 @@ public class InvitationEmailSchema {
   private String body = null;
 
   @JsonProperty("addresses")
-  private List<String> addresses = new ArrayList<String>();
+  private List<String> addresses = new ArrayList<>();
 
   public InvitationEmailSchema subject(String subject) {
     this.subject = subject;
     return this;
   }
 
-   /**
+  /**
    * The subject line for the email.
    * @return subject
   **/
-  @ApiModelProperty(example = "null", value = "The subject line for the email.")
+  @ApiModelProperty(value = "The subject line for the email.")
   public String getSubject() {
     return subject;
   }
@@ -59,11 +61,11 @@ public class InvitationEmailSchema {
     return this;
   }
 
-   /**
+  /**
    * The body of the email.
    * @return body
   **/
-  @ApiModelProperty(example = "null", value = "The body of the email.")
+  @ApiModelProperty(value = "The body of the email.")
   public String getBody() {
     return body;
   }
@@ -82,11 +84,11 @@ public class InvitationEmailSchema {
     return this;
   }
 
-   /**
+  /**
    * A comma separated list of email addresses to which this invitation will be sent.  NOTE: registrations with automatically be create for each of these e-mail addresses.
    * @return addresses
   **/
-  @ApiModelProperty(example = "null", required = true, value = "A comma separated list of email addresses to which this invitation will be sent.  NOTE: registrations with automatically be create for each of these e-mail addresses.")
+  @ApiModelProperty(required = true, value = "A comma separated list of email addresses to which this invitation will be sent.  NOTE: registrations with automatically be create for each of these e-mail addresses.")
   public List<String> getAddresses() {
     return addresses;
   }
@@ -115,7 +117,6 @@ public class InvitationEmailSchema {
     return Objects.hash(subject, body, addresses);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -138,6 +139,6 @@ public class InvitationEmailSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

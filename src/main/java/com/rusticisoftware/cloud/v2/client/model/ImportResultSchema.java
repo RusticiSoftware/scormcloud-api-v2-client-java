@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.CourseSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,16 +27,16 @@ import java.util.List;
 /**
  * ImportResultSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class ImportResultSchema {
   @JsonProperty("webPathToCourse")
   private String webPathToCourse = null;
 
   @JsonProperty("parserWarnings")
-  private List<String> parserWarnings = new ArrayList<String>();
+  private List<String> parserWarnings = null;
 
   @JsonProperty("courseLanguages")
-  private List<String> courseLanguages = new ArrayList<String>();
+  private List<String> courseLanguages = null;
 
   @JsonProperty("course")
   private CourseSchema course = null;
@@ -44,11 +46,11 @@ public class ImportResultSchema {
     return this;
   }
 
-   /**
+  /**
    * web path to this course
    * @return webPathToCourse
   **/
-  @ApiModelProperty(example = "null", value = "web path to this course")
+  @ApiModelProperty(value = "web path to this course")
   public String getWebPathToCourse() {
     return webPathToCourse;
   }
@@ -63,15 +65,18 @@ public class ImportResultSchema {
   }
 
   public ImportResultSchema addParserWarningsItem(String parserWarningsItem) {
+    if (this.parserWarnings == null) {
+      this.parserWarnings = new ArrayList<>();
+    }
     this.parserWarnings.add(parserWarningsItem);
     return this;
   }
 
-   /**
+  /**
    * Get parserWarnings
    * @return parserWarnings
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getParserWarnings() {
     return parserWarnings;
   }
@@ -86,15 +91,18 @@ public class ImportResultSchema {
   }
 
   public ImportResultSchema addCourseLanguagesItem(String courseLanguagesItem) {
+    if (this.courseLanguages == null) {
+      this.courseLanguages = new ArrayList<>();
+    }
     this.courseLanguages.add(courseLanguagesItem);
     return this;
   }
 
-   /**
+  /**
    * Get courseLanguages
    * @return courseLanguages
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getCourseLanguages() {
     return courseLanguages;
   }
@@ -108,11 +116,11 @@ public class ImportResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get course
    * @return course
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public CourseSchema getCourse() {
     return course;
   }
@@ -142,7 +150,6 @@ public class ImportResultSchema {
     return Objects.hash(webPathToCourse, parserWarnings, courseLanguages, course);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -166,6 +173,6 @@ public class ImportResultSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

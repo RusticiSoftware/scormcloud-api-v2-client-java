@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.PostBackSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,7 +28,7 @@ import java.util.List;
 /**
  * CreateDispatchSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CreateDispatchSchema {
   @JsonProperty("destinationId")
   private String destinationId = null;
@@ -50,7 +52,7 @@ public class CreateDispatchSchema {
   private Boolean enabled = true;
 
   @JsonProperty("tags")
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = null;
 
   @JsonProperty("email")
   private String email = null;
@@ -66,11 +68,11 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * Id of the destination this dispatch will belong to.
    * @return destinationId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Id of the destination this dispatch will belong to.")
+  @ApiModelProperty(required = true, value = "Id of the destination this dispatch will belong to.")
   public String getDestinationId() {
     return destinationId;
   }
@@ -84,11 +86,11 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * Id of the course to be dispatched.
    * @return courseId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Id of the course to be dispatched.")
+  @ApiModelProperty(required = true, value = "Id of the course to be dispatched.")
   public String getCourseId() {
     return courseId;
   }
@@ -102,12 +104,12 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * If true, then new registrations can be created for this dispatch.
    * @return allowNewRegistrations
   **/
-  @ApiModelProperty(example = "null", value = "If true, then new registrations can be created for this dispatch.")
-  public Boolean getAllowNewRegistrations() {
+  @ApiModelProperty(value = "If true, then new registrations can be created for this dispatch.")
+  public Boolean isAllowNewRegistrations() {
     return allowNewRegistrations;
   }
 
@@ -120,12 +122,12 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
-   * If true, then a new registration instance will be created if the client LMS doesn't provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. 
+  /**
+   * If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. 
    * @return instanced
   **/
-  @ApiModelProperty(example = "null", value = "If true, then a new registration instance will be created if the client LMS doesn't provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. ")
-  public Boolean getInstanced() {
+  @ApiModelProperty(value = "If true, then a new registration instance will be created if the client LMS doesn't provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. ")
+  public Boolean isInstanced() {
     return instanced;
   }
 
@@ -138,11 +140,11 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
-   * The maximum number of registrations that can be created for this dispatch, where '0' means 'unlimited registrations'. 
+  /**
+   * The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. 
    * @return registrationCap
   **/
-  @ApiModelProperty(example = "null", value = "The maximum number of registrations that can be created for this dispatch, where '0' means 'unlimited registrations'. ")
+  @ApiModelProperty(value = "The maximum number of registrations that can be created for this dispatch, where '0' means 'unlimited registrations'. ")
   public Integer getRegistrationCap() {
     return registrationCap;
   }
@@ -156,11 +158,11 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
-   * The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. 
+  /**
+   * The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. 
    * @return expirationDate
   **/
-  @ApiModelProperty(example = "null", value = "The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. ")
+  @ApiModelProperty(value = "The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. ")
   public OffsetDateTime getExpirationDate() {
     return expirationDate;
   }
@@ -174,12 +176,12 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * If true, then this dispatch can be launched.
    * @return enabled
   **/
-  @ApiModelProperty(example = "null", value = "If true, then this dispatch can be launched.")
-  public Boolean getEnabled() {
+  @ApiModelProperty(value = "If true, then this dispatch can be launched.")
+  public Boolean isEnabled() {
     return enabled;
   }
 
@@ -193,15 +195,18 @@ public class CreateDispatchSchema {
   }
 
   public CreateDispatchSchema addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
 
-   /**
+  /**
    * The tags to associate with this Dispatch.
    * @return tags
   **/
-  @ApiModelProperty(example = "null", value = "The tags to associate with this Dispatch.")
+  @ApiModelProperty(value = "The tags to associate with this Dispatch.")
   public List<String> getTags() {
     return tags;
   }
@@ -215,11 +220,11 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. 
    * @return email
   **/
-  @ApiModelProperty(example = "null", value = "SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. ")
+  @ApiModelProperty(value = "SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. ")
   public String getEmail() {
     return email;
   }
@@ -233,11 +238,11 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * Any provided notes about this dispatch.
    * @return notes
   **/
-  @ApiModelProperty(example = "null", value = "Any provided notes about this dispatch.")
+  @ApiModelProperty(value = "Any provided notes about this dispatch.")
   public String getNotes() {
     return notes;
   }
@@ -251,11 +256,11 @@ public class CreateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * The postback information for this Dispatch.
    * @return postBack
   **/
-  @ApiModelProperty(example = "null", value = "The postback information for this Dispatch.")
+  @ApiModelProperty(value = "The postback information for this Dispatch.")
   public PostBackSchema getPostBack() {
     return postBack;
   }
@@ -292,7 +297,6 @@ public class CreateDispatchSchema {
     return Objects.hash(destinationId, courseId, allowNewRegistrations, instanced, registrationCap, expirationDate, enabled, tags, email, notes, postBack);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -323,6 +327,6 @@ public class CreateDispatchSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

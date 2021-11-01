@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationCompletion;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationSuccess;
 import com.rusticisoftware.cloud.v2.client.model.ScoreSchema;
@@ -26,7 +28,7 @@ import io.swagger.annotations.ApiModelProperty;
  * An high level overview of information about the registration of the user to the invitation.
  */
 @ApiModel(description = "An high level overview of information about the registration of the user to the invitation.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class UserInvitationSchemaRegistrationReport {
   @JsonProperty("complete")
   private RegistrationCompletion complete = null;
@@ -45,11 +47,11 @@ public class UserInvitationSchemaRegistrationReport {
     return this;
   }
 
-   /**
+  /**
    * Get complete
    * @return complete
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public RegistrationCompletion getComplete() {
     return complete;
   }
@@ -63,11 +65,11 @@ public class UserInvitationSchemaRegistrationReport {
     return this;
   }
 
-   /**
+  /**
    * Get success
    * @return success
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public RegistrationSuccess getSuccess() {
     return success;
   }
@@ -81,11 +83,11 @@ public class UserInvitationSchemaRegistrationReport {
     return this;
   }
 
-   /**
+  /**
    * Get totalSecondsTracked
    * @return totalSecondsTracked
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getTotalSecondsTracked() {
     return totalSecondsTracked;
   }
@@ -99,11 +101,11 @@ public class UserInvitationSchemaRegistrationReport {
     return this;
   }
 
-   /**
+  /**
    * Get score
    * @return score
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public ScoreSchema getScore() {
     return score;
   }
@@ -133,7 +135,6 @@ public class UserInvitationSchemaRegistrationReport {
     return Objects.hash(complete, success, totalSecondsTracked, score);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -157,6 +158,6 @@ public class UserInvitationSchemaRegistrationReport {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiEndpointSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * XapiStatementPipePostSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiStatementPipePostSchema {
   @JsonProperty("source")
   private XapiEndpointSchema source = null;
@@ -36,11 +38,11 @@ public class XapiStatementPipePostSchema {
     return this;
   }
 
-   /**
+  /**
    * Get source
    * @return source
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiEndpointSchema getSource() {
     return source;
   }
@@ -54,11 +56,11 @@ public class XapiStatementPipePostSchema {
     return this;
   }
 
-   /**
+  /**
    * Get target
    * @return target
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public XapiEndpointSchema getTarget() {
     return target;
   }
@@ -86,7 +88,6 @@ public class XapiStatementPipePostSchema {
     return Objects.hash(source, target);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -108,6 +109,6 @@ public class XapiStatementPipePostSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

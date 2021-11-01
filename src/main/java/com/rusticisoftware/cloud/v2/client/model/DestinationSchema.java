@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.LaunchAuthSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,13 +27,13 @@ import java.util.List;
 /**
  * DestinationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class DestinationSchema {
   @JsonProperty("name")
   private String name = null;
 
   @JsonProperty("tags")
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = null;
 
   @JsonProperty("email")
   private String email = null;
@@ -47,11 +49,11 @@ public class DestinationSchema {
     return this;
   }
 
-   /**
-   * The destination's name.
+  /**
+   * The destination&#39;s name.
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "The destination's name.")
+  @ApiModelProperty(value = "The destination's name.")
   public String getName() {
     return name;
   }
@@ -66,15 +68,18 @@ public class DestinationSchema {
   }
 
   public DestinationSchema addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
 
-   /**
+  /**
    * Optional array of tags.
    * @return tags
   **/
-  @ApiModelProperty(example = "null", value = "Optional array of tags.")
+  @ApiModelProperty(value = "Optional array of tags.")
   public List<String> getTags() {
     return tags;
   }
@@ -88,11 +93,11 @@ public class DestinationSchema {
     return this;
   }
 
-   /**
+  /**
    * SCORM Cloud user e-mail associated with this destination. If this is not provided, it will default to the owner of the Realm. 
    * @return email
   **/
-  @ApiModelProperty(example = "null", value = "SCORM Cloud user e-mail associated with this destination. If this is not provided, it will default to the owner of the Realm. ")
+  @ApiModelProperty(value = "SCORM Cloud user e-mail associated with this destination. If this is not provided, it will default to the owner of the Realm. ")
   public String getEmail() {
     return email;
   }
@@ -106,11 +111,11 @@ public class DestinationSchema {
     return this;
   }
 
-   /**
+  /**
    * Any provided notes about this Destination
    * @return notes
   **/
-  @ApiModelProperty(example = "null", value = "Any provided notes about this Destination")
+  @ApiModelProperty(value = "Any provided notes about this Destination")
   public String getNotes() {
     return notes;
   }
@@ -124,11 +129,11 @@ public class DestinationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get launchAuth
    * @return launchAuth
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public LaunchAuthSchema getLaunchAuth() {
     return launchAuth;
   }
@@ -159,7 +164,6 @@ public class DestinationSchema {
     return Objects.hash(name, tags, email, notes, launchAuth);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -184,6 +188,6 @@ public class DestinationSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

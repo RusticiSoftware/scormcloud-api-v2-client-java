@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.LearnerSchema;
 import com.rusticisoftware.cloud.v2.client.model.PostBackSchema;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationSchema;
@@ -28,7 +30,7 @@ import java.util.List;
 /**
  * CreateRegistrationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CreateRegistrationSchema {
   @JsonProperty("courseId")
   private String courseId = null;
@@ -43,13 +45,13 @@ public class CreateRegistrationSchema {
   private String xapiRegistrationId = null;
 
   @JsonProperty("learnerTags")
-  private List<String> learnerTags = new ArrayList<String>();
+  private List<String> learnerTags = null;
 
   @JsonProperty("courseTags")
-  private List<String> courseTags = new ArrayList<String>();
+  private List<String> courseTags = null;
 
   @JsonProperty("registrationTags")
-  private List<String> registrationTags = new ArrayList<String>();
+  private List<String> registrationTags = null;
 
   @JsonProperty("postBack")
   private PostBackSchema postBack = null;
@@ -65,11 +67,11 @@ public class CreateRegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get courseId
    * @return courseId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getCourseId() {
     return courseId;
   }
@@ -83,11 +85,11 @@ public class CreateRegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get learner
    * @return learner
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public LearnerSchema getLearner() {
     return learner;
   }
@@ -101,11 +103,11 @@ public class CreateRegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get registrationId
    * @return registrationId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getRegistrationId() {
     return registrationId;
   }
@@ -119,11 +121,11 @@ public class CreateRegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * The xapiRegistrationId to be associated with this registration. If not specified, the system will assign an xapiRegistrationId. As per the xApi specification, this must be a UUID.
    * @return xapiRegistrationId
   **/
-  @ApiModelProperty(example = "null", value = "The xapiRegistrationId to be associated with this registration. If not specified, the system will assign an xapiRegistrationId. As per the xApi specification, this must be a UUID.")
+  @ApiModelProperty(value = "The xapiRegistrationId to be associated with this registration. If not specified, the system will assign an xapiRegistrationId. As per the xApi specification, this must be a UUID.")
   public String getXapiRegistrationId() {
     return xapiRegistrationId;
   }
@@ -138,15 +140,18 @@ public class CreateRegistrationSchema {
   }
 
   public CreateRegistrationSchema addLearnerTagsItem(String learnerTagsItem) {
+    if (this.learnerTags == null) {
+      this.learnerTags = new ArrayList<>();
+    }
     this.learnerTags.add(learnerTagsItem);
     return this;
   }
 
-   /**
+  /**
    * Get learnerTags
    * @return learnerTags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getLearnerTags() {
     return learnerTags;
   }
@@ -161,15 +166,18 @@ public class CreateRegistrationSchema {
   }
 
   public CreateRegistrationSchema addCourseTagsItem(String courseTagsItem) {
+    if (this.courseTags == null) {
+      this.courseTags = new ArrayList<>();
+    }
     this.courseTags.add(courseTagsItem);
     return this;
   }
 
-   /**
+  /**
    * Get courseTags
    * @return courseTags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getCourseTags() {
     return courseTags;
   }
@@ -184,15 +192,18 @@ public class CreateRegistrationSchema {
   }
 
   public CreateRegistrationSchema addRegistrationTagsItem(String registrationTagsItem) {
+    if (this.registrationTags == null) {
+      this.registrationTags = new ArrayList<>();
+    }
     this.registrationTags.add(registrationTagsItem);
     return this;
   }
 
-   /**
+  /**
    * Get registrationTags
    * @return registrationTags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getRegistrationTags() {
     return registrationTags;
   }
@@ -206,11 +217,11 @@ public class CreateRegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Specifies an optional override URL for which to post activity and status data in real time as the course is completed. By default all of these settings are read from your configuration.
    * @return postBack
   **/
-  @ApiModelProperty(example = "null", value = "Specifies an optional override URL for which to post activity and status data in real time as the course is completed. By default all of these settings are read from your configuration.")
+  @ApiModelProperty(value = "Specifies an optional override URL for which to post activity and status data in real time as the course is completed. By default all of these settings are read from your configuration.")
   public PostBackSchema getPostBack() {
     return postBack;
   }
@@ -224,11 +235,11 @@ public class CreateRegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get initialRegistrationState
    * @return initialRegistrationState
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public RegistrationSchema getInitialRegistrationState() {
     return initialRegistrationState;
   }
@@ -242,11 +253,11 @@ public class CreateRegistrationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get initialSettings
    * @return initialSettings
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public SettingsPostSchema getInitialSettings() {
     return initialSettings;
   }
@@ -282,7 +293,6 @@ public class CreateRegistrationSchema {
     return Objects.hash(courseId, learner, registrationId, xapiRegistrationId, learnerTags, courseTags, registrationTags, postBack, initialRegistrationState, initialSettings);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -312,6 +322,6 @@ public class CreateRegistrationSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 
