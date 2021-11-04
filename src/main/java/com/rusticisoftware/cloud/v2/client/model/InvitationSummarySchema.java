@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -23,7 +25,7 @@ import java.time.OffsetDateTime;
 /**
  * InvitationSummarySchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class InvitationSummarySchema {
   @JsonProperty("id")
   private String id = null;
@@ -45,11 +47,11 @@ public class InvitationSummarySchema {
     return this;
   }
 
-   /**
+  /**
    * The invitationId for this invitation.
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "The invitationId for this invitation.")
+  @ApiModelProperty(value = "The invitationId for this invitation.")
   public String getId() {
     return id;
   }
@@ -63,11 +65,11 @@ public class InvitationSummarySchema {
     return this;
   }
 
-   /**
+  /**
    * Course Id for this Invitation.
    * @return courseId
   **/
-  @ApiModelProperty(example = "null", value = "Course Id for this Invitation.")
+  @ApiModelProperty(value = "Course Id for this Invitation.")
   public String getCourseId() {
     return courseId;
   }
@@ -81,12 +83,12 @@ public class InvitationSummarySchema {
     return this;
   }
 
-   /**
+  /**
    * Is the invitation Public or Private
    * @return isPublic
   **/
-  @ApiModelProperty(example = "null", value = "Is the invitation Public or Private")
-  public Boolean getIsPublic() {
+  @ApiModelProperty(value = "Is the invitation Public or Private")
+  public Boolean isIsPublic() {
     return isPublic;
   }
 
@@ -99,11 +101,11 @@ public class InvitationSummarySchema {
     return this;
   }
 
-   /**
+  /**
    * The create date for the invitation
    * @return createDate
   **/
-  @ApiModelProperty(example = "null", value = "The create date for the invitation")
+  @ApiModelProperty(value = "The create date for the invitation")
   public OffsetDateTime getCreateDate() {
     return createDate;
   }
@@ -117,11 +119,11 @@ public class InvitationSummarySchema {
     return this;
   }
 
-   /**
+  /**
    * Get updated
    * @return updated
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getUpdated() {
     return updated;
   }
@@ -152,7 +154,6 @@ public class InvitationSummarySchema {
     return Objects.hash(id, courseId, isPublic, createDate, updated);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -177,6 +178,6 @@ public class InvitationSummarySchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

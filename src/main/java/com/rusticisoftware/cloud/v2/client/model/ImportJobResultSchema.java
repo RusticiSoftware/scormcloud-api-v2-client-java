@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ImportResultSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ImportJobResultSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class ImportJobResultSchema {
   @JsonProperty("jobId")
   private String jobId = null;
@@ -44,15 +46,20 @@ public class ImportJobResultSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static StatusEnum fromValue(String text) {
+    public static StatusEnum fromValue(String value) {
       for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -74,11 +81,11 @@ public class ImportJobResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get jobId
    * @return jobId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getJobId() {
     return jobId;
   }
@@ -92,11 +99,11 @@ public class ImportJobResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public StatusEnum getStatus() {
     return status;
   }
@@ -110,11 +117,11 @@ public class ImportJobResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get message
    * @return message
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getMessage() {
     return message;
   }
@@ -128,11 +135,11 @@ public class ImportJobResultSchema {
     return this;
   }
 
-   /**
+  /**
    * Get importResult
    * @return importResult
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public ImportResultSchema getImportResult() {
     return importResult;
   }
@@ -162,7 +169,6 @@ public class ImportJobResultSchema {
     return Objects.hash(jobId, status, message, importResult);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -186,6 +192,6 @@ public class ImportJobResultSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

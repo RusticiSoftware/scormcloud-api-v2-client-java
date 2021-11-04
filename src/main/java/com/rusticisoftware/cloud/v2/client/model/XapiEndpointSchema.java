@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * XapiEndpointSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiEndpointSchema {
   @JsonProperty("url")
   private String url = null;
@@ -38,11 +40,11 @@ public class XapiEndpointSchema {
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getUrl() {
     return url;
   }
@@ -56,11 +58,11 @@ public class XapiEndpointSchema {
     return this;
   }
 
-   /**
+  /**
    * Get userName
    * @return userName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getUserName() {
     return userName;
   }
@@ -74,11 +76,11 @@ public class XapiEndpointSchema {
     return this;
   }
 
-   /**
+  /**
    * Get password
    * @return password
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getPassword() {
     return password;
   }
@@ -107,7 +109,6 @@ public class XapiEndpointSchema {
     return Objects.hash(url, userName, password);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -130,6 +131,6 @@ public class XapiEndpointSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

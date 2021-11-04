@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.List;
 /**
  * RuntimeInteractionSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class RuntimeInteractionSchema {
   @JsonProperty("id")
   private String id = null;
@@ -59,15 +61,20 @@ public class RuntimeInteractionSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static TypeEnum fromValue(String text) {
+    public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -79,7 +86,7 @@ public class RuntimeInteractionSchema {
   private TypeEnum type = null;
 
   @JsonProperty("objectives")
-  private List<String> objectives = new ArrayList<String>();
+  private List<String> objectives = null;
 
   @JsonProperty("timestamp")
   private String timestamp = null;
@@ -88,7 +95,7 @@ public class RuntimeInteractionSchema {
   private String timestampUtc = null;
 
   @JsonProperty("correctResponses")
-  private List<String> correctResponses = new ArrayList<String>();
+  private List<String> correctResponses = null;
 
   @JsonProperty("weighting")
   private String weighting = null;
@@ -110,11 +117,11 @@ public class RuntimeInteractionSchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -128,11 +135,11 @@ public class RuntimeInteractionSchema {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public TypeEnum getType() {
     return type;
   }
@@ -147,15 +154,18 @@ public class RuntimeInteractionSchema {
   }
 
   public RuntimeInteractionSchema addObjectivesItem(String objectivesItem) {
+    if (this.objectives == null) {
+      this.objectives = new ArrayList<>();
+    }
     this.objectives.add(objectivesItem);
     return this;
   }
 
-   /**
+  /**
    * Get objectives
    * @return objectives
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getObjectives() {
     return objectives;
   }
@@ -169,11 +179,11 @@ public class RuntimeInteractionSchema {
     return this;
   }
 
-   /**
+  /**
    * Get timestamp
    * @return timestamp
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTimestamp() {
     return timestamp;
   }
@@ -187,11 +197,11 @@ public class RuntimeInteractionSchema {
     return this;
   }
 
-   /**
+  /**
    * Get timestampUtc
    * @return timestampUtc
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTimestampUtc() {
     return timestampUtc;
   }
@@ -206,15 +216,18 @@ public class RuntimeInteractionSchema {
   }
 
   public RuntimeInteractionSchema addCorrectResponsesItem(String correctResponsesItem) {
+    if (this.correctResponses == null) {
+      this.correctResponses = new ArrayList<>();
+    }
     this.correctResponses.add(correctResponsesItem);
     return this;
   }
 
-   /**
+  /**
    * Get correctResponses
    * @return correctResponses
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getCorrectResponses() {
     return correctResponses;
   }
@@ -228,11 +241,11 @@ public class RuntimeInteractionSchema {
     return this;
   }
 
-   /**
+  /**
    * Get weighting
    * @return weighting
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getWeighting() {
     return weighting;
   }
@@ -246,11 +259,11 @@ public class RuntimeInteractionSchema {
     return this;
   }
 
-   /**
+  /**
    * Get learnerResponse
    * @return learnerResponse
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLearnerResponse() {
     return learnerResponse;
   }
@@ -264,11 +277,11 @@ public class RuntimeInteractionSchema {
     return this;
   }
 
-   /**
+  /**
    * Get result
    * @return result
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getResult() {
     return result;
   }
@@ -282,11 +295,11 @@ public class RuntimeInteractionSchema {
     return this;
   }
 
-   /**
+  /**
    * Get latency
    * @return latency
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLatency() {
     return latency;
   }
@@ -300,11 +313,11 @@ public class RuntimeInteractionSchema {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }
@@ -341,7 +354,6 @@ public class RuntimeInteractionSchema {
     return Objects.hash(id, type, objectives, timestamp, timestampUtc, correctResponses, weighting, learnerResponse, result, latency, description);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -372,6 +384,6 @@ public class RuntimeInteractionSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

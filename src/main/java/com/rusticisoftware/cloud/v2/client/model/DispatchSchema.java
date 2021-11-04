@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -25,13 +27,25 @@ import java.util.List;
 /**
  * DispatchSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class DispatchSchema {
   @JsonProperty("destinationId")
   private String destinationId = null;
 
+  @JsonProperty("destinationName")
+  private String destinationName = null;
+
   @JsonProperty("courseId")
   private String courseId = null;
+
+  @JsonProperty("courseTitle")
+  private String courseTitle = null;
+
+  @JsonProperty("updated")
+  private OffsetDateTime updated = null;
+
+  @JsonProperty("created")
+  private OffsetDateTime created = null;
 
   @JsonProperty("allowNewRegistrations")
   private Boolean allowNewRegistrations = null;
@@ -52,7 +66,7 @@ public class DispatchSchema {
   private OffsetDateTime expirationDate = null;
 
   @JsonProperty("tags")
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = null;
 
   @JsonProperty("email")
   private String email = null;
@@ -65,11 +79,11 @@ public class DispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * Destination ID.
    * @return destinationId
   **/
-  @ApiModelProperty(example = "null", value = "Destination ID.")
+  @ApiModelProperty(value = "Destination ID.")
   public String getDestinationId() {
     return destinationId;
   }
@@ -78,16 +92,34 @@ public class DispatchSchema {
     this.destinationId = destinationId;
   }
 
+  public DispatchSchema destinationName(String destinationName) {
+    this.destinationName = destinationName;
+    return this;
+  }
+
+  /**
+   * Name of the destination housing this dispatch
+   * @return destinationName
+  **/
+  @ApiModelProperty(value = "Name of the destination housing this dispatch")
+  public String getDestinationName() {
+    return destinationName;
+  }
+
+  public void setDestinationName(String destinationName) {
+    this.destinationName = destinationName;
+  }
+
   public DispatchSchema courseId(String courseId) {
     this.courseId = courseId;
     return this;
   }
 
-   /**
+  /**
    * Serialized external package ID.
    * @return courseId
   **/
-  @ApiModelProperty(example = "null", value = "Serialized external package ID.")
+  @ApiModelProperty(value = "Serialized external package ID.")
   public String getCourseId() {
     return courseId;
   }
@@ -96,17 +128,71 @@ public class DispatchSchema {
     this.courseId = courseId;
   }
 
+  public DispatchSchema courseTitle(String courseTitle) {
+    this.courseTitle = courseTitle;
+    return this;
+  }
+
+  /**
+   * Title of this dispatched course
+   * @return courseTitle
+  **/
+  @ApiModelProperty(value = "Title of this dispatched course")
+  public String getCourseTitle() {
+    return courseTitle;
+  }
+
+  public void setCourseTitle(String courseTitle) {
+    this.courseTitle = courseTitle;
+  }
+
+  public DispatchSchema updated(OffsetDateTime updated) {
+    this.updated = updated;
+    return this;
+  }
+
+  /**
+   * Get updated
+   * @return updated
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getUpdated() {
+    return updated;
+  }
+
+  public void setUpdated(OffsetDateTime updated) {
+    this.updated = updated;
+  }
+
+  public DispatchSchema created(OffsetDateTime created) {
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * Get created
+   * @return created
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+  public void setCreated(OffsetDateTime created) {
+    this.created = created;
+  }
+
   public DispatchSchema allowNewRegistrations(Boolean allowNewRegistrations) {
     this.allowNewRegistrations = allowNewRegistrations;
     return this;
   }
 
-   /**
+  /**
    * If true, then new registrations can be created for this dispatch. 
    * @return allowNewRegistrations
   **/
-  @ApiModelProperty(example = "null", value = "If true, then new registrations can be created for this dispatch. ")
-  public Boolean getAllowNewRegistrations() {
+  @ApiModelProperty(value = "If true, then new registrations can be created for this dispatch. ")
+  public Boolean isAllowNewRegistrations() {
     return allowNewRegistrations;
   }
 
@@ -119,12 +205,12 @@ public class DispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * If false, the dispatch can not be launched.
    * @return enabled
   **/
-  @ApiModelProperty(example = "null", value = "If false, the dispatch can not be launched.")
-  public Boolean getEnabled() {
+  @ApiModelProperty(value = "If false, the dispatch can not be launched.")
+  public Boolean isEnabled() {
     return enabled;
   }
 
@@ -137,12 +223,12 @@ public class DispatchSchema {
     return this;
   }
 
-   /**
-   * If true, then a new registration instance will be created if the client LMS doesn't provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. 
+  /**
+   * If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. 
    * @return instanced
   **/
-  @ApiModelProperty(example = "null", value = "If true, then a new registration instance will be created if the client LMS doesn't provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. ")
-  public Boolean getInstanced() {
+  @ApiModelProperty(value = "If true, then a new registration instance will be created if the client LMS doesn't provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. ")
+  public Boolean isInstanced() {
     return instanced;
   }
 
@@ -155,11 +241,11 @@ public class DispatchSchema {
     return this;
   }
 
-   /**
-   * The maximum number of registrations that can be created for this dispatch, where '0' means 'unlimited registrations'. 
+  /**
+   * The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. 
    * @return registrationCap
   **/
-  @ApiModelProperty(example = "null", value = "The maximum number of registrations that can be created for this dispatch, where '0' means 'unlimited registrations'. ")
+  @ApiModelProperty(value = "The maximum number of registrations that can be created for this dispatch, where '0' means 'unlimited registrations'. ")
   public Integer getRegistrationCap() {
     return registrationCap;
   }
@@ -173,11 +259,11 @@ public class DispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * The current number of registrations that have been created for this dispatch. 
    * @return registrationCount
   **/
-  @ApiModelProperty(example = "null", value = "The current number of registrations that have been created for this dispatch. ")
+  @ApiModelProperty(value = "The current number of registrations that have been created for this dispatch. ")
   public Integer getRegistrationCount() {
     return registrationCount;
   }
@@ -191,11 +277,11 @@ public class DispatchSchema {
     return this;
   }
 
-   /**
-   * The date after which this dispatch will be disabled as an ISO 8601 string, or 'none' for no expiration date. 
+  /**
+   * The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. 
    * @return expirationDate
   **/
-  @ApiModelProperty(example = "null", value = "The date after which this dispatch will be disabled as an ISO 8601 string, or 'none' for no expiration date. ")
+  @ApiModelProperty(value = "The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. ")
   public OffsetDateTime getExpirationDate() {
     return expirationDate;
   }
@@ -210,15 +296,18 @@ public class DispatchSchema {
   }
 
   public DispatchSchema addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
 
-   /**
+  /**
    * The tags to associate with this Dispatch.
    * @return tags
   **/
-  @ApiModelProperty(example = "null", value = "The tags to associate with this Dispatch.")
+  @ApiModelProperty(value = "The tags to associate with this Dispatch.")
   public List<String> getTags() {
     return tags;
   }
@@ -232,11 +321,11 @@ public class DispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. 
    * @return email
   **/
-  @ApiModelProperty(example = "null", value = "SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. ")
+  @ApiModelProperty(value = "SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. ")
   public String getEmail() {
     return email;
   }
@@ -250,11 +339,11 @@ public class DispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * Any provided notes about this dispatch.
    * @return notes
   **/
-  @ApiModelProperty(example = "null", value = "Any provided notes about this dispatch.")
+  @ApiModelProperty(value = "Any provided notes about this dispatch.")
   public String getNotes() {
     return notes;
   }
@@ -274,7 +363,11 @@ public class DispatchSchema {
     }
     DispatchSchema dispatchSchema = (DispatchSchema) o;
     return Objects.equals(this.destinationId, dispatchSchema.destinationId) &&
+        Objects.equals(this.destinationName, dispatchSchema.destinationName) &&
         Objects.equals(this.courseId, dispatchSchema.courseId) &&
+        Objects.equals(this.courseTitle, dispatchSchema.courseTitle) &&
+        Objects.equals(this.updated, dispatchSchema.updated) &&
+        Objects.equals(this.created, dispatchSchema.created) &&
         Objects.equals(this.allowNewRegistrations, dispatchSchema.allowNewRegistrations) &&
         Objects.equals(this.enabled, dispatchSchema.enabled) &&
         Objects.equals(this.instanced, dispatchSchema.instanced) &&
@@ -288,9 +381,8 @@ public class DispatchSchema {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationId, courseId, allowNewRegistrations, enabled, instanced, registrationCap, registrationCount, expirationDate, tags, email, notes);
+    return Objects.hash(destinationId, destinationName, courseId, courseTitle, updated, created, allowNewRegistrations, enabled, instanced, registrationCap, registrationCount, expirationDate, tags, email, notes);
   }
-
 
   @Override
   public String toString() {
@@ -298,7 +390,11 @@ public class DispatchSchema {
     sb.append("class DispatchSchema {\n");
     
     sb.append("    destinationId: ").append(toIndentedString(destinationId)).append("\n");
+    sb.append("    destinationName: ").append(toIndentedString(destinationName)).append("\n");
     sb.append("    courseId: ").append(toIndentedString(courseId)).append("\n");
+    sb.append("    courseTitle: ").append(toIndentedString(courseTitle)).append("\n");
+    sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    allowNewRegistrations: ").append(toIndentedString(allowNewRegistrations)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    instanced: ").append(toIndentedString(instanced)).append("\n");
@@ -322,6 +418,6 @@ public class DispatchSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

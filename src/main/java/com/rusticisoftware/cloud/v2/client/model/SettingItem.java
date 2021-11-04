@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.SettingMetadata;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * SettingItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class SettingItem {
   @JsonProperty("id")
   private String id = null;
@@ -55,15 +57,20 @@ public class SettingItem {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static EffectiveValueSourceEnum fromValue(String text) {
+    public static EffectiveValueSourceEnum fromValue(String value) {
       for (EffectiveValueSourceEnum b : EffectiveValueSourceEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -85,11 +92,11 @@ public class SettingItem {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -103,11 +110,11 @@ public class SettingItem {
     return this;
   }
 
-   /**
+  /**
    * The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels.
    * @return effectiveValue
   **/
-  @ApiModelProperty(example = "null", value = "The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels.")
+  @ApiModelProperty(value = "The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels.")
   public String getEffectiveValue() {
     return effectiveValue;
   }
@@ -121,11 +128,11 @@ public class SettingItem {
     return this;
   }
 
-   /**
+  /**
    * The source of this effective value, default, fallback, or the level the value was set at.
    * @return effectiveValueSource
   **/
-  @ApiModelProperty(example = "null", value = "The source of this effective value, default, fallback, or the level the value was set at.")
+  @ApiModelProperty(value = "The source of this effective value, default, fallback, or the level the value was set at.")
   public EffectiveValueSourceEnum getEffectiveValueSource() {
     return effectiveValueSource;
   }
@@ -139,11 +146,11 @@ public class SettingItem {
     return this;
   }
 
-   /**
+  /**
    * The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level.
    * @return explicitValue
   **/
-  @ApiModelProperty(example = "null", value = "The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level.")
+  @ApiModelProperty(value = "The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level.")
   public String getExplicitValue() {
     return explicitValue;
   }
@@ -157,11 +164,11 @@ public class SettingItem {
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public SettingMetadata getMetadata() {
     return metadata;
   }
@@ -192,7 +199,6 @@ public class SettingItem {
     return Objects.hash(id, effectiveValue, effectiveValueSource, explicitValue, metadata);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -217,6 +223,6 @@ public class SettingItem {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,8 +14,11 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.rusticisoftware.cloud.v2.client.model.MediaFileMetadataSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -23,27 +26,69 @@ import io.swagger.annotations.ApiModelProperty;
  * Request to import a course by downloading it from a url
  */
 @ApiModel(description = "Request to import a course by downloading it from a url")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class ImportFetchRequestSchema {
   @JsonProperty("url")
   private String url = null;
+
+  @JsonProperty("contentType")
+  private String contentType = "application/zip";
+
+  @JsonProperty("mediaFileMetadata")
+  private MediaFileMetadataSchema mediaFileMetadata = null;
 
   public ImportFetchRequestSchema url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
-   * URL path to the .zip package to download to import this course
+  /**
+   * URL path to the .zip package or media file to download to import this course
    * @return url
   **/
-  @ApiModelProperty(example = "null", required = true, value = "URL path to the .zip package to download to import this course")
+  @ApiModelProperty(required = true, value = "URL path to the .zip package or media file to download to import this course")
   public String getUrl() {
     return url;
   }
 
   public void setUrl(String url) {
     this.url = url;
+  }
+
+  public ImportFetchRequestSchema contentType(String contentType) {
+    this.contentType = contentType;
+    return this;
+  }
+
+  /**
+   * MIME type of the content to be fetched
+   * @return contentType
+  **/
+  @ApiModelProperty(value = "MIME type of the content to be fetched")
+  public String getContentType() {
+    return contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
+  }
+
+  public ImportFetchRequestSchema mediaFileMetadata(MediaFileMetadataSchema mediaFileMetadata) {
+    this.mediaFileMetadata = mediaFileMetadata;
+    return this;
+  }
+
+  /**
+   * Get mediaFileMetadata
+   * @return mediaFileMetadata
+  **/
+  @ApiModelProperty(value = "")
+  public MediaFileMetadataSchema getMediaFileMetadata() {
+    return mediaFileMetadata;
+  }
+
+  public void setMediaFileMetadata(MediaFileMetadataSchema mediaFileMetadata) {
+    this.mediaFileMetadata = mediaFileMetadata;
   }
 
 
@@ -56,14 +101,15 @@ public class ImportFetchRequestSchema {
       return false;
     }
     ImportFetchRequestSchema importFetchRequestSchema = (ImportFetchRequestSchema) o;
-    return Objects.equals(this.url, importFetchRequestSchema.url);
+    return Objects.equals(this.url, importFetchRequestSchema.url) &&
+        Objects.equals(this.contentType, importFetchRequestSchema.contentType) &&
+        Objects.equals(this.mediaFileMetadata, importFetchRequestSchema.mediaFileMetadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url);
+    return Objects.hash(url, contentType, mediaFileMetadata);
   }
-
 
   @Override
   public String toString() {
@@ -71,6 +117,8 @@ public class ImportFetchRequestSchema {
     sb.append("class ImportFetchRequestSchema {\n");
     
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    mediaFileMetadata: ").append(toIndentedString(mediaFileMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -85,6 +133,6 @@ public class ImportFetchRequestSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

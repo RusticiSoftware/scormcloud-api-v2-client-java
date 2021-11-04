@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.UserInvitationSchemaRegistrationReport;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -24,7 +26,7 @@ import java.time.OffsetDateTime;
 /**
  * UserInvitationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class UserInvitationSchema {
   @JsonProperty("email")
   private String email = null;
@@ -49,11 +51,11 @@ public class UserInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * The email of the user who took an invitation.
    * @return email
   **/
-  @ApiModelProperty(example = "null", value = "The email of the user who took an invitation.")
+  @ApiModelProperty(value = "The email of the user who took an invitation.")
   public String getEmail() {
     return email;
   }
@@ -67,11 +69,11 @@ public class UserInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * The URL which the user would follow to take the invitation.
    * @return url
   **/
-  @ApiModelProperty(example = "null", value = "The URL which the user would follow to take the invitation.")
+  @ApiModelProperty(value = "The URL which the user would follow to take the invitation.")
   public String getUrl() {
     return url;
   }
@@ -85,12 +87,12 @@ public class UserInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * A boolean flag stating if the user has started the invitation.
    * @return isStarted
   **/
-  @ApiModelProperty(example = "null", value = "A boolean flag stating if the user has started the invitation.")
-  public Boolean getIsStarted() {
+  @ApiModelProperty(value = "A boolean flag stating if the user has started the invitation.")
+  public Boolean isIsStarted() {
     return isStarted;
   }
 
@@ -103,11 +105,11 @@ public class UserInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get updated
    * @return updated
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getUpdated() {
     return updated;
   }
@@ -121,11 +123,11 @@ public class UserInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * The id of the registration which was created from the user being invited.
    * @return registrationId
   **/
-  @ApiModelProperty(example = "null", value = "The id of the registration which was created from the user being invited.")
+  @ApiModelProperty(value = "The id of the registration which was created from the user being invited.")
   public String getRegistrationId() {
     return registrationId;
   }
@@ -139,11 +141,11 @@ public class UserInvitationSchema {
     return this;
   }
 
-   /**
+  /**
    * Get registrationReport
    * @return registrationReport
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public UserInvitationSchemaRegistrationReport getRegistrationReport() {
     return registrationReport;
   }
@@ -175,7 +177,6 @@ public class UserInvitationSchema {
     return Objects.hash(email, url, isStarted, updated, registrationId, registrationReport);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -201,6 +202,6 @@ public class UserInvitationSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

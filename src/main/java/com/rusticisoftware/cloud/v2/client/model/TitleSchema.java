@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * TitleSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class TitleSchema {
   @JsonProperty("title")
   private String title = null;
@@ -32,11 +34,11 @@ public class TitleSchema {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
   }
@@ -63,7 +65,6 @@ public class TitleSchema {
     return Objects.hash(title);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -84,6 +85,6 @@ public class TitleSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

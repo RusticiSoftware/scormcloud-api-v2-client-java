@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * LearnerSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class LearnerSchema {
   @JsonProperty("id")
   private String id = null;
@@ -41,11 +43,11 @@ public class LearnerSchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getId() {
     return id;
   }
@@ -59,11 +61,11 @@ public class LearnerSchema {
     return this;
   }
 
-   /**
+  /**
    * Optional email address associated with the learner.
    * @return email
   **/
-  @ApiModelProperty(example = "null", value = "Optional email address associated with the learner.")
+  @ApiModelProperty(value = "Optional email address associated with the learner.")
   public String getEmail() {
     return email;
   }
@@ -77,11 +79,11 @@ public class LearnerSchema {
     return this;
   }
 
-   /**
+  /**
    * Get firstName
    * @return firstName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getFirstName() {
     return firstName;
   }
@@ -95,11 +97,11 @@ public class LearnerSchema {
     return this;
   }
 
-   /**
+  /**
    * Get lastName
    * @return lastName
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLastName() {
     return lastName;
   }
@@ -129,7 +131,6 @@ public class LearnerSchema {
     return Objects.hash(id, email, firstName, lastName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -153,6 +154,6 @@ public class LearnerSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

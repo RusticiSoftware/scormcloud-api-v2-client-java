@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * RuntimeObjectiveSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class RuntimeObjectiveSchema {
   @JsonProperty("id")
   private String id = null;
@@ -55,15 +57,20 @@ public class RuntimeObjectiveSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static RuntimeObjectiveSuccessStatusEnum fromValue(String text) {
+    public static RuntimeObjectiveSuccessStatusEnum fromValue(String value) {
       for (RuntimeObjectiveSuccessStatusEnum b : RuntimeObjectiveSuccessStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -94,15 +101,20 @@ public class RuntimeObjectiveSchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static RuntimeObjectiveCompletionStatusEnum fromValue(String text) {
+    public static RuntimeObjectiveCompletionStatusEnum fromValue(String value) {
       for (RuntimeObjectiveCompletionStatusEnum b : RuntimeObjectiveCompletionStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -124,11 +136,11 @@ public class RuntimeObjectiveSchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -142,11 +154,11 @@ public class RuntimeObjectiveSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scoreScaled
    * @return scoreScaled
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getScoreScaled() {
     return scoreScaled;
   }
@@ -160,11 +172,11 @@ public class RuntimeObjectiveSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scoreMin
    * @return scoreMin
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getScoreMin() {
     return scoreMin;
   }
@@ -178,11 +190,11 @@ public class RuntimeObjectiveSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scoreMax
    * @return scoreMax
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getScoreMax() {
     return scoreMax;
   }
@@ -196,11 +208,11 @@ public class RuntimeObjectiveSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scoreRaw
    * @return scoreRaw
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getScoreRaw() {
     return scoreRaw;
   }
@@ -214,11 +226,11 @@ public class RuntimeObjectiveSchema {
     return this;
   }
 
-   /**
+  /**
    * Get runtimeObjectiveSuccessStatus
    * @return runtimeObjectiveSuccessStatus
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public RuntimeObjectiveSuccessStatusEnum getRuntimeObjectiveSuccessStatus() {
     return runtimeObjectiveSuccessStatus;
   }
@@ -232,11 +244,11 @@ public class RuntimeObjectiveSchema {
     return this;
   }
 
-   /**
+  /**
    * Get runtimeObjectiveCompletionStatus
    * @return runtimeObjectiveCompletionStatus
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public RuntimeObjectiveCompletionStatusEnum getRuntimeObjectiveCompletionStatus() {
     return runtimeObjectiveCompletionStatus;
   }
@@ -250,11 +262,11 @@ public class RuntimeObjectiveSchema {
     return this;
   }
 
-   /**
+  /**
    * Get progressMeasure
    * @return progressMeasure
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getProgressMeasure() {
     return progressMeasure;
   }
@@ -268,11 +280,11 @@ public class RuntimeObjectiveSchema {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }
@@ -307,7 +319,6 @@ public class RuntimeObjectiveSchema {
     return Objects.hash(id, scoreScaled, scoreMin, scoreMax, scoreRaw, runtimeObjectiveSuccessStatus, runtimeObjectiveCompletionStatus, progressMeasure, description);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -336,6 +347,6 @@ public class RuntimeObjectiveSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -23,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4124-account-object
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4124-account-object")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiAccount {
   @JsonProperty("homePage")
   private String homePage = null;
@@ -36,11 +38,11 @@ public class XapiAccount {
     return this;
   }
 
-   /**
+  /**
    * Get homePage
    * @return homePage
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getHomePage() {
     return homePage;
   }
@@ -54,11 +56,11 @@ public class XapiAccount {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getName() {
     return name;
   }
@@ -86,7 +88,6 @@ public class XapiAccount {
     return Objects.hash(homePage, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -108,6 +109,6 @@ public class XapiAccount {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

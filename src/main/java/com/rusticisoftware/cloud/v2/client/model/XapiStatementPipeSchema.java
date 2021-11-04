@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiEndpointSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * XapiStatementPipeSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiStatementPipeSchema {
   @JsonProperty("id")
   private String id = null;
@@ -51,11 +53,11 @@ public class XapiStatementPipeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -69,11 +71,11 @@ public class XapiStatementPipeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get lastForwardedStatementDate
    * @return lastForwardedStatementDate
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLastForwardedStatementDate() {
     return lastForwardedStatementDate;
   }
@@ -87,11 +89,11 @@ public class XapiStatementPipeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get moreUrl
    * @return moreUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getMoreUrl() {
     return moreUrl;
   }
@@ -105,11 +107,11 @@ public class XapiStatementPipeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get attempts
    * @return attempts
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getAttempts() {
     return attempts;
   }
@@ -123,11 +125,11 @@ public class XapiStatementPipeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get visibleAfter
    * @return visibleAfter
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getVisibleAfter() {
     return visibleAfter;
   }
@@ -141,11 +143,11 @@ public class XapiStatementPipeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get source
    * @return source
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiEndpointSchema getSource() {
     return source;
   }
@@ -159,11 +161,11 @@ public class XapiStatementPipeSchema {
     return this;
   }
 
-   /**
+  /**
    * Get target
    * @return target
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiEndpointSchema getTarget() {
     return target;
   }
@@ -196,7 +198,6 @@ public class XapiStatementPipeSchema {
     return Objects.hash(id, lastForwardedStatementDate, moreUrl, attempts, visibleAfter, source, target);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -223,6 +224,6 @@ public class XapiStatementPipeSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

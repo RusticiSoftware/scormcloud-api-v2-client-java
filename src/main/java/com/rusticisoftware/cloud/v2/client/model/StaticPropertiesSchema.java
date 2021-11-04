@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * StaticPropertiesSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class StaticPropertiesSchema {
   @JsonProperty("completionThreshold")
   private String completionThreshold = null;
@@ -47,11 +49,11 @@ public class StaticPropertiesSchema {
     return this;
   }
 
-   /**
+  /**
    * Get completionThreshold
    * @return completionThreshold
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getCompletionThreshold() {
     return completionThreshold;
   }
@@ -65,11 +67,11 @@ public class StaticPropertiesSchema {
     return this;
   }
 
-   /**
+  /**
    * Get launchData
    * @return launchData
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getLaunchData() {
     return launchData;
   }
@@ -83,11 +85,11 @@ public class StaticPropertiesSchema {
     return this;
   }
 
-   /**
+  /**
    * Get maxTimeAllowed
    * @return maxTimeAllowed
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getMaxTimeAllowed() {
     return maxTimeAllowed;
   }
@@ -101,11 +103,11 @@ public class StaticPropertiesSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scaledPassingScore
    * @return scaledPassingScore
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getScaledPassingScore() {
     return scaledPassingScore;
   }
@@ -119,12 +121,12 @@ public class StaticPropertiesSchema {
     return this;
   }
 
-   /**
+  /**
    * Get scaledPassingScoreUsed
    * @return scaledPassingScoreUsed
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getScaledPassingScoreUsed() {
+  @ApiModelProperty(value = "")
+  public Boolean isScaledPassingScoreUsed() {
     return scaledPassingScoreUsed;
   }
 
@@ -137,11 +139,11 @@ public class StaticPropertiesSchema {
     return this;
   }
 
-   /**
+  /**
    * Get timeLimitAction
    * @return timeLimitAction
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTimeLimitAction() {
     return timeLimitAction;
   }
@@ -173,7 +175,6 @@ public class StaticPropertiesSchema {
     return Objects.hash(completionThreshold, launchData, maxTimeAllowed, scaledPassingScore, scaledPassingScoreUsed, timeLimitAction);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -199,6 +200,6 @@ public class StaticPropertiesSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

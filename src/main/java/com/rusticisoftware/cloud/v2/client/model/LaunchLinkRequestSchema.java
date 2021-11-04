@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ItemValuePairSchema;
 import com.rusticisoftware.cloud.v2.client.model.LaunchAuthSchema;
 import io.swagger.annotations.ApiModel;
@@ -26,7 +28,7 @@ import java.util.List;
 /**
  * LaunchLinkRequestSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class LaunchLinkRequestSchema {
   @JsonProperty("expiry")
   private Integer expiry = 120;
@@ -47,16 +49,16 @@ public class LaunchLinkRequestSchema {
   private String cssUrl = null;
 
   @JsonProperty("learnerTags")
-  private List<String> learnerTags = new ArrayList<String>();
+  private List<String> learnerTags = null;
 
   @JsonProperty("courseTags")
-  private List<String> courseTags = new ArrayList<String>();
+  private List<String> courseTags = null;
 
   @JsonProperty("registrationTags")
-  private List<String> registrationTags = new ArrayList<String>();
+  private List<String> registrationTags = null;
 
   @JsonProperty("additionalvalues")
-  private List<ItemValuePairSchema> additionalvalues = new ArrayList<ItemValuePairSchema>();
+  private List<ItemValuePairSchema> additionalvalues = null;
 
   @JsonProperty("launchAuth")
   private LaunchAuthSchema launchAuth = null;
@@ -66,11 +68,11 @@ public class LaunchLinkRequestSchema {
     return this;
   }
 
-   /**
+  /**
    * Number of seconds from now this link will expire in. Defaults to 120s. Range 10s:300s
    * @return expiry
   **/
-  @ApiModelProperty(example = "null", value = "Number of seconds from now this link will expire in. Defaults to 120s. Range 10s:300s")
+  @ApiModelProperty(value = "Number of seconds from now this link will expire in. Defaults to 120s. Range 10s:300s")
   public Integer getExpiry() {
     return expiry;
   }
@@ -84,11 +86,11 @@ public class LaunchLinkRequestSchema {
     return this;
   }
 
-   /**
-   * The URL the application should redirect to when the learner exits a course. If not specified, configured value will be used.
+  /**
+   * The URL the application should redirect to when the learner exits a course.  Alternatively one of the following keywords can be used to redirect to: - &#x60;closer&#x60; - A page that automatically tries to close the browser tab/window - &#x60;blank&#x60; - A blank page - &#x60;message&#x60; - A page with a message about the course being complete  If an empty string is specified, the configured setting will be used (default www.scorm.com). If an invalid url is specified, the Message.html page will be loaded. 
    * @return redirectOnExitUrl
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The URL the application should redirect to when the learner exits a course. If not specified, configured value will be used.")
+  @ApiModelProperty(required = true, value = "The URL the application should redirect to when the learner exits a course.  Alternatively one of the following keywords can be used to redirect to: - `closer` - A page that automatically tries to close the browser tab/window - `blank` - A blank page - `message` - A page with a message about the course being complete  If an empty string is specified, the configured setting will be used (default www.scorm.com). If an invalid url is specified, the Message.html page will be loaded. ")
   public String getRedirectOnExitUrl() {
     return redirectOnExitUrl;
   }
@@ -102,12 +104,12 @@ public class LaunchLinkRequestSchema {
     return this;
   }
 
-   /**
-   * Should this launch be tracked? If false, Engine will avoid tracking to the extent possible for the standard being used.
+  /**
+   * Should this launch be tracked? If false, SCORM Cloud will avoid tracking to the extent possible for the standard being used.
    * @return tracking
   **/
-  @ApiModelProperty(example = "null", value = "Should this launch be tracked? If false, Engine will avoid tracking to the extent possible for the standard being used.")
-  public Boolean getTracking() {
+  @ApiModelProperty(value = "Should this launch be tracked? If false, SCORM Cloud will avoid tracking to the extent possible for the standard being used.")
+  public Boolean isTracking() {
     return tracking;
   }
 
@@ -120,11 +122,11 @@ public class LaunchLinkRequestSchema {
     return this;
   }
 
-   /**
+  /**
    * For SCORM, SCO identifier to override launch, overriding the normal sequencing.
    * @return startSco
   **/
-  @ApiModelProperty(example = "null", value = "For SCORM, SCO identifier to override launch, overriding the normal sequencing.")
+  @ApiModelProperty(value = "For SCORM, SCO identifier to override launch, overriding the normal sequencing.")
   public String getStartSco() {
     return startSco;
   }
@@ -138,11 +140,11 @@ public class LaunchLinkRequestSchema {
     return this;
   }
 
-   /**
+  /**
    * This parameter should specify a culture code. If specified, and supported, the navigation and alerts in the player will be displayed in the associated language. If not specified, the locale of the user’s browser will be used.
    * @return culture
   **/
-  @ApiModelProperty(example = "null", value = "This parameter should specify a culture code. If specified, and supported, the navigation and alerts in the player will be displayed in the associated language. If not specified, the locale of the user’s browser will be used.")
+  @ApiModelProperty(value = "This parameter should specify a culture code. If specified, and supported, the navigation and alerts in the player will be displayed in the associated language. If not specified, the locale of the user’s browser will be used.")
   public String getCulture() {
     return culture;
   }
@@ -156,11 +158,11 @@ public class LaunchLinkRequestSchema {
     return this;
   }
 
-   /**
+  /**
    * A Url pointing to custom css for the player to use.
    * @return cssUrl
   **/
-  @ApiModelProperty(example = "null", value = "A Url pointing to custom css for the player to use.")
+  @ApiModelProperty(value = "A Url pointing to custom css for the player to use.")
   public String getCssUrl() {
     return cssUrl;
   }
@@ -175,15 +177,18 @@ public class LaunchLinkRequestSchema {
   }
 
   public LaunchLinkRequestSchema addLearnerTagsItem(String learnerTagsItem) {
+    if (this.learnerTags == null) {
+      this.learnerTags = new ArrayList<>();
+    }
     this.learnerTags.add(learnerTagsItem);
     return this;
   }
 
-   /**
+  /**
    * Get learnerTags
    * @return learnerTags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getLearnerTags() {
     return learnerTags;
   }
@@ -198,15 +203,18 @@ public class LaunchLinkRequestSchema {
   }
 
   public LaunchLinkRequestSchema addCourseTagsItem(String courseTagsItem) {
+    if (this.courseTags == null) {
+      this.courseTags = new ArrayList<>();
+    }
     this.courseTags.add(courseTagsItem);
     return this;
   }
 
-   /**
+  /**
    * Get courseTags
    * @return courseTags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getCourseTags() {
     return courseTags;
   }
@@ -221,15 +229,18 @@ public class LaunchLinkRequestSchema {
   }
 
   public LaunchLinkRequestSchema addRegistrationTagsItem(String registrationTagsItem) {
+    if (this.registrationTags == null) {
+      this.registrationTags = new ArrayList<>();
+    }
     this.registrationTags.add(registrationTagsItem);
     return this;
   }
 
-   /**
+  /**
    * Get registrationTags
    * @return registrationTags
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getRegistrationTags() {
     return registrationTags;
   }
@@ -244,15 +255,18 @@ public class LaunchLinkRequestSchema {
   }
 
   public LaunchLinkRequestSchema addAdditionalvaluesItem(ItemValuePairSchema additionalvaluesItem) {
+    if (this.additionalvalues == null) {
+      this.additionalvalues = new ArrayList<>();
+    }
     this.additionalvalues.add(additionalvaluesItem);
     return this;
   }
 
-   /**
+  /**
    * Get additionalvalues
    * @return additionalvalues
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<ItemValuePairSchema> getAdditionalvalues() {
     return additionalvalues;
   }
@@ -266,11 +280,11 @@ public class LaunchLinkRequestSchema {
     return this;
   }
 
-   /**
+  /**
    * Get launchAuth
    * @return launchAuth
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public LaunchAuthSchema getLaunchAuth() {
     return launchAuth;
   }
@@ -307,7 +321,6 @@ public class LaunchLinkRequestSchema {
     return Objects.hash(expiry, redirectOnExitUrl, tracking, startSco, culture, cssUrl, learnerTags, courseTags, registrationTags, additionalvalues, launchAuth);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -338,6 +351,6 @@ public class LaunchLinkRequestSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

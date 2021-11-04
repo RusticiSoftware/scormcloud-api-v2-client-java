@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
@@ -26,16 +28,16 @@ import java.util.Map;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4111-attachments
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4111-attachments")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiAttachment {
   @JsonProperty("usageType")
   private String usageType = null;
 
   @JsonProperty("display")
-  private Map<String, String> display = new HashMap<String, String>();
+  private Map<String, String> display = new HashMap<>();
 
   @JsonProperty("description")
-  private Map<String, String> description = new HashMap<String, String>();
+  private Map<String, String> description = null;
 
   @JsonProperty("contentType")
   private String contentType = null;
@@ -54,11 +56,11 @@ public class XapiAttachment {
     return this;
   }
 
-   /**
+  /**
    * Get usageType
    * @return usageType
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getUsageType() {
     return usageType;
   }
@@ -77,11 +79,11 @@ public class XapiAttachment {
     return this;
   }
 
-   /**
+  /**
    * Get display
    * @return display
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public Map<String, String> getDisplay() {
     return display;
   }
@@ -96,15 +98,18 @@ public class XapiAttachment {
   }
 
   public XapiAttachment putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<>();
+    }
     this.description.put(key, descriptionItem);
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -118,11 +123,11 @@ public class XapiAttachment {
     return this;
   }
 
-   /**
+  /**
    * Get contentType
    * @return contentType
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getContentType() {
     return contentType;
   }
@@ -136,11 +141,11 @@ public class XapiAttachment {
     return this;
   }
 
-   /**
+  /**
    * Get length
    * @return length
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public Long getLength() {
     return length;
   }
@@ -154,11 +159,11 @@ public class XapiAttachment {
     return this;
   }
 
-   /**
+  /**
    * Get sha2
    * @return sha2
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getSha2() {
     return sha2;
   }
@@ -172,11 +177,11 @@ public class XapiAttachment {
     return this;
   }
 
-   /**
+  /**
    * Get fileUrl
    * @return fileUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getFileUrl() {
     return fileUrl;
   }
@@ -209,7 +214,6 @@ public class XapiAttachment {
     return Objects.hash(usageType, display, description, contentType, length, sha2, fileUrl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -236,6 +240,6 @@ public class XapiAttachment {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

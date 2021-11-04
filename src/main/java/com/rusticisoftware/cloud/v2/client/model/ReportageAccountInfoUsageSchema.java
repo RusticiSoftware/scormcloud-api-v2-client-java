@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -23,7 +25,7 @@ import java.time.OffsetDateTime;
 /**
  * ReportageAccountInfoUsageSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class ReportageAccountInfoUsageSchema {
   @JsonProperty("monthStart")
   private OffsetDateTime monthStart = null;
@@ -42,11 +44,11 @@ public class ReportageAccountInfoUsageSchema {
     return this;
   }
 
-   /**
+  /**
    * Get monthStart
    * @return monthStart
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getMonthStart() {
     return monthStart;
   }
@@ -60,11 +62,11 @@ public class ReportageAccountInfoUsageSchema {
     return this;
   }
 
-   /**
+  /**
    * Get regCount
    * @return regCount
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getRegCount() {
     return regCount;
   }
@@ -78,11 +80,11 @@ public class ReportageAccountInfoUsageSchema {
     return this;
   }
 
-   /**
+  /**
    * Get totalRegistrations
    * @return totalRegistrations
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getTotalRegistrations() {
     return totalRegistrations;
   }
@@ -96,11 +98,11 @@ public class ReportageAccountInfoUsageSchema {
     return this;
   }
 
-   /**
+  /**
    * Get totalCourses
    * @return totalCourses
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getTotalCourses() {
     return totalCourses;
   }
@@ -130,7 +132,6 @@ public class ReportageAccountInfoUsageSchema {
     return Objects.hash(monthStart, regCount, totalRegistrations, totalCourses);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -154,6 +155,6 @@ public class ReportageAccountInfoUsageSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

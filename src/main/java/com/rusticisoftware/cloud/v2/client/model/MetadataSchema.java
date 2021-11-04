@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.List;
 /**
  * MetadataSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class MetadataSchema {
   @JsonProperty("title")
   private String title = null;
@@ -41,22 +43,22 @@ public class MetadataSchema {
   @JsonProperty("duration")
   private String duration = null;
 
-  @JsonProperty("typicaltime")
-  private String typicaltime = null;
+  @JsonProperty("typicalTime")
+  private String typicalTime = null;
 
   @JsonProperty("keywords")
-  private List<String> keywords = new ArrayList<String>();
+  private List<String> keywords = null;
 
   public MetadataSchema title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
   }
@@ -70,11 +72,11 @@ public class MetadataSchema {
     return this;
   }
 
-   /**
+  /**
    * Get titleLanguage
    * @return titleLanguage
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getTitleLanguage() {
     return titleLanguage;
   }
@@ -88,11 +90,11 @@ public class MetadataSchema {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }
@@ -106,11 +108,11 @@ public class MetadataSchema {
     return this;
   }
 
-   /**
+  /**
    * Get descriptionLanguage
    * @return descriptionLanguage
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDescriptionLanguage() {
     return descriptionLanguage;
   }
@@ -124,11 +126,11 @@ public class MetadataSchema {
     return this;
   }
 
-   /**
+  /**
    * Get duration
    * @return duration
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getDuration() {
     return duration;
   }
@@ -137,22 +139,22 @@ public class MetadataSchema {
     this.duration = duration;
   }
 
-  public MetadataSchema typicaltime(String typicaltime) {
-    this.typicaltime = typicaltime;
+  public MetadataSchema typicalTime(String typicalTime) {
+    this.typicalTime = typicalTime;
     return this;
   }
 
-   /**
-   * Get typicaltime
-   * @return typicaltime
+  /**
+   * Get typicalTime
+   * @return typicalTime
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTypicaltime() {
-    return typicaltime;
+  @ApiModelProperty(value = "")
+  public String getTypicalTime() {
+    return typicalTime;
   }
 
-  public void setTypicaltime(String typicaltime) {
-    this.typicaltime = typicaltime;
+  public void setTypicalTime(String typicalTime) {
+    this.typicalTime = typicalTime;
   }
 
   public MetadataSchema keywords(List<String> keywords) {
@@ -161,15 +163,18 @@ public class MetadataSchema {
   }
 
   public MetadataSchema addKeywordsItem(String keywordsItem) {
+    if (this.keywords == null) {
+      this.keywords = new ArrayList<>();
+    }
     this.keywords.add(keywordsItem);
     return this;
   }
 
-   /**
+  /**
    * Get keywords
    * @return keywords
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<String> getKeywords() {
     return keywords;
   }
@@ -193,15 +198,14 @@ public class MetadataSchema {
         Objects.equals(this.description, metadataSchema.description) &&
         Objects.equals(this.descriptionLanguage, metadataSchema.descriptionLanguage) &&
         Objects.equals(this.duration, metadataSchema.duration) &&
-        Objects.equals(this.typicaltime, metadataSchema.typicaltime) &&
+        Objects.equals(this.typicalTime, metadataSchema.typicalTime) &&
         Objects.equals(this.keywords, metadataSchema.keywords);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, titleLanguage, description, descriptionLanguage, duration, typicaltime, keywords);
+    return Objects.hash(title, titleLanguage, description, descriptionLanguage, duration, typicalTime, keywords);
   }
-
 
   @Override
   public String toString() {
@@ -213,7 +217,7 @@ public class MetadataSchema {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    descriptionLanguage: ").append(toIndentedString(descriptionLanguage)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    typicaltime: ").append(toIndentedString(typicaltime)).append("\n");
+    sb.append("    typicalTime: ").append(toIndentedString(typicalTime)).append("\n");
     sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -229,6 +233,6 @@ public class MetadataSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

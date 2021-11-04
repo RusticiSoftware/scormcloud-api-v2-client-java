@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.CourseSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,10 +27,10 @@ import java.util.List;
 /**
  * CourseListSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CourseListSchema {
   @JsonProperty("courses")
-  private List<CourseSchema> courses = new ArrayList<CourseSchema>();
+  private List<CourseSchema> courses = null;
 
   @JsonProperty("more")
   private String more = null;
@@ -39,15 +41,18 @@ public class CourseListSchema {
   }
 
   public CourseListSchema addCoursesItem(CourseSchema coursesItem) {
+    if (this.courses == null) {
+      this.courses = new ArrayList<>();
+    }
     this.courses.add(coursesItem);
     return this;
   }
 
-   /**
+  /**
    * Get courses
    * @return courses
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<CourseSchema> getCourses() {
     return courses;
   }
@@ -61,11 +66,11 @@ public class CourseListSchema {
     return this;
   }
 
-   /**
-   * Get more
+  /**
+   * Token for getting the next set of results, from the prior set of results.
    * @return more
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "Token for getting the next set of results, from the prior set of results.")
   public String getMore() {
     return more;
   }
@@ -93,7 +98,6 @@ public class CourseListSchema {
     return Objects.hash(courses, more);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -115,6 +119,6 @@ public class CourseListSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

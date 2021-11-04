@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiCredentialAuthTypeSchema;
 import com.rusticisoftware.cloud.v2.client.model.XapiCredentialPermissionsLevelSchema;
 import io.swagger.annotations.ApiModel;
@@ -24,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * XapiCredentialPostSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiCredentialPostSchema {
   @JsonProperty("name")
   private String name = null;
@@ -49,11 +51,11 @@ public class XapiCredentialPostSchema {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getName() {
     return name;
   }
@@ -67,11 +69,11 @@ public class XapiCredentialPostSchema {
     return this;
   }
 
-   /**
+  /**
    * Get info
    * @return info
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getInfo() {
     return info;
   }
@@ -85,11 +87,11 @@ public class XapiCredentialPostSchema {
     return this;
   }
 
-   /**
+  /**
    * Get secret
    * @return secret
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getSecret() {
     return secret;
   }
@@ -103,12 +105,12 @@ public class XapiCredentialPostSchema {
     return this;
   }
 
-   /**
+  /**
    * Get isEnabled
    * @return isEnabled
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
-  public Boolean getIsEnabled() {
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isIsEnabled() {
     return isEnabled;
   }
 
@@ -121,11 +123,11 @@ public class XapiCredentialPostSchema {
     return this;
   }
 
-   /**
+  /**
    * Get auth
    * @return auth
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public XapiCredentialAuthTypeSchema getAuth() {
     return auth;
   }
@@ -139,11 +141,11 @@ public class XapiCredentialPostSchema {
     return this;
   }
 
-   /**
+  /**
    * Get permissionsLevel
    * @return permissionsLevel
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public XapiCredentialPermissionsLevelSchema getPermissionsLevel() {
     return permissionsLevel;
   }
@@ -175,7 +177,6 @@ public class XapiCredentialPostSchema {
     return Objects.hash(name, info, secret, isEnabled, auth, permissionsLevel);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -201,6 +202,6 @@ public class XapiCredentialPostSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

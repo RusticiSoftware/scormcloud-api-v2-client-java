@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.ScoreSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -24,7 +26,7 @@ import java.time.OffsetDateTime;
 /**
  * LaunchHistorySchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class LaunchHistorySchema {
   @JsonProperty("id")
   private String id = null;
@@ -51,15 +53,20 @@ public class LaunchHistorySchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static CompletionStatusEnum fromValue(String text) {
+    public static CompletionStatusEnum fromValue(String value) {
       for (CompletionStatusEnum b : CompletionStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -86,15 +93,20 @@ public class LaunchHistorySchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static SuccessStatusEnum fromValue(String text) {
+    public static SuccessStatusEnum fromValue(String value) {
       for (SuccessStatusEnum b : SuccessStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -125,11 +137,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
@@ -143,11 +155,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * Get instance
    * @return instance
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Integer getInstance() {
     return instance;
   }
@@ -161,11 +173,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * Get score
    * @return score
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public ScoreSchema getScore() {
     return score;
   }
@@ -179,11 +191,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * Get completionStatus
    * @return completionStatus
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public CompletionStatusEnum getCompletionStatus() {
     return completionStatus;
   }
@@ -197,11 +209,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * Get successStatus
    * @return successStatus
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public SuccessStatusEnum getSuccessStatus() {
     return successStatus;
   }
@@ -215,11 +227,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * Get historyLog
    * @return historyLog
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getHistoryLog() {
     return historyLog;
   }
@@ -233,11 +245,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * Get totalSecondsTracked
    * @return totalSecondsTracked
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Double getTotalSecondsTracked() {
     return totalSecondsTracked;
   }
@@ -251,11 +263,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * The time of the launch in UTC
    * @return launchTime
   **/
-  @ApiModelProperty(example = "null", value = "The time of the launch in UTC")
+  @ApiModelProperty(value = "The time of the launch in UTC")
   public OffsetDateTime getLaunchTime() {
     return launchTime;
   }
@@ -269,11 +281,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * The time of the exit in UTC
    * @return exitTime
   **/
-  @ApiModelProperty(example = "null", value = "The time of the exit in UTC")
+  @ApiModelProperty(value = "The time of the exit in UTC")
   public OffsetDateTime getExitTime() {
     return exitTime;
   }
@@ -287,11 +299,11 @@ public class LaunchHistorySchema {
     return this;
   }
 
-   /**
+  /**
    * The time of the last runtime update in UTC
    * @return lastRuntimeUpdate
   **/
-  @ApiModelProperty(example = "null", value = "The time of the last runtime update in UTC")
+  @ApiModelProperty(value = "The time of the last runtime update in UTC")
   public OffsetDateTime getLastRuntimeUpdate() {
     return lastRuntimeUpdate;
   }
@@ -327,7 +339,6 @@ public class LaunchHistorySchema {
     return Objects.hash(id, instance, score, completionStatus, successStatus, historyLog, totalSecondsTracked, launchTime, exitTime, lastRuntimeUpdate);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -357,6 +368,6 @@ public class LaunchHistorySchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

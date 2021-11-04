@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.PrivateInvitationSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,10 +27,10 @@ import java.util.List;
 /**
  * PrivateInvitationList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class PrivateInvitationList {
   @JsonProperty("invitations")
-  private List<PrivateInvitationSchema> invitations = new ArrayList<PrivateInvitationSchema>();
+  private List<PrivateInvitationSchema> invitations = null;
 
   @JsonProperty("more")
   private String more = null;
@@ -39,15 +41,18 @@ public class PrivateInvitationList {
   }
 
   public PrivateInvitationList addInvitationsItem(PrivateInvitationSchema invitationsItem) {
+    if (this.invitations == null) {
+      this.invitations = new ArrayList<>();
+    }
     this.invitations.add(invitationsItem);
     return this;
   }
 
-   /**
+  /**
    * A list of private invitation objects.
    * @return invitations
   **/
-  @ApiModelProperty(example = "null", value = "A list of private invitation objects.")
+  @ApiModelProperty(value = "A list of private invitation objects.")
   public List<PrivateInvitationSchema> getInvitations() {
     return invitations;
   }
@@ -61,11 +66,11 @@ public class PrivateInvitationList {
     return this;
   }
 
-   /**
-   * Get more
+  /**
+   * Token for getting the next set of results, from the prior set of results.
    * @return more
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "Token for getting the next set of results, from the prior set of results.")
   public String getMore() {
     return more;
   }
@@ -93,7 +98,6 @@ public class PrivateInvitationList {
     return Objects.hash(invitations, more);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -115,6 +119,6 @@ public class PrivateInvitationList {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -2,6 +2,7 @@ package com.rusticisoftware.cloud.v2.client.api;
 
 import com.rusticisoftware.cloud.v2.client.ApiException;
 import com.rusticisoftware.cloud.v2.client.ApiClient;
+import com.rusticisoftware.cloud.v2.client.ApiResponse;
 import com.rusticisoftware.cloud.v2.client.Configuration;
 import com.rusticisoftware.cloud.v2.client.Pair;
 
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class AboutApi {
   private ApiClient apiClient;
 
@@ -35,16 +36,26 @@ public class AboutApi {
   }
 
   /**
-   * Get back the API version and application name. 
-   * Get back the API version and application name. 
+   * Get back the API version and Application name 
+   * Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
    * @return AboutSchema
    * @throws ApiException if fails to make API call
    */
   public AboutSchema getAbout() throws ApiException {
+    return getAboutWithHttpInfo().getData();
+      }
+
+  /**
+   * Get back the API version and Application name 
+   * Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
+   * @return ApiResponse&lt;AboutSchema&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<AboutSchema> getAboutWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/about".replaceAll("\\{format\\}","json");
+    String localVarPath = "/about";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

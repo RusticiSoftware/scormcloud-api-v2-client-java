@@ -2,6 +2,7 @@ package com.rusticisoftware.cloud.v2.client.api;
 
 import com.rusticisoftware.cloud.v2.client.ApiException;
 import com.rusticisoftware.cloud.v2.client.ApiClient;
+import com.rusticisoftware.cloud.v2.client.ApiResponse;
 import com.rusticisoftware.cloud.v2.client.Configuration;
 import com.rusticisoftware.cloud.v2.client.Pair;
 
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class AuthenticationApi {
   private ApiClient apiClient;
 
@@ -36,14 +37,26 @@ public class AuthenticationApi {
   }
 
   /**
-   * Authenticates for a oauth token
-   * Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;Note:  &gt;The token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires. 
-   * @param scope  (required)
-   * @param expiration  (optional, default to 300)
+   * Obtain an OAuth token for scoped access to an Application 
+   * Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
+   * @param scope Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;.  (required)
+   * @param expiration Amount of seconds until the OAuth token expires.  (optional, default to 300)
    * @return ApplicationToken
    * @throws ApiException if fails to make API call
    */
   public ApplicationToken getAppToken(String scope, Integer expiration) throws ApiException {
+    return getAppTokenWithHttpInfo(scope, expiration).getData();
+      }
+
+  /**
+   * Obtain an OAuth token for scoped access to an Application 
+   * Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
+   * @param scope Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;.  (required)
+   * @param expiration Amount of seconds until the OAuth token expires.  (optional, default to 300)
+   * @return ApiResponse&lt;ApplicationToken&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ApplicationToken> getAppTokenWithHttpInfo(String scope, Integer expiration) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'scope' is set
@@ -52,7 +65,7 @@ public class AuthenticationApi {
     }
     
     // create path and map variables
-    String localVarPath = "/oauth/authenticate/application/token".replaceAll("\\{format\\}","json");
+    String localVarPath = "/oauth/authenticate/application/token";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

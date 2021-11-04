@@ -2,6 +2,7 @@ package com.rusticisoftware.cloud.v2.client.api;
 
 import com.rusticisoftware.cloud.v2.client.ApiException;
 import com.rusticisoftware.cloud.v2.client.ApiClient;
+import com.rusticisoftware.cloud.v2.client.ApiResponse;
 import com.rusticisoftware.cloud.v2.client.Configuration;
 import com.rusticisoftware.cloud.v2.client.Pair;
 
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class ReportingApi {
   private ApiClient apiClient;
 
@@ -38,16 +39,26 @@ public class ReportingApi {
   }
 
   /**
-   * Get all of the account information specified by the given app ID
-   * Get all of the account information specified by the given app ID
+   * Get account information 
+   * Returns all of the account information for the specified application. 
    * @return ReportageAccountInfoSchema
    * @throws ApiException if fails to make API call
    */
   public ReportageAccountInfoSchema getAccountInfo() throws ApiException {
+    return getAccountInfoWithHttpInfo().getData();
+      }
+
+  /**
+   * Get account information 
+   * Returns all of the account information for the specified application. 
+   * @return ApiResponse&lt;ReportageAccountInfoSchema&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ReportageAccountInfoSchema> getAccountInfoWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/reporting/accountInfo".replaceAll("\\{format\\}","json");
+    String localVarPath = "/reporting/accountInfo";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -73,14 +84,26 @@ public class ReportingApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get a session authentication token to use when launching Reportage
-   * Get a session authentication token to use when launching Reportage
+   * Get a Reportage session authentication token 
+   * Returns a session authentication token to use when launching Reportage. 
    * @param navPermission The navigation permissions for this Reportage session (required)
    * @param admin Grant admin privileges to this Reportage session (optional, default to false)
    * @return ReportageAuthTokenSchema
    * @throws ApiException if fails to make API call
    */
   public ReportageAuthTokenSchema getReportageAuthToken(String navPermission, Boolean admin) throws ApiException {
+    return getReportageAuthTokenWithHttpInfo(navPermission, admin).getData();
+      }
+
+  /**
+   * Get a Reportage session authentication token 
+   * Returns a session authentication token to use when launching Reportage. 
+   * @param navPermission The navigation permissions for this Reportage session (required)
+   * @param admin Grant admin privileges to this Reportage session (optional, default to false)
+   * @return ApiResponse&lt;ReportageAuthTokenSchema&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ReportageAuthTokenSchema> getReportageAuthTokenWithHttpInfo(String navPermission, Boolean admin) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'navPermission' is set
@@ -89,7 +112,7 @@ public class ReportingApi {
     }
     
     // create path and map variables
-    String localVarPath = "/reporting/reportageAuth".replaceAll("\\{format\\}","json");
+    String localVarPath = "/reporting/reportageAuth";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -117,14 +140,26 @@ public class ReportingApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get the link to a page in Reportage with the given authentication and permissions
-   * Get the link to a page in Reportage with the given authentication and permissions
-   * @param auth The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60; (required)
-   * @param reportUrl The Reportage URL to try and access (required)
+   * Get a link to a page in Reportage with the given permissions 
+   * Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
+   * @param auth The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60; (required)
+   * @param reportUrl The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on.  (required)
    * @return ReportageLinkSchema
    * @throws ApiException if fails to make API call
    */
   public ReportageLinkSchema getReportageLink(String auth, String reportUrl) throws ApiException {
+    return getReportageLinkWithHttpInfo(auth, reportUrl).getData();
+      }
+
+  /**
+   * Get a link to a page in Reportage with the given permissions 
+   * Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
+   * @param auth The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60; (required)
+   * @param reportUrl The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on.  (required)
+   * @return ApiResponse&lt;ReportageLinkSchema&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ReportageLinkSchema> getReportageLinkWithHttpInfo(String auth, String reportUrl) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'auth' is set
@@ -138,7 +173,7 @@ public class ReportingApi {
     }
     
     // create path and map variables
-    String localVarPath = "/reporting/reportageLink".replaceAll("\\{format\\}","json");
+    String localVarPath = "/reporting/reportageLink";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

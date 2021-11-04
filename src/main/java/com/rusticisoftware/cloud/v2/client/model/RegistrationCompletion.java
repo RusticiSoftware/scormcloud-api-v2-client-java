@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Gets or Sets RegistrationCompletion
@@ -34,15 +36,20 @@ public enum RegistrationCompletion {
     this.value = value;
   }
 
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
+
   @Override
   public String toString() {
     return String.valueOf(value);
   }
 
   @JsonCreator
-  public static RegistrationCompletion fromValue(String text) {
+  public static RegistrationCompletion fromValue(String value) {
     for (RegistrationCompletion b : RegistrationCompletion.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(value)) {
         return b;
       }
     }

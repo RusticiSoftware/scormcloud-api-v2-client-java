@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.PostBackSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -24,7 +26,7 @@ import java.time.OffsetDateTime;
 /**
  * UpdateDispatchSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class UpdateDispatchSchema {
   @JsonProperty("allowNewRegistrations")
   private Boolean allowNewRegistrations = null;
@@ -34,6 +36,9 @@ public class UpdateDispatchSchema {
 
   @JsonProperty("registrationCap")
   private Integer registrationCap = null;
+
+  @JsonProperty("registrationCount")
+  private Integer registrationCount = null;
 
   @JsonProperty("expirationDate")
   private OffsetDateTime expirationDate = null;
@@ -55,12 +60,12 @@ public class UpdateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * If true, then new registrations can be created for this dispatch. 
    * @return allowNewRegistrations
   **/
-  @ApiModelProperty(example = "null", value = "If true, then new registrations can be created for this dispatch. ")
-  public Boolean getAllowNewRegistrations() {
+  @ApiModelProperty(value = "If true, then new registrations can be created for this dispatch. ")
+  public Boolean isAllowNewRegistrations() {
     return allowNewRegistrations;
   }
 
@@ -73,12 +78,12 @@ public class UpdateDispatchSchema {
     return this;
   }
 
-   /**
-   * If true, then a new registration instance will be created if the client LMS doesn't provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. 
+  /**
+   * If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. 
    * @return instanced
   **/
-  @ApiModelProperty(example = "null", value = "If true, then a new registration instance will be created if the client LMS doesn't provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. ")
-  public Boolean getInstanced() {
+  @ApiModelProperty(value = "If true, then a new registration instance will be created if the client LMS doesn't provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. ")
+  public Boolean isInstanced() {
     return instanced;
   }
 
@@ -91,11 +96,11 @@ public class UpdateDispatchSchema {
     return this;
   }
 
-   /**
-   * The maximum number of registrations that can be created for this dispatch, where '0' means 'unlimited registrations'. 
+  /**
+   * The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. 
    * @return registrationCap
   **/
-  @ApiModelProperty(example = "null", value = "The maximum number of registrations that can be created for this dispatch, where '0' means 'unlimited registrations'. ")
+  @ApiModelProperty(value = "The maximum number of registrations that can be created for this dispatch, where '0' means 'unlimited registrations'. ")
   public Integer getRegistrationCap() {
     return registrationCap;
   }
@@ -104,16 +109,34 @@ public class UpdateDispatchSchema {
     this.registrationCap = registrationCap;
   }
 
+  public UpdateDispatchSchema registrationCount(Integer registrationCount) {
+    this.registrationCount = registrationCount;
+    return this;
+  }
+
+  /**
+   * The current number of registrations that have been created for this dispatch. 
+   * @return registrationCount
+  **/
+  @ApiModelProperty(value = "The current number of registrations that have been created for this dispatch. ")
+  public Integer getRegistrationCount() {
+    return registrationCount;
+  }
+
+  public void setRegistrationCount(Integer registrationCount) {
+    this.registrationCount = registrationCount;
+  }
+
   public UpdateDispatchSchema expirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
     return this;
   }
 
-   /**
-   * The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. 
+  /**
+   * The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. 
    * @return expirationDate
   **/
-  @ApiModelProperty(example = "null", value = "The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. ")
+  @ApiModelProperty(value = "The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. ")
   public OffsetDateTime getExpirationDate() {
     return expirationDate;
   }
@@ -127,12 +150,12 @@ public class UpdateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * If true, then this dispatch can be launched. 
    * @return enabled
   **/
-  @ApiModelProperty(example = "null", value = "If true, then this dispatch can be launched. ")
-  public Boolean getEnabled() {
+  @ApiModelProperty(value = "If true, then this dispatch can be launched. ")
+  public Boolean isEnabled() {
     return enabled;
   }
 
@@ -145,11 +168,11 @@ public class UpdateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. 
    * @return email
   **/
-  @ApiModelProperty(example = "null", value = "SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. ")
+  @ApiModelProperty(value = "SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. ")
   public String getEmail() {
     return email;
   }
@@ -163,11 +186,11 @@ public class UpdateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * Any provided notes about this dispatch.
    * @return notes
   **/
-  @ApiModelProperty(example = "null", value = "Any provided notes about this dispatch.")
+  @ApiModelProperty(value = "Any provided notes about this dispatch.")
   public String getNotes() {
     return notes;
   }
@@ -181,11 +204,11 @@ public class UpdateDispatchSchema {
     return this;
   }
 
-   /**
+  /**
    * The postback information for this Dispatch.
    * @return postBack
   **/
-  @ApiModelProperty(example = "null", value = "The postback information for this Dispatch.")
+  @ApiModelProperty(value = "The postback information for this Dispatch.")
   public PostBackSchema getPostBack() {
     return postBack;
   }
@@ -207,6 +230,7 @@ public class UpdateDispatchSchema {
     return Objects.equals(this.allowNewRegistrations, updateDispatchSchema.allowNewRegistrations) &&
         Objects.equals(this.instanced, updateDispatchSchema.instanced) &&
         Objects.equals(this.registrationCap, updateDispatchSchema.registrationCap) &&
+        Objects.equals(this.registrationCount, updateDispatchSchema.registrationCount) &&
         Objects.equals(this.expirationDate, updateDispatchSchema.expirationDate) &&
         Objects.equals(this.enabled, updateDispatchSchema.enabled) &&
         Objects.equals(this.email, updateDispatchSchema.email) &&
@@ -216,9 +240,8 @@ public class UpdateDispatchSchema {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowNewRegistrations, instanced, registrationCap, expirationDate, enabled, email, notes, postBack);
+    return Objects.hash(allowNewRegistrations, instanced, registrationCap, registrationCount, expirationDate, enabled, email, notes, postBack);
   }
-
 
   @Override
   public String toString() {
@@ -228,6 +251,7 @@ public class UpdateDispatchSchema {
     sb.append("    allowNewRegistrations: ").append(toIndentedString(allowNewRegistrations)).append("\n");
     sb.append("    instanced: ").append(toIndentedString(instanced)).append("\n");
     sb.append("    registrationCap: ").append(toIndentedString(registrationCap)).append("\n");
+    sb.append("    registrationCount: ").append(toIndentedString(registrationCount)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -247,6 +271,6 @@ public class UpdateDispatchSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

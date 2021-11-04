@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiAccount;
 import com.rusticisoftware.cloud.v2.client.model.XapiAgentGroup;
 import io.swagger.annotations.ApiModel;
@@ -27,7 +29,7 @@ import java.util.List;
  * YAML 2.0 does not support oneOf so this is used when object can be an Agent or a Group.
  */
 @ApiModel(description = "YAML 2.0 does not support oneOf so this is used when object can be an Agent or a Group.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiAgentGroup {
   /**
    * Gets or Sets objectType
@@ -43,15 +45,20 @@ public class XapiAgentGroup {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static ObjectTypeEnum fromValue(String text) {
+    public static ObjectTypeEnum fromValue(String value) {
       for (ObjectTypeEnum b : ObjectTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -78,18 +85,18 @@ public class XapiAgentGroup {
   private XapiAccount account = null;
 
   @JsonProperty("member")
-  private List<XapiAgentGroup> member = new ArrayList<XapiAgentGroup>();
+  private List<XapiAgentGroup> member = null;
 
   public XapiAgentGroup objectType(ObjectTypeEnum objectType) {
     this.objectType = objectType;
     return this;
   }
 
-   /**
+  /**
    * Get objectType
    * @return objectType
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public ObjectTypeEnum getObjectType() {
     return objectType;
   }
@@ -103,11 +110,11 @@ public class XapiAgentGroup {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
@@ -121,11 +128,11 @@ public class XapiAgentGroup {
     return this;
   }
 
-   /**
+  /**
    * Get mbox
    * @return mbox
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getMbox() {
     return mbox;
   }
@@ -139,11 +146,11 @@ public class XapiAgentGroup {
     return this;
   }
 
-   /**
+  /**
    * Get mboxSha1sum
    * @return mboxSha1sum
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getMboxSha1sum() {
     return mboxSha1sum;
   }
@@ -157,11 +164,11 @@ public class XapiAgentGroup {
     return this;
   }
 
-   /**
+  /**
    * Get openid
    * @return openid
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getOpenid() {
     return openid;
   }
@@ -175,11 +182,11 @@ public class XapiAgentGroup {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public XapiAccount getAccount() {
     return account;
   }
@@ -194,15 +201,18 @@ public class XapiAgentGroup {
   }
 
   public XapiAgentGroup addMemberItem(XapiAgentGroup memberItem) {
+    if (this.member == null) {
+      this.member = new ArrayList<>();
+    }
     this.member.add(memberItem);
     return this;
   }
 
-   /**
+  /**
    * Get member
    * @return member
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<XapiAgentGroup> getMember() {
     return member;
   }
@@ -235,7 +245,6 @@ public class XapiAgentGroup {
     return Objects.hash(objectType, name, mbox, mboxSha1sum, openid, account, member);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -262,6 +271,6 @@ public class XapiAgentGroup {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

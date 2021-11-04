@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.CourseActivitySchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,7 +27,7 @@ import java.util.List;
 /**
  * CourseActivitySchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class CourseActivitySchema {
   @JsonProperty("externalIdentifier")
   private String externalIdentifier = null;
@@ -56,15 +58,20 @@ public class CourseActivitySchema {
       this.value = value;
     }
 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static ActivityTypeEnum fromValue(String text) {
+    public static ActivityTypeEnum fromValue(String value) {
       for (ActivityTypeEnum b : ActivityTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -85,18 +92,18 @@ public class CourseActivitySchema {
   private String title = null;
 
   @JsonProperty("children")
-  private List<CourseActivitySchema> children = new ArrayList<CourseActivitySchema>();
+  private List<CourseActivitySchema> children = null;
 
   public CourseActivitySchema externalIdentifier(String externalIdentifier) {
     this.externalIdentifier = externalIdentifier;
     return this;
   }
 
-   /**
+  /**
    * An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses 
    * @return externalIdentifier
   **/
-  @ApiModelProperty(example = "null", value = "An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses ")
+  @ApiModelProperty(value = "An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses ")
   public String getExternalIdentifier() {
     return externalIdentifier;
   }
@@ -110,11 +117,11 @@ public class CourseActivitySchema {
     return this;
   }
 
-   /**
+  /**
    * The string which identifies this activity in the context of its course
    * @return itemIdentifier
   **/
-  @ApiModelProperty(example = "null", value = "The string which identifies this activity in the context of its course")
+  @ApiModelProperty(value = "The string which identifies this activity in the context of its course")
   public String getItemIdentifier() {
     return itemIdentifier;
   }
@@ -128,11 +135,11 @@ public class CourseActivitySchema {
     return this;
   }
 
-   /**
-   * The string which identifies this activity's resource in a course's manifest
+  /**
+   * The string which identifies this activity&#39;s resource in a course&#39;s manifest
    * @return resourceIdentifier
   **/
-  @ApiModelProperty(example = "null", value = "The string which identifies this activity's resource in a course's manifest")
+  @ApiModelProperty(value = "The string which identifies this activity's resource in a course's manifest")
   public String getResourceIdentifier() {
     return resourceIdentifier;
   }
@@ -146,11 +153,11 @@ public class CourseActivitySchema {
     return this;
   }
 
-   /**
+  /**
    * The type of activity this is
    * @return activityType
   **/
-  @ApiModelProperty(example = "null", value = "The type of activity this is")
+  @ApiModelProperty(value = "The type of activity this is")
   public ActivityTypeEnum getActivityType() {
     return activityType;
   }
@@ -164,11 +171,11 @@ public class CourseActivitySchema {
     return this;
   }
 
-   /**
+  /**
    * The web path used to launch this activity
    * @return href
   **/
-  @ApiModelProperty(example = "null", value = "The web path used to launch this activity")
+  @ApiModelProperty(value = "The web path used to launch this activity")
   public String getHref() {
     return href;
   }
@@ -182,11 +189,11 @@ public class CourseActivitySchema {
     return this;
   }
 
-   /**
+  /**
    * The score required of a learner to pass this activity
    * @return scaledPassingScore
   **/
-  @ApiModelProperty(example = "null", value = "The score required of a learner to pass this activity")
+  @ApiModelProperty(value = "The score required of a learner to pass this activity")
   public String getScaledPassingScore() {
     return scaledPassingScore;
   }
@@ -200,11 +207,11 @@ public class CourseActivitySchema {
     return this;
   }
 
-   /**
+  /**
    * The title of the activity
    * @return title
   **/
-  @ApiModelProperty(example = "null", value = "The title of the activity")
+  @ApiModelProperty(value = "The title of the activity")
   public String getTitle() {
     return title;
   }
@@ -219,15 +226,18 @@ public class CourseActivitySchema {
   }
 
   public CourseActivitySchema addChildrenItem(CourseActivitySchema childrenItem) {
+    if (this.children == null) {
+      this.children = new ArrayList<>();
+    }
     this.children.add(childrenItem);
     return this;
   }
 
-   /**
+  /**
    * Get children
    * @return children
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<CourseActivitySchema> getChildren() {
     return children;
   }
@@ -261,7 +271,6 @@ public class CourseActivitySchema {
     return Objects.hash(externalIdentifier, itemIdentifier, resourceIdentifier, activityType, href, scaledPassingScore, title, children);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -289,6 +298,6 @@ public class CourseActivitySchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * SettingsIndividualSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class SettingsIndividualSchema {
   @JsonProperty("settingId")
   private String settingId = null;
@@ -38,11 +40,11 @@ public class SettingsIndividualSchema {
     return this;
   }
 
-   /**
+  /**
    * Get settingId
    * @return settingId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getSettingId() {
     return settingId;
   }
@@ -56,11 +58,11 @@ public class SettingsIndividualSchema {
     return this;
   }
 
-   /**
+  /**
    * Get value
    * @return value
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getValue() {
     return value;
   }
@@ -74,12 +76,12 @@ public class SettingsIndividualSchema {
     return this;
   }
 
-   /**
+  /**
    * Get explicit
    * @return explicit
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getExplicit() {
+  @ApiModelProperty(value = "")
+  public Boolean isExplicit() {
     return explicit;
   }
 
@@ -107,7 +109,6 @@ public class SettingsIndividualSchema {
     return Objects.hash(settingId, value, explicit);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -130,6 +131,6 @@ public class SettingsIndividualSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

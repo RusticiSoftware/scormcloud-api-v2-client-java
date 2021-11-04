@@ -14,15 +14,17 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * ApplicationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class ApplicationSchema {
   @JsonProperty("id")
   private String id = null;
@@ -35,11 +37,11 @@ public class ApplicationSchema {
     return this;
   }
 
-   /**
+  /**
    * The application id for this application.
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "The application id for this application.")
+  @ApiModelProperty(value = "The application id for this application.")
   public String getId() {
     return id;
   }
@@ -53,11 +55,11 @@ public class ApplicationSchema {
     return this;
   }
 
-   /**
+  /**
    * The name of this application.
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "The name of this application.")
+  @ApiModelProperty(value = "The name of this application.")
   public String getName() {
     return name;
   }
@@ -85,7 +87,6 @@ public class ApplicationSchema {
     return Objects.hash(id, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -107,6 +108,6 @@ public class ApplicationSchema {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

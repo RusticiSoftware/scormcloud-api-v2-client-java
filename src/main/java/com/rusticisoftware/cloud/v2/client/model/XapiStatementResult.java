@@ -14,8 +14,10 @@
 package com.rusticisoftware.cloud.v2.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.XapiStatement;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,10 +28,10 @@ import java.util.List;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#42-retrieval-of-statements
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#42-retrieval-of-statements")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-06T09:44:40.358-06:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
 public class XapiStatementResult {
   @JsonProperty("statements")
-  private List<XapiStatement> statements = new ArrayList<XapiStatement>();
+  private List<XapiStatement> statements = new ArrayList<>();
 
   @JsonProperty("more")
   private String more = null;
@@ -44,11 +46,11 @@ public class XapiStatementResult {
     return this;
   }
 
-   /**
+  /**
    * Get statements
    * @return statements
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public List<XapiStatement> getStatements() {
     return statements;
   }
@@ -62,11 +64,11 @@ public class XapiStatementResult {
     return this;
   }
 
-   /**
+  /**
    * Get more
    * @return more
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getMore() {
     return more;
   }
@@ -94,7 +96,6 @@ public class XapiStatementResult {
     return Objects.hash(statements, more);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -116,6 +117,6 @@ public class XapiStatementResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 
