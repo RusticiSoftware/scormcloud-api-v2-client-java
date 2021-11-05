@@ -30,7 +30,7 @@ import java.util.Map;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#activity-definition
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#activity-definition")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
 public class XapiActivityDefinition {
   @JsonProperty("name")
   private Map<String, String> name = null;

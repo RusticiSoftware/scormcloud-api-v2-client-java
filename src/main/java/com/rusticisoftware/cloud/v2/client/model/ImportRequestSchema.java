@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request to import a new course. Exactly one of fetchRequest or mediaFileReferenceRequest must be supplied, depending on the desired import behavior. 
  */
 @ApiModel(description = "Request to import a new course. Exactly one of fetchRequest or mediaFileReferenceRequest must be supplied, depending on the desired import behavior. ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
 public class ImportRequestSchema {
   @JsonProperty("fetchRequest")
   private ImportFetchRequestSchema fetchRequest = null;

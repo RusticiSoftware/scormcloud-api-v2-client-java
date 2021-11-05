@@ -28,7 +28,7 @@ import java.util.List;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4162-contextactivities-property
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4162-contextactivities-property")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
 public class XapiContextActivity {
   @JsonProperty("parent")
   private List<XapiActivity> parent = null;
