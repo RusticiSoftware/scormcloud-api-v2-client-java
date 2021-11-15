@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request schema to import a course asset file by fetching it from a url 
  */
 @ApiModel(description = "Request schema to import a course asset file by fetching it from a url ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
 public class ImportAssetRequestSchema {
   @JsonProperty("fetchUrl")
   private String fetchUrl = null;

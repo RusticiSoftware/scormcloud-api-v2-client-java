@@ -51,7 +51,7 @@ import com.rusticisoftware.cloud.v2.client.auth.HttpBasicAuth;
 import com.rusticisoftware.cloud.v2.client.auth.ApiKeyAuth;
 import com.rusticisoftware.cloud.v2.client.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected String basePath = "https://cloud.scorm.com/api/v2/";

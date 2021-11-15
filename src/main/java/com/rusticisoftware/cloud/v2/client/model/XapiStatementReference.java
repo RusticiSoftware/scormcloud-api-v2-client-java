@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#statement-references
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#statement-references")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-01T15:24:36.536-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
 public class XapiStatementReference {
   @JsonProperty("objectType")
   private String objectType = "StatementRef";
