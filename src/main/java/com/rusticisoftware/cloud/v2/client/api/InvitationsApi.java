@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-22T15:00:21.693-05:00")
 public class InvitationsApi {
   private ApiClient apiClient;
 
@@ -225,11 +225,12 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return InvitationSummaryList
    * @throws ApiException if fails to make API call
    */
-  public InvitationSummaryList getAllInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
-    return getAllInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more).getData();
+  public InvitationSummaryList getAllInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+    return getAllInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
       }
 
   /**
@@ -244,10 +245,11 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;InvitationSummaryList&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<InvitationSummaryList> getAllInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
+  public ApiResponse<InvitationSummaryList> getAllInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -267,6 +269,7 @@ public class InvitationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     
@@ -459,11 +462,12 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return PrivateInvitationList
    * @throws ApiException if fails to make API call
    */
-  public PrivateInvitationList getPrivateInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
-    return getPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more).getData();
+  public PrivateInvitationList getPrivateInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+    return getPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
       }
 
   /**
@@ -478,10 +482,11 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;PrivateInvitationList&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PrivateInvitationList> getPrivateInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
+  public ApiResponse<PrivateInvitationList> getPrivateInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -501,6 +506,7 @@ public class InvitationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     
@@ -531,11 +537,12 @@ public class InvitationsApi {
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
    * @param includeRegistrationReport Optional flag to include basic registration information (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return UserInvitationList
    * @throws ApiException if fails to make API call
    */
-  public UserInvitationList getPrivateUserInvitations(String invitationId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationReport) throws ApiException {
-    return getPrivateUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport).getData();
+  public UserInvitationList getPrivateUserInvitations(String invitationId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationReport, Boolean includeTotalCount) throws ApiException {
+    return getPrivateUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport, includeTotalCount).getData();
       }
 
   /**
@@ -550,10 +557,11 @@ public class InvitationsApi {
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
    * @param includeRegistrationReport Optional flag to include basic registration information (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;UserInvitationList&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UserInvitationList> getPrivateUserInvitationsWithHttpInfo(String invitationId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationReport) throws ApiException {
+  public ApiResponse<UserInvitationList> getPrivateUserInvitationsWithHttpInfo(String invitationId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationReport, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invitationId' is set
@@ -578,6 +586,7 @@ public class InvitationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRegistrationReport", includeRegistrationReport));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     
@@ -664,11 +673,12 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return PublicInvitationList
    * @throws ApiException if fails to make API call
    */
-  public PublicInvitationList getPublicInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
-    return getPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more).getData();
+  public PublicInvitationList getPublicInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+    return getPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
       }
 
   /**
@@ -683,10 +693,11 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;PublicInvitationList&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PublicInvitationList> getPublicInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
+  public ApiResponse<PublicInvitationList> getPublicInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -706,6 +717,7 @@ public class InvitationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     
@@ -736,11 +748,12 @@ public class InvitationsApi {
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
    * @param includeRegistrationReport Optional flag to include basic registration information (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return UserInvitationList
    * @throws ApiException if fails to make API call
    */
-  public UserInvitationList getPublicUserInvitations(String invitationId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationReport) throws ApiException {
-    return getPublicUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport).getData();
+  public UserInvitationList getPublicUserInvitations(String invitationId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationReport, Boolean includeTotalCount) throws ApiException {
+    return getPublicUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport, includeTotalCount).getData();
       }
 
   /**
@@ -755,10 +768,11 @@ public class InvitationsApi {
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
    * @param includeRegistrationReport Optional flag to include basic registration information (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;UserInvitationList&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UserInvitationList> getPublicUserInvitationsWithHttpInfo(String invitationId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationReport) throws ApiException {
+  public ApiResponse<UserInvitationList> getPublicUserInvitationsWithHttpInfo(String invitationId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationReport, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invitationId' is set
@@ -783,6 +797,7 @@ public class InvitationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRegistrationReport", includeRegistrationReport));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     

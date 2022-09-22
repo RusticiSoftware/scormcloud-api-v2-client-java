@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Used to create a course that references a media file. Upon import, the actual file is not downloaded and stored on SCORM Cloud&#39;s servers. Instead, the media file wrapper will load the content from the provided URL. 
  */
 @ApiModel(description = "Used to create a course that references a media file. Upon import, the actual file is not downloaded and stored on SCORM Cloud's servers. Instead, the media file wrapper will load the content from the provided URL. ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-22T15:00:21.693-05:00")
 public class ImportMediaFileReferenceRequestSchema {
   @JsonProperty("url")
   private String url = null;

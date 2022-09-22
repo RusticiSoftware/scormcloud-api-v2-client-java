@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * CourseActivitySchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-22T15:00:21.693-05:00")
 public class CourseActivitySchema {
   @JsonProperty("externalIdentifier")
   private String externalIdentifier = null;
@@ -100,10 +100,10 @@ public class CourseActivitySchema {
   }
 
   /**
-   * An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses 
+   * An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it is reused across courses 
    * @return externalIdentifier
   **/
-  @ApiModelProperty(value = "An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses ")
+  @ApiModelProperty(value = "An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it is reused across courses ")
   public String getExternalIdentifier() {
     return externalIdentifier;
   }

@@ -31,7 +31,7 @@ import java.util.Map;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#416-context
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#416-context")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-22T15:00:21.693-05:00")
 public class XapiContext {
   @JsonProperty("registration")
   private String registration = null;

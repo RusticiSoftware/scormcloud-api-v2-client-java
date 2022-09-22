@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4124-account-object
  */
 @ApiModel(description = "https://github.com/adlnet/xAPI-Spec/blob/1.0.2/xAPI.md#4124-account-object")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-22T15:00:21.693-05:00")
 public class XapiAccount {
   @JsonProperty("homePage")
   private String homePage = null;

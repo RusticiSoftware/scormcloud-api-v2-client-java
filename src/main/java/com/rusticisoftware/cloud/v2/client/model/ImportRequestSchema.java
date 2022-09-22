@@ -18,22 +18,26 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.rusticisoftware.cloud.v2.client.model.ImportConnectorRequestSchema;
 import com.rusticisoftware.cloud.v2.client.model.ImportFetchRequestSchema;
 import com.rusticisoftware.cloud.v2.client.model.ImportMediaFileReferenceRequestSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Request to import a new course. Exactly one of fetchRequest or mediaFileReferenceRequest must be supplied, depending on the desired import behavior. 
+ * Request to import a new course. Exactly one of the schemas must be supplied, depending on the desired import behavior. 
  */
-@ApiModel(description = "Request to import a new course. Exactly one of fetchRequest or mediaFileReferenceRequest must be supplied, depending on the desired import behavior. ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@ApiModel(description = "Request to import a new course. Exactly one of the schemas must be supplied, depending on the desired import behavior. ")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-22T15:00:21.693-05:00")
 public class ImportRequestSchema {
   @JsonProperty("fetchRequest")
   private ImportFetchRequestSchema fetchRequest = null;
 
   @JsonProperty("mediaFileReferenceRequest")
   private ImportMediaFileReferenceRequestSchema mediaFileReferenceRequest = null;
+
+  @JsonProperty("connectorReferenceRequest")
+  private ImportConnectorRequestSchema connectorReferenceRequest = null;
 
   public ImportRequestSchema fetchRequest(ImportFetchRequestSchema fetchRequest) {
     this.fetchRequest = fetchRequest;
@@ -71,6 +75,24 @@ public class ImportRequestSchema {
     this.mediaFileReferenceRequest = mediaFileReferenceRequest;
   }
 
+  public ImportRequestSchema connectorReferenceRequest(ImportConnectorRequestSchema connectorReferenceRequest) {
+    this.connectorReferenceRequest = connectorReferenceRequest;
+    return this;
+  }
+
+  /**
+   * Get connectorReferenceRequest
+   * @return connectorReferenceRequest
+  **/
+  @ApiModelProperty(value = "")
+  public ImportConnectorRequestSchema getConnectorReferenceRequest() {
+    return connectorReferenceRequest;
+  }
+
+  public void setConnectorReferenceRequest(ImportConnectorRequestSchema connectorReferenceRequest) {
+    this.connectorReferenceRequest = connectorReferenceRequest;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +104,13 @@ public class ImportRequestSchema {
     }
     ImportRequestSchema importRequestSchema = (ImportRequestSchema) o;
     return Objects.equals(this.fetchRequest, importRequestSchema.fetchRequest) &&
-        Objects.equals(this.mediaFileReferenceRequest, importRequestSchema.mediaFileReferenceRequest);
+        Objects.equals(this.mediaFileReferenceRequest, importRequestSchema.mediaFileReferenceRequest) &&
+        Objects.equals(this.connectorReferenceRequest, importRequestSchema.connectorReferenceRequest);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fetchRequest, mediaFileReferenceRequest);
+    return Objects.hash(fetchRequest, mediaFileReferenceRequest, connectorReferenceRequest);
   }
 
   @Override
@@ -97,6 +120,7 @@ public class ImportRequestSchema {
     
     sb.append("    fetchRequest: ").append(toIndentedString(fetchRequest)).append("\n");
     sb.append("    mediaFileReferenceRequest: ").append(toIndentedString(mediaFileReferenceRequest)).append("\n");
+    sb.append("    connectorReferenceRequest: ").append(toIndentedString(connectorReferenceRequest)).append("\n");
     sb.append("}");
     return sb.toString();
   }
