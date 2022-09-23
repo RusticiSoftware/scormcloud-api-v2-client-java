@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * RegistrationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class RegistrationSchema {
   @JsonProperty("id")
   private String id = null;

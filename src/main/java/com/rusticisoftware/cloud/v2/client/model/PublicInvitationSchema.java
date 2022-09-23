@@ -18,6 +18,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.rusticisoftware.cloud.v2.client.model.InvitationEmailSchema;
 import com.rusticisoftware.cloud.v2.client.model.PostBackSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,7 +27,7 @@ import java.time.OffsetDateTime;
 /**
  * PublicInvitationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class PublicInvitationSchema {
   @JsonProperty("id")
   private String id = null;
@@ -36,6 +37,9 @@ public class PublicInvitationSchema {
 
   @JsonProperty("allowLaunch")
   private Boolean allowLaunch = null;
+
+  @JsonProperty("invitationEmail")
+  private InvitationEmailSchema invitationEmail = null;
 
   @JsonProperty("allowNewRegistrations")
   private Boolean allowNewRegistrations = null;
@@ -113,6 +117,24 @@ public class PublicInvitationSchema {
 
   public void setAllowLaunch(Boolean allowLaunch) {
     this.allowLaunch = allowLaunch;
+  }
+
+  public PublicInvitationSchema invitationEmail(InvitationEmailSchema invitationEmail) {
+    this.invitationEmail = invitationEmail;
+    return this;
+  }
+
+  /**
+   * Get invitationEmail
+   * @return invitationEmail
+  **/
+  @ApiModelProperty(value = "")
+  public InvitationEmailSchema getInvitationEmail() {
+    return invitationEmail;
+  }
+
+  public void setInvitationEmail(InvitationEmailSchema invitationEmail) {
+    this.invitationEmail = invitationEmail;
   }
 
   public PublicInvitationSchema allowNewRegistrations(Boolean allowNewRegistrations) {
@@ -272,6 +294,7 @@ public class PublicInvitationSchema {
     return Objects.equals(this.id, publicInvitationSchema.id) &&
         Objects.equals(this.courseId, publicInvitationSchema.courseId) &&
         Objects.equals(this.allowLaunch, publicInvitationSchema.allowLaunch) &&
+        Objects.equals(this.invitationEmail, publicInvitationSchema.invitationEmail) &&
         Objects.equals(this.allowNewRegistrations, publicInvitationSchema.allowNewRegistrations) &&
         Objects.equals(this.url, publicInvitationSchema.url) &&
         Objects.equals(this.createDate, publicInvitationSchema.createDate) &&
@@ -284,7 +307,7 @@ public class PublicInvitationSchema {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, courseId, allowLaunch, allowNewRegistrations, url, createDate, updated, postBack, expirationDate, registrationCap, registrationCount);
+    return Objects.hash(id, courseId, allowLaunch, invitationEmail, allowNewRegistrations, url, createDate, updated, postBack, expirationDate, registrationCap, registrationCount);
   }
 
   @Override
@@ -295,6 +318,7 @@ public class PublicInvitationSchema {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    courseId: ").append(toIndentedString(courseId)).append("\n");
     sb.append("    allowLaunch: ").append(toIndentedString(allowLaunch)).append("\n");
+    sb.append("    invitationEmail: ").append(toIndentedString(invitationEmail)).append("\n");
     sb.append("    allowNewRegistrations: ").append(toIndentedString(allowNewRegistrations)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");

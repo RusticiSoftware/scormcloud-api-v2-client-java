@@ -13,12 +13,14 @@ import com.rusticisoftware.cloud.v2.client.model.CreateDispatchListSchema;
 import com.rusticisoftware.cloud.v2.client.model.DestinationListSchema;
 import com.rusticisoftware.cloud.v2.client.model.DestinationSchema;
 import com.rusticisoftware.cloud.v2.client.model.DispatchListSchema;
+import com.rusticisoftware.cloud.v2.client.model.DispatchLti13InfoSchema;
 import com.rusticisoftware.cloud.v2.client.model.DispatchLtiInfoSchema;
 import com.rusticisoftware.cloud.v2.client.model.DispatchRegistrationCountSchema;
 import com.rusticisoftware.cloud.v2.client.model.DispatchSchema;
 import com.rusticisoftware.cloud.v2.client.model.EnabledSchema;
 import java.io.File;
 import com.rusticisoftware.cloud.v2.client.model.IntegerResultSchema;
+import com.rusticisoftware.cloud.v2.client.model.Lti13ToolConfigurationSchema;
 import com.rusticisoftware.cloud.v2.client.model.MessageSchema;
 import java.time.OffsetDateTime;
 import com.rusticisoftware.cloud.v2.client.model.TagListSchema;
@@ -29,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class DispatchApi {
   private ApiClient apiClient;
 
@@ -1425,7 +1427,7 @@ public class DispatchApi {
       }
   /**
    * Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
-   * 
+   * Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
    * @param dispatchId Identifier for the dispatch (required)
    * @return DispatchLtiInfoSchema
    * @throws ApiException if fails to make API call
@@ -1436,7 +1438,7 @@ public class DispatchApi {
 
   /**
    * Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
-   * 
+   * Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
    * @param dispatchId Identifier for the dispatch (required)
    * @return ApiResponse&lt;DispatchLtiInfoSchema&gt;
    * @throws ApiException if fails to make API call
@@ -1474,6 +1476,180 @@ public class DispatchApi {
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
     GenericType<DispatchLtiInfoSchema> localVarReturnType = new GenericType<DispatchLtiInfoSchema>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. 
+   * Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+   * @param dispatchId Identifier for the dispatch (required)
+   * @return DispatchLti13InfoSchema
+   * @throws ApiException if fails to make API call
+   */
+  public DispatchLti13InfoSchema getLti13Dispatch(String dispatchId) throws ApiException {
+    return getLti13DispatchWithHttpInfo(dispatchId).getData();
+      }
+
+  /**
+   * Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. 
+   * Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+   * @param dispatchId Identifier for the dispatch (required)
+   * @return ApiResponse&lt;DispatchLti13InfoSchema&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<DispatchLti13InfoSchema> getLti13DispatchWithHttpInfo(String dispatchId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'dispatchId' is set
+    if (dispatchId == null) {
+      throw new ApiException(400, "Missing the required parameter 'dispatchId' when calling getLti13Dispatch");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/dispatch/dispatches/{dispatchId}/lti13"
+      .replaceAll("\\{" + "dispatchId" + "\\}", apiClient.escapeString(dispatchId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+    GenericType<DispatchLti13InfoSchema> localVarReturnType = new GenericType<DispatchLti13InfoSchema>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Launch this dispatch using the IMS LTI 1.3 specification. 
+   * Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+   * @param dispatchId Identifier for the dispatch (required)
+   * @param externalConfig External configuration object (required)
+   * @param jwt  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void getLti13DispatchLaunch(String dispatchId, String externalConfig, String jwt) throws ApiException {
+
+    getLti13DispatchLaunchWithHttpInfo(dispatchId, externalConfig, jwt);
+  }
+
+  /**
+   * Launch this dispatch using the IMS LTI 1.3 specification. 
+   * Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+   * @param dispatchId Identifier for the dispatch (required)
+   * @param externalConfig External configuration object (required)
+   * @param jwt  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> getLti13DispatchLaunchWithHttpInfo(String dispatchId, String externalConfig, String jwt) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'dispatchId' is set
+    if (dispatchId == null) {
+      throw new ApiException(400, "Missing the required parameter 'dispatchId' when calling getLti13DispatchLaunch");
+    }
+    
+    // verify the required parameter 'externalConfig' is set
+    if (externalConfig == null) {
+      throw new ApiException(400, "Missing the required parameter 'externalConfig' when calling getLti13DispatchLaunch");
+    }
+    
+    // verify the required parameter 'jwt' is set
+    if (jwt == null) {
+      throw new ApiException(400, "Missing the required parameter 'jwt' when calling getLti13DispatchLaunch");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/dispatch/dispatches/{dispatchId}/launches"
+      .replaceAll("\\{" + "dispatchId" + "\\}", apiClient.escapeString(dispatchId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "externalConfig", externalConfig));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "jwt", jwt));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "UNSECURED" };
+
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60; 
+   * 
+   * @param destinationId Identifier for the destination (required)
+   * @return Lti13ToolConfigurationSchema
+   * @throws ApiException if fails to make API call
+   */
+  public Lti13ToolConfigurationSchema getLti13ToolConfigurationSchema(String destinationId) throws ApiException {
+    return getLti13ToolConfigurationSchemaWithHttpInfo(destinationId).getData();
+      }
+
+  /**
+   * Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60; 
+   * 
+   * @param destinationId Identifier for the destination (required)
+   * @return ApiResponse&lt;Lti13ToolConfigurationSchema&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Lti13ToolConfigurationSchema> getLti13ToolConfigurationSchemaWithHttpInfo(String destinationId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'destinationId' is set
+    if (destinationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'destinationId' when calling getLti13ToolConfigurationSchema");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/dispatch/destinations/{destinationId}/lti13"
+      .replaceAll("\\{" + "destinationId" + "\\}", apiClient.escapeString(destinationId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+    GenericType<Lti13ToolConfigurationSchema> localVarReturnType = new GenericType<Lti13ToolConfigurationSchema>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1802,7 +1978,7 @@ public class DispatchApi {
   }
   /**
    * Create or update a Destination 
-   * Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+   * Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
    * @param destinationId Identifier for the destination (required)
    * @param destination  (required)
    * @throws ApiException if fails to make API call
@@ -1814,7 +1990,7 @@ public class DispatchApi {
 
   /**
    * Create or update a Destination 
-   * Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+   * Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
    * @param destinationId Identifier for the destination (required)
    * @param destination  (required)
    * @throws ApiException if fails to make API call

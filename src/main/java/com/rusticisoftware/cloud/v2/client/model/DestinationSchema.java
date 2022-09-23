@@ -19,18 +19,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.LaunchAuthSchema;
+import com.rusticisoftware.cloud.v2.client.model.Lti13PlatformConfigurationSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * DestinationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class DestinationSchema {
   @JsonProperty("name")
   private String name = null;
+
+  @JsonProperty("updated")
+  private OffsetDateTime updated = null;
+
+  @JsonProperty("created")
+  private OffsetDateTime created = null;
 
   @JsonProperty("tags")
   private List<String> tags = null;
@@ -43,6 +51,9 @@ public class DestinationSchema {
 
   @JsonProperty("launchAuth")
   private LaunchAuthSchema launchAuth = null;
+
+  @JsonProperty("lti13Data")
+  private Lti13PlatformConfigurationSchema lti13Data = null;
 
   public DestinationSchema name(String name) {
     this.name = name;
@@ -60,6 +71,42 @@ public class DestinationSchema {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public DestinationSchema updated(OffsetDateTime updated) {
+    this.updated = updated;
+    return this;
+  }
+
+  /**
+   * Get updated
+   * @return updated
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getUpdated() {
+    return updated;
+  }
+
+  public void setUpdated(OffsetDateTime updated) {
+    this.updated = updated;
+  }
+
+  public DestinationSchema created(OffsetDateTime created) {
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * Get created
+   * @return created
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+  public void setCreated(OffsetDateTime created) {
+    this.created = created;
   }
 
   public DestinationSchema tags(List<String> tags) {
@@ -142,6 +189,24 @@ public class DestinationSchema {
     this.launchAuth = launchAuth;
   }
 
+  public DestinationSchema lti13Data(Lti13PlatformConfigurationSchema lti13Data) {
+    this.lti13Data = lti13Data;
+    return this;
+  }
+
+  /**
+   * Get lti13Data
+   * @return lti13Data
+  **/
+  @ApiModelProperty(value = "")
+  public Lti13PlatformConfigurationSchema getLti13Data() {
+    return lti13Data;
+  }
+
+  public void setLti13Data(Lti13PlatformConfigurationSchema lti13Data) {
+    this.lti13Data = lti13Data;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -153,15 +218,18 @@ public class DestinationSchema {
     }
     DestinationSchema destinationSchema = (DestinationSchema) o;
     return Objects.equals(this.name, destinationSchema.name) &&
+        Objects.equals(this.updated, destinationSchema.updated) &&
+        Objects.equals(this.created, destinationSchema.created) &&
         Objects.equals(this.tags, destinationSchema.tags) &&
         Objects.equals(this.email, destinationSchema.email) &&
         Objects.equals(this.notes, destinationSchema.notes) &&
-        Objects.equals(this.launchAuth, destinationSchema.launchAuth);
+        Objects.equals(this.launchAuth, destinationSchema.launchAuth) &&
+        Objects.equals(this.lti13Data, destinationSchema.lti13Data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, tags, email, notes, launchAuth);
+    return Objects.hash(name, updated, created, tags, email, notes, launchAuth, lti13Data);
   }
 
   @Override
@@ -170,10 +238,13 @@ public class DestinationSchema {
     sb.append("class DestinationSchema {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    launchAuth: ").append(toIndentedString(launchAuth)).append("\n");
+    sb.append("    lti13Data: ").append(toIndentedString(lti13Data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

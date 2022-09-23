@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-11-05T13:19:45.469-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class CourseApi {
   private ApiClient apiClient;
 
@@ -252,7 +252,7 @@ public class CourseApi {
       }
   /**
    * Create a Course from a fetched or referenced external media file 
-   * Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+   * Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
    * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
    * @param importRequest  (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
@@ -266,7 +266,7 @@ public class CourseApi {
 
   /**
    * Create a Course from a fetched or referenced external media file 
-   * Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+   * Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
    * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
    * @param importRequest  (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
@@ -1561,6 +1561,59 @@ if (file != null)
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Download a zip package for a Course 
+   * Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+   * @param courseId  (required)
+   * @return File
+   * @throws ApiException if fails to make API call
+   */
+  public File getCourseZip(String courseId) throws ApiException {
+    return getCourseZipWithHttpInfo(courseId).getData();
+      }
+
+  /**
+   * Download a zip package for a Course 
+   * Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+   * @param courseId  (required)
+   * @return ApiResponse&lt;File&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<File> getCourseZipWithHttpInfo(String courseId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'courseId' is set
+    if (courseId == null) {
+      throw new ApiException(400, "Missing the required parameter 'courseId' when calling getCourseZip");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/courses/{courseId}/zip"
+      .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+    GenericType<File> localVarReturnType = new GenericType<File>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Get a list of Courses 
    * Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
@@ -1686,6 +1739,67 @@ if (file != null)
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
     GenericType<ImportJobResultSchema> localVarReturnType = new GenericType<ImportJobResultSchema>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Download a zip package for a Course Version 
+   * Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+   * @param courseId  (required)
+   * @param versionId  (required)
+   * @return File
+   * @throws ApiException if fails to make API call
+   */
+  public File getVersionedCourseZip(String courseId, Integer versionId) throws ApiException {
+    return getVersionedCourseZipWithHttpInfo(courseId, versionId).getData();
+      }
+
+  /**
+   * Download a zip package for a Course Version 
+   * Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+   * @param courseId  (required)
+   * @param versionId  (required)
+   * @return ApiResponse&lt;File&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<File> getVersionedCourseZipWithHttpInfo(String courseId, Integer versionId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'courseId' is set
+    if (courseId == null) {
+      throw new ApiException(400, "Missing the required parameter 'courseId' when calling getVersionedCourseZip");
+    }
+    
+    // verify the required parameter 'versionId' is set
+    if (versionId == null) {
+      throw new ApiException(400, "Missing the required parameter 'versionId' when calling getVersionedCourseZip");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/courses/{courseId}/versions/{versionId}/zip"
+      .replaceAll("\\{" + "courseId" + "\\}", apiClient.escapeString(courseId.toString()))
+      .replaceAll("\\{" + "versionId" + "\\}", apiClient.escapeString(versionId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
+
+    GenericType<File> localVarReturnType = new GenericType<File>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
