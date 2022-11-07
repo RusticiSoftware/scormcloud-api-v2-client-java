@@ -25,7 +25,6 @@ import io.swagger.annotations.ApiModelProperty;
  * Metadata used to set various properties of a media file course 
  */
 @ApiModel(description = "Metadata used to set various properties of a media file course ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class MediaFileMetadataSchema {
   @JsonProperty("title")
   private String title = null;

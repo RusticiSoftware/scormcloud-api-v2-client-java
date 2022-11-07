@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.rusticisoftware.cloud.v2.client.model.InvitationSummarySchema;
+import com.rusticisoftware.cloud.v2.client.model.PaginatedList;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -27,13 +28,9 @@ import java.util.List;
 /**
  * InvitationSummaryList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
-public class InvitationSummaryList {
+public class InvitationSummaryList extends PaginatedList {
   @JsonProperty("invitations")
   private List<InvitationSummarySchema> invitations = null;
-
-  @JsonProperty("more")
-  private String more = null;
 
   public InvitationSummaryList invitations(List<InvitationSummarySchema> invitations) {
     this.invitations = invitations;
@@ -61,24 +58,6 @@ public class InvitationSummaryList {
     this.invitations = invitations;
   }
 
-  public InvitationSummaryList more(String more) {
-    this.more = more;
-    return this;
-  }
-
-  /**
-   * Token for getting the next set of results, from the prior set of results.
-   * @return more
-  **/
-  @ApiModelProperty(value = "Token for getting the next set of results, from the prior set of results.")
-  public String getMore() {
-    return more;
-  }
-
-  public void setMore(String more) {
-    this.more = more;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -90,21 +69,20 @@ public class InvitationSummaryList {
     }
     InvitationSummaryList invitationSummaryList = (InvitationSummaryList) o;
     return Objects.equals(this.invitations, invitationSummaryList.invitations) &&
-        Objects.equals(this.more, invitationSummaryList.more);
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(invitations, more);
+    return Objects.hash(invitations, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InvitationSummaryList {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    invitations: ").append(toIndentedString(invitations)).append("\n");
-    sb.append("    more: ").append(toIndentedString(more)).append("\n");
     sb.append("}");
     return sb.toString();
   }

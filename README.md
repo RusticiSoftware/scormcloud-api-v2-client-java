@@ -2,7 +2,7 @@
 
 SCORM Cloud Rest API
 - API version: 2.0
-    - Build date: 2022-09-26T11:33:06.485-05:00
+    - Build date: 2022-11-09T17:35:58.398-06:00
 
 REST API used for SCORM Cloud integrations.
 
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.rusticisoftware.cloud.v2.client</groupId>
     <artifactId>scormcloud-api-v2-client</artifactId>
-    <version>2.1.0</version>
+    <version>3.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.rusticisoftware.cloud.v2.client:scormcloud-api-v2-client:2.1.0"
+compile "com.rusticisoftware.cloud.v2.client:scormcloud-api-v2-client:3.0.0"
 ```
 
 #### Others
@@ -65,7 +65,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/scormcloud-api-v2-client-2.1.0.jar`
+* `target/scormcloud-api-v2-client-3.0.0.jar`
 * `target/lib/*.jar`
 
 ## Tips and Tricks
@@ -376,13 +376,13 @@ public class ScormCloud_Java_Sample {
         // Additional filters can be provided to this call to get a subset
         // of all courses.
         CourseApi courseApi = new CourseApi();
-        CourseListSchema response = courseApi.getCourses(null, null, null, null, null, null, null, null, null, null);
+        CourseListSchema response = courseApi.getCourses(null, null, null, null, null, null, null, null, null, null, null);
 
         // This call is paginated, with a token provided if more results exist
         List<CourseSchema> courseList = response.getCourses();
         while (response.getMore() != null)
         {
-            response = courseApi.getCourses(null, null, null, null, null, null, null, response.getMore(), null, null);
+            response = courseApi.getCourses(null, null, null, null, null, null, null, response.getMore(), null, null, null);
             courseList.addAll(response.getCourses());
         }
 
@@ -412,13 +412,13 @@ public class ScormCloud_Java_Sample {
         // Additional filters can be provided to this call to get a subset
         // of all registrations.
         RegistrationApi registrationApi = new RegistrationApi();
-        RegistrationListSchema response = registrationApi.getRegistrations(null, null, null, null, null, null, null, null, null, null, null, null, null);
+        RegistrationListSchema response = registrationApi.getRegistrations(null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
         // This call is paginated, with a token provided if more results exist
         List<RegistrationSchema> registrationList = response.getRegistrations();
         while (response.getMore() != null)
         {
-            response = registrationApi.getRegistrations(null, null, null, null, null, null, null, null, null, response.getMore(), null, null, null);
+            response = registrationApi.getRegistrations(null, null, null, null, null, null, null, null, null, response.getMore(), null, null, null, null);
             registrationList.addAll(response.getRegistrations());
         }
 

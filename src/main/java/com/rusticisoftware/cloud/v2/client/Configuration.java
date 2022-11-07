@@ -13,7 +13,6 @@
 
 package com.rusticisoftware.cloud.v2.client;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

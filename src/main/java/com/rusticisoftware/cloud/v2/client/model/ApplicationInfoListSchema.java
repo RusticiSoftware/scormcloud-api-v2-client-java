@@ -18,46 +18,49 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.rusticisoftware.cloud.v2.client.model.RegistrationSchema;
+import com.rusticisoftware.cloud.v2.client.model.ApplicationInfoSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * RegistrationListSchema
+ * ApplicationInfoListSchema
  */
-public class RegistrationListSchema {
-  @JsonProperty("registrations")
-  private List<RegistrationSchema> registrations = new ArrayList<>();
+public class ApplicationInfoListSchema {
+  @JsonProperty("applications")
+  private List<ApplicationInfoSchema> applications = null;
 
   @JsonProperty("more")
   private String more = null;
 
-  public RegistrationListSchema registrations(List<RegistrationSchema> registrations) {
-    this.registrations = registrations;
+  public ApplicationInfoListSchema applications(List<ApplicationInfoSchema> applications) {
+    this.applications = applications;
     return this;
   }
 
-  public RegistrationListSchema addRegistrationsItem(RegistrationSchema registrationsItem) {
-    this.registrations.add(registrationsItem);
+  public ApplicationInfoListSchema addApplicationsItem(ApplicationInfoSchema applicationsItem) {
+    if (this.applications == null) {
+      this.applications = new ArrayList<>();
+    }
+    this.applications.add(applicationsItem);
     return this;
   }
 
   /**
-   * Get registrations
-   * @return registrations
+   * Get applications
+   * @return applications
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<RegistrationSchema> getRegistrations() {
-    return registrations;
+  @ApiModelProperty(value = "")
+  public List<ApplicationInfoSchema> getApplications() {
+    return applications;
   }
 
-  public void setRegistrations(List<RegistrationSchema> registrations) {
-    this.registrations = registrations;
+  public void setApplications(List<ApplicationInfoSchema> applications) {
+    this.applications = applications;
   }
 
-  public RegistrationListSchema more(String more) {
+  public ApplicationInfoListSchema more(String more) {
     this.more = more;
     return this;
   }
@@ -84,22 +87,22 @@ public class RegistrationListSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RegistrationListSchema registrationListSchema = (RegistrationListSchema) o;
-    return Objects.equals(this.registrations, registrationListSchema.registrations) &&
-        Objects.equals(this.more, registrationListSchema.more);
+    ApplicationInfoListSchema applicationInfoListSchema = (ApplicationInfoListSchema) o;
+    return Objects.equals(this.applications, applicationInfoListSchema.applications) &&
+        Objects.equals(this.more, applicationInfoListSchema.more);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(registrations, more);
+    return Objects.hash(applications, more);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RegistrationListSchema {\n");
+    sb.append("class ApplicationInfoListSchema {\n");
     
-    sb.append("    registrations: ").append(toIndentedString(registrations)).append("\n");
+    sb.append("    applications: ").append(toIndentedString(applications)).append("\n");
     sb.append("    more: ").append(toIndentedString(more)).append("\n");
     sb.append("}");
     return sb.toString();

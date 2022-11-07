@@ -26,7 +26,6 @@ import io.swagger.annotations.ApiModelProperty;
  * Request to import a course by downloading it from a url
  */
 @ApiModel(description = "Request to import a course by downloading it from a url")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class ImportFetchRequestSchema {
   @JsonProperty("url")
   private String url = null;

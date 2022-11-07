@@ -25,7 +25,6 @@ import java.time.OffsetDateTime;
 /**
  * ApplicationInfoSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class ApplicationInfoSchema {
   @JsonProperty("id")
   private String id = null;
@@ -35,6 +34,9 @@ public class ApplicationInfoSchema {
 
   @JsonProperty("createDate")
   private OffsetDateTime createDate = null;
+
+  @JsonProperty("updateDate")
+  private OffsetDateTime updateDate = null;
 
   @JsonProperty("allowDelete")
   private Boolean allowDelete = null;
@@ -97,6 +99,24 @@ public class ApplicationInfoSchema {
 
   public void setCreateDate(OffsetDateTime createDate) {
     this.createDate = createDate;
+  }
+
+  public ApplicationInfoSchema updateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
+    return this;
+  }
+
+  /**
+   * The time the application was last updated in UTC
+   * @return updateDate
+  **/
+  @ApiModelProperty(value = "The time the application was last updated in UTC")
+  public OffsetDateTime getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
   }
 
   public ApplicationInfoSchema allowDelete(Boolean allowDelete) {
@@ -166,6 +186,7 @@ public class ApplicationInfoSchema {
     return Objects.equals(this.id, applicationInfoSchema.id) &&
         Objects.equals(this.name, applicationInfoSchema.name) &&
         Objects.equals(this.createDate, applicationInfoSchema.createDate) &&
+        Objects.equals(this.updateDate, applicationInfoSchema.updateDate) &&
         Objects.equals(this.allowDelete, applicationInfoSchema.allowDelete) &&
         Objects.equals(this.courseCount, applicationInfoSchema.courseCount) &&
         Objects.equals(this.registrationCount, applicationInfoSchema.registrationCount);
@@ -173,7 +194,7 @@ public class ApplicationInfoSchema {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, createDate, allowDelete, courseCount, registrationCount);
+    return Objects.hash(id, name, createDate, updateDate, allowDelete, courseCount, registrationCount);
   }
 
   @Override
@@ -184,6 +205,7 @@ public class ApplicationInfoSchema {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
+    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    allowDelete: ").append(toIndentedString(allowDelete)).append("\n");
     sb.append("    courseCount: ").append(toIndentedString(courseCount)).append("\n");
     sb.append("    registrationCount: ").append(toIndentedString(registrationCount)).append("\n");

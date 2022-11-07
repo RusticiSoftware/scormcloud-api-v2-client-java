@@ -29,7 +29,6 @@ import java.util.List;
  * YAML 2.0 does not support oneOf so this is used when object can be an Agent or a Group.
  */
 @ApiModel(description = "YAML 2.0 does not support oneOf so this is used when object can be an Agent or a Group.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class XapiAgentGroup {
   /**
    * Gets or Sets objectType

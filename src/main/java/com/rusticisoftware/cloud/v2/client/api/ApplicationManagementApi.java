@@ -8,6 +8,7 @@ import com.rusticisoftware.cloud.v2.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.rusticisoftware.cloud.v2.client.model.ApplicationInfoListSchema;
 import com.rusticisoftware.cloud.v2.client.model.ApplicationInfoSchema;
 import com.rusticisoftware.cloud.v2.client.model.ApplicationListSchema;
 import com.rusticisoftware.cloud.v2.client.model.ApplicationRequestSchema;
@@ -16,6 +17,7 @@ import com.rusticisoftware.cloud.v2.client.model.CredentialCreatedSchema;
 import com.rusticisoftware.cloud.v2.client.model.CredentialListSchema;
 import com.rusticisoftware.cloud.v2.client.model.CredentialRequestSchema;
 import com.rusticisoftware.cloud.v2.client.model.MessageSchema;
+import java.time.OffsetDateTime;
 import com.rusticisoftware.cloud.v2.client.model.SettingListSchema;
 import com.rusticisoftware.cloud.v2.client.model.SettingsPostSchema;
 import com.rusticisoftware.cloud.v2.client.model.StringResultSchema;
@@ -27,7 +29,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class ApplicationManagementApi {
   private ApiClient apiClient;
 
@@ -495,21 +496,25 @@ public class ApplicationManagementApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Use the Application Management App to get a list of Applications 
-   * Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+   * (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm 
+   * Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
    * @return ApplicationListSchema
    * @throws ApiException if fails to make API call
+   * @deprecated Use GetApplications instead.
    */
+  @Deprecated
   public ApplicationListSchema getApplicationList() throws ApiException {
     return getApplicationListWithHttpInfo().getData();
       }
 
   /**
-   * Use the Application Management App to get a list of Applications 
-   * Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+   * (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm 
+   * Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
    * @return ApiResponse&lt;ApplicationListSchema&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated Use GetApplicationsWithHttpInfo instead.
    */
+  @Deprecated
   public ApiResponse<ApplicationListSchema> getApplicationListWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
@@ -537,6 +542,81 @@ public class ApplicationManagementApi {
     String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
 
     GenericType<ApplicationListSchema> localVarReturnType = new GenericType<ApplicationListSchema>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Use the Application Management App to get a detailed list of Applications 
+   * Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+   * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
+   * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
+   * @param datetimeFilter Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)
+   * @param filter Optional string which filters results by a specified field (described by filterBy). (optional)
+   * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)
+   * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
+   * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeCourseCount Include a count of courses for the application. (optional, default to false)
+   * @param includeRegistrationCount Include a count of registrations created for the application during the current billing period. (optional, default to false)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
+   * @return ApplicationInfoListSchema
+   * @throws ApiException if fails to make API call
+   */
+  public ApplicationInfoListSchema getApplications(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeCourseCount, Boolean includeRegistrationCount, Boolean includeTotalCount) throws ApiException {
+    return getApplicationsWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more, includeCourseCount, includeRegistrationCount, includeTotalCount).getData();
+      }
+
+  /**
+   * Use the Application Management App to get a detailed list of Applications 
+   * Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+   * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
+   * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
+   * @param datetimeFilter Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)
+   * @param filter Optional string which filters results by a specified field (described by filterBy). (optional)
+   * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)
+   * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
+   * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeCourseCount Include a count of courses for the application. (optional, default to false)
+   * @param includeRegistrationCount Include a count of registrations created for the application during the current billing period. (optional, default to false)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
+   * @return ApiResponse&lt;ApplicationInfoListSchema&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ApplicationInfoListSchema> getApplicationsWithHttpInfo(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeCourseCount, Boolean includeRegistrationCount, Boolean includeTotalCount) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/appManagement/applicationList";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "since", since));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "until", until));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "datetimeFilter", datetimeFilter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeCourseCount", includeCourseCount));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRegistrationCount", includeRegistrationCount));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
+
+    GenericType<ApplicationInfoListSchema> localVarReturnType = new GenericType<ApplicationInfoListSchema>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

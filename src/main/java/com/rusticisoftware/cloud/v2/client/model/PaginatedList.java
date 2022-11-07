@@ -22,28 +22,28 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * EnabledSchema
+ * PaginatedList
  */
-public class EnabledSchema {
-  @JsonProperty("enabled")
-  private Boolean enabled = null;
+public class PaginatedList {
+  @JsonProperty("more")
+  private String more = null;
 
-  public EnabledSchema enabled(Boolean enabled) {
-    this.enabled = enabled;
+  public PaginatedList more(String more) {
+    this.more = more;
     return this;
   }
 
   /**
-   * Get enabled
-   * @return enabled
+   * Token for getting the next set of results, from the prior set of results.
+   * @return more
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isEnabled() {
-    return enabled;
+  @ApiModelProperty(value = "Token for getting the next set of results, from the prior set of results.")
+  public String getMore() {
+    return more;
   }
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+  public void setMore(String more) {
+    this.more = more;
   }
 
 
@@ -55,21 +55,21 @@ public class EnabledSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EnabledSchema enabledSchema = (EnabledSchema) o;
-    return Objects.equals(this.enabled, enabledSchema.enabled);
+    PaginatedList paginatedList = (PaginatedList) o;
+    return Objects.equals(this.more, paginatedList.more);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled);
+    return Objects.hash(more);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EnabledSchema {\n");
+    sb.append("class PaginatedList {\n");
     
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    more: ").append(toIndentedString(more)).append("\n");
     sb.append("}");
     return sb.toString();
   }

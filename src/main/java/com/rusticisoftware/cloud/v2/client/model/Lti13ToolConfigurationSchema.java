@@ -24,7 +24,6 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Lti13ToolConfigurationSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class Lti13ToolConfigurationSchema {
   @JsonProperty("publicKey")
   private String publicKey = null;

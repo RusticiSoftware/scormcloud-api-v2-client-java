@@ -31,7 +31,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class DispatchApi {
   private ApiClient apiClient;
 
@@ -784,11 +783,12 @@ public class DispatchApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return DispatchListSchema
    * @throws ApiException if fails to make API call
    */
-  public DispatchListSchema getDestinationDispatches(String destinationId, String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
-    return getDestinationDispatchesWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more).getData();
+  public DispatchListSchema getDestinationDispatches(String destinationId, String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+    return getDestinationDispatchesWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
       }
 
   /**
@@ -804,10 +804,11 @@ public class DispatchApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;DispatchListSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DispatchListSchema> getDestinationDispatchesWithHttpInfo(String destinationId, String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
+  public ApiResponse<DispatchListSchema> getDestinationDispatchesWithHttpInfo(String destinationId, String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'destinationId' is set
@@ -833,6 +834,7 @@ public class DispatchApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     
@@ -969,11 +971,12 @@ public class DispatchApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return DestinationListSchema
    * @throws ApiException if fails to make API call
    */
-  public DestinationListSchema getDestinations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
-    return getDestinationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more).getData();
+  public DestinationListSchema getDestinations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+    return getDestinationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
       }
 
   /**
@@ -988,10 +991,11 @@ public class DispatchApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;DestinationListSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DestinationListSchema> getDestinationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
+  public ApiResponse<DestinationListSchema> getDestinationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1011,6 +1015,7 @@ public class DispatchApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     
@@ -1365,11 +1370,12 @@ public class DispatchApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return DispatchListSchema
    * @throws ApiException if fails to make API call
    */
-  public DispatchListSchema getDispatches(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
-    return getDispatchesWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more).getData();
+  public DispatchListSchema getDispatches(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+    return getDispatchesWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
       }
 
   /**
@@ -1384,10 +1390,11 @@ public class DispatchApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;DispatchListSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DispatchListSchema> getDispatchesWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more) throws ApiException {
+  public ApiResponse<DispatchListSchema> getDispatchesWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1407,6 +1414,7 @@ public class DispatchApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     
@@ -1594,7 +1602,7 @@ public class DispatchApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "UNSECURED" };
+    String[] localVarAuthNames = new String[] {  };
 
 
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);

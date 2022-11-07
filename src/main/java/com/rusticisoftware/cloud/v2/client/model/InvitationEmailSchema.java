@@ -27,7 +27,6 @@ import java.util.List;
  * Object representing an e-mail to be sent to a given list of e-mail addresses inviting them to participate in a course.
  */
 @ApiModel(description = "Object representing an e-mail to be sent to a given list of e-mail addresses inviting them to participate in a course.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class InvitationEmailSchema {
   @JsonProperty("subject")
   private String subject = null;

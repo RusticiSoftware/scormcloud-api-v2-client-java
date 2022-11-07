@@ -24,7 +24,6 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * LearnerPreferenceSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class LearnerPreferenceSchema {
   @JsonProperty("audioLevel")
   private Double audioLevel = null;

@@ -28,7 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class RegistrationApi {
   private ApiClient apiClient;
 
@@ -1313,11 +1312,12 @@ public class RegistrationApi {
    * @param includeChildResults Include information about each learning object, not just the top level in the results (optional, default to false)
    * @param includeInteractionsAndObjectives Include interactions and objectives in the results (optional, default to false)
    * @param includeRuntime Include runtime details in the results (optional, default to false)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return RegistrationListSchema
    * @throws ApiException if fails to make API call
    */
-  public RegistrationListSchema getRegistrations(String courseId, String learnerId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
-    return getRegistrationsWithHttpInfo(courseId, learnerId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeChildResults, includeInteractionsAndObjectives, includeRuntime).getData();
+  public RegistrationListSchema getRegistrations(String courseId, String learnerId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime, Boolean includeTotalCount) throws ApiException {
+    return getRegistrationsWithHttpInfo(courseId, learnerId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeChildResults, includeInteractionsAndObjectives, includeRuntime, includeTotalCount).getData();
       }
 
   /**
@@ -1336,10 +1336,11 @@ public class RegistrationApi {
    * @param includeChildResults Include information about each learning object, not just the top level in the results (optional, default to false)
    * @param includeInteractionsAndObjectives Include interactions and objectives in the results (optional, default to false)
    * @param includeRuntime Include runtime details in the results (optional, default to false)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;RegistrationListSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<RegistrationListSchema> getRegistrationsWithHttpInfo(String courseId, String learnerId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime) throws ApiException {
+  public ApiResponse<RegistrationListSchema> getRegistrationsWithHttpInfo(String courseId, String learnerId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeChildResults, Boolean includeInteractionsAndObjectives, Boolean includeRuntime, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1363,6 +1364,7 @@ public class RegistrationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeChildResults", includeChildResults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeInteractionsAndObjectives", includeInteractionsAndObjectives));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRuntime", includeRuntime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     

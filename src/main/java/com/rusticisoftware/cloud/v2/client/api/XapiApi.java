@@ -24,7 +24,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class XapiApi {
   private ApiClient apiClient;
 
@@ -413,11 +412,12 @@ public class XapiApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return XapiCredentialsListSchema
    * @throws ApiException if fails to make API call
    */
-  public XapiCredentialsListSchema getXapiCredentials(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more) throws ApiException {
-    return getXapiCredentialsWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more).getData();
+  public XapiCredentialsListSchema getXapiCredentials(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+    return getXapiCredentialsWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more, includeTotalCount).getData();
       }
 
   /**
@@ -430,10 +430,11 @@ public class XapiApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;XapiCredentialsListSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<XapiCredentialsListSchema> getXapiCredentialsWithHttpInfo(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more) throws ApiException {
+  public ApiResponse<XapiCredentialsListSchema> getXapiCredentialsWithHttpInfo(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -451,6 +452,7 @@ public class XapiApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     
