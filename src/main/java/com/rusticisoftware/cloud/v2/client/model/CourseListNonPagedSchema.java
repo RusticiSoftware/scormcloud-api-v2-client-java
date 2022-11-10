@@ -27,7 +27,6 @@ import java.util.List;
 /**
  * CourseListNonPagedSchema
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class CourseListNonPagedSchema {
   @JsonProperty("courses")
   private List<CourseSchema> courses = null;

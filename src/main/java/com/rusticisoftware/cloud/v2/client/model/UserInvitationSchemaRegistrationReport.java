@@ -28,7 +28,6 @@ import io.swagger.annotations.ApiModelProperty;
  * An high level overview of information about the registration of the user to the invitation.
  */
 @ApiModel(description = "An high level overview of information about the registration of the user to the invitation.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class UserInvitationSchemaRegistrationReport {
   @JsonProperty("complete")
   private RegistrationCompletion complete = null;

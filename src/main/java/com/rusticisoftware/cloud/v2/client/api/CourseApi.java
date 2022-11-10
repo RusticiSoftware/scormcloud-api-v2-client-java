@@ -36,7 +36,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class CourseApi {
   private ApiClient apiClient;
 
@@ -1626,11 +1625,12 @@ if (file != null)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
    * @param includeCourseMetadata Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)
    * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return CourseListSchema
    * @throws ApiException if fails to make API call
    */
-  public CourseListSchema getCourses(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeCourseMetadata, Boolean includeRegistrationCount) throws ApiException {
-    return getCoursesWithHttpInfo(since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeCourseMetadata, includeRegistrationCount).getData();
+  public CourseListSchema getCourses(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeCourseMetadata, Boolean includeRegistrationCount, Boolean includeTotalCount) throws ApiException {
+    return getCoursesWithHttpInfo(since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeCourseMetadata, includeRegistrationCount, includeTotalCount).getData();
       }
 
   /**
@@ -1646,10 +1646,11 @@ if (file != null)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
    * @param includeCourseMetadata Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)
    * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
+   * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;CourseListSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<CourseListSchema> getCoursesWithHttpInfo(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeCourseMetadata, Boolean includeRegistrationCount) throws ApiException {
+  public ApiResponse<CourseListSchema> getCoursesWithHttpInfo(OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeCourseMetadata, Boolean includeRegistrationCount, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1670,6 +1671,7 @@ if (file != null)
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeCourseMetadata", includeCourseMetadata));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRegistrationCount", includeRegistrationCount));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
     

@@ -21,7 +21,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class HttpBasicAuth implements Authentication {
   private String username;
   private String password;

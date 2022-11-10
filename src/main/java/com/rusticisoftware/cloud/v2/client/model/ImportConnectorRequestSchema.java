@@ -25,7 +25,6 @@ import io.swagger.annotations.ApiModelProperty;
  * Used to create a course from a content connector. Before creating a course using this schema, a content connector must be created using the &#x60;/contentConnectors&#x60; API endpoints. Once a content connector has been created, this schema can be used to create a course that can be launched using that connector.  For example, this schema is used to import an LTI 1.3 Tool to be consumed by SCORM Cloud acting as the LTI Platform. 
  */
 @ApiModel(description = "Used to create a course from a content connector. Before creating a course using this schema, a content connector must be created using the `/contentConnectors` API endpoints. Once a content connector has been created, this schema can be used to create a course that can be launched using that connector.  For example, this schema is used to import an LTI 1.3 Tool to be consumed by SCORM Cloud acting as the LTI Platform. ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class ImportConnectorRequestSchema {
   @JsonProperty("connectorId")
   private String connectorId = null;

@@ -28,7 +28,6 @@ import io.swagger.annotations.ApiModelProperty;
  * Request to import a new course. Exactly one of the schemas must be supplied, depending on the desired import behavior. 
  */
 @ApiModel(description = "Request to import a new course. Exactly one of the schemas must be supplied, depending on the desired import behavior. ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class ImportRequestSchema {
   @JsonProperty("fetchRequest")
   private ImportFetchRequestSchema fetchRequest = null;

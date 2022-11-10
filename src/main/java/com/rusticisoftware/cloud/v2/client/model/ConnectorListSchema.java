@@ -28,7 +28,6 @@ import java.util.List;
  * List of content connectors.
  */
 @ApiModel(description = "List of content connectors.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-26T11:33:06.485-05:00")
 public class ConnectorListSchema {
   @JsonProperty("connectorEntries")
   private List<ConnectorSchema> connectorEntries = null;
