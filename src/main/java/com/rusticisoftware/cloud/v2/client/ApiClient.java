@@ -73,7 +73,7 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("Swagger-Codegen/3.0.0/java");
+    setUserAgent("Swagger-Codegen/3.0.1/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -654,6 +654,12 @@ public class ApiClient {
       }
     }
 
+    Entity<?> entity = serialize(body, formParams, contentType);
+
+    if ("DELETE".equals(method) && entity.getEntity() != null) {
+      target.property(ClientProperties.SUPPRESS_HTTP_COMPLIANCE_VALIDATION, true);
+    }
+
     Invocation.Builder invocationBuilder = target.request().accept(accept);
 
     for (Entry<String, String> entry : headerParams.entrySet()) {
@@ -673,8 +679,6 @@ public class ApiClient {
       }
     }
 
-    Entity<?> entity = serialize(body, formParams, contentType);
-
     Response response = null;
 
     try {
@@ -685,7 +689,7 @@ public class ApiClient {
       } else if ("PUT".equals(method)) {
         response = invocationBuilder.put(entity);
       } else if ("DELETE".equals(method)) {
-        response = invocationBuilder.delete();
+        response = invocationBuilder.method("DELETE", entity);
       } else if ("PATCH".equals(method)) {
         response = invocationBuilder.method("PATCH", entity);
       } else if ("HEAD".equals(method)) {
