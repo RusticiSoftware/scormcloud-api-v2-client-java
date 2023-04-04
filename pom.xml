@@ -1,18 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rusticisoftware.cloud.v2.client</groupId>
     <artifactId>scormcloud-api-v2-client</artifactId>
     <packaging>jar</packaging>
     <name>scormcloud-api-v2-client</name>
-    <version>3.0.1-SNAPSHOT</version>
+    <version>3.0.1</version>
     <url>https://rusticisoftware.com/products/scorm-cloud/api/</url>
     <description>Swagger Generated Java Client for SCORM Cloud API v2</description>
     <scm>
         <connection>scm:git:git@github.com:RusticiSoftware/scormcloud-api-v2-client-java.git</connection>
         <developerConnection>scm:git:git@github.com:RusticiSoftware/scormcloud-api-v2-client-java.git</developerConnection>
         <url>https://github.com/RusticiSoftware/scormcloud-api-v2-client-java</url>
-    </scm>
+      <tag>scormcloud-api-v2-client-3.0.1</tag>
+  </scm>
 
     <licenses>
         <license>
