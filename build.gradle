@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.rusticisoftware.cloud.v2.client'
-version = '3.0.0'
+version = '3.0.1'
 
 buildscript {
     repositories {
