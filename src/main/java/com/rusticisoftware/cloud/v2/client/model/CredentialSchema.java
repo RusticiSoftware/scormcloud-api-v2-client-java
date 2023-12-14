@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 
 /**
  * CredentialSchema
@@ -39,6 +40,12 @@ public class CredentialSchema {
 
   @JsonProperty("status")
   private String status = null;
+
+  @JsonProperty("created")
+  private OffsetDateTime created = null;
+
+  @JsonProperty("updated")
+  private OffsetDateTime updated = null;
 
   public CredentialSchema id(String id) {
     this.id = id;
@@ -130,6 +137,42 @@ public class CredentialSchema {
     this.status = status;
   }
 
+  public CredentialSchema created(OffsetDateTime created) {
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * The time the API credential was created in UTC
+   * @return created
+  **/
+  @ApiModelProperty(value = "The time the API credential was created in UTC")
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+  public void setCreated(OffsetDateTime created) {
+    this.created = created;
+  }
+
+  public CredentialSchema updated(OffsetDateTime updated) {
+    this.updated = updated;
+    return this;
+  }
+
+  /**
+   * The time the API credential was last updated in UTC
+   * @return updated
+  **/
+  @ApiModelProperty(value = "The time the API credential was last updated in UTC")
+  public OffsetDateTime getUpdated() {
+    return updated;
+  }
+
+  public void setUpdated(OffsetDateTime updated) {
+    this.updated = updated;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,12 +187,14 @@ public class CredentialSchema {
         Objects.equals(this.name, credentialSchema.name) &&
         Objects.equals(this.credential, credentialSchema.credential) &&
         Objects.equals(this.pensCredential, credentialSchema.pensCredential) &&
-        Objects.equals(this.status, credentialSchema.status);
+        Objects.equals(this.status, credentialSchema.status) &&
+        Objects.equals(this.created, credentialSchema.created) &&
+        Objects.equals(this.updated, credentialSchema.updated);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, credential, pensCredential, status);
+    return Objects.hash(id, name, credential, pensCredential, status, created, updated);
   }
 
   @Override
@@ -162,6 +207,8 @@ public class CredentialSchema {
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    pensCredential: ").append(toIndentedString(pensCredential)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("}");
     return sb.toString();
   }

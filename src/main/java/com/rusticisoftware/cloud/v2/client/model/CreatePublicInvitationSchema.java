@@ -89,10 +89,10 @@ public class CreatePublicInvitationSchema {
   }
 
   /**
-   * Integer value that limits the amount of registrations a public invitation can generate.
+   * Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation. 
    * @return registrationCap
   **/
-  @ApiModelProperty(value = "Integer value that limits the amount of registrations a public invitation can generate.")
+  @ApiModelProperty(value = "Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to '0' allows an unlimited amount of registrations to be created for the invitation. ")
   public Integer getRegistrationCap() {
     return registrationCap;
   }

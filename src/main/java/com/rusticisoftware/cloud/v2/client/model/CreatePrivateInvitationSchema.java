@@ -48,6 +48,48 @@ public class CreatePrivateInvitationSchema {
   @JsonProperty("tags")
   private List<String> tags = null;
 
+  /**
+   * Represents the possible values that determine how existing registrations will be handled when an invitation is sent to an email address that has already received an invitation:   - &#x60;FAIL&#x60;: Do not create a new invitation, do not send an email, and do nothing with registrations   - &#x60;INSTANCE_EXISTING&#x60;: Create a new instance of the existing registration and send it with the invitation   - &#x60;SEND_EXISTING&#x60;: Re-send the existing registration with the new invitation   - &#x60;CREATE_NEW&#x60;: Create a new registration for the invitation 
+   */
+  public enum DuplicateRegistrationOptionEnum {
+    FAIL("FAIL"),
+    
+    INSTANCE_EXISTING("INSTANCE_EXISTING"),
+    
+    SEND_EXISTING("SEND_EXISTING"),
+    
+    CREATE_NEW("CREATE_NEW");
+
+    private String value;
+
+    DuplicateRegistrationOptionEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static DuplicateRegistrationOptionEnum fromValue(String value) {
+      for (DuplicateRegistrationOptionEnum b : DuplicateRegistrationOptionEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("duplicateRegistrationOption")
+  private DuplicateRegistrationOptionEnum duplicateRegistrationOption = DuplicateRegistrationOptionEnum.SEND_EXISTING;
+
   public CreatePrivateInvitationSchema courseId(String courseId) {
     this.courseId = courseId;
     return this;
@@ -164,6 +206,24 @@ public class CreatePrivateInvitationSchema {
     this.tags = tags;
   }
 
+  public CreatePrivateInvitationSchema duplicateRegistrationOption(DuplicateRegistrationOptionEnum duplicateRegistrationOption) {
+    this.duplicateRegistrationOption = duplicateRegistrationOption;
+    return this;
+  }
+
+  /**
+   * Represents the possible values that determine how existing registrations will be handled when an invitation is sent to an email address that has already received an invitation:   - &#x60;FAIL&#x60;: Do not create a new invitation, do not send an email, and do nothing with registrations   - &#x60;INSTANCE_EXISTING&#x60;: Create a new instance of the existing registration and send it with the invitation   - &#x60;SEND_EXISTING&#x60;: Re-send the existing registration with the new invitation   - &#x60;CREATE_NEW&#x60;: Create a new registration for the invitation 
+   * @return duplicateRegistrationOption
+  **/
+  @ApiModelProperty(value = "Represents the possible values that determine how existing registrations will be handled when an invitation is sent to an email address that has already received an invitation:   - `FAIL`: Do not create a new invitation, do not send an email, and do nothing with registrations   - `INSTANCE_EXISTING`: Create a new instance of the existing registration and send it with the invitation   - `SEND_EXISTING`: Re-send the existing registration with the new invitation   - `CREATE_NEW`: Create a new registration for the invitation ")
+  public DuplicateRegistrationOptionEnum getDuplicateRegistrationOption() {
+    return duplicateRegistrationOption;
+  }
+
+  public void setDuplicateRegistrationOption(DuplicateRegistrationOptionEnum duplicateRegistrationOption) {
+    this.duplicateRegistrationOption = duplicateRegistrationOption;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -179,12 +239,13 @@ public class CreatePrivateInvitationSchema {
         Objects.equals(this.invitationEmail, createPrivateInvitationSchema.invitationEmail) &&
         Objects.equals(this.postBack, createPrivateInvitationSchema.postBack) &&
         Objects.equals(this.expirationDate, createPrivateInvitationSchema.expirationDate) &&
-        Objects.equals(this.tags, createPrivateInvitationSchema.tags);
+        Objects.equals(this.tags, createPrivateInvitationSchema.tags) &&
+        Objects.equals(this.duplicateRegistrationOption, createPrivateInvitationSchema.duplicateRegistrationOption);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(courseId, creatingUserEmail, invitationEmail, postBack, expirationDate, tags);
+    return Objects.hash(courseId, creatingUserEmail, invitationEmail, postBack, expirationDate, tags, duplicateRegistrationOption);
   }
 
   @Override
@@ -198,6 +259,7 @@ public class CreatePrivateInvitationSchema {
     sb.append("    postBack: ").append(toIndentedString(postBack)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    duplicateRegistrationOption: ").append(toIndentedString(duplicateRegistrationOption)).append("\n");
     sb.append("}");
     return sb.toString();
   }

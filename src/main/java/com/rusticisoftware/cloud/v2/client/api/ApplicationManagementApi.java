@@ -13,9 +13,9 @@ import com.rusticisoftware.cloud.v2.client.model.ApplicationInfoSchema;
 import com.rusticisoftware.cloud.v2.client.model.ApplicationListSchema;
 import com.rusticisoftware.cloud.v2.client.model.ApplicationRequestSchema;
 import com.rusticisoftware.cloud.v2.client.model.ApplicationSchema;
-import com.rusticisoftware.cloud.v2.client.model.CredentialCreatedSchema;
 import com.rusticisoftware.cloud.v2.client.model.CredentialListSchema;
 import com.rusticisoftware.cloud.v2.client.model.CredentialRequestSchema;
+import com.rusticisoftware.cloud.v2.client.model.CredentialSchema;
 import com.rusticisoftware.cloud.v2.client.model.MessageSchema;
 import java.time.OffsetDateTime;
 import com.rusticisoftware.cloud.v2.client.model.SettingListSchema;
@@ -105,10 +105,10 @@ public class ApplicationManagementApi {
    * Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
    * @param childAppId  (required)
    * @param credentialRequest  (required)
-   * @return CredentialCreatedSchema
+   * @return CredentialSchema
    * @throws ApiException if fails to make API call
    */
-  public CredentialCreatedSchema createCredential(String childAppId, CredentialRequestSchema credentialRequest) throws ApiException {
+  public CredentialSchema createCredential(String childAppId, CredentialRequestSchema credentialRequest) throws ApiException {
     return createCredentialWithHttpInfo(childAppId, credentialRequest).getData();
       }
 
@@ -117,10 +117,10 @@ public class ApplicationManagementApi {
    * Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
    * @param childAppId  (required)
    * @param credentialRequest  (required)
-   * @return ApiResponse&lt;CredentialCreatedSchema&gt;
+   * @return ApiResponse&lt;CredentialSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<CredentialCreatedSchema> createCredentialWithHttpInfo(String childAppId, CredentialRequestSchema credentialRequest) throws ApiException {
+  public ApiResponse<CredentialSchema> createCredentialWithHttpInfo(String childAppId, CredentialRequestSchema credentialRequest) throws ApiException {
     Object localVarPostBody = credentialRequest;
     
     // verify the required parameter 'childAppId' is set
@@ -157,7 +157,7 @@ public class ApplicationManagementApi {
 
     String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "OAUTH" };
 
-    GenericType<CredentialCreatedSchema> localVarReturnType = new GenericType<CredentialCreatedSchema>() {};
+    GenericType<CredentialSchema> localVarReturnType = new GenericType<CredentialSchema>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -546,7 +546,7 @@ public class ApplicationManagementApi {
       }
   /**
    * Use the Application Management App to get a detailed list of Applications 
-   * Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+   * Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param datetimeFilter Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)
@@ -566,7 +566,7 @@ public class ApplicationManagementApi {
 
   /**
    * Use the Application Management App to get a detailed list of Applications 
-   * Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+   * Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param datetimeFilter Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)

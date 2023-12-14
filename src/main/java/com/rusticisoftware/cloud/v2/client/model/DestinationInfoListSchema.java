@@ -18,25 +18,28 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.rusticisoftware.cloud.v2.client.model.DestinationIdSchema;
+import com.rusticisoftware.cloud.v2.client.model.DestinationInfoIdSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DestinationListSchema
+ * DestinationInfoListSchema
  */
-public class DestinationListSchema {
+public class DestinationInfoListSchema {
   @JsonProperty("destinations")
-  private List<DestinationIdSchema> destinations = null;
+  private List<DestinationInfoIdSchema> destinations = null;
 
-  public DestinationListSchema destinations(List<DestinationIdSchema> destinations) {
+  @JsonProperty("more")
+  private String more = null;
+
+  public DestinationInfoListSchema destinations(List<DestinationInfoIdSchema> destinations) {
     this.destinations = destinations;
     return this;
   }
 
-  public DestinationListSchema addDestinationsItem(DestinationIdSchema destinationsItem) {
+  public DestinationInfoListSchema addDestinationsItem(DestinationInfoIdSchema destinationsItem) {
     if (this.destinations == null) {
       this.destinations = new ArrayList<>();
     }
@@ -49,12 +52,30 @@ public class DestinationListSchema {
    * @return destinations
   **/
   @ApiModelProperty(value = "")
-  public List<DestinationIdSchema> getDestinations() {
+  public List<DestinationInfoIdSchema> getDestinations() {
     return destinations;
   }
 
-  public void setDestinations(List<DestinationIdSchema> destinations) {
+  public void setDestinations(List<DestinationInfoIdSchema> destinations) {
     this.destinations = destinations;
+  }
+
+  public DestinationInfoListSchema more(String more) {
+    this.more = more;
+    return this;
+  }
+
+  /**
+   * Token for getting the next set of results, from the prior set of results.
+   * @return more
+  **/
+  @ApiModelProperty(value = "Token for getting the next set of results, from the prior set of results.")
+  public String getMore() {
+    return more;
+  }
+
+  public void setMore(String more) {
+    this.more = more;
   }
 
 
@@ -66,21 +87,23 @@ public class DestinationListSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DestinationListSchema destinationListSchema = (DestinationListSchema) o;
-    return Objects.equals(this.destinations, destinationListSchema.destinations);
+    DestinationInfoListSchema destinationInfoListSchema = (DestinationInfoListSchema) o;
+    return Objects.equals(this.destinations, destinationInfoListSchema.destinations) &&
+        Objects.equals(this.more, destinationInfoListSchema.more);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinations);
+    return Objects.hash(destinations, more);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DestinationListSchema {\n");
+    sb.append("class DestinationInfoListSchema {\n");
     
     sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
+    sb.append("    more: ").append(toIndentedString(more)).append("\n");
     sb.append("}");
     return sb.toString();
   }
