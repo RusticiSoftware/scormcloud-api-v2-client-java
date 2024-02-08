@@ -48,10 +48,10 @@ public class PublicInvitationUpdateSchema {
   }
 
   /**
-   * If true, then new registrations can be created for this invitation.
+   * Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. 
    * @return allowLaunch
   **/
-  @ApiModelProperty(value = "If true, then new registrations can be created for this invitation.")
+  @ApiModelProperty(value = "Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. ")
   public Boolean isAllowLaunch() {
     return allowLaunch;
   }
@@ -66,10 +66,10 @@ public class PublicInvitationUpdateSchema {
   }
 
   /**
-   * If true, then new registrations can be created for this invitation.
+   * Determines if new registrations can be created for this public invitation. If false, no new registrations can be created for the invitation, so only learners with existing registrations can access the invitation. 
    * @return allowNewRegistrations
   **/
-  @ApiModelProperty(value = "If true, then new registrations can be created for this invitation.")
+  @ApiModelProperty(value = "Determines if new registrations can be created for this public invitation. If false, no new registrations can be created for the invitation, so only learners with existing registrations can access the invitation. ")
   public Boolean isAllowNewRegistrations() {
     return allowNewRegistrations;
   }
@@ -120,10 +120,10 @@ public class PublicInvitationUpdateSchema {
   }
 
   /**
-   * Integer value that limits the amount of registrations a public invitation can generate.
+   * Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation. 
    * @return registrationCap
   **/
-  @ApiModelProperty(value = "Integer value that limits the amount of registrations a public invitation can generate.")
+  @ApiModelProperty(value = "Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to '0' allows an unlimited amount of registrations to be created for the invitation. ")
   public Integer getRegistrationCap() {
     return registrationCap;
   }

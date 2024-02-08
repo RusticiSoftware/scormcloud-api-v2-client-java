@@ -19,10 +19,10 @@ import com.rusticisoftware.cloud.v2.client.model.ImportAssetRequestSchema;
 import com.rusticisoftware.cloud.v2.client.model.ImportFetchRequestSchema;
 import com.rusticisoftware.cloud.v2.client.model.ImportJobResultSchema;
 import com.rusticisoftware.cloud.v2.client.model.ImportRequestSchema;
-import com.rusticisoftware.cloud.v2.client.model.LaunchLinkRequestSchema;
 import com.rusticisoftware.cloud.v2.client.model.LaunchLinkSchema;
 import com.rusticisoftware.cloud.v2.client.model.MessageSchema;
 import java.time.OffsetDateTime;
+import com.rusticisoftware.cloud.v2.client.model.PreviewLaunchLinkRequestSchema;
 import com.rusticisoftware.cloud.v2.client.model.ResponseError;
 import com.rusticisoftware.cloud.v2.client.model.SettingListSchema;
 import com.rusticisoftware.cloud.v2.client.model.SettingsPostSchema;
@@ -63,7 +63,7 @@ public class CourseApi {
    * @return LaunchLinkSchema
    * @throws ApiException if fails to make API call
    */
-  public LaunchLinkSchema buildCoursePreviewLaunchLink(String courseId, LaunchLinkRequestSchema launchLinkRequest) throws ApiException {
+  public LaunchLinkSchema buildCoursePreviewLaunchLink(String courseId, PreviewLaunchLinkRequestSchema launchLinkRequest) throws ApiException {
     return buildCoursePreviewLaunchLinkWithHttpInfo(courseId, launchLinkRequest).getData();
       }
 
@@ -75,7 +75,7 @@ public class CourseApi {
    * @return ApiResponse&lt;LaunchLinkSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<LaunchLinkSchema> buildCoursePreviewLaunchLinkWithHttpInfo(String courseId, LaunchLinkRequestSchema launchLinkRequest) throws ApiException {
+  public ApiResponse<LaunchLinkSchema> buildCoursePreviewLaunchLinkWithHttpInfo(String courseId, PreviewLaunchLinkRequestSchema launchLinkRequest) throws ApiException {
     Object localVarPostBody = launchLinkRequest;
     
     // verify the required parameter 'courseId' is set
@@ -124,7 +124,7 @@ public class CourseApi {
    * @return LaunchLinkSchema
    * @throws ApiException if fails to make API call
    */
-  public LaunchLinkSchema buildCoursePreviewLaunchLinkWithVersion(String courseId, Integer versionId, LaunchLinkRequestSchema launchLinkRequest) throws ApiException {
+  public LaunchLinkSchema buildCoursePreviewLaunchLinkWithVersion(String courseId, Integer versionId, PreviewLaunchLinkRequestSchema launchLinkRequest) throws ApiException {
     return buildCoursePreviewLaunchLinkWithVersionWithHttpInfo(courseId, versionId, launchLinkRequest).getData();
       }
 
@@ -137,7 +137,7 @@ public class CourseApi {
    * @return ApiResponse&lt;LaunchLinkSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<LaunchLinkSchema> buildCoursePreviewLaunchLinkWithVersionWithHttpInfo(String courseId, Integer versionId, LaunchLinkRequestSchema launchLinkRequest) throws ApiException {
+  public ApiResponse<LaunchLinkSchema> buildCoursePreviewLaunchLinkWithVersionWithHttpInfo(String courseId, Integer versionId, PreviewLaunchLinkRequestSchema launchLinkRequest) throws ApiException {
     Object localVarPostBody = launchLinkRequest;
     
     // verify the required parameter 'courseId' is set

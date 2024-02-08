@@ -10,6 +10,8 @@ import javax.ws.rs.core.GenericType;
 
 import com.rusticisoftware.cloud.v2.client.model.BatchTagsSchema;
 import com.rusticisoftware.cloud.v2.client.model.CreateDispatchListSchema;
+import com.rusticisoftware.cloud.v2.client.model.DestinationInfoListSchema;
+import com.rusticisoftware.cloud.v2.client.model.DestinationInfoSchema;
 import com.rusticisoftware.cloud.v2.client.model.DestinationListSchema;
 import com.rusticisoftware.cloud.v2.client.model.DestinationSchema;
 import com.rusticisoftware.cloud.v2.client.model.DispatchListSchema;
@@ -606,21 +608,23 @@ public class DispatchApi {
    * Get detailed information about a Destination 
    * Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
    * @param destinationId Identifier for the destination (required)
-   * @return DestinationSchema
+   * @param includeDispatchCount Include a count of dispatches for the destination. (optional, default to false)
+   * @return DestinationInfoSchema
    * @throws ApiException if fails to make API call
    */
-  public DestinationSchema getDestination(String destinationId) throws ApiException {
-    return getDestinationWithHttpInfo(destinationId).getData();
+  public DestinationInfoSchema getDestination(String destinationId, Boolean includeDispatchCount) throws ApiException {
+    return getDestinationWithHttpInfo(destinationId, includeDispatchCount).getData();
       }
 
   /**
    * Get detailed information about a Destination 
    * Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
    * @param destinationId Identifier for the destination (required)
-   * @return ApiResponse&lt;DestinationSchema&gt;
+   * @param includeDispatchCount Include a count of dispatches for the destination. (optional, default to false)
+   * @return ApiResponse&lt;DestinationInfoSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DestinationSchema> getDestinationWithHttpInfo(String destinationId) throws ApiException {
+  public ApiResponse<DestinationInfoSchema> getDestinationWithHttpInfo(String destinationId, Boolean includeDispatchCount) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'destinationId' is set
@@ -637,6 +641,7 @@ public class DispatchApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeDispatchCount", includeDispatchCount));
 
     
     
@@ -652,7 +657,7 @@ public class DispatchApi {
 
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
-    GenericType<DestinationSchema> localVarReturnType = new GenericType<DestinationSchema>() {};
+    GenericType<DestinationInfoSchema> localVarReturnType = new GenericType<DestinationInfoSchema>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -961,7 +966,7 @@ public class DispatchApi {
       }
   /**
    * Get a list of Destinations 
-   * Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+   * Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
@@ -971,17 +976,18 @@ public class DispatchApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeDispatchCount Include a count of dispatches for each destination. (optional, default to false)
    * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
-   * @return DestinationListSchema
+   * @return DestinationInfoListSchema
    * @throws ApiException if fails to make API call
    */
-  public DestinationListSchema getDestinations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
-    return getDestinationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
+  public DestinationInfoListSchema getDestinations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeDispatchCount, Boolean includeTotalCount) throws ApiException {
+    return getDestinationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeDispatchCount, includeTotalCount).getData();
       }
 
   /**
    * Get a list of Destinations 
-   * Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+   * Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
@@ -991,11 +997,12 @@ public class DispatchApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeDispatchCount Include a count of dispatches for each destination. (optional, default to false)
    * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
-   * @return ApiResponse&lt;DestinationListSchema&gt;
+   * @return ApiResponse&lt;DestinationInfoListSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DestinationListSchema> getDestinationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+  public ApiResponse<DestinationInfoListSchema> getDestinationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeDispatchCount, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1015,6 +1022,7 @@ public class DispatchApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeDispatchCount", includeDispatchCount));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
@@ -1031,7 +1039,7 @@ public class DispatchApi {
 
     String[] localVarAuthNames = new String[] { "APP_NORMAL", "OAUTH" };
 
-    GenericType<DestinationListSchema> localVarReturnType = new GenericType<DestinationListSchema>() {};
+    GenericType<DestinationInfoListSchema> localVarReturnType = new GenericType<DestinationInfoListSchema>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

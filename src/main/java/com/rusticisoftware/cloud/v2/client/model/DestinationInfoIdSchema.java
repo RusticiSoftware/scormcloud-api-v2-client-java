@@ -18,43 +18,54 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.rusticisoftware.cloud.v2.client.model.DestinationIdSchema;
+import com.rusticisoftware.cloud.v2.client.model.DestinationInfoSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * DestinationListSchema
+ * DestinationInfoIdSchema
  */
-public class DestinationListSchema {
-  @JsonProperty("destinations")
-  private List<DestinationIdSchema> destinations = null;
+public class DestinationInfoIdSchema {
+  @JsonProperty("id")
+  private String id = null;
 
-  public DestinationListSchema destinations(List<DestinationIdSchema> destinations) {
-    this.destinations = destinations;
-    return this;
-  }
+  @JsonProperty("data")
+  private DestinationInfoSchema data = null;
 
-  public DestinationListSchema addDestinationsItem(DestinationIdSchema destinationsItem) {
-    if (this.destinations == null) {
-      this.destinations = new ArrayList<>();
-    }
-    this.destinations.add(destinationsItem);
+  public DestinationInfoIdSchema id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
    * 
-   * @return destinations
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public List<DestinationIdSchema> getDestinations() {
-    return destinations;
+  public String getId() {
+    return id;
   }
 
-  public void setDestinations(List<DestinationIdSchema> destinations) {
-    this.destinations = destinations;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public DestinationInfoIdSchema data(DestinationInfoSchema data) {
+    this.data = data;
+    return this;
+  }
+
+  /**
+   * Get data
+   * @return data
+  **/
+  @ApiModelProperty(value = "")
+  public DestinationInfoSchema getData() {
+    return data;
+  }
+
+  public void setData(DestinationInfoSchema data) {
+    this.data = data;
   }
 
 
@@ -66,21 +77,23 @@ public class DestinationListSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DestinationListSchema destinationListSchema = (DestinationListSchema) o;
-    return Objects.equals(this.destinations, destinationListSchema.destinations);
+    DestinationInfoIdSchema destinationInfoIdSchema = (DestinationInfoIdSchema) o;
+    return Objects.equals(this.id, destinationInfoIdSchema.id) &&
+        Objects.equals(this.data, destinationInfoIdSchema.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinations);
+    return Objects.hash(id, data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DestinationListSchema {\n");
+    sb.append("class DestinationInfoIdSchema {\n");
     
-    sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

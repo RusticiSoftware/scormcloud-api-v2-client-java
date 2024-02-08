@@ -131,16 +131,19 @@ public class LaunchHistorySchema {
   @JsonProperty("lastRuntimeUpdate")
   private OffsetDateTime lastRuntimeUpdate = null;
 
+  @JsonProperty("launchHistoryId")
+  private String launchHistoryId = null;
+
   public LaunchHistorySchema id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Get id
+   * Identifier for the registration associated with this record
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Identifier for the registration associated with this record")
   public String getId() {
     return id;
   }
@@ -311,6 +314,24 @@ public class LaunchHistorySchema {
     this.lastRuntimeUpdate = lastRuntimeUpdate;
   }
 
+  public LaunchHistorySchema launchHistoryId(String launchHistoryId) {
+    this.launchHistoryId = launchHistoryId;
+    return this;
+  }
+
+  /**
+   * A unique identifier for this launch history record
+   * @return launchHistoryId
+  **/
+  @ApiModelProperty(value = "A unique identifier for this launch history record")
+  public String getLaunchHistoryId() {
+    return launchHistoryId;
+  }
+
+  public void setLaunchHistoryId(String launchHistoryId) {
+    this.launchHistoryId = launchHistoryId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -330,12 +351,13 @@ public class LaunchHistorySchema {
         Objects.equals(this.totalSecondsTracked, launchHistorySchema.totalSecondsTracked) &&
         Objects.equals(this.launchTime, launchHistorySchema.launchTime) &&
         Objects.equals(this.exitTime, launchHistorySchema.exitTime) &&
-        Objects.equals(this.lastRuntimeUpdate, launchHistorySchema.lastRuntimeUpdate);
+        Objects.equals(this.lastRuntimeUpdate, launchHistorySchema.lastRuntimeUpdate) &&
+        Objects.equals(this.launchHistoryId, launchHistorySchema.launchHistoryId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, instance, score, completionStatus, successStatus, historyLog, totalSecondsTracked, launchTime, exitTime, lastRuntimeUpdate);
+    return Objects.hash(id, instance, score, completionStatus, successStatus, historyLog, totalSecondsTracked, launchTime, exitTime, lastRuntimeUpdate, launchHistoryId);
   }
 
   @Override
@@ -353,6 +375,7 @@ public class LaunchHistorySchema {
     sb.append("    launchTime: ").append(toIndentedString(launchTime)).append("\n");
     sb.append("    exitTime: ").append(toIndentedString(exitTime)).append("\n");
     sb.append("    lastRuntimeUpdate: ").append(toIndentedString(lastRuntimeUpdate)).append("\n");
+    sb.append("    launchHistoryId: ").append(toIndentedString(launchHistoryId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
