@@ -61,6 +61,9 @@ public class DispatchSchema {
   @JsonProperty("registrationCount")
   private Integer registrationCount = null;
 
+  @JsonProperty("registrationResetDate")
+  private OffsetDateTime registrationResetDate = null;
+
   @JsonProperty("expirationDate")
   private OffsetDateTime expirationDate = null;
 
@@ -271,6 +274,24 @@ public class DispatchSchema {
     this.registrationCount = registrationCount;
   }
 
+  public DispatchSchema registrationResetDate(OffsetDateTime registrationResetDate) {
+    this.registrationResetDate = registrationResetDate;
+    return this;
+  }
+
+  /**
+   * The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. 
+   * @return registrationResetDate
+  **/
+  @ApiModelProperty(value = "The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. ")
+  public OffsetDateTime getRegistrationResetDate() {
+    return registrationResetDate;
+  }
+
+  public void setRegistrationResetDate(OffsetDateTime registrationResetDate) {
+    this.registrationResetDate = registrationResetDate;
+  }
+
   public DispatchSchema expirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
     return this;
@@ -372,6 +393,7 @@ public class DispatchSchema {
         Objects.equals(this.instanced, dispatchSchema.instanced) &&
         Objects.equals(this.registrationCap, dispatchSchema.registrationCap) &&
         Objects.equals(this.registrationCount, dispatchSchema.registrationCount) &&
+        Objects.equals(this.registrationResetDate, dispatchSchema.registrationResetDate) &&
         Objects.equals(this.expirationDate, dispatchSchema.expirationDate) &&
         Objects.equals(this.tags, dispatchSchema.tags) &&
         Objects.equals(this.email, dispatchSchema.email) &&
@@ -380,7 +402,7 @@ public class DispatchSchema {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationId, destinationName, courseId, courseTitle, updated, created, allowNewRegistrations, enabled, instanced, registrationCap, registrationCount, expirationDate, tags, email, notes);
+    return Objects.hash(destinationId, destinationName, courseId, courseTitle, updated, created, allowNewRegistrations, enabled, instanced, registrationCap, registrationCount, registrationResetDate, expirationDate, tags, email, notes);
   }
 
   @Override
@@ -399,6 +421,7 @@ public class DispatchSchema {
     sb.append("    instanced: ").append(toIndentedString(instanced)).append("\n");
     sb.append("    registrationCap: ").append(toIndentedString(registrationCap)).append("\n");
     sb.append("    registrationCount: ").append(toIndentedString(registrationCount)).append("\n");
+    sb.append("    registrationResetDate: ").append(toIndentedString(registrationResetDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");

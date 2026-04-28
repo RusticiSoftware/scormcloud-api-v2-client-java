@@ -18,7 +18,6 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.rusticisoftware.cloud.v2.client.model.InvitationEmailSchema;
 import com.rusticisoftware.cloud.v2.client.model.PostBackSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,11 +33,11 @@ public class PublicInvitationSchema {
   @JsonProperty("courseId")
   private String courseId = null;
 
+  @JsonProperty("courseTitle")
+  private String courseTitle = null;
+
   @JsonProperty("allowLaunch")
   private Boolean allowLaunch = null;
-
-  @JsonProperty("invitationEmail")
-  private InvitationEmailSchema invitationEmail = null;
 
   @JsonProperty("allowNewRegistrations")
   private Boolean allowNewRegistrations = null;
@@ -59,7 +58,7 @@ public class PublicInvitationSchema {
   private OffsetDateTime expirationDate = null;
 
   @JsonProperty("registrationCap")
-  private Integer registrationCap = 0;
+  private Integer registrationCap = null;
 
   @JsonProperty("registrationCount")
   private Integer registrationCount = null;
@@ -100,6 +99,24 @@ public class PublicInvitationSchema {
     this.courseId = courseId;
   }
 
+  public PublicInvitationSchema courseTitle(String courseTitle) {
+    this.courseTitle = courseTitle;
+    return this;
+  }
+
+  /**
+   * Title of the course associated with this invitation.
+   * @return courseTitle
+  **/
+  @ApiModelProperty(value = "Title of the course associated with this invitation.")
+  public String getCourseTitle() {
+    return courseTitle;
+  }
+
+  public void setCourseTitle(String courseTitle) {
+    this.courseTitle = courseTitle;
+  }
+
   public PublicInvitationSchema allowLaunch(Boolean allowLaunch) {
     this.allowLaunch = allowLaunch;
     return this;
@@ -116,24 +133,6 @@ public class PublicInvitationSchema {
 
   public void setAllowLaunch(Boolean allowLaunch) {
     this.allowLaunch = allowLaunch;
-  }
-
-  public PublicInvitationSchema invitationEmail(InvitationEmailSchema invitationEmail) {
-    this.invitationEmail = invitationEmail;
-    return this;
-  }
-
-  /**
-   * Get invitationEmail
-   * @return invitationEmail
-  **/
-  @ApiModelProperty(value = "")
-  public InvitationEmailSchema getInvitationEmail() {
-    return invitationEmail;
-  }
-
-  public void setInvitationEmail(InvitationEmailSchema invitationEmail) {
-    this.invitationEmail = invitationEmail;
   }
 
   public PublicInvitationSchema allowNewRegistrations(Boolean allowNewRegistrations) {
@@ -292,8 +291,8 @@ public class PublicInvitationSchema {
     PublicInvitationSchema publicInvitationSchema = (PublicInvitationSchema) o;
     return Objects.equals(this.id, publicInvitationSchema.id) &&
         Objects.equals(this.courseId, publicInvitationSchema.courseId) &&
+        Objects.equals(this.courseTitle, publicInvitationSchema.courseTitle) &&
         Objects.equals(this.allowLaunch, publicInvitationSchema.allowLaunch) &&
-        Objects.equals(this.invitationEmail, publicInvitationSchema.invitationEmail) &&
         Objects.equals(this.allowNewRegistrations, publicInvitationSchema.allowNewRegistrations) &&
         Objects.equals(this.url, publicInvitationSchema.url) &&
         Objects.equals(this.createDate, publicInvitationSchema.createDate) &&
@@ -306,7 +305,7 @@ public class PublicInvitationSchema {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, courseId, allowLaunch, invitationEmail, allowNewRegistrations, url, createDate, updated, postBack, expirationDate, registrationCap, registrationCount);
+    return Objects.hash(id, courseId, courseTitle, allowLaunch, allowNewRegistrations, url, createDate, updated, postBack, expirationDate, registrationCap, registrationCount);
   }
 
   @Override
@@ -316,8 +315,8 @@ public class PublicInvitationSchema {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    courseId: ").append(toIndentedString(courseId)).append("\n");
+    sb.append("    courseTitle: ").append(toIndentedString(courseTitle)).append("\n");
     sb.append("    allowLaunch: ").append(toIndentedString(allowLaunch)).append("\n");
-    sb.append("    invitationEmail: ").append(toIndentedString(invitationEmail)).append("\n");
     sb.append("    allowNewRegistrations: ").append(toIndentedString(allowNewRegistrations)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");

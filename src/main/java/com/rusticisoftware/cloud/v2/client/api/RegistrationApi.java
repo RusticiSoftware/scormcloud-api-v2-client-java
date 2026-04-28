@@ -18,6 +18,7 @@ import java.time.OffsetDateTime;
 import com.rusticisoftware.cloud.v2.client.model.PostBackSchema;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationListSchema;
 import com.rusticisoftware.cloud.v2.client.model.RegistrationSchema;
+import com.rusticisoftware.cloud.v2.client.model.ResponseError;
 import com.rusticisoftware.cloud.v2.client.model.SettingListSchema;
 import com.rusticisoftware.cloud.v2.client.model.SettingsPostSchema;
 import com.rusticisoftware.cloud.v2.client.model.TagListSchema;

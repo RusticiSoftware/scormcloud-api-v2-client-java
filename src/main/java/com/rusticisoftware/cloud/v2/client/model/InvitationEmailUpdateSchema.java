@@ -22,49 +22,49 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * ZoomiCourseOptionsSchema
+ * InvitationEmailUpdateSchema
  */
-public class ZoomiCourseOptionsSchema {
-  @JsonProperty("nti")
-  private String nti = null;
+public class InvitationEmailUpdateSchema {
+  @JsonProperty("subject")
+  private String subject = null;
 
-  @JsonProperty("cta")
-  private String cta = null;
+  @JsonProperty("body")
+  private String body = null;
 
-  public ZoomiCourseOptionsSchema nti(String nti) {
-    this.nti = nti;
+  public InvitationEmailUpdateSchema subject(String subject) {
+    this.subject = subject;
     return this;
   }
 
   /**
-   * Get nti
-   * @return nti
+   * The subject line for the email.
+   * @return subject
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getNti() {
-    return nti;
+  @ApiModelProperty(value = "The subject line for the email.")
+  public String getSubject() {
+    return subject;
   }
 
-  public void setNti(String nti) {
-    this.nti = nti;
+  public void setSubject(String subject) {
+    this.subject = subject;
   }
 
-  public ZoomiCourseOptionsSchema cta(String cta) {
-    this.cta = cta;
+  public InvitationEmailUpdateSchema body(String body) {
+    this.body = body;
     return this;
   }
 
   /**
-   * Get cta
-   * @return cta
+   * The body of the email.
+   * @return body
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getCta() {
-    return cta;
+  @ApiModelProperty(value = "The body of the email.")
+  public String getBody() {
+    return body;
   }
 
-  public void setCta(String cta) {
-    this.cta = cta;
+  public void setBody(String body) {
+    this.body = body;
   }
 
 
@@ -76,23 +76,23 @@ public class ZoomiCourseOptionsSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ZoomiCourseOptionsSchema zoomiCourseOptionsSchema = (ZoomiCourseOptionsSchema) o;
-    return Objects.equals(this.nti, zoomiCourseOptionsSchema.nti) &&
-        Objects.equals(this.cta, zoomiCourseOptionsSchema.cta);
+    InvitationEmailUpdateSchema invitationEmailUpdateSchema = (InvitationEmailUpdateSchema) o;
+    return Objects.equals(this.subject, invitationEmailUpdateSchema.subject) &&
+        Objects.equals(this.body, invitationEmailUpdateSchema.body);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nti, cta);
+    return Objects.hash(subject, body);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ZoomiCourseOptionsSchema {\n");
+    sb.append("class InvitationEmailUpdateSchema {\n");
     
-    sb.append("    nti: ").append(toIndentedString(nti)).append("\n");
-    sb.append("    cta: ").append(toIndentedString(cta)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.rusticisoftware.cloud.v2.client.model.InvitationEmailSchema;
+import com.rusticisoftware.cloud.v2.client.model.InvitationEmailUpdateSchema;
 import com.rusticisoftware.cloud.v2.client.model.PostBackSchema;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,7 +32,7 @@ public class PrivateInvitationUpdateSchema {
   private Boolean allowLaunch = null;
 
   @JsonProperty("invitationEmail")
-  private InvitationEmailSchema invitationEmail = null;
+  private InvitationEmailUpdateSchema invitationEmail = null;
 
   @JsonProperty("postBack")
   private PostBackSchema postBack = null;
@@ -58,7 +58,7 @@ public class PrivateInvitationUpdateSchema {
     this.allowLaunch = allowLaunch;
   }
 
-  public PrivateInvitationUpdateSchema invitationEmail(InvitationEmailSchema invitationEmail) {
+  public PrivateInvitationUpdateSchema invitationEmail(InvitationEmailUpdateSchema invitationEmail) {
     this.invitationEmail = invitationEmail;
     return this;
   }
@@ -68,11 +68,11 @@ public class PrivateInvitationUpdateSchema {
    * @return invitationEmail
   **/
   @ApiModelProperty(value = "")
-  public InvitationEmailSchema getInvitationEmail() {
+  public InvitationEmailUpdateSchema getInvitationEmail() {
     return invitationEmail;
   }
 
-  public void setInvitationEmail(InvitationEmailSchema invitationEmail) {
+  public void setInvitationEmail(InvitationEmailUpdateSchema invitationEmail) {
     this.invitationEmail = invitationEmail;
   }
 

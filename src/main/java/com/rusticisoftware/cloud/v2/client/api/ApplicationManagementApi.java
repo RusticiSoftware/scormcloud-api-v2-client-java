@@ -207,7 +207,7 @@ public class ApplicationManagementApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "APP_NORMAL" };
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "APP_NORMAL" };
 
     GenericType<StringResultSchema> localVarReturnType = new GenericType<StringResultSchema>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
