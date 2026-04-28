@@ -190,11 +190,12 @@ public class CourseApi {
    * @param importRequest  (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
    * @param postbackUrl An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)
+   * @param tags A list of tags to apply, allowing for more refined filtering of resources (optional)
    * @return StringResultSchema
    * @throws ApiException if fails to make API call
    */
-  public StringResultSchema createFetchAndImportCourseJob(String courseId, ImportFetchRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl) throws ApiException {
-    return createFetchAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl).getData();
+  public StringResultSchema createFetchAndImportCourseJob(String courseId, ImportFetchRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl, List<String> tags) throws ApiException {
+    return createFetchAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl, tags).getData();
       }
 
   /**
@@ -204,10 +205,11 @@ public class CourseApi {
    * @param importRequest  (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
    * @param postbackUrl An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)
+   * @param tags A list of tags to apply, allowing for more refined filtering of resources (optional)
    * @return ApiResponse&lt;StringResultSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<StringResultSchema> createFetchAndImportCourseJobWithHttpInfo(String courseId, ImportFetchRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl) throws ApiException {
+  public ApiResponse<StringResultSchema> createFetchAndImportCourseJobWithHttpInfo(String courseId, ImportFetchRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl, List<String> tags) throws ApiException {
     Object localVarPostBody = importRequest;
     
     // verify the required parameter 'courseId' is set
@@ -231,6 +233,7 @@ public class CourseApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "courseId", courseId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mayCreateNewVersion", mayCreateNewVersion));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "postbackUrl", postbackUrl));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "tags", tags));
 
     
     
@@ -256,11 +259,12 @@ public class CourseApi {
    * @param importRequest  (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
    * @param postbackUrl An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)
+   * @param tags A list of tags to apply, allowing for more refined filtering of resources (optional)
    * @return StringResultSchema
    * @throws ApiException if fails to make API call
    */
-  public StringResultSchema createNoUploadAndImportCourseJob(String courseId, ImportRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl) throws ApiException {
-    return createNoUploadAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl).getData();
+  public StringResultSchema createNoUploadAndImportCourseJob(String courseId, ImportRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl, List<String> tags) throws ApiException {
+    return createNoUploadAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl, tags).getData();
       }
 
   /**
@@ -270,10 +274,11 @@ public class CourseApi {
    * @param importRequest  (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
    * @param postbackUrl An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)
+   * @param tags A list of tags to apply, allowing for more refined filtering of resources (optional)
    * @return ApiResponse&lt;StringResultSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<StringResultSchema> createNoUploadAndImportCourseJobWithHttpInfo(String courseId, ImportRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl) throws ApiException {
+  public ApiResponse<StringResultSchema> createNoUploadAndImportCourseJobWithHttpInfo(String courseId, ImportRequestSchema importRequest, Boolean mayCreateNewVersion, String postbackUrl, List<String> tags) throws ApiException {
     Object localVarPostBody = importRequest;
     
     // verify the required parameter 'courseId' is set
@@ -297,6 +302,7 @@ public class CourseApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "courseId", courseId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mayCreateNewVersion", mayCreateNewVersion));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "postbackUrl", postbackUrl));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "tags", tags));
 
     
     
@@ -321,14 +327,15 @@ public class CourseApi {
    * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
    * @param postbackUrl An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)
+   * @param tags A list of tags to apply, allowing for more refined filtering of resources (optional)
    * @param uploadedContentType The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)
    * @param contentMetadata Serialized &#39;mediaFileMetadata&#39; schema. (optional)
    * @param file The zip file of the course contents to import.  (optional)
    * @return StringResultSchema
    * @throws ApiException if fails to make API call
    */
-  public StringResultSchema createUploadAndImportCourseJob(String courseId, Boolean mayCreateNewVersion, String postbackUrl, String uploadedContentType, String contentMetadata, File file) throws ApiException {
-    return createUploadAndImportCourseJobWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, uploadedContentType, contentMetadata, file).getData();
+  public StringResultSchema createUploadAndImportCourseJob(String courseId, Boolean mayCreateNewVersion, String postbackUrl, List<String> tags, String uploadedContentType, String contentMetadata, File file) throws ApiException {
+    return createUploadAndImportCourseJobWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, tags, uploadedContentType, contentMetadata, file).getData();
       }
 
   /**
@@ -337,13 +344,14 @@ public class CourseApi {
    * @param courseId A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. (required)
    * @param mayCreateNewVersion Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)
    * @param postbackUrl An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)
+   * @param tags A list of tags to apply, allowing for more refined filtering of resources (optional)
    * @param uploadedContentType The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)
    * @param contentMetadata Serialized &#39;mediaFileMetadata&#39; schema. (optional)
    * @param file The zip file of the course contents to import.  (optional)
    * @return ApiResponse&lt;StringResultSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<StringResultSchema> createUploadAndImportCourseJobWithHttpInfo(String courseId, Boolean mayCreateNewVersion, String postbackUrl, String uploadedContentType, String contentMetadata, File file) throws ApiException {
+  public ApiResponse<StringResultSchema> createUploadAndImportCourseJobWithHttpInfo(String courseId, Boolean mayCreateNewVersion, String postbackUrl, List<String> tags, String uploadedContentType, String contentMetadata, File file) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'courseId' is set
@@ -362,6 +370,7 @@ public class CourseApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "courseId", courseId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "mayCreateNewVersion", mayCreateNewVersion));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "postbackUrl", postbackUrl));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "tags", tags));
 
     if (uploadedContentType != null)
       localVarHeaderParams.put("uploadedContentType", apiClient.parameterToString(uploadedContentType));

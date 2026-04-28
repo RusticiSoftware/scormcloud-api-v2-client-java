@@ -56,10 +56,10 @@ public class DispatchRegistrationCountSchema {
   }
 
   /**
-   * Get lastResetDate
+   * The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. 
    * @return lastResetDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. ")
   public OffsetDateTime getLastResetDate() {
     return lastResetDate;
   }

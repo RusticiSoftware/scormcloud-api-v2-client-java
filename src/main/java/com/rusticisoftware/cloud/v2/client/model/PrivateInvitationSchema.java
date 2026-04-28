@@ -34,6 +34,9 @@ public class PrivateInvitationSchema {
   @JsonProperty("courseId")
   private String courseId = null;
 
+  @JsonProperty("courseTitle")
+  private String courseTitle = null;
+
   @JsonProperty("allowLaunch")
   private Boolean allowLaunch = null;
 
@@ -54,6 +57,9 @@ public class PrivateInvitationSchema {
 
   @JsonProperty("registrationCount")
   private Integer registrationCount = null;
+
+  @JsonProperty("launchedRegistrationCount")
+  private Integer launchedRegistrationCount = null;
 
   public PrivateInvitationSchema id(String id) {
     this.id = id;
@@ -89,6 +95,24 @@ public class PrivateInvitationSchema {
 
   public void setCourseId(String courseId) {
     this.courseId = courseId;
+  }
+
+  public PrivateInvitationSchema courseTitle(String courseTitle) {
+    this.courseTitle = courseTitle;
+    return this;
+  }
+
+  /**
+   * Title of the course associated with this invitation.
+   * @return courseTitle
+  **/
+  @ApiModelProperty(value = "Title of the course associated with this invitation.")
+  public String getCourseTitle() {
+    return courseTitle;
+  }
+
+  public void setCourseTitle(String courseTitle) {
+    this.courseTitle = courseTitle;
   }
 
   public PrivateInvitationSchema allowLaunch(Boolean allowLaunch) {
@@ -217,6 +241,24 @@ public class PrivateInvitationSchema {
     this.registrationCount = registrationCount;
   }
 
+  public PrivateInvitationSchema launchedRegistrationCount(Integer launchedRegistrationCount) {
+    this.launchedRegistrationCount = launchedRegistrationCount;
+    return this;
+  }
+
+  /**
+   * The count of launched registrations for this invitation
+   * @return launchedRegistrationCount
+  **/
+  @ApiModelProperty(value = "The count of launched registrations for this invitation")
+  public Integer getLaunchedRegistrationCount() {
+    return launchedRegistrationCount;
+  }
+
+  public void setLaunchedRegistrationCount(Integer launchedRegistrationCount) {
+    this.launchedRegistrationCount = launchedRegistrationCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -229,18 +271,20 @@ public class PrivateInvitationSchema {
     PrivateInvitationSchema privateInvitationSchema = (PrivateInvitationSchema) o;
     return Objects.equals(this.id, privateInvitationSchema.id) &&
         Objects.equals(this.courseId, privateInvitationSchema.courseId) &&
+        Objects.equals(this.courseTitle, privateInvitationSchema.courseTitle) &&
         Objects.equals(this.allowLaunch, privateInvitationSchema.allowLaunch) &&
         Objects.equals(this.invitationEmail, privateInvitationSchema.invitationEmail) &&
         Objects.equals(this.createDate, privateInvitationSchema.createDate) &&
         Objects.equals(this.updated, privateInvitationSchema.updated) &&
         Objects.equals(this.postBack, privateInvitationSchema.postBack) &&
         Objects.equals(this.expirationDate, privateInvitationSchema.expirationDate) &&
-        Objects.equals(this.registrationCount, privateInvitationSchema.registrationCount);
+        Objects.equals(this.registrationCount, privateInvitationSchema.registrationCount) &&
+        Objects.equals(this.launchedRegistrationCount, privateInvitationSchema.launchedRegistrationCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, courseId, allowLaunch, invitationEmail, createDate, updated, postBack, expirationDate, registrationCount);
+    return Objects.hash(id, courseId, courseTitle, allowLaunch, invitationEmail, createDate, updated, postBack, expirationDate, registrationCount, launchedRegistrationCount);
   }
 
   @Override
@@ -250,6 +294,7 @@ public class PrivateInvitationSchema {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    courseId: ").append(toIndentedString(courseId)).append("\n");
+    sb.append("    courseTitle: ").append(toIndentedString(courseTitle)).append("\n");
     sb.append("    allowLaunch: ").append(toIndentedString(allowLaunch)).append("\n");
     sb.append("    invitationEmail: ").append(toIndentedString(invitationEmail)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
@@ -257,6 +302,7 @@ public class PrivateInvitationSchema {
     sb.append("    postBack: ").append(toIndentedString(postBack)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    registrationCount: ").append(toIndentedString(registrationCount)).append("\n");
+    sb.append("    launchedRegistrationCount: ").append(toIndentedString(launchedRegistrationCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

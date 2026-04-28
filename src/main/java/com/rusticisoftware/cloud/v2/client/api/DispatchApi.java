@@ -780,6 +780,7 @@ public class DispatchApi {
    * Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
    * @param destinationId Identifier for the destination (required)
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
+   * @param isEnabled Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param datetimeFilter Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)
@@ -792,8 +793,8 @@ public class DispatchApi {
    * @return DispatchListSchema
    * @throws ApiException if fails to make API call
    */
-  public DispatchListSchema getDestinationDispatches(String destinationId, String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
-    return getDestinationDispatchesWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
+  public DispatchListSchema getDestinationDispatches(String destinationId, String courseId, Boolean isEnabled, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+    return getDestinationDispatchesWithHttpInfo(destinationId, courseId, isEnabled, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
       }
 
   /**
@@ -801,6 +802,7 @@ public class DispatchApi {
    * Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
    * @param destinationId Identifier for the destination (required)
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
+   * @param isEnabled Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param datetimeFilter Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)
@@ -813,7 +815,7 @@ public class DispatchApi {
    * @return ApiResponse&lt;DispatchListSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DispatchListSchema> getDestinationDispatchesWithHttpInfo(String destinationId, String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+  public ApiResponse<DispatchListSchema> getDestinationDispatchesWithHttpInfo(String destinationId, String courseId, Boolean isEnabled, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'destinationId' is set
@@ -831,6 +833,7 @@ public class DispatchApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "courseId", courseId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isEnabled", isEnabled));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "since", since));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "until", until));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "datetimeFilter", datetimeFilter));
@@ -1370,6 +1373,7 @@ public class DispatchApi {
    * Get a list of Dispatches 
    * Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
+   * @param isEnabled Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param datetimeFilter Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)
@@ -1382,14 +1386,15 @@ public class DispatchApi {
    * @return DispatchListSchema
    * @throws ApiException if fails to make API call
    */
-  public DispatchListSchema getDispatches(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
-    return getDispatchesWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
+  public DispatchListSchema getDispatches(String courseId, Boolean isEnabled, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+    return getDispatchesWithHttpInfo(courseId, isEnabled, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
       }
 
   /**
    * Get a list of Dispatches 
    * Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
+   * @param isEnabled Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param datetimeFilter Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)
@@ -1402,7 +1407,7 @@ public class DispatchApi {
    * @return ApiResponse&lt;DispatchListSchema&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DispatchListSchema> getDispatchesWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+  public ApiResponse<DispatchListSchema> getDispatchesWithHttpInfo(String courseId, Boolean isEnabled, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1414,6 +1419,7 @@ public class DispatchApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "courseId", courseId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isEnabled", isEnabled));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "since", since));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "until", until));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "datetimeFilter", datetimeFilter));

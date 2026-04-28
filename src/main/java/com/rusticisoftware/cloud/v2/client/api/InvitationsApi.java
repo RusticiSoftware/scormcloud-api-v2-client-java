@@ -451,7 +451,7 @@ public class InvitationsApi {
       }
   /**
    * Get a list of Private Invitations 
-   * Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+   * Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
@@ -461,17 +461,18 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
    * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return PrivateInvitationList
    * @throws ApiException if fails to make API call
    */
-  public PrivateInvitationList getPrivateInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
-    return getPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
+  public PrivateInvitationList getPrivateInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationCount, Boolean includeTotalCount) throws ApiException {
+    return getPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeRegistrationCount, includeTotalCount).getData();
       }
 
   /**
    * Get a list of Private Invitations 
-   * Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+   * Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
@@ -481,11 +482,12 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
    * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;PrivateInvitationList&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PrivateInvitationList> getPrivateInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+  public ApiResponse<PrivateInvitationList> getPrivateInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationCount, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -505,6 +507,7 @@ public class InvitationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRegistrationCount", includeRegistrationCount));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     
@@ -662,7 +665,7 @@ public class InvitationsApi {
       }
   /**
    * Get a list of Public Invitations 
-   * Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+   * Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
@@ -672,17 +675,18 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
    * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return PublicInvitationList
    * @throws ApiException if fails to make API call
    */
-  public PublicInvitationList getPublicInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
-    return getPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount).getData();
+  public PublicInvitationList getPublicInvitations(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationCount, Boolean includeTotalCount) throws ApiException {
+    return getPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeRegistrationCount, includeTotalCount).getData();
       }
 
   /**
    * Get a list of Public Invitations 
-   * Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+   * Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
    * @param courseId Only retrieve resources having &#x60;courseId&#x60; (optional)
    * @param since Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
    * @param until Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)
@@ -692,11 +696,12 @@ public class InvitationsApi {
    * @param filterBy Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)
    * @param orderBy Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)
    * @param more Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)
+   * @param includeRegistrationCount Include the registration count in the results (optional, default to false)
    * @param includeTotalCount Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)
    * @return ApiResponse&lt;PublicInvitationList&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PublicInvitationList> getPublicInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeTotalCount) throws ApiException {
+  public ApiResponse<PublicInvitationList> getPublicInvitationsWithHttpInfo(String courseId, OffsetDateTime since, OffsetDateTime until, String datetimeFilter, List<String> tags, String filter, String filterBy, String orderBy, String more, Boolean includeRegistrationCount, Boolean includeTotalCount) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -716,6 +721,7 @@ public class InvitationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "more", more));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeRegistrationCount", includeRegistrationCount));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeTotalCount", includeTotalCount));
 
     

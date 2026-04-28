@@ -2,7 +2,7 @@
 
 SCORM Cloud Rest API
 - API version: 2.0
-    - Build date: 2023-12-14T11:28:58.809-06:00
+    - Build date: 2026-04-28T16:00:00.126-05:00
 
 REST API used for SCORM Cloud integrations.
 
@@ -12,7 +12,7 @@ REST API used for SCORM Cloud integrations.
 ## Requirements
 
 Building the API client library requires:
-1. Java 1.7+
+1. Java 8+
 2. Maven/Gradle
 
 ## Installation
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.rusticisoftware.cloud.v2.client</groupId>
     <artifactId>scormcloud-api-v2-client</artifactId>
-    <version>4.0.0</version>
+    <version>5.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.rusticisoftware.cloud.v2.client:scormcloud-api-v2-client:4.0.0"
+compile "com.rusticisoftware.cloud.v2.client:scormcloud-api-v2-client:5.0.0"
 ```
 
 #### Others
@@ -65,7 +65,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/scormcloud-api-v2-client-4.0.0.jar`
+* `target/scormcloud-api-v2-client-5.0.0.jar`
 * `target/lib/*.jar`
 
 ## Tips and Tricks
@@ -271,7 +271,7 @@ public class ScormCloud_Java_Sample {
         // This call will use OAuth with the "write:course" scope
         // if configured.  Otherwise the basic auth credentials will be used
         CourseApi courseApi = new CourseApi();
-        StringResultSchema jobId = courseApi.createUploadAndImportCourseJob(courseId, null, null, null, null, new File(coursePath));
+        StringResultSchema jobId = courseApi.createUploadAndImportCourseJob(courseId, null, null, null, null, null, new File(coursePath));
 
         // This call will use OAuth with the "read:course" scope
         // if configured.  Otherwise the basic auth credentials will be used

@@ -40,7 +40,7 @@ public class PublicInvitationUpdateSchema {
   private OffsetDateTime expirationDate = null;
 
   @JsonProperty("registrationCap")
-  private Integer registrationCap = 0;
+  private Integer registrationCap = null;
 
   public PublicInvitationUpdateSchema allowLaunch(Boolean allowLaunch) {
     this.allowLaunch = allowLaunch;

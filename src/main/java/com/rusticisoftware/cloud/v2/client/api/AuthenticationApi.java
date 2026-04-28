@@ -88,7 +88,7 @@ if (expiration != null)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "APP_NORMAL" };
+    String[] localVarAuthNames = new String[] { "APP_MANAGEMENT", "APP_NORMAL" };
 
     GenericType<ApplicationToken> localVarReturnType = new GenericType<ApplicationToken>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
